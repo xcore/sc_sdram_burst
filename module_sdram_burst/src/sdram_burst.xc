@@ -290,7 +290,7 @@ void sdram_server(chanend client)
                 p_sdram_dq <: x;            // Output first data word on DQ
                                             
                 client :> x;
-                p_sdram_aaddr <: colw;      // Output column address to co-incide with write command
+                p_sdram_addr <: colw;      // Output column address to co-incide with write command
 
                 //FIRST DATA. Code above must complete before p_sdram_gate goes high. See SCHEDULE START OF BURST
                 p_sdram_gate @ t <: 0b0011;
