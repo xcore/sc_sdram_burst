@@ -26,6 +26,7 @@ To Do
 
 * Add build options for 8 and 4 bit data bus width
 * Improve clock speed to 25 MHz
+* Rework sdram burst write and read code to used fully timestamped IO and deprecate the p_sdram_gate mechanism
 
 
 Firmware Overview
