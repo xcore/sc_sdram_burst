@@ -1,7 +1,7 @@
 SDRAM Hardware Development Platforms
 ====================================
 
-The XDK (3V0 version) is the only XMOS development kit currently capable of interfacing to an SDRAM. This option is provided via a plug in module that attaches to the Xcore 1 IO expansion connector on the left side of the XDK housing. 
+The XDK (3V0 version) is the only XMOS development kit recommended for use with this code. 
 
 Setting Up The XDK for the Demo App
 -----------------------------------
