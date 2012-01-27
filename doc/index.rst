@@ -1,5 +1,5 @@
-XCORE STAND ALONE UART COMPONENTS
-=================================
+XCORE SDRAM BURST DRIVER COMPONENT
+==================================
 
 .. toctree::
 
