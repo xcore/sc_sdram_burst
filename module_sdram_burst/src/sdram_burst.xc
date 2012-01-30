@@ -20,7 +20,7 @@
 /*************************************************************************
  *
  * SDRAM driver - optimised for bursts
- * 25MHz 16bit
+ * 12.5MHz 16bit
  * Micron SDRAM MT48LC16M16A2P-75
  *
  * sdram.xc
@@ -227,7 +227,7 @@ void sdram_server(chanend client)
               break;
 
             case 2:
-              // REFRESH required every 7us
+              // REFRESH required every 7.8us
               refresh();
               break;
 
@@ -252,7 +252,7 @@ void sdram_server(chanend client)
                 // Terminated with PRECHARGE single bank (A10 = 0)
                 // Column address bit 0 is always 0 (32b word aligned)
                 // Data port is driving throughout this function
-                // No FNOPs in data loop (budget is 4 instrs at 25MHz/50MIPS)
+                // No FNOPs in data loop (budget is 4 instrs at 12.5MHz/50MIPS)
 
                 dt = 2 * nwords + 2;
                 colw = bitrev(col);
@@ -323,7 +323,7 @@ void sdram_server(chanend client)
                 // READ with no auto-precharge (A10 = 0)
                 // Terminated with PRECHARGE single bank (A10 = 0)
                 // Data port is driving when entering and leaving this function
-                // No FNOPs in data loop (budget is 4 instrs at 25MHz/50MIPS)
+                // No FNOPs in data loop (budget is 4 instrs at 12.5MHz/50MIPS)
 
                 dt = 2 * nwords + 2;
                 colw = bitrev(col);
