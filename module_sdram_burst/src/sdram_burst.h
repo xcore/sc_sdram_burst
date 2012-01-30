@@ -9,7 +9,7 @@
  * This is a burst optimised SDRAM driver designed for the
  * Micron SDRAM MT48LC16M16A2P-75
  *
- * It uses a 25 MHz clock with 16 bit data. 
+ * It uses a 12.5 MHz clock with 16 bit data. 
  *
  *************************************************************************/
 
@@ -46,7 +46,7 @@ void sdram_init(chanend server);
 void sdram_shutdown(chanend server);
 
 /** 
- *  The client is responsible for issuing refresh commands every 15 us
+ *  The client is responsible for issuing refresh commands every 7.8 us
  */
 
 void sdram_refresh(chanend server);

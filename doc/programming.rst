@@ -51,6 +51,8 @@ All the ports besides clk, bank address and cke are buffered ports clocked by th
 | addr[0]       | p_sdram_addr0  |  1G    | drives bit 0 on port 1G. 4b transfer reg for 4 cycles of address   |
 +---------------+----------------+--------+--------------------------------------------------------------------+
 
+Note that two warnings are produced in XDE 11.2 related to buffered port for DQ which has its direction reversed. This warning can be safely ignored but not eliminated.
+
 Client API 
 -----------
 

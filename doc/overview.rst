@@ -18,3 +18,10 @@ Part Details:
  * 4 banks, 8192 rows, 256 32b columns
  * Total: 32MB, bank size: 8MB, row size: 1KB
 
+Performance
+-----------
+
+The component as it stands achieves 25 MBytes/sec sustained read and write bandwidth. For reads, be aware of the CAS latency which is set to 3 cycles. Modifications for 4 and 8 bit data busses are possible and will reduce the bandwidth to 12.5 and 6.25 MB/sec respectively, however no development hardware exists for these options at this time. With some further work it ought to be possible to increase the sdram clock to 25 MHz and hance double all the figures above.
+
+
+ 

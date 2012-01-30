@@ -370,8 +370,6 @@ int main()
     on stdcore[1] : sdram_server(c);
     on stdcore[1] :
     {
-			printstrln("required min tools version: 9.9.0");
-			printstrln("tested with XC optimisation level O2");
       par
       {
         traffic();
