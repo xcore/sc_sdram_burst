@@ -254,8 +254,7 @@ void sdram_server(chanend client)
                 // Data port is driving throughout this function
                 // No FNOPs in data loop (budget is 4 instrs at 12.5MHz/50MIPS)
 
-                dt = 2 * nwords + 4;
-                //col -=1;
+                dt = 2 * nwords + 2;
                 colw = bitrev(col);
                 i = nwords - 1;
                 p_sdram_ba0 <: bank;
@@ -263,11 +262,11 @@ void sdram_server(chanend client)
                 p_sdram_addr0 <: (row & 1) << 1;
                 p_sdram_addr <: 0;
                 p_sdram_addr <: bitrev(row >> 1);
-                p_sdram_dq <: 0;            // Output dummy data word
 
                 //CMDS = [ NOP, ACT(A), WR, NOP ]
                 //1: load transfer register and output first command (NOP). Zero the data output
                 partout(p_sdram_cmd,16,0xE4AE);
+                p_sdram_dq <: 0;
 
                 //2: disable slaved ports and obtain timestamp t. Remainder of burst is scheduled from startpoint t
                 t = partout_timestamped(p_sdram_gate, 1, 0);
@@ -276,34 +275,31 @@ void sdram_server(chanend client)
                 // setting p_sdram_gate=1 occurs after the remaining address, data and dqm setup below has 
                 // been completed and first data word has been output. See comment FIRST DATA below. 
                 t += 12;
-                p_sdram_dqm0 @ t+1 <: 0b0110; 
-                p_sdram_dqm1 @ t+1 <: 0b0110;
                 partout_timed(p_sdram_gate, 1, 1, t);   // 3: SCHEDULE START OF BURST
 
                 // dt corresponds to the number of cycles required to output the burst of nwords and issue a precharge termination
                 t += dt;
 
-                //CMDS = [ PRE(8), NOP ]
-                partout_timed(p_sdram_cmd, 8, 0xE8, t); //A precharge burst termination command is issued at t=t0+12+dt
-
-                p_sdram_dq <: 0;            // Output dummy data
-                client :> x;
-                p_sdram_addr <: colw;      // Output column address to co-incide with write command
                 p_sdram_dqm0 @ t <: 0b0001; //dqm will be driven high con-incident with the precharge termination, at t=t0+12+dt
                 p_sdram_dqm1 @ t <: 0b0001;
 
+                //CMDS = [ PRE(8), NOP ]
+                partout_timed(p_sdram_cmd, 8, 0xE8, t); //A precharge burst termination command is issued at t=t0+12+dt
+
+                client :> x;
+                p_sdram_dq <: x;            // Output first data word on DQ
+                                            
+                client :> x;
+                p_sdram_addr <: colw;      // Output column address to co-incide with write command
+
                 //FIRST DATA. Code above must complete before p_sdram_gate goes high. See SCHEDULE START OF BURST
-
                 p_sdram_gate @ t <: 0b0011;
-
                 while (i != 0)
                 {
                   p_sdram_dq <: x;        // IO: next data
-                  client :> x;            
+                  client :> x;            // last data is not written to p_sdram_dq (timing optimisation)
                   i--;
                 }
-                p_sdram_dq <: x;        // IO: next data
-                client :> x;            // last data is not written to p_sdram_dq (timing optimisation)
               }
               break;
 
@@ -322,7 +318,7 @@ void sdram_server(chanend client)
                 client :> row;
                 client :> col;
                 client :> nwords;
-                col+=1;
+
                 // ACTIVE first
                 // READ with no auto-precharge (A10 = 0)
                 // Terminated with PRECHARGE single bank (A10 = 0)
