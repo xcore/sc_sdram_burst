@@ -1,0 +1,11 @@
+<Xvcd zoomFactor="1.788916e+02" hScrollPos="383" vScrollPos="0" markerBarPos="1.727118e+05">
+    <Signals>
+        <Signal name="stdcore[1]_XS1_PORT_1A" alias="" radix="HEX"/>
+        <Signal name="stdcore[1]_XS1_PORT_4D" alias="" radix="HEX"/>
+        <Signal name="stdcore[1]_XS1_PORT_32A" alias="" radix="HEX"/>
+        <Signal name="stdcore[1]_XS1_PORT_16B" alias="" radix="HEX"/>
+        <Signal name="stdcore[1]_XS1_PORT_1E" alias="PORT_LED_1_0" radix="HEX"/>
+        <Signal name="stdcore[1]_XS1_PORT_1F" alias="PORT_LED_1_1" radix="HEX"/>
+        <Signal name="stdcore[1]_XS1_PORT_1I" alias="" radix="HEX"/>
+    </Signals>
+</Xvcd>

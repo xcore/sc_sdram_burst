@@ -89,12 +89,13 @@ void simple(chanend c)
 {
   int pass = 1;
   unsigned wrdata[4] = { 0xABCDEF12, 2, 3, 4 };
+  //unsigned wrdata[4] = { 0, 0, 0, 0 };
   unsigned rddata[4] = { 0, 0, 0, 0 };
 
   printstr("+ Simple test\n");
 
-  sdram_write(c, 1, 5, 7, wrdata, 4);
-  sdram_read(c, 1, 5, 7, rddata, 4);
+  sdram_write(c, 1, 5, 8, wrdata, 4);
+  sdram_read(c, 1, 5, 8, rddata, 4);
   sdram_refresh(c);
 
   for (int i = 0; i < 4; i++)
@@ -372,13 +373,13 @@ int main()
     {
       par
       {
-        traffic();
-        traffic();
-        traffic();
-        traffic();
-        traffic();
-        traffic();
-        traffic();
+        //traffic();
+        //traffic();
+        //traffic();
+        //traffic();
+        //traffic();
+        //traffic();
+        //traffic();
       }
     }
     on stdcore[0] : test(c);
