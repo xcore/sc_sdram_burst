@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<xpd>
+    <dependency repo = "xcommon">
+        <githash>b7b5be59795a0a4b3fee4aeaff3c8e398bf76d27</githash>
+        <uri>ssh://git@github.com/xcore/xcommon</uri>
+        <version>1.0.0rc2</version>
+    </dependency>
+    <description>SDRAM driver software component</description>
+    <location>git://github.com/xcore/sc_sdram_burst</location>
+    <name>sc_sdram_burst</name>
+    <maintainer>djpwilk</maintainer>
+    <partnumber>XM-001653-DH</partnumber>
+    <subpartnumber>XM-000071-SW</subpartnumber>
+    <vendor>XMOS</vendor>
+    <xpd_version>1.0</xpd_version>
+</xpd>
