@@ -10,6 +10,7 @@
     <name>sc_sdram_burst</name>
     <maintainer>djpwilk</maintainer>
     <partnumber>XM-001653-DH</partnumber>
+    <release parenthash = "92a88d9b961cfe9c10c54b0f8dee8676ce1d2672" version = "2.0.0rc0"></release>
     <subpartnumber>XM-000071-SW</subpartnumber>
     <vendor>XMOS</vendor>
     <xpd_version>1.0</xpd_version>
