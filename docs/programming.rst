@@ -4,7 +4,6 @@ Programming Guide
 .. toctree::
 
    structure
+   external_files
    software_requirements
-   setting_hardware
-   programming_flash
    executing_proj

@@ -1,7 +1,7 @@
 Overview
 ========
 
-The SDRAM component is used to access a 16 bit external SDRAM used in the system. The component is designed to do read// write from//to the SDRAM. 
+The SDRAM component is used to access a 16 bit external SDRAM used in the system. The component is designed to do read/ write from/to the SDRAM. 
 The component has been based on the SDRAM IS42S16100F.
 
 Component Summary
