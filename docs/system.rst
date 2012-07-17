@@ -39,10 +39,15 @@ Some cases might need block reads//writes - example: Audio content
 Some cases might need line reads// writes - example: LCD image data
 
 The below example shows how an LCD image is packed in SDRAM.
+
 Consider LCD of size 480 * 272 pixels (480 pixels in each of the 272 rows)
+
 Each row in LCD needs 480 * 2 bytes (for 16 bit 565 RGB colour) = 960 bytes
+
 Each row in SDRAM has 256 (columns) * 2 bytes = 512 bytes
-So each LCD row will need nearly 2 rows in the SDRAM.
+
+So each LCD row will need nearly 2 rows in the SDRAM
+
 The images in the SDRAM are packed in such a manner that there is no wastage of space while writing the rows. Thus SDRAM can have 8 full size image buffers. (i.e.) Bank 0 of size 2048 rows can store 4 images, 510 * 4 = 2040 rows. Bank 1 of size 2048 rows can store 4 images, 510 * 4 = 2040 rows.
 Of the 8 available image buffers, 2 buffers will be used by the LCD frame. So leaving the LCD frame buffers, the user can store 6 full size images in the SDRAM.
 
