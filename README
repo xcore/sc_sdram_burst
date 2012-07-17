@@ -1,0 +1,2 @@
+The module shows how to access a 16 bit SDRAM using the XCORE.
+The SDRAM used in this module is IS42S16100F.
