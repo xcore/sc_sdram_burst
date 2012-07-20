@@ -1,5 +1,5 @@
-ZLG Graphics Display
-====================
+SDRAM Component
+===============
 
 .. toctree::
 

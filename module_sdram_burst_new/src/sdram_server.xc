@@ -6,12 +6,6 @@
  * This file define the SDRAM interface. It is chip independant.
  */
 
-extern void init(struct sdram_ports &p);
-extern void write_row(unsigned row, unsigned col, unsigned bank,
-    unsigned buffer, unsigned word_count, struct sdram_ports &ports);
-extern void read_row(unsigned row, unsigned col, unsigned bank,
-    unsigned buffer, unsigned word_count, struct sdram_ports &ports);
-
 static inline void refresh(int ncycles, struct sdram_ports &p) {
   for (int i = 0; i < ncycles; i += 2) {
     //TODO extract this info into the config header

@@ -1,8 +1,8 @@
 External Files
 ==============
 
-The SDRAM component needs a file called 'sdram_configuration.h' which should be available in the application project using the SDRAM component.
-The section 'API' describes the important defines which should be used for configuring the SDRAM compenent as per the SDRAM used.
+The SDRAM component needs a file called 'sdram_configuration.h' which should be available in the application which uses the SDRAM component.
+The section 'API' describes the important defines which should be used for configuring the SDRAM compenent based on the target SDRAM used.
 These defines should be available in the file 'sdram_configurations.h'
 
 A sample of the file is shown below

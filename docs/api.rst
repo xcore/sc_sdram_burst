@@ -1,14 +1,16 @@
 Project structure
 =================
 
-The 'module_sdram_burst_new' is a standalone component and has no dependancy. The component can be linked to any project which needs an 16 bit external SDRAM.
+The SDRAM component is available in the repository sc_sdram_burst (www.github.com/xcore/sc_sdram_burst) in the GitHub.
+This is a standalone component and can be linked to any project which needs a 16 bit SDRAM.
+The coomponent includes the module 'module_sdram_burst_new'.
+
 
 Configuration Defines
 ---------------------
 
 The following defines must be configured for the SDRAM component based on the SDRAM used.
-The current implementation supports 16 bit SDRAM IS42S16100F. The configurations are based for this SDRAM.
-The defines can be seen in the file ``sdram_configuration.h``
+The target used in this component is IS42S16100F and the default configuration shown here are based on this SDRAM.
 
 .. list-table:: SDRAM Defines
    :header-rows: 1
@@ -36,56 +38,136 @@ The defines can be seen in the file ``sdram_configuration.h``
      - Number of times the SDRAM to be refreshed for every SDRAM_REFRESH_MS
      - 2048
    * - **SDRAM_MODE_REGISTER**
-     - Defines the configuration of the SDRAM. The user should go through the SDRAM datasheet to find the configuration of the SDRAM
+     - Defines the configuration of the SDRAM. The value is given in the SDRAM datasheet
      - 0x0027
    * - Control words
-     - The control words is a combination of 4 lines  CS, WE, CAS, RAS. The user can change the control word values depending on the 
-       SDRAM. The control words define the operation required for the SDRAM.
+     - The control words is a combination of 3 lines  WE, CAS, RAS. The user can change the control word values depending on the 
+       commands supported by the SDRAM. 
      - The below picture shows the default configuration of the SDRAM
-.. only:: html
+       .. only:: html
 
-  .. figure:: images/sdram_config.png
-     :align: center
+         .. figure:: images/sdram_config.png
+            :align: center
 
-     SDRAM configuration
+            SDRAM configuration
 
-.. only:: latex
+       .. only:: latex
 
-  .. figure:: images/sdram_config.pdf
-     :figwidth: 50%
-     :align: center
+         .. figure:: images/sdram_config.pdf
+            :figwidth: 50%
+            :align: center
 
-     SDRAM configuration
-
+            SDRAM configuration
 
 API
 ---
 
-The SDRAM module handles the 16 bit reads, writes and refresh of the SDRAM. The application using this SDRAM component can call the SDRAM APIs accordingly.
-
-Note that to enable the application use the SDRAM module, the module should be added to the build options of the project 
+The component should be linked to the application so that the application can use the component.
 To achieve that, the following is done
 
-  #. The SDRAM component should be configured based on the SDRAM used.
-  #. The name ``module_sdram_burst_new`` is added to list of  'MODULES' in the project build options. This will enable the application project to use the SDRAM module		    
-  #. The object names 'sdram_server' and 'sdram_client' are added to the option 'OBJECT NAMES' in the project build option
-  #. The module ``module_sdram_burst_new`` is added to the ``References`` option in the project settings of the application project
-  #. Now the component is linked to the application and ready to use
+  #. The SDRAM component is downloaded from the repository 'sc_sdram_burst',
+  #. The module 'module_sdram_burst_new' is added to the workspace,
+  #. The SDRAM component is configured according to the target used,
+  #. The name 'module_sdram_burst_new' is added to list of  'MODULES' in the project build options. This will enable the application project to use the SDRAM module,
+  #. The object names 'sdram_server','sdram_client','sdram_methods' and 'sdram_io' are added to the option 'OBJECT NAMES' in the project build option,
+  #. The module 'module_sdram_burst_new' is added to the 'References' option in the project settings of the application project,
+  #. Now the component is linked to the application and ready to use.
 
 The SDRAM code can be seen in
 
-    * ``sdram_server.xc``
-    * ``sdram.h``
-    * ``sdram_client.xc``
+  * ``sdram_server.xc``,
+  * ``sdram.h``,
+  * ``sdram_client.xc``,
+  * ``sdram_methods.xc``.
 
-This sections explains only the important APIs frequently used in the application. Other static APIs are not discussed in this section.
-The other APIs can be found in the files mentioned above.   
-The SDRAM APIs by themselves take care of the SDRAM refresh. The thread :c:func:`sdram_server` should be invoked in a 'par' statement for it to execute.
+The file ``sdram_methods.xc`` includes the configurable code which should be configured based on the target code. The current implementation is based on SDRAM IS42S16100F.
 
 
 .. doxygenfunction:: sdram_server
+.. only:: html
+
+   .. figure:: images/sdram_server.png
+      :align: center
+     
+.. only:: latex
+
+   .. figure:: images/sdram_server.pdf
+      :figwidth: 50%
+      :align: center
+
 .. doxygenfunction:: sdram_block_write
+.. only:: html
+
+   .. figure:: images/sdram_block_write.png
+      :align: center
+
+      
+.. only:: latex
+
+   .. figure:: images/sdram_block_write.pdf
+      :figwidth: 50%
+      :align: center
+
 .. doxygenfunction:: sdram_block_read
+.. only:: html
+
+   .. figure:: images/sdram_block_read.png
+      :align: center
+
+      
+.. only:: latex
+
+   .. figure:: images/sdram_block_read.pdf
+      :figwidth: 50%
+      :align: center
+
 .. doxygenfunction:: sdram_line_read_blocking
+.. only:: html
+
+   .. figure:: images/sdram_line_read_blocking.png
+      :align: center
+
+      
+.. only:: latex
+
+   .. figure:: images/sdram_line_read_blocking.pdf
+      :figwidth: 50%
+      :align: center
+
 .. doxygenfunction:: sdram_line_read_nonblocking
+.. only:: html
+
+   .. figure:: images/sdram_line_read_nonblocking.png
+      :align: center
+
+      
+.. only:: latex
+
+   .. figure:: images/sdram_line_read_nonblocking.pdf
+      :figwidth: 50%
+      :align: center
+
 .. doxygenfunction:: sdram_line_write
+.. only:: html
+
+   .. figure:: images/sdram_line_write.png
+      :align: center
+
+      
+.. only:: latex
+
+   .. figure:: images/sdram_line_write.pdf
+      :figwidth: 50%
+      :align: center
+
+
+Target specific APIs
+--------------------
+
+The component includes the target specific APIs which are based on the SDRAM used.
+These APIs are available in the file ``sdram_methods.xc`` and these APIs should be modified according to the SDRAM used.
+
+
+.. doxygenfunction:: init
+.. doxygenfunction:: write_row
+.. doxygenfunction:: read_row
