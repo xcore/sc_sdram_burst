@@ -1,20 +1,90 @@
 Component Description
 =====================
 
+Basics of SDRAM
+---------------
+
+The Synchronous Dynamic Random Access Memory (SDRAM) types are being widely used in embedded applications due to their cost, speed and synchronous mechanism which helps us develop complex state machines by way of clocking each request.
+
+The basic architecture of SDRAM includes memory cells organized into a two dimensional array of rows and columns.
+To address a particular memory cell it is necessary to provide the row address and then select the column in which the cell is present. Once a row is accessed, SDRAM allows access of multiple columns in the same row without the need of providing the row address repeatedly. This helps to achieve higher speeds in SDRAM.
+Each array of rows and columns is called a 'bank'. An SDRAM might have more than one bank.
+
+In the example provided in this component, the target specific part is based on IS42S16100F. This SDRAM has the following:
+  * 2 banks
+  * 2048 rows in each bank
+  * 256 columns in each row
+  * Each 16 bit column
+
+SDRAM needs a number of lines that controls the timing and operation.
+The lines required for the SDRAM control are:
+
+  +-------+------------------------------------------------------------------+
+  | Lines |                    Description                                   |
+  +=======+==================================================================+
+  | /CAS  | Column Address Strobe: This is used alone with /RAS and /WE to   | 
+  |       | select one of the 8 commands                                     | 
+  +-------+------------------------------------------------------------------+
+  | /CKE  | Clock Enable: When the signal is low the SDRAM is inhibited and  | 
+  |       | no commands are interpreted                                      |
+  +-------+------------------------------------------------------------------+
+  | /CS   | Chip Select: An active low line to select a particular SDRAM     | 
+  |       | chip                                                             |
+  +-------+------------------------------------------------------------------+
+  | DQM   | Data Mask: An active high on this line suppresses any I/O data   | 
+  |       | Each 8 bit of data needs a DQM line. Example: a 16 bit SDRAM     |
+  |       | need 2 DQM lines                                                 |
+  +-------+------------------------------------------------------------------+
+  | /RAS  | Row Address Strobe: This is used alone with /CAS and /WE to      | 
+  |       | select one of the 8 commands                                     |
+  +-------+------------------------------------------------------------------+
+  | /WE   | Write Enable: This is used alone with /RAS and /CAS to select    | 
+  |       | one of the 8 commands. It is mainly used to distinguish read and |
+  |       | write commands                                                   |
+  +-------+------------------------------------------------------------------+
+
+The common commands supported by SDRAM includes:
+  * Read
+  * Write
+  * Self refresh
+  * Precharge
+  * Device De-select
+  * Clock suspend
+  * Power down
+
 SDRAM component feature
 -----------------------
 
-A 16 bit SDRAM module has been implemented for this project. 
+The SDRAM component is designed to support various SDRAM available in the market. The component includes the "Configurable code" and the "Fixed code".
+The file ``sdram_methods.xc`` is the configurable file which has be edited based on the SDRAM used.
+The other files ``sdram_server.xc`` and ``sdram_client.xc`` are the fixed part of the code which can be directly used.
 
 The SDRAM component has the following features:
 
-	* Configurable number of banks, number of rows, size of the row, configurable signal levels depending on the SDRAM used
-	* Configuration of the SDRAM using the file ``sdram_configuration.h``. Please refer to section 'External files' for more details
-	* Supports block read, block write, write a line, read a line, read a line partially and self refresh
+  * Configurability of 
+     * number of banks,
+     * number of rows,
+     * number of columns,
+     * data width of the column,
+     * different commands supported,
+     * signals used by the SDRAM.
+  * Supports
+     * Block read,
+     * Block write,
+     * Line read,
+     * Line write,
+     * Refresh handled by the SDRAM component itself.
+  * The SDRAM configurations should be available in a file called 'sdram_configurations.h'
+     * The file should be part of the application using the SDRAM component,
+     * The file is included in `sdram.h`,
+     * The file includes the configuration defines explained in section 'API',
+     * A sample file is given in the section 'External_files',
+  * The target specific part is based on SDRAM IS42S16100F
+  * Uses one thread
+     * The function :c:func::`sdram_server` is executed in the thread
+  * The Rows and columns are numbered from 0.
 
-The SDRAM (IS42VS16100F) used in this project is a 16 Mb SDRAM. The SDRAM has 2 banks each supporting 512 K words.
-Each bank in the SDRAM has 2048 rows. Each row comprises of 256 16 bit data. These configurations can also be seen in the file ``sdram_configuration.h``
-The SDRAM structure looks like as shown below
+The structure of SDRAM IS42S16100F looks like as shown below
 
 .. only:: html
 
@@ -31,25 +101,22 @@ The SDRAM structure looks like as shown below
 
      SDRAM architecture
 
-Example of SDRAM usage
-----------------------
 
-SDRAM component is widely used to store huge data content like images for LCD, music content for the player and so on.
-Some cases might need block reads//writes - example: Audio content
-Some cases might need line reads// writes - example: LCD image data
+Example of SDRAM component usage
+--------------------------------
 
-The below example shows how an LCD image is packed in SDRAM.
+The component uses SDRAM Is42S16100F. This SDRAM has the following features:
+  * 2 banks,
+  * 2048 rows,
+  * 256 columns in each row,
+  * 16 bit data,
+  * This makes 2 banks * 2048 rows * 256 columns * 2 byte = 2 MB SDRAM.
 
-Consider LCD of size 480 * 272 pixels (480 pixels in each of the 272 rows)
+This memory size is huge enough to store images or audio content.
 
-Each row in LCD needs 480 * 2 bytes (for 16 bit 565 RGB colour) = 960 bytes
+Consider an example where the SDRAM is used to store the image content of size 240 * 320 pixels with 16 bit RGB color code.
 
-Each row in SDRAM has 256 (columns) * 2 bytes = 512 bytes
+This means a single image will need 240 rows * 320 pixels * 2 byte color = 153600 bytes.
 
-So each LCD row will need nearly 2 rows in the SDRAM
+Thus this SDRAM can accomodate 6 images of size 240 * 320 pixels in each bank. (Totally 12 images in 2 banks with a remaining space of 126976 bytes in each bank)
 
-The images in the SDRAM are packed in such a manner that there is no wastage of space while writing the rows. Thus SDRAM can have 8 full size image buffers. (i.e.) Bank 0 of size 2048 rows can store 4 images, 510 * 4 = 2040 rows. Bank 1 of size 2048 rows can store 4 images, 510 * 4 = 2040 rows.
-Of the 8 available image buffers, 2 buffers will be used by the LCD frame. So leaving the LCD frame buffers, the user can store 6 full size images in the SDRAM.
-
-The main function :c:func:`sdram_server` in the file ``sdram_server.xc`` is handled in a thread.
-The read and write functions have been described in the section 'API'
