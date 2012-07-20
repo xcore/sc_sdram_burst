@@ -44,6 +44,7 @@ The target used in this component is IS42S16100F and the default configuration s
      - The control words is a combination of 3 lines  WE, CAS, RAS. The user can change the control word values depending on the 
        commands supported by the SDRAM. 
      - The below picture shows the default configuration of the SDRAM
+       
        .. only:: html
 
          .. figure:: images/sdram_config.png
@@ -131,19 +132,6 @@ The file ``sdram_methods.xc`` includes the configurable code which should be con
 .. only:: latex
 
    .. figure:: images/sdram_line_read_blocking.pdf
-      :figwidth: 50%
-      :align: center
-
-.. doxygenfunction:: sdram_line_read_nonblocking
-.. only:: html
-
-   .. figure:: images/sdram_line_read_nonblocking.png
-      :align: center
-
-      
-.. only:: latex
-
-   .. figure:: images/sdram_line_read_nonblocking.pdf
       :figwidth: 50%
       :align: center
 
