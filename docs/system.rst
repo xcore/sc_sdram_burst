@@ -81,7 +81,7 @@ The SDRAM component has the following features:
      * A sample file is given in the section 'External_files',
   * The target specific part is based on SDRAM IS42S16100F
   * Uses one thread
-     * The function :c:func::`sdram_server` is executed in the thread
+     * The function `sdram_server` is executed in the thread
   * The Rows and columns are numbered from 0.
 
 The structure of SDRAM IS42S16100F looks like as shown below
