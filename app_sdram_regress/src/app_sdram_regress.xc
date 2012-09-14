@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "sdram.h"
 
-#define CORE 1
+#define CORE 0
 #define TYPE 0
 
 #if TYPE
