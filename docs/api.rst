@@ -1,161 +1,128 @@
-Project structure
-=================
+.. _sec_api:
 
-The SDRAM component is available in the repository sc_sdram_burst (www.github.com/xcore/sc_sdram_burst) in the GitHub.
-This is a standalone component and can be linked to any project which needs a 16 bit SDRAM.
-The coomponent includes the module 'module_sdram_burst_new'.
+SDRAM API
+=========
 
+.. _sec_conf_defines:
 
 Configuration Defines
 ---------------------
+The file sdram_conf.h can be provided in the application source code, without it 
+the default values specified in 
 
-The following defines must be configured for the SDRAM component based on the SDRAM used.
-The target used in this component is IS42S16100F and the default configuration shown here are based on this SDRAM.
+IMPL/sdram_config_IMPL.h
+IMPL/sdram_geometry_IMPL.h
+sdram_commands_IMPL.h
 
-.. list-table:: SDRAM Defines
-   :header-rows: 1
-   :widths: 3 2 1
-  
-   * - Define
-     - Description
-     - Default
-   * - **SDRAM_COL_BITS**
-     - The number of bits in each column. The value indicates the data width.
-     - 16
-   * - **SDRAM_ROW_LENGTH**
-     - Number of columns in each row of the SDRAM
-     - 256
-   * - **SDRAM_ROW_COUNT**
-     - Number of rows in each bank of the SDRAM
-     - 2048
-   * - **SDRAM_BANK_COUNT**
-     - Number of banks supported by the SDRAM
-     - 2
-   * - **SDRAM_REFRESH_MS**
-     - The period of refresh required for the SDRAM. The value is given in terms of milliseconds 
-     - 16
-   * - **SDRAM_REFRESH_CYCLES**
-     - Number of times the SDRAM to be refreshed for every SDRAM_REFRESH_MS
-     - 2048
-   * - **SDRAM_MODE_REGISTER**
-     - Defines the configuration of the SDRAM. The value is given in the SDRAM datasheet
-     - 0x0027
-   * - Control words
-     - The control words is a combination of 3 lines  WE, CAS, RAS. The user can change the control word values depending on the 
-       commands supported by the SDRAM. 
-     - The below picture shows the default configuration of the SDRAM
-       
-       .. only:: html
+where IMPL is the implimentation that is in use. These files can set the following defines:
 
-         .. figure:: images/sdram_config.png
-            :align: center
+Implimentation Specific Defines
++++++++++++++++++++++++++++++++
+This is implimentation specific. When overriding one of these defines a suffix of "_IMPL" need 
+to be added. For example, to override SDRAM_CLOCK_DIVIDER to 2 for the PINOUT_V1_IS42S16100F target the 
+line:
 
-            SDRAM configuration
+#define SDRAM_CLOCK_DIVIDER_PINOUT_V1_IS42S16100F 2
 
-       .. only:: latex
+to sdram_conf.h.
 
-         .. figure:: images/sdram_config.pdf
-            :figwidth: 50%
-            :align: center
+SDRAM Config Defines
+++++++++++++++++++++
+These are implimentation specific.
 
-            SDRAM configuration
+**SDRAM_REFRESH_MS**
+**SDRAM_REFRESH_CYCLES**
+	These specify that SDRAM_REFRESH_MS milliseconds may elapse during which 
+	SDRAM_REFRESH_CYCLES refresh instructions must have been issued 
+	to maintain the contents of the SDRAM. 
 
-API
----
+**SDRAM_ACCEPTABLE_REFRESH_GAP**
+	Define the amount of time that the SDRAM is allowed to go before the server
+	refreshes. The unit is given in refresh periods. For example, the value N
+	would mean that the SDRAM is allowed to go
 
-The component should be linked to the application so that the application can use the component.
-To achieve that, the following is done
+        	SDRAM_REFRESH_MS/SDRAM_REFRESH_CYCLES*N milliseconds
 
-  #. The SDRAM component is downloaded from the repository 'sc_sdram_burst',
-  #. The module 'module_sdram_burst_new' is added to the workspace,
-  #. The SDRAM component is configured according to the target used,
-  #. The name 'module_sdram_burst_new' is added to list of  'MODULES' in the project build options. This will enable the application project to use the SDRAM module,
-  #. The object names 'sdram_server','sdram_client','sdram_methods' and 'sdram_io' are added to the option 'OBJECT NAMES' in the project build option,
-  #. The module 'module_sdram_burst_new' is added to the 'References' option in the project settings of the application project,
-  #. Now the component is linked to the application and ready to use.
+ 	before refreshing. The larger the number (up to SDRAM_REFRESH_CYCLES) the
+ 	smaller the constant time impact but the larger the overall impact. If set
+	above SDRAM_REFRESH_CYCLES then the SDRAM will fail.
+	The default is (SDRAM_REFRESH_CYCLES/8).
 
-The SDRAM code can be seen in
+**SDRAM_CMDS_PER_REFRESH**
+	Define the minimum time between refreshes in SDRAM Clk cycles. Must be in 
+	the range from 2 to 4 inclusive.
 
-  * ``sdram_server.xc``,
-  * ``sdram.h``,
-  * ``sdram_client.xc``,
-  * ``sdram_methods.xc``.
+**SDRAM_EXTERNAL_MEMORY_ACCESSOR**
+	Define if the memory is accessed by another device(other than the XCore).
+	If not defined then faster code will be produced.
 
-The file ``sdram_methods.xc`` includes the configurable code which should be configured based on the target code. The current implementation is based on SDRAM IS42S16100F.
+**SDRAM_CLOCK_DIVIDER**
+	Set SDRAM_CLOCK_DIVIDER to divide down the reference clock to get the desired
+	SDRAM Clock. The reference clock is divided by 2^SDRAM_CLOCK_DIVIDER.
+
+**SDRAM_MODE_REGISTER**
+	Define the configuration of the SDRAM. This is the value to be loaded
+	into the mode register.
+
+SDRAM Geometry Defines
+++++++++++++++++++++++
+These are implimentation specific.
+**SDRAM_ROW_ADDRESS_BITS**
+	This defines the number of row address bits.
+
+**SDRAM_COL_ADDRESS_BITS**
+	This defines the number of column address bits.
+	
+**SDRAM_BANK_ADDRESS_BITS**
+	This defines the number of bank address bits.
+	
+**SDRAM_COL_BITS**
+	This defines the number of bits per column, i.e. the data width. This should only be changed if
+	an SDRAM of bus width other than 16 is used. 
+
+SDRAM Commands Defines
+++++++++++++++++++++++
+These are non-implimentation specific.
+**SDRAM_ENABLE_CMD_WAIT_UNTIL_IDLE**
+**SDRAM_ENABLE_CMD_BUFFER_READ**
+**SDRAM_ENABLE_CMD_BUFFER_WRITE**
+**SDRAM_ENABLE_CMD_FULL_ROW_READ**
+**SDRAM_ENABLE_CMD_FULL_ROW_WRITE**
+	These defines switch commands on and off in the server and client. Set to 0 for disable,
+	set to 1 for enable.
+
+Port Config
++++++++++++
+The port config is given in sdram_ports_IMPL.h. 
 
 
+SDRAM API
+---------
+These are the functions that are called from the application and are included in sdram.h.
+.. _sec_conf_functions:
+
+Server Functions
+++++++++++++++++
 .. doxygenfunction:: sdram_server
-.. only:: html
+.. doxygenfunction:: sdram_wait_until_idle
 
-   .. figure:: images/sdram_server.png
-      :align: center
-     
-.. only:: latex
+SDRAM Write Functions
++++++++++++++++++++++
+.. doxygenfunction:: sdram_buffer_write
+.. doxygenfunction:: sdram_full_row_write
 
-   .. figure:: images/sdram_server.pdf
-      :figwidth: 50%
-      :align: center
-
-.. doxygenfunction:: sdram_block_write
-.. only:: html
-
-   .. figure:: images/sdram_block_write.png
-      :align: center
-
-      
-.. only:: latex
-
-   .. figure:: images/sdram_block_write.pdf
-      :figwidth: 50%
-      :align: center
-
-.. doxygenfunction:: sdram_block_read
-.. only:: html
-
-   .. figure:: images/sdram_block_read.png
-      :align: center
-
-      
-.. only:: latex
-
-   .. figure:: images/sdram_block_read.pdf
-      :figwidth: 50%
-      :align: center
-
-.. doxygenfunction:: sdram_line_read_blocking
-.. only:: html
-
-   .. figure:: images/sdram_line_read_blocking.png
-      :align: center
-
-      
-.. only:: latex
-
-   .. figure:: images/sdram_line_read_blocking.pdf
-      :figwidth: 50%
-      :align: center
-
-.. doxygenfunction:: sdram_line_write
-.. only:: html
-
-   .. figure:: images/sdram_line_write.png
-      :align: center
-
-      
-.. only:: latex
-
-   .. figure:: images/sdram_line_write.pdf
-      :figwidth: 50%
-      :align: center
+SDRAM Read Functions
+++++++++++++++++++++
+.. doxygenfunction:: sdram_buffer_read
+.. doxygenfunction:: sdram_full_row_read
 
 
-Target specific APIs
---------------------
+SDRAM Target API
+----------------
+These are the functions that are called from the server to perform target specific implimentations on the SDRAM.
+.. _sec_conf_functions:
 
-The component includes the target specific APIs which are based on the SDRAM used.
-These APIs are available in the file ``sdram_methods.xc`` and these APIs should be modified according to the SDRAM used.
-
-
-.. doxygenfunction:: init
-.. doxygenfunction:: write_row
-.. doxygenfunction:: read_row
+.. doxygenfunction:: sdram_init_IMPL
+.. doxygenfunction:: sdram_refresh_IMPL
+.. doxygenfunction:: sdram_read_IMPL
+.. doxygenfunction:: sdram_write_IMPL

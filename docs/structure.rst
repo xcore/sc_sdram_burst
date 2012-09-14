@@ -1,24 +1,34 @@
 Source code structure
 ---------------------
 
-.. list-table:: Component structure
+Directory Structure
++++++++++++++++++++
+
+A typical SDRAM application will have at least three top level directories. The application 
+will be contained in a directory starting with ``app_``, the sdram module source is in 
+the ``module_sdram`` directory and the directory ``module_xcommon`` contains files required 
+to build the application.
+
+::
+    
+    app_[my_app_name]/
+    module_sdram/
+    module_xcommon/
+
+Of course the application may use other modules which can also be directories at this level. 
+Which modules are compiled into the application is controlled by the ``USED_MODULES`` define 
+in the application Makefile.
+
+Key Files
++++++++++
+
+The following header file contain prototypes of all functions required to use use the SDRAM 
+module. The API is described in :ref:`sec_api`.
+
+.. list-table:: Key Files
   :header-rows: 1
-  
-  * - Component
-    - File
+
+  * - File
     - Description
-  * - module_sdram_burst_new
-    - ``sdram_server.h`` 
-    - Header file containing the APIs for the SDRAM component
-  * - 
-    - ``sdram_server.xc``
-    - File containing the implementation of the SDRAM component including the SDRAM threads, internal APIs used to handle the SDRAM commands and SDRAM refresh
-  * - 
-    - ``sdram_internal.h``
-    - Header file containing the defines for the SDRAM commands supported. It also includes the declaration of target specific APIs
-  * - 
-    - ``sdram_client.xc``
-    - File containing the implementation of the command APIs which are used to submit request to the SDRAM. 
-  * - 
-    - ``sdram_methods.xc``
-    - File containing the target specific implementation
+  * - ``sdram.h``
+    - SDRAM API header file

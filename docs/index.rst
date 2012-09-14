@@ -1,10 +1,9 @@
-SDRAM Component
-===============
+XMOS SDRAM Component
+==================
 
 .. toctree::
 
    Overview <overview>
-   Application System Description <system>
-   API <api>
+   Hardware Platforms <hw>
    Programming Guide <programming>
-   
+   API <api>
