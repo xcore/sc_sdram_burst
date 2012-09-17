@@ -20,7 +20,7 @@ Demonstration Applications
 Testbench Application
 +++++++++++++++++++++
 
-FIXME: summarise the testbench application.
+This application serves as a software regression to aid implimenting new SDRAM interfaces and verifying current ones. The demo runs a series of regression tests of increasing difficulty, begining from using a single core for the server and a single core for the sdram_server progressing to all cores being loaded to simulate an XCore under full load. 
 
    * Package: sc_sdram_burst
    * Application: app_sdram_regress
@@ -29,7 +29,7 @@ FIXME: summarise the testbench application.
 Benchmark Application
 +++++++++++++++++++++
 
-FIXME: summarise the benchmark application.
+This application benchmarks the performace of the module. It does no correctness testing but instead tests the throughput of the SDRAM server.
 
    * Package: sc_sdram_burst
    * Application: app_sdram_benchmark
@@ -37,7 +37,7 @@ FIXME: summarise the benchmark application.
 Demo Application
 ++++++++++++++++
 
-FIXME: summarise the demo application.
+This application demonstrates how the module is used to accesses memory on the SDRAM.
 
    * Package: sc_sdram_burst
    * Application: app_sdram_demo

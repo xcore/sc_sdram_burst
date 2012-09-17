@@ -45,7 +45,7 @@ void application(chanend server) {
     if(read_buffer[i] != i)
       return;
   }
-  printf("jurassic park!\n");
+  printf("SDRAM demo complete.\n");
 }
 
 int main() {

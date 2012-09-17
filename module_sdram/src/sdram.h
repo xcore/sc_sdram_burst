@@ -6,7 +6,6 @@
 #include "sdram_server_PINOUT_V1_IS42S16100F.h"
 #include "sdram_server_PINOUT_V1_IS42S16160D.h"
 #include "sdram_server_PINOUT_V0.h"
-#include "sdram_server_TEMPLATE.h"
 
 /** \brief The SDRAM server thread.
 * 

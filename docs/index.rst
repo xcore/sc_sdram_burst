@@ -1,5 +1,5 @@
 XMOS SDRAM Component
-==================
+====================
 
 .. toctree::
 

@@ -4,7 +4,6 @@
 #include "sdram_geometry_PINOUT_V1_IS42S16100F.h"
 #include "sdram_geometry_PINOUT_V1_IS42S16160D.h"
 #include "sdram_geometry_PINOUT_V0.h"
-#include "sdram_geometry_TEMPLATE.h"
 
 #define SDRAM_COL_BITS ADD_SUFFIX(SDRAM_COL_BITS, SDRAM_DEFAULT_IMPLEMENTATION)
 

@@ -8,25 +8,29 @@ SDRAM API
 Configuration Defines
 ---------------------
 
-The file sdram_conf.h can be provided in the application source code, without it 
-the default values specified in 
+The file ``sdram_conf.h`` must be provided in the application source code, and it must define:
 
-IMPL/sdram_config_IMPL.h
-IMPL/sdram_geometry_IMPL.h
-sdram_commands_IMPL.h
+SDRAM_DEFAULT_IMPLEMENTATION
 
-where IMPL is the implimentation that is in use. These files can set the following defines:
+It can also be used to overrife the default values specified in 
+
+	* IMPL/sdram_config_IMPL.h
+	* IMPL/sdram_geometry_IMPL.h
+	* sdram_commands_IMPL.h
+
+where IMPL is the SDRAM implimentation to be overridden. These files can set the following defines:
 
 Implementation Specific Defines
 +++++++++++++++++++++++++++++++
 
-This is implimentation specific. When overriding one of these defines a suffix of "_IMPL" need 
-to be added. For example, to override SDRAM_CLOCK_DIVIDER to 2 for the PINOUT_V1_IS42S16100F target the 
+When overriding one of these defines a suffix of ``_IMPL`` need 
+to be added. For example, to override ``SDRAM_CLOCK_DIVIDER`` to 2 for the ``PINOUT_V1_IS42S16100F`` target the 
 line:
+::
 
 #define SDRAM_CLOCK_DIVIDER_PINOUT_V1_IS42S16100F 2
 
-to sdram_conf.h.
+to ``sdram_conf.h``.
 
 **SDRAM_REFRESH_MS**
 **SDRAM_REFRESH_CYCLES**
@@ -96,15 +100,12 @@ These are non-implimentation specific.
 Port Config
 +++++++++++
 
-The port config is given in sdram_ports_IMPL.h. 
-
-FIXME add a doxygenstruct here
+The port config is given in sdram_ports_IMPL.h.
 
 SDRAM API
 ---------
 
 These are the functions that are called from the application and are included in sdram.h.
-.. _sec_conf_functions:
 
 Server Functions
 ++++++++++++++++
@@ -116,14 +117,3 @@ Server Functions
 .. doxygenfunction:: sdram_buffer_read
 .. doxygenfunction:: sdram_full_row_read
 
-
-SDRAM Target API
-----------------
-
-These are the functions that are called from the server to perform target specific implimentations on the SDRAM.
-.. _sec_conf_functions:
-
-.. doxygenfunction:: sdram_init_IMPL
-.. doxygenfunction:: sdram_refresh_IMPL
-.. doxygenfunction:: sdram_read_IMPL
-.. doxygenfunction:: sdram_write_IMPL

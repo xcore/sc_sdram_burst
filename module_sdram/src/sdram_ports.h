@@ -5,7 +5,6 @@
 #include "sdram_ports_PINOUT_V1_IS42S16100F.h"
 #include "sdram_ports_PINOUT_V1_IS42S16160D.h"
 #include "sdram_ports_PINOUT_V0.h"
-#include "sdram_ports_TEMPLATE.h"
 
 #define sdram_ports ADD_SUFFIX(sdram_ports, SDRAM_DEFAULT_IMPLEMENTATION)
 
