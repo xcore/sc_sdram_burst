@@ -5,5 +5,6 @@ XMOS SDRAM Component
 
    Overview <overview>
    Hardware Platforms <hw>
-   Programming Guide <programming>
    API <api>
+   Programming Guide <programming>
+   Example Applications <app_tutorial>
