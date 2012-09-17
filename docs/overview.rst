@@ -1,7 +1,10 @@
 Overview
 ========
 
-The SDRAM module is designed for 16 bit read and write access of arbitrary length at up to 50MHz clock rates. 
+The SDRAM module is designed for 16 bit read and write access of arbitrary length at up to 50MHz clock rates. It uses an optimised pintout with address and data lines overlaid along with other pinout optimisations in order to implement 16 bit read/write with up to 13 address lines in just 20 pins.
+
+The module currently targets the ISSI 6400 SDRAM but is easily specialised for the smaller and larger members of this family as well as single data rate SDRAM memory from other manufacturers.
+ 
 
 Memory requirements
 -------------------
