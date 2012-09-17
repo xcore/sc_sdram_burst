@@ -7,6 +7,7 @@ SDRAM API
 
 Configuration Defines
 ---------------------
+
 The file sdram_conf.h can be provided in the application source code, without it 
 the default values specified in 
 
@@ -16,8 +17,9 @@ sdram_commands_IMPL.h
 
 where IMPL is the implimentation that is in use. These files can set the following defines:
 
-Implimentation Specific Defines
+Implementation Specific Defines
 +++++++++++++++++++++++++++++++
+
 This is implimentation specific. When overriding one of these defines a suffix of "_IMPL" need 
 to be added. For example, to override SDRAM_CLOCK_DIVIDER to 2 for the PINOUT_V1_IS42S16100F target the 
 line:
@@ -25,10 +27,6 @@ line:
 #define SDRAM_CLOCK_DIVIDER_PINOUT_V1_IS42S16100F 2
 
 to sdram_conf.h.
-
-SDRAM Config Defines
-++++++++++++++++++++
-These are implimentation specific.
 
 **SDRAM_REFRESH_MS**
 **SDRAM_REFRESH_CYCLES**
@@ -66,7 +64,9 @@ These are implimentation specific.
 
 SDRAM Geometry Defines
 ++++++++++++++++++++++
-These are implimentation specific.
+
+These are implementation specific.
+
 **SDRAM_ROW_ADDRESS_BITS**
 	This defines the number of row address bits.
 
@@ -83,42 +83,43 @@ These are implimentation specific.
 SDRAM Commands Defines
 ++++++++++++++++++++++
 These are non-implimentation specific.
+
 **SDRAM_ENABLE_CMD_WAIT_UNTIL_IDLE**
 **SDRAM_ENABLE_CMD_BUFFER_READ**
 **SDRAM_ENABLE_CMD_BUFFER_WRITE**
 **SDRAM_ENABLE_CMD_FULL_ROW_READ**
 **SDRAM_ENABLE_CMD_FULL_ROW_WRITE**
+
 	These defines switch commands on and off in the server and client. Set to 0 for disable,
 	set to 1 for enable.
 
 Port Config
 +++++++++++
+
 The port config is given in sdram_ports_IMPL.h. 
 
+FIXME add a doxygenstruct here
 
 SDRAM API
 ---------
+
 These are the functions that are called from the application and are included in sdram.h.
 .. _sec_conf_functions:
 
 Server Functions
 ++++++++++++++++
+
 .. doxygenfunction:: sdram_server
 .. doxygenfunction:: sdram_wait_until_idle
-
-SDRAM Write Functions
-+++++++++++++++++++++
 .. doxygenfunction:: sdram_buffer_write
 .. doxygenfunction:: sdram_full_row_write
-
-SDRAM Read Functions
-++++++++++++++++++++
 .. doxygenfunction:: sdram_buffer_read
 .. doxygenfunction:: sdram_full_row_read
 
 
 SDRAM Target API
 ----------------
+
 These are the functions that are called from the server to perform target specific implimentations on the SDRAM.
 .. _sec_conf_functions:
 

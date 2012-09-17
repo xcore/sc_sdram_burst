@@ -1,5 +1,5 @@
 Example Applications
-+++++++++++++++++++++
+====================
 
 This tutorial describes the demo applications included in the XMOS SDRAM software component. 
 :ref:`sec_hardware_platforms` describes the required hardware setups to run the demos.
