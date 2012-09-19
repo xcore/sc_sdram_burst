@@ -1,8 +1,6 @@
 #include <platform.h>
 
 #include "sdram_geometry_PINOUT_V1_IS42S16160D.h"
-#include "sdram_geometry.h"
-
 #include "sdram_config_PINOUT_V1_IS42S16160D.h"
 #include "sdram_ports_PINOUT_V1_IS42S16160D.h"
 
@@ -102,7 +100,7 @@ void sdram_short_block_read_PINOUT_V1_IS42S16160D(unsigned buffer, unsigned word
 #define WRITE_SETUP_LATENCY (80)
 #define READ_SETUP_LATENCY (80)
 
-static unsigned bank_table[1<<SDRAM_BANK_ADDRESS_BITS] =
+static unsigned bank_table[1<<SDRAM_BANK_ADDRESS_BITS_PINOUT_V1_IS42S16160D] =
    {(0<<13) | (0<<(13+16) | 1<<(10+16)),
     (1<<13) | (1<<(13+16) | 1<<(10+16)),
     (2<<13) | (2<<(13+16) | 1<<(10+16)),
@@ -128,7 +126,7 @@ static inline void sdram_write_PINOUT_V1_IS42S16160D(unsigned row, unsigned col,
       if (col)
         col = col - 1;
       else
-        col = (SDRAM_COL_COUNT - 1);
+        col = (SDRAM_COL_COUNT_PINOUT_V1_IS42S16160D - 1);
     rowcol = (col << 16) | row | bank_table[bank];
 
     //adjust the buffer
@@ -165,7 +163,7 @@ static inline void sdram_read_PINOUT_V1_IS42S16160D(unsigned row, unsigned col, 
       if (col)
         col = col - 1;
       else
-        col = (SDRAM_COL_COUNT - 1);
+        col = (SDRAM_COL_COUNT_PINOUT_V1_IS42S16160D - 1);
 
     rowcol = bank_table[bank] | (col << 16) | row;
 

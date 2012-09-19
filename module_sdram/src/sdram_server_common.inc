@@ -12,7 +12,7 @@ static void read_buffer(unsigned start_row, unsigned start_col,
   unsigned remaining_words = word_count;
 
   while (1) {
-    words_to_end_of_line = (SDRAM_COL_COUNT - current_col) / 2;
+    words_to_end_of_line = (ADD_SUFFIX(SDRAM_COL_COUNT,CUR_IMPL) - current_col) / 2;
     if (words_to_end_of_line < remaining_words) {
       ADD_SUFFIX(sdram_read,CUR_IMPL)(current_row, current_col, bank, buffer, words_to_end_of_line, ports);
       current_col = 0;
@@ -35,7 +35,7 @@ static void write_buffer(unsigned start_row, unsigned start_col,
   unsigned remaining_words = word_count;
 
   while (1) {
-    words_to_end_of_line = (SDRAM_COL_COUNT - current_col) / 2;
+    words_to_end_of_line = (ADD_SUFFIX(SDRAM_COL_COUNT,CUR_IMPL) - current_col) / 2;
     if (words_to_end_of_line < remaining_words) {
       ADD_SUFFIX(sdram_write,CUR_IMPL)(current_row, current_col, bank, buffer, words_to_end_of_line, ports);
       current_col = 0;
@@ -87,7 +87,7 @@ static void handle_command(char cmd, chanend client, struct ADD_SUFFIX(sdram_por
         client :> start_row;
         client :> pointer;
       }
-      ADD_SUFFIX(sdram_write,CUR_IMPL)(start_row, 0, bank, pointer, SDRAM_ROW_WORDS, ports);
+      ADD_SUFFIX(sdram_write,CUR_IMPL)(start_row, 0, bank, pointer, ADD_SUFFIX(SDRAM_ROW_WORDS,CUR_IMPL), ports);
       break;
     }
 #endif
@@ -99,7 +99,7 @@ static void handle_command(char cmd, chanend client, struct ADD_SUFFIX(sdram_por
         client :> start_row;
         client :> pointer;
       }
-      ADD_SUFFIX(sdram_read,CUR_IMPL)(start_row, 0, bank, pointer, SDRAM_ROW_WORDS, ports);
+      ADD_SUFFIX(sdram_read,CUR_IMPL)(start_row, 0, bank, pointer, ADD_SUFFIX(SDRAM_ROW_WORDS,CUR_IMPL), ports);
       break;
     }
 #endif

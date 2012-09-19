@@ -1,8 +1,6 @@
 #include <platform.h>
 
 #include "sdram_geometry_PINOUT_V0.h"
-#include "sdram_geometry.h"
-
 #include "sdram_config_PINOUT_V0.h"
 #include "sdram_ports_PINOUT_V0.h"
 
@@ -116,7 +114,7 @@ void sdram_short_block_read_PINOUT_V0(unsigned buffer, unsigned word_count, out 
 #define WRITE_SETUP_LATENCY (50)
 #define READ_SETUP_LATENCY (50)
 
-static unsigned bank_table[1<<SDRAM_BANK_ADDRESS_BITS] =
+static unsigned bank_table[1<<SDRAM_BANK_ADDRESS_BITS_PINOUT_V0] =
    {(0<<13) | (0<<(13+16) | 1<<(10+16)),
     (1<<13) | (1<<(13+16) | 1<<(10+16)),
     (2<<13) | (2<<(13+16) | 1<<(10+16)),
@@ -142,8 +140,8 @@ static inline void sdram_write_PINOUT_V0(unsigned row, unsigned col, unsigned ba
 	  rowcol = (col << 16) | row | bank_table[bank];
 
 	  //adjust the buffer
-	  buffer -= 4 * (SDRAM_ROW_WORDS - word_count);
-	  jump = 2 * (SDRAM_ROW_WORDS - word_count);
+	  buffer -= 4 * (SDRAM_ROW_WORDS_PINOUT_V0 - word_count);
+	  jump = 2 * (SDRAM_ROW_WORDS_PINOUT_V0 - word_count);
 
 	  t = partout_timestamped(ports.dqm, 1, 0);
 
@@ -196,8 +194,8 @@ static inline void sdram_read_PINOUT_V0(unsigned row, unsigned col, unsigned ban
   } else {
 
 	//adjust the buffer
-	buffer -= 4 * (0x3f&(SDRAM_ROW_WORDS - word_count));
-	jump = 2 * (SDRAM_ROW_WORDS - word_count);
+	buffer -= 4 * (0x3f&(SDRAM_ROW_WORDS_PINOUT_V0 - word_count));
+	jump = 2 * (SDRAM_ROW_WORDS_PINOUT_V0 - word_count);
 
 	t = partout_timestamped(ports.dqm, 1, 0);
 	t+= READ_SETUP_LATENCY;
