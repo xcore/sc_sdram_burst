@@ -33,38 +33,25 @@ line:
 to ``sdram_conf.h``.
 
 **SDRAM_REFRESH_MS**
+  This specifies that ``SDRAM_REFRESH_MS`` milliseconds may elapse during which ``SDRAM_REFRESH_CYCLES`` refresh instructions must have been issued to maintain the contents of the SDRAM. 
+
 **SDRAM_REFRESH_CYCLES**
-	These specify that SDRAM_REFRESH_MS milliseconds may elapse during which 
-	SDRAM_REFRESH_CYCLES refresh instructions must have been issued 
-	to maintain the contents of the SDRAM. 
+  As above.
 
 **SDRAM_ACCEPTABLE_REFRESH_GAP**
-	Define the amount of time that the SDRAM is allowed to go before the server
-	refreshes. The unit is given in refresh periods. For example, the value N
-	would mean that the SDRAM is allowed to go
-
-        	SDRAM_REFRESH_MS/SDRAM_REFRESH_CYCLES*N milliseconds
-
- 	before refreshing. The larger the number (up to SDRAM_REFRESH_CYCLES) the
- 	smaller the constant time impact but the larger the overall impact. If set
-	above SDRAM_REFRESH_CYCLES then the SDRAM will fail.
-	The default is (SDRAM_REFRESH_CYCLES/8).
+  Define the amount of time that the SDRAM is allowed to go before the serverrefreshes. The unit is given in refresh periods. For example, the value would mean that the SDRAM is allowed to go ``SDRAM_REFRESH_MS/SDRAM_REFRESH_CYCLES*N`` milliseconds before refreshing. The larger the number (up to ``SDRAM_REFRESH_CYCLES``) the smaller the constant time impact but the larger the overall impact. If set above ``SDRAM_REFRESH_CYCLES`` then the SDRAM will fail. The default is (``SDRAM_REFRESH_CYCLES/8``).
 
 **SDRAM_CMDS_PER_REFRESH**
-	Define the minimum time between refreshes in SDRAM Clk cycles. Must be in 
-	the range from 2 to 4 inclusive.
+  Define the minimum time between refreshes in SDRAM Clk cycles. Must be in the range from 2 to 4 inclusive.
 
 **SDRAM_EXTERNAL_MEMORY_ACCESSOR**
-	Define if the memory is accessed by another device(other than the XCore).
-	If not defined then faster code will be produced.
+  Define if the memory is accessed by another device(other than the XCore). If not defined then faster code will be produced.
 
 **SDRAM_CLOCK_DIVIDER**
-	Set SDRAM_CLOCK_DIVIDER to divide down the reference clock to get the desired
-	SDRAM Clock. The reference clock is divided by 2^SDRAM_CLOCK_DIVIDER.
+  Set ``SDRAM_CLOCK_DIVIDER`` to divide down the reference clock to get the desired SDRAM Clock. The reference clock is divided by 2^SDRAM_CLOCK_DIVIDER.
 
 **SDRAM_MODE_REGISTER**
-	Define the configuration of the SDRAM. This is the value to be loaded
-	into the mode register.
+  Define the configuration of the SDRAM. This is the value to be loaded into the mode register.
 
 SDRAM Geometry Defines
 ++++++++++++++++++++++
@@ -72,34 +59,40 @@ SDRAM Geometry Defines
 These are implementation specific.
 
 **SDRAM_ROW_ADDRESS_BITS**
-	This defines the number of row address bits.
+  This defines the number of row address bits.
 
 **SDRAM_COL_ADDRESS_BITS**
-	This defines the number of column address bits.
+  This defines the number of column address bits.
 	
 **SDRAM_BANK_ADDRESS_BITS**
-	This defines the number of bank address bits.
+  This defines the number of bank address bits.
 	
 **SDRAM_COL_BITS**
-	This defines the number of bits per column, i.e. the data width. This should only be changed if
-	an SDRAM of bus width other than 16 is used. 
+  This defines the number of bits per column, i.e. the data width. This should only be changed if an SDRAM of bus width other than 16 is used. 
 
 SDRAM Commands Defines
 ++++++++++++++++++++++
 These are non-implimentation specific.
 
 **SDRAM_ENABLE_CMD_WAIT_UNTIL_IDLE**
-**SDRAM_ENABLE_CMD_BUFFER_READ**
-**SDRAM_ENABLE_CMD_BUFFER_WRITE**
-**SDRAM_ENABLE_CMD_FULL_ROW_READ**
-**SDRAM_ENABLE_CMD_FULL_ROW_WRITE**
+  Enable/Disable the wait until idle command.
 
-	These defines switch commands on and off in the server and client. Set to 0 for disable,
-	set to 1 for enable.
+**SDRAM_ENABLE_CMD_BUFFER_READ**
+  Enable/Disable the buffer read command.
+
+**SDRAM_ENABLE_CMD_BUFFER_WRITE**
+  Enable/Disable the buffer write command.
+
+**SDRAM_ENABLE_CMD_FULL_ROW_READ**
+  Enable/Disable the full row read command.
+
+**SDRAM_ENABLE_CMD_FULL_ROW_WRITE**
+  Enable/Disable the full row write command.
+
+These defines switch commands on and off in the server and client. Set to 0 for disable, set to 1 for enable.
 
 Port Config
 +++++++++++
-
 The port config is given in sdram_ports_IMPL.h.
 
 SDRAM API

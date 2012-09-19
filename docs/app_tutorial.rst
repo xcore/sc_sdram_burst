@@ -4,7 +4,6 @@ Example Applications
 This tutorial describes the demo applications included in the XMOS SDRAM software component. 
 :ref:`sec_hardware_platforms` describes the required hardware setups to run the demos.
 
-
 app_sdram_demo
 --------------
 
@@ -20,10 +19,9 @@ Getting Started
    #. Open ``app_sdram_demo.xc`` and select the slot the  XA-SK-SDRAM Slice Card was inserted into.
    #. run the program
 
-The output produced should look like:
-::
-	SDRAM demo complete.
+The output produced should look like::
 
+  SDRAM demo complete.
 
 app_sdram_regress
 -----------------
@@ -37,25 +35,10 @@ Getting Started
    #. Open ``app_sdram_regress.xc`` and select the slot the  XA-SK-SDRAM Slice Card was inserted into.
    #. run the program
 
-The output produced should look like:
-::
-	Test suite begin
-	8 threaded test suite start
-	Begin sanity_check
-		Passed
-	Started single_row_write
-		Passed
-	Started partial_row_write_read
-		Passed
-	Started partial_row_write_align
-		Passed
-	Started whole_mem_write_read
-		Passed
-	Started refresh_test
-		Passed
-	Started ordered_read
-		Passed
-	...
+The output produced should look like::
+
+  Test suite begin
+  ...
 
 app_sdram_benchmark
 -------------------
@@ -69,8 +52,8 @@ Getting Started
    #. Open ``app_sdram_benchmark.xc`` and select the slot the  XA-SK-SDRAM Slice Card was inserted into.
    #. run the program
 
-The output produced should look like:
-::
+The output produced should look like::
+
 	Cores active: 8
 	Max write: 70.34 MB/s
 	Max read : 66.82 MB/s

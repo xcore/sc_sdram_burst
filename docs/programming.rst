@@ -1,4 +1,5 @@
 
+
 SDRAM Programming Guide
 =======================
 
@@ -18,8 +19,8 @@ For a application with a single SDRAM the default implementation should be set. 
 
 Multiple Homogenous SDRAM Support
 ---------------------------------
-For a application with a single SDRAM the default implementation should be set. For example, to drive two IS42S16400F parts, set the ``SDRAM_DEFAULT_IMPLEMENTATION`` to ``PINOUT_V1_IS42S16400F`` then the following will create the servers:
-::
+For a application with a single SDRAM the default implementation should be set. For example, to drive two IS42S16400F parts, set the ``SDRAM_DEFAULT_IMPLEMENTATION`` to ``PINOUT_V1_IS42S16400F`` then the following will create the servers::
+
 	chan c,d;
 	par {
 		sdram_server(c, ports_0);
@@ -27,9 +28,9 @@ For a application with a single SDRAM the default implementation should be set. 
 		app_0(c);
 		app_1(d);
 	}
-and the ports for the above would have been created by:
-::
-	
+
+and the ports for the above would have been created by::
+
 	struct sdram_ports ports_0 = {
     		XS1_PORT_16A, 
 		XS1_PORT_1B, 
@@ -50,8 +51,8 @@ and the ports for the above would have been created by:
 Multiple Hetrogenous SDRAM Support
 ----------------------------------
 
-It is possible for the application to drive multiple hetrogeneous SDRAM devices simultaniously. In this case each ``sdram_server`` and ``sdram_ports`` usage must be explicit to the implementation. For example, to drive an IS42S16400F part and an IS42S16160D part, then the following will create the servers:
-::
+It is possible for the application to drive multiple hetrogeneous SDRAM devices simultaniously. In this case each ``sdram_server`` and ``sdram_ports`` usage must be explicit to the implementation. For example, to drive an IS42S16400F part and an IS42S16160D part, then the following will create the servers::
+
 	chan c,d;
 	par {
 		sdram_server_PINOUT_V1_IS42S16400F(c, ports_0);
@@ -59,8 +60,8 @@ It is possible for the application to drive multiple hetrogeneous SDRAM devices 
 		app_0(c);
 		app_1(d);
 	}
-and the ports for the above would have been created by:
-::
+
+and the ports for the above would have been created by::
 	
 	struct sdram_ports_PINOUT_V1_IS42S16400F ports_0 = {
     		XS1_PORT_16A, 
@@ -97,7 +98,7 @@ Of course the application may use other modules which can also be directories at
 Key Files
 +++++++++
 
-The following header file contain prototypes of all functions required to use use the SDRAM 
+The following header file contains prototypes of all functions required to use use the SDRAM 
 module. The API is described in :ref:`sec_api`.
 
 .. list-table:: Key Files
@@ -111,12 +112,12 @@ module. The API is described in :ref:`sec_api`.
 Module Usage
 ------------
 
-To use the SDRAM module first set up the directory structure as shown above. Create a file in the ``app`` folder called ``sdram_conf.h`` and into it insert a define for ``SDRAM_DEFAULT_IMPLEMENTATION``.  It should be defined as the implementation you want to use, for example for the Slicekit the following would be correct,
-::
+To use the SDRAM module first set up the directory structure as shown above. Create a file in the ``app`` folder called ``sdram_conf.h`` and into it insert a define for ``SDRAM_DEFAULT_IMPLEMENTATION``.  It should be defined as the implementation you want to use, for example for the Slicekit the following would be correct::
+
 	#define SDRAM_DEFAULT_IMPLEMENTATION PINOUT_V1_IS42S16160D
 
-Declare the ``sdram_ports`` structure used by the ``sdram_server``. This will look like:
-::
+Declare the ``sdram_ports`` structure used by the ``sdram_server``. This will look like::
+
 	struct sdram_ports sdram_ports = {
 		XS1_PORT_16A, 
 		XS1_PORT_1B, 
@@ -126,8 +127,7 @@ Declare the ``sdram_ports`` structure used by the ``sdram_server``. This will lo
 		XS1_CLKBLK_1 
 	}; 
 
-Next create a ``main`` function with a par of both the ``sdram_server`` function and an application function, these will require a channel to connect them. For example,
-::
+Next create a ``main`` function with a par of both the ``sdram_server`` function and an application function, these will require a channel to connect them. For example::
 
 	int main() {
 	  chan sdram_c;
