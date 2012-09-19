@@ -4,22 +4,79 @@ SDRAM Programming Guide
 
 This section provides information on how to program applications using the SDRAM module.
 
+SDRAM Default implementation
+----------------------------
+For convinence the ``module_sdram`` can use a default implementation. When the define ``SDRAM_DEFAULT_IMPLEMENTATION`` is set in ``sdram_conf.h`` to one of the supported targets then the ``sdram_server`` function will act as a call to the specified implementation. The same applies for the ``sdram_ports`` structure. The currently supported targets are:
+	* PINOUT_V1_IS42S16400F - This corresponds to the ISSI part IS42S16400F in a 20 pin configuration.
+	* PINOUT_V1_IS42S16160D - This corresponds to the ISSI part IS42S16160D in a 20 pin configuration.
+	* PINOUT_V0 - This is for a legacy 22 pin configuration.
+
 Single SDRAM Support
 --------------------
 
-As always a default implementation must be selected in ``sdram_conf.h``. When calling the function ``sdram_server`` it is implied that the default implimentation will be called.
+For a application with a single SDRAM the default implementation should be set. If it is not set then the explicit ``sdram_server`` and ``sdram_ports`` must be used. The same applied for all the implementation specific defines.
 
-Multiple SDRAM Support
-----------------------
-
-It is possible for the application to drive multiple SDRAM devices simultaniously. As with the above a default implimentation must be selected in ``sdram_conf.h``. To use a specific SDRAM implementation, add a suffix to the function you wish to call. For example, to call the server function for the PINOUT_V1_IS42S16160D implementation 
+Multiple Homogenous SDRAM Support
+---------------------------------
+For a application with a single SDRAM the default implementation should be set. For example, to drive two IS42S16400F parts, set the ``SDRAM_DEFAULT_IMPLEMENTATION`` to ``PINOUT_V1_IS42S16400F`` then the following will create the servers:
 ::
-	sdram_server_PINOUT_V1_IS42S16160D(server, p);
-
-To declare ports for a particular implementation the same method is used. To follow the above example the ports would be declared as 
+	chan c,d;
+	par {
+		sdram_server(c, ports_0);
+		sdram_server(d, ports_1);
+		app_0(c);
+		app_1(d);
+	}
+and the ports for the above would have been created by:
 ::
-	struct sdram_ports sdram_ports_PINOUT_V1_IS42S16160D = { 
-	  //port declarations here
+	
+	struct sdram_ports ports_0 = {
+    		XS1_PORT_16A, 
+		XS1_PORT_1B, 
+		XS1_PORT_1G, 
+		XS1_PORT_1C, 
+		XS1_PORT_1F, 
+		XS1_CLKBLK_1
+	};
+	struct sdram_ports ports_1 = {
+    		XS1_PORT_16B, 
+		XS1_PORT_1J, 
+		XS1_PORT_1I, 
+		XS1_PORT_1K, 
+		XS1_PORT_1L, 
+		XS1_CLKBLK_1 
+	};
+
+Multiple Hetrogenous SDRAM Support
+----------------------------------
+
+It is possible for the application to drive multiple hetrogeneous SDRAM devices simultaniously. In this case each ``sdram_server`` and ``sdram_ports`` usage must be explicit to the implementation. For example, to drive an IS42S16400F part and an IS42S16160D part, then the following will create the servers:
+::
+	chan c,d;
+	par {
+		sdram_server_PINOUT_V1_IS42S16400F(c, ports_0);
+		sdram_server_PINOUT_V1_IS42S16160D(d, ports_1);
+		app_0(c);
+		app_1(d);
+	}
+and the ports for the above would have been created by:
+::
+	
+	struct sdram_ports_PINOUT_V1_IS42S16400F ports_0 = {
+    		XS1_PORT_16A, 
+		XS1_PORT_1B, 
+		XS1_PORT_1G, 
+		XS1_PORT_1C, 
+		XS1_PORT_1F, 
+		XS1_CLKBLK_1
+	};
+	struct sdram_ports_PINOUT_V1_IS42S16160D ports_1 = {
+    		XS1_PORT_16B, 
+		XS1_PORT_1J, 
+		XS1_PORT_1I, 
+		XS1_PORT_1K, 
+		XS1_PORT_1L, 
+		XS1_CLKBLK_1 
 	};
 
 Source code structure

@@ -1,7 +1,7 @@
 #ifndef __sdram_geometry_h__
 #define __sdram_geometry_h__
 
-#include "sdram_geometry_PINOUT_V1_IS42S16100F.h"
+#include "sdram_geometry_PINOUT_V1_IS42S16400F.h"
 #include "sdram_geometry_PINOUT_V1_IS42S16160D.h"
 #include "sdram_geometry_PINOUT_V0.h"
 

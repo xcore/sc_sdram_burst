@@ -2,16 +2,8 @@
 #include <stdio.h>
 #include "sdram.h"
 
-#define CORE 0
-#define TYPE 0
-
-#if TYPE
-on stdcore[CORE]: struct sdram_ports sdram_ports = {
-    XS1_PORT_16B, XS1_PORT_1J, XS1_PORT_1I, XS1_PORT_1K, XS1_PORT_1L, XS1_CLKBLK_1 };
-#else
-on stdcore[CORE]: struct sdram_ports sdram_ports = {
+struct sdram_ports sdram_ports = {
     XS1_PORT_16A, XS1_PORT_1B, XS1_PORT_1G, XS1_PORT_1C, XS1_PORT_1F, XS1_CLKBLK_1 };
-#endif
 
 void application(chanend server) {
 #define BUF_WORDS (10)
@@ -51,8 +43,8 @@ void application(chanend server) {
 int main() {
   chan sdram_c;
   par {
-    on stdcore[CORE]:sdram_server(sdram_c, sdram_ports);
-    on stdcore[CORE]:application(sdram_c);
+    sdram_server(sdram_c, sdram_ports);
+    application(sdram_c);
   }
   return 0;
 }
