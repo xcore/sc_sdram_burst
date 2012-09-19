@@ -23,6 +23,10 @@ static void read_buffer(unsigned start_row, unsigned start_col,
       ADD_SUFFIX(sdram_read,CUR_IMPL)(current_row, current_col, bank, buffer, remaining_words, ports);
       return;
     }
+    if(current_row == ADD_SUFFIX(SDRAM_ROW_COUNT,CUR_IMPL)){
+      current_row = 0;
+      bank = (bank + 1) % ADD_SUFFIX(SDRAM_BANK_COUNT,CUR_IMPL);
+    }
   }
 }
 
@@ -45,6 +49,10 @@ static void write_buffer(unsigned start_row, unsigned start_col,
     } else {
       ADD_SUFFIX(sdram_write,CUR_IMPL)(current_row, current_col, bank, buffer, remaining_words, ports);
       return;
+    }
+    if(current_row == ADD_SUFFIX(SDRAM_ROW_COUNT,CUR_IMPL)){
+      current_row = 0;
+      bank = (bank + 1) % ADD_SUFFIX(SDRAM_BANK_COUNT,CUR_IMPL);
     }
   }
 }
