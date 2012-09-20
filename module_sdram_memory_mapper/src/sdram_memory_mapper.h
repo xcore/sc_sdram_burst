@@ -25,4 +25,10 @@ void mm_write_words(chanend server, unsigned address, unsigned words, unsigned b
  */
 void mm_receive_ack(chanend server);
 
+/** Returns when the SDRAM server is in the dile state.
+ *
+ * \param server The channel end connecting to the SDRAM server.
+ */
+void mm_wait_until_idle(chanend server);
+
 #endif /* MODULE_MEMORY_MAPPER_H_ */

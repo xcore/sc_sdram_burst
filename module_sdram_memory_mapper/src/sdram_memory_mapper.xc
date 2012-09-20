@@ -23,3 +23,8 @@ void mm_write_words(chanend server, unsigned address, unsigned words, unsigned b
 void mm_receive_ack(chanend server){
 	server :> int;
 }
+
+void mm_wait_until_idle(chanend server){
+	sdram_wait_until_idle(server);
+	server :> int;
+}

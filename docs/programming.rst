@@ -18,7 +18,7 @@ Single SDRAM Support
 For a application with a single SDRAM the default implementation should be set. If it is not set then the explicit ``sdram_server`` and ``sdram_ports`` must be used. The same applied for all the implementation specific defines.
 
 Multiple Homogeneous SDRAM Support
----------------------------------
+----------------------------------
 For a application with a single SDRAM the default implementation should be set. For example, to drive two IS42S16400F parts, set the ``SDRAM_DEFAULT_IMPLEMENTATION`` to ``PINOUT_V1_IS42S16400F`` then the following will create the servers::
 
 	chan c,d;
@@ -49,7 +49,7 @@ and the ports for the above would have been created by::
 	};
 
 Multiple Heterogeneous SDRAM Support
-----------------------------------
+------------------------------------
 
 It is possible for the application to drive multiple heterogeneous SDRAM devices simultaneously. In this case each ``sdram_server`` and ``sdram_ports`` usage must be explicit to the implementation. For example, to drive an IS42S16400F part and an IS42S16160D part, then the following will create the servers::
 
@@ -143,4 +143,4 @@ Now the ``application`` function is able to use the SDRAM server.
 SDRAM Memory Mapper Programming Guide
 =====================================
 
-The 
+The SDRAM memory mapper has a simple interface where to the ``mm_read_words`` and ``mm_write_words`` an virtual address is passes, this virtual address is mapped to a physical address. The ``mm_receive_ack`` function serves only to receive the ack token from the ``sdram_server`` when the command has been accepted. Finally, the ``mm_wait_until_idle`` exists so that the application can run the ``mm_read_words`` in a non-blocking manner then confirm that the data is present in the buffer when the ``mm_wait_until_idle`` returns.

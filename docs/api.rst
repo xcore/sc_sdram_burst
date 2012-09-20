@@ -117,4 +117,5 @@ Server Functions
 .. doxygenfunction:: mm_read_words
 .. doxygenfunction:: mm_write_words
 .. doxygenfunction:: mm_receive_ack
+.. doxygenfunction:: mm_wait_until_idle
 
