@@ -114,7 +114,7 @@ void sdram_short_block_read_PINOUT_V0(unsigned buffer, unsigned word_count, out 
 #define WRITE_SETUP_LATENCY (50)
 #define READ_SETUP_LATENCY (50)
 
-static unsigned bank_table[1<<SDRAM_BANK_ADDRESS_BITS_PINOUT_V0] =
+static unsigned bank_table[SDRAM_BANK_COUNT_PINOUT_V0] =
    {(0<<13) | (0<<(13+16) | 1<<(10+16)),
     (1<<13) | (1<<(13+16) | 1<<(10+16)),
     (2<<13) | (2<<(13+16) | 1<<(10+16)),

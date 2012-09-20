@@ -34,8 +34,10 @@ void application(chanend server) {
   server :> int;
 
   for(unsigned i=0;i<BUF_WORDS;i++){
-    if(read_buffer[i] != i)
+    if(read_buffer[i] != i){
+      printf("SDRAM demo fail.\n");
       return;
+    }
   }
   printf("SDRAM demo complete.\n");
 }
