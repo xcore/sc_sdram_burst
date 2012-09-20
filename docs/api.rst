@@ -12,13 +12,13 @@ The file ``sdram_conf.h`` must be provided in the application source code, and i
 
 SDRAM_DEFAULT_IMPLEMENTATION
 
-It can also be used to overrife the default values specified in 
+It can also be used to override the default values specified in 
 
 	* IMPL/sdram_config_IMPL.h
 	* IMPL/sdram_geometry_IMPL.h
 	* sdram_commands_IMPL.h
 
-where IMPL is the SDRAM implimentation to be overridden. These files can set the following defines:
+where IMPL is the SDRAM implementation to be overridden. These files can set the following defines:
 
 Implementation Specific Defines
 +++++++++++++++++++++++++++++++
@@ -35,7 +35,7 @@ to ``sdram_conf.h``.
   As above.
 
 **SDRAM_ACCEPTABLE_REFRESH_GAP**
-  This define specifies how long the ``sdram_server`` can go between issuing bursts of refreshes. The SDRAM server issues refreshes in bursts when it is not servicing a read/write command. The number of refresh commands for a burst is automatically calculated, hence, if a read or write command is being serviced when a refresh burst should start then it will wait until the service is over then increase its burst size appropatly. If set above ``SDRAM_REFRESH_CYCLES`` then the SDRAM will fail. The default is (``SDRAM_REFRESH_CYCLES/8``). The unit is given in refresh periods. For example, the value would mean that the SDRAM is allowed to go ``SDRAM_REFRESH_MS/SDRAM_REFRESH_CYCLES*N`` milliseconds before refreshing. The larger the number (up to ``SDRAM_REFRESH_CYCLES``) the smaller the constant time impact but the larger the overall impact. 
+  This define specifies how long the ``sdram_server`` can go between issuing bursts of refreshes. The SDRAM server issues refreshes in bursts when it is not servicing a read/write command. The number of refresh commands for a burst is automatically calculated, hence, if a read or write command is being serviced when a refresh burst should start then it will wait until the service is over then increase its burst size appropriately. If set above ``SDRAM_REFRESH_CYCLES`` then the SDRAM will fail. The default is (``SDRAM_REFRESH_CYCLES/8``). The unit is given in refresh periods. For example, the value would mean that the SDRAM is allowed to go ``SDRAM_REFRESH_MS/SDRAM_REFRESH_CYCLES*N`` milliseconds before refreshing. The larger the number (up to ``SDRAM_REFRESH_CYCLES``) the smaller the constant time impact but the larger the overall impact. 
 
 **SDRAM_CMDS_PER_REFRESH**
   This defines the minimum time between refreshes in SDRAM Clk cycles. Must be in the range from 2 to 4 inclusive.
@@ -68,7 +68,7 @@ These are implementation specific.
 
 SDRAM Commands Defines
 ++++++++++++++++++++++
-These are non-implimentation specific.
+These are non-implementation specific.
 
 **SDRAM_ENABLE_CMD_WAIT_UNTIL_IDLE**
   Enable/Disable the wait until idle command.

@@ -7,7 +7,7 @@ This section provides information on how to program applications using the SDRAM
 
 SDRAM Default implementation
 ----------------------------
-For convinence the ``module_sdram`` can use a default implementation. When the define ``SDRAM_DEFAULT_IMPLEMENTATION`` is set in ``sdram_conf.h`` to one of the supported targets then the ``sdram_server`` function will act as a call to the specified implementation. The same applies for the ``sdram_ports`` structure. The currently supported targets are:
+For convenience the ``module_sdram`` can use a default implementation. When the define ``SDRAM_DEFAULT_IMPLEMENTATION`` is set in ``sdram_conf.h`` to one of the supported targets then the ``sdram_server`` function will act as a call to the specified implementation. The same applies for the ``sdram_ports`` structure. The currently supported targets are:
 	* PINOUT_V1_IS42S16400F - This corresponds to the ISSI part IS42S16400F in a 20 pin configuration.
 	* PINOUT_V1_IS42S16160D - This corresponds to the ISSI part IS42S16160D in a 20 pin configuration.
 	* PINOUT_V0 - This is for a legacy 22 pin configuration.
@@ -17,7 +17,7 @@ Single SDRAM Support
 
 For a application with a single SDRAM the default implementation should be set. If it is not set then the explicit ``sdram_server`` and ``sdram_ports`` must be used. The same applied for all the implementation specific defines.
 
-Multiple Homogenous SDRAM Support
+Multiple Homogeneous SDRAM Support
 ---------------------------------
 For a application with a single SDRAM the default implementation should be set. For example, to drive two IS42S16400F parts, set the ``SDRAM_DEFAULT_IMPLEMENTATION`` to ``PINOUT_V1_IS42S16400F`` then the following will create the servers::
 
@@ -48,10 +48,10 @@ and the ports for the above would have been created by::
 		XS1_CLKBLK_1 
 	};
 
-Multiple Hetrogenous SDRAM Support
+Multiple Heterogeneous SDRAM Support
 ----------------------------------
 
-It is possible for the application to drive multiple hetrogeneous SDRAM devices simultaniously. In this case each ``sdram_server`` and ``sdram_ports`` usage must be explicit to the implementation. For example, to drive an IS42S16400F part and an IS42S16160D part, then the following will create the servers::
+It is possible for the application to drive multiple heterogeneous SDRAM devices simultaneously. In this case each ``sdram_server`` and ``sdram_ports`` usage must be explicit to the implementation. For example, to drive an IS42S16400F part and an IS42S16160D part, then the following will create the servers::
 
 	chan c,d;
 	par {
