@@ -7,10 +7,10 @@ This tutorial describes the demo applications included in the XMOS SDRAM softwar
 app_sdram_demo
 --------------
 
-This application demonstrates how the module is used to accesses memory on the SDRAM. The purpose of this application is to show how data is written and read to and from the SDRAM in a safe manner. Important notes:
+This application demonstrates how the module is used to accesses memory on the SDRAM. The purpose of this application is to show how data is written to and read from the SDRAM in a safe manner. Important notes:
 
  - ``sdram_buffer_write`` commands the server to begin writing the buffer to SDRAM. The server returns an ack on the server channel as soon as the command has been accepted. This means that the data in the buffer cannot be assumed to have been written to the SDRAM until any other command has been accepted. Typically, ``sdram_wait_until_idle`` is used to confirm the write command completion but any command will do.
- - ``sdram_buffer_read`` commands the server to begin reading the SDRAM into the buffer. The same properites as the ``sdram_buffer_write`` apply to all commands, hence, ``sdram_wait_until_idle`` is used to confirm that the data in now in the buffer.
+ - ``sdram_buffer_read`` commands the server to begin reading the SDRAM into the buffer. The same properites as the ``sdram_buffer_write`` apply to all commands, hence, ``sdram_wait_until_idle`` is used to confirm that the data is in now in the buffer.
 
 Getting Started
 +++++++++++++++
@@ -38,6 +38,8 @@ Getting Started
 The output produced should look like::
 
   Test suite begin
+  8 threaded test suite start
+  Begin sanity_check
   ...
 
 app_sdram_benchmark

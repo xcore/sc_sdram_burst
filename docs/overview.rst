@@ -67,3 +67,8 @@ The achievable effective bandwidth varies according to the avaliable XCore MIPS.
 | 125        | 2     | 500MHz       | 71.89          | 74.99            | 
 +------------+-------+--------------+----------------+------------------+
 
+Additional Modules
+------------------
+
+There exists a memory mapper module called ``module_sdram_memory_mapper`` in order to abstract the physical geometry from the application. Its only function is to map the physical geometry of the SDRAM to a virtual address that the application can use. 
+

@@ -139,3 +139,8 @@ Next create a ``main`` function with a par of both the ``sdram_server`` function
 	}
 
 Now the ``application`` function is able to use the SDRAM server.
+
+SDRAM Memory Mapper Programming Guide
+=====================================
+
+The 

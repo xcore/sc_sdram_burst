@@ -59,7 +59,7 @@
 
 /*
  * Set SDRAM_CLOCK_DIVIDER to divide down the reference clock to get the desired
- * SDRAM Clock. The reference clock is divided by 2^SDRAM_CLOCK_DIVIDER.
+ * SDRAM Clock. The reference clock is divided by 2*SDRAM_CLOCK_DIVIDER.
  */
 #ifdef SDRAM_CLOCK_DIVIDER_PINOUT_V1_IS42S16400F
 #define SDRAM_CLOCK_DIVIDER SDRAM_CLOCK_DIVIDER_PINOUT_V1_IS42S16400F
