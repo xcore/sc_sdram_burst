@@ -97,8 +97,8 @@ void sdram_short_block_read_PINOUT_V1_IS42S16400F(unsigned buffer, unsigned word
 /*
  * These numbers are tuned for 50MIPS.
  */
-#define WRITE_SETUP_LATENCY (36)
-#define READ_SETUP_LATENCY (40)
+#define WRITE_SETUP_LATENCY (50)
+#define READ_SETUP_LATENCY (50)
 
 static unsigned bank_table[SDRAM_BANK_COUNT_PINOUT_V1_IS42S16400F] =
    {(0<<13) | (0<<(13+16) | 1<<(10+16)),
