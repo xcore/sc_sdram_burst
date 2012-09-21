@@ -17,18 +17,18 @@ configPoints =
   sdram_target =
   {
     short   = "SDRAM target",
-    long    = ""
-    help    = "This specifies the target"
+    long    = "",
+    help    = "This specifies the target",
     define  = "SDRAM_DEFAULT_IMPLEMENTATION",
     options = {"PINOUT_V1_IS42S16400F", "PINOUT_V1_IS42S16160D", "PINOUT_V0"}, 
     resourceUsageFlags = {"noeffect"},
-    default = PINOUT_V1_IS42S16400F
+    default = "PINOUT_V1_IS42S16400F"
   },
   enable_wait_until_idle =
   {
     short   = "Enable wait until idle",
-    long    = ""
-    help    = "Enables the wait until the sdram becomes idle command"
+    long    = "",
+    help    = "Enables the wait until the sdram becomes idle command",
     units   = "",
     define  = "SDRAM_ENABLE_CMD_WAIT_UNTIL_IDLE",
     type    = "string",
@@ -38,8 +38,8 @@ configPoints =
   enable_buffer_read =
   {
     short   = "Enable buffer read",
-    long    = ""
-    help    = "Enables the ability to read an arbitrary size buffer from SDRAM"
+    long    = "",
+    help    = "Enables the ability to read an arbitrary size buffer from SDRAM",
     units   = "",
     define  = "SDRAM_ENABLE_CMD_BUFFER_READ",
     type    = "bool",
@@ -49,8 +49,8 @@ configPoints =
   enable_buffer_write =
   {
     short   = "Enable buffer write",
-    long    = ""
-    help    = "Enables the ability to write an arbitrary size buffer to SDRAM"
+    long    = "",
+    help    = "Enables the ability to write an arbitrary size buffer to SDRAM",
     units   = "",
     define  = "SDRAM_ENABLE_CMD_BUFFER_WRITE",
     type    = "bool",
@@ -60,8 +60,8 @@ configPoints =
   enable_full_row_read =
   {
     short   = "Enable full row read",
-    long    = ""
-    help    = "Enables the ability to read a full row at once from SDRAM"
+    long    = "",
+    help    = "Enables the ability to read a full row at once from SDRAM",
     units   = "",
     define  = "SDRAM_ENABLE_CMD_FULL_ROW_READ",
     type    = "bool",
@@ -71,14 +71,14 @@ configPoints =
   enable_full_row_write =
   {
     short   = "Enable full row write",
-    long    = ""
-    help    = "Enables the ability to read a full row at once from SDRAM"
+    long    = "",
+    help    = "Enables the ability to read a full row at once from SDRAM",
     units   = "",
     define  = "SDRAM_ENABLE_CMD_FULL_ROW_WRITE",
     type    = "bool",
     resourceUsageFlags = {"noeffect"},
     default = true
-  },
+  }
 
 }
 
@@ -140,13 +140,9 @@ end
 
 generatedCode = {
   includes = {"sdram.h"},
-  globals = [[
-  ]],
-  body = [[
-  ]]
+  globals = {},
+  body = {}
 }
 
-api = {
-      'sdram_server',
-}
+
 
