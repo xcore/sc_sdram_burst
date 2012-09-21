@@ -111,12 +111,8 @@ static void handle_command(char cmd, chanend client, struct ADD_SUFFIX(sdram_por
       break;
     }
 #endif
-#if (SDRAM_ENABLE_CMD_WAIT_UNTIL_IDLE==1)
-    case SDRAM_CMD_WAIT_UNTIL_IDLE: {
-      break;
-    }
-#endif
     default:
+      __builtin_unreachable();
       break;
   }
 }

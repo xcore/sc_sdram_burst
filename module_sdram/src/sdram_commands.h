@@ -6,7 +6,6 @@
 #endif
 
 enum {
-  SDRAM_CMD_WAIT_UNTIL_IDLE,
   SDRAM_CMD_BUFFER_READ,
   SDRAM_CMD_BUFFER_WRITE,
   SDRAM_CMD_FULL_ROW_READ,
@@ -18,9 +17,6 @@ enum {
  * that are unused and the code will be eliminated from the
  * command handler and the SDRAM client.
  */
-#ifndef SDRAM_ENABLE_CMD_WAIT_UNTIL_IDLE
-#define SDRAM_ENABLE_CMD_WAIT_UNTIL_IDLE 1
-#endif
 
 #ifndef SDRAM_ENABLE_CMD_BUFFER_READ
 #define SDRAM_ENABLE_CMD_BUFFER_READ 1

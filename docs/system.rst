@@ -27,5 +27,5 @@ The SDRAM component has the following features:
      * full row(page) write,
      * refresh handled by the SDRAM component itself.
   * Requires a single core for the server.
-     * The function `sdram_server` requires just one core, the client functions, located in `sdram.h` are very low overhead and are called from the application.
+     * The function ``sdram_server`` requires just one core, the client functions, located in ``sdram.h`` are very low overhead and are called from the application.
 

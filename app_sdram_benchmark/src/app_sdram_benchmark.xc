@@ -5,30 +5,18 @@
 
 #define VERBOSE 0
 
-#define CORE 1
-#define TYPE 0
-
-#if TYPE
-on stdcore[CORE]: struct sdram_ports sdram_ports = {
-    XS1_PORT_16B, XS1_PORT_1J, XS1_PORT_1I, XS1_PORT_1K, XS1_PORT_1L, XS1_CLKBLK_1 };
-#else
-on stdcore[CORE]: struct sdram_ports sdram_ports = {
+struct sdram_ports sdram_ports = {
     XS1_PORT_16A, XS1_PORT_1B, XS1_PORT_1G, XS1_PORT_1C, XS1_PORT_1F, XS1_CLKBLK_1 };
-#endif
 
 static float readWords(chanend server, unsigned count, unsigned page_alignment){
   unsigned buf[SDRAM_ROW_WORDS];
   timer t;
   unsigned now, then;
-  sdram_wait_until_idle(server);
   t :> then;
   for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
-    server  :> int;
     sdram_buffer_read(server, 0, row, page_alignment, count, buf);
+    sdram_wait_until_idle(server, buf);
   }
-  server  :> int;
-  sdram_wait_until_idle(server);
-  server  :> int;
   t :> now;
   return (float)(SDRAM_ROW_COUNT * ((4*100000000/1024)/1024) * count) / (now-then);
 }
@@ -40,15 +28,12 @@ static float writeWords(chanend server, unsigned count, unsigned page_alignment)
   for (unsigned word = 0; word < count; word++) {
     buf[word] = 0xaaaaaaaa;
   }
-  sdram_wait_until_idle(server);
   t :> then;
   for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
-    server  :> int;
     sdram_buffer_write(server, 0, row, page_alignment, count, buf);
+    sdram_wait_until_idle(server, buf);
   }
-  server  :> int;
-  sdram_wait_until_idle(server);
-  server  :> int;
+
   t :> now;
   return (float)(SDRAM_ROW_COUNT * ((4*100000000/1024)/1024) * count) / (now-then);
 }
@@ -60,15 +45,11 @@ static float maxWriteWords(chanend server){
   for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++) {
     buf[word] = 0xaaaaaaaa;
   }
-  sdram_wait_until_idle(server);
   t :> then;
   for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
-    server  :> int;
     sdram_full_row_write(server,0, row, buf);
+    sdram_wait_until_idle(server, buf);
   }
-  server  :> int;
-  sdram_wait_until_idle(server);
-  server  :> int;
   t :> now;
   return (float)(SDRAM_ROW_COUNT * SDRAM_ROW_WORDS * ((4*100000000/1024)/1024)) / (now-then);
 }
@@ -76,15 +57,11 @@ static float maxReadWords(chanend server){
   unsigned buf[SDRAM_ROW_WORDS];
   timer t;
   unsigned now, then;
-  sdram_wait_until_idle(server);
   t :> then;
   for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
-    server  :> int;
-    sdram_full_row_read(server,0, row, buf);
+    sdram_full_row_read(server, 0, row, buf);
+    sdram_wait_until_idle(server, buf);
   }
-  server  :> int;
-  sdram_wait_until_idle(server);
-  server  :> int;
   t :> now;
   return (float)(SDRAM_ROW_COUNT * SDRAM_ROW_WORDS * ((4*100000000/1024)/1024)) / (now-then);
 }
@@ -106,19 +83,16 @@ void sanity_check(chanend sdram_c) {
     input_buffer[i] = i;
     output_buffer[i] = 0xaabbccdd;
   }
+
   sdram_buffer_write(sdram_c, SANITY_TEST_BANK, SANITY_TEST_ROW, SANITY_TEST_COL, SANITY_TEST_SIZE, input_buffer);
-  sdram_c :> int;
-  sdram_wait_until_idle(sdram_c);
-  sdram_c :> int;
+  sdram_wait_until_idle(sdram_c, input_buffer);
+
   sdram_buffer_read(sdram_c, SANITY_TEST_BANK, SANITY_TEST_ROW, SANITY_TEST_COL, SANITY_TEST_SIZE, output_buffer);
-  sdram_c :> int;
-  sdram_wait_until_idle(sdram_c);
-  sdram_c :> int;
+  sdram_wait_until_idle(sdram_c, output_buffer);
 
   for (unsigned i = 0; i < SANITY_TEST_SIZE; i++) {
     if (i != output_buffer[i]) {
-      printf("Failed sanity_check on word %d, got word: 0x%08x\n", i,
-          output_buffer[i]);
+      printf("Failed sanity_check on word %d, got word: 0x%08x\n", i, output_buffer[i]);
       exit(0);
     }
   }
@@ -236,9 +210,7 @@ void sdram_client(chanend server) {
 int main() {
   chan sdram_c;
   par {
-    on stdcore[CORE]:
     sdram_server(sdram_c, sdram_ports);
-    on stdcore[CORE]:
     sdram_client(sdram_c);
   }
   return 0;

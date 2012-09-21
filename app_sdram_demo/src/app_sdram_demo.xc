@@ -18,20 +18,15 @@ void application(chanend server) {
 
   // Write the write_buffer out to SDRAM.
   sdram_buffer_write(server, bank, row, col, BUF_WORDS, write_buffer);
-  // This reply is from the server to acknowledge the command.
-  server :> int;
 
-  // This will get its ack when the server is idle.
-  sdram_wait_until_idle(server);
-  server :> int;
+  //Wait until idle, i.e. the sdram had completed writing.
+  sdram_wait_until_idle(server, write_buffer);
 
   // Read the SDRAM into the read_buffer.
   sdram_buffer_read(server, bank, row, col, BUF_WORDS, read_buffer);
-  server :> int;
 
   //Wait until idle, i.e. the sdram had completed reading and hence the data is ready in the buffer.
-  sdram_wait_until_idle(server);
-  server :> int;
+  sdram_wait_until_idle(server, read_buffer);
 
   for(unsigned i=0;i<BUF_WORDS;i++){
     if(read_buffer[i] != i){

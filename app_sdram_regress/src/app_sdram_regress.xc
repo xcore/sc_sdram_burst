@@ -3,36 +3,11 @@
 #include <stdlib.h>
 #include "sdram.h"
 
-#define CORE 0
-#define TYPE 0
-
-#if TYPE
-on stdcore[CORE]: struct sdram_ports sdram_ports = {
-    XS1_PORT_16B,//DQ AH
-    XS1_PORT_1J, //CAS
-    XS1_PORT_1I, //RAS
-    XS1_PORT_1K, //WE
-    XS1_PORT_1L, //CLK
-    XS1_CLKBLK_1
-};
-#else
-on stdcore[CORE]: struct sdram_ports sdram_ports = {
-    XS1_PORT_16A,//DQ AH
-    XS1_PORT_1B, //CAS
-    XS1_PORT_1G, //RAS
-    XS1_PORT_1C, //WE
-    XS1_PORT_1F, //CLK
-    XS1_CLKBLK_1
-};
-#endif
-unsigned c = 0xffffffff;
-
-//this is test specific
-#define MAX_START_COL 0
-#define MAX_BLOCK_WIDTH_WORDS   SDRAM_ROW_WORDS
 #define MIN_BLOCK_WIDTH_WORDS   1
+struct sdram_ports sdram_ports = {
+    XS1_PORT_16A, XS1_PORT_1B, XS1_PORT_1G, XS1_PORT_1C, XS1_PORT_1F, XS1_CLKBLK_1 };
 
-#define BUF_SIZE (MAX_BLOCK_WIDTH_WORDS)
+unsigned c = 0xffffffff;
 
 void reset_super_pattern() {
   c = 0xffffffff;
@@ -50,18 +25,15 @@ unsigned pseudo_random_number(unsigned min, unsigned max) {
 static inline void client_write(chanend server, unsigned bank,
     unsigned start_row, unsigned start_col, unsigned words, unsigned buffer[]) {
   sdram_buffer_write(server, bank, start_row, start_col, words, buffer);
-  server :> int;
 }
 
 static inline void client_read(chanend server, unsigned bank,
     unsigned start_row, unsigned start_col, unsigned words, unsigned buffer[]) {
   sdram_buffer_read(server, bank, start_row, start_col, words, buffer);
-  server :> int;
 }
 
-static inline void client_wait_until_idle(chanend server) {
-  sdram_wait_until_idle(server);
-  server :> int;
+static inline void client_wait_until_idle(chanend server, unsigned buffer[]) {
+  sdram_wait_until_idle(server, buffer);
 }
 
 static void fillMemoryUnique(chanend server) {
@@ -71,41 +43,37 @@ static void fillMemoryUnique(chanend server) {
       for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++)
         buf[word] = super_pattern();
       client_write(server, bank, row, 0, SDRAM_ROW_WORDS, buf);
+      client_wait_until_idle(server, buf);
     }
   }
-  client_wait_until_idle(server);
 }
 
 static void fillMemory(chanend server, unsigned fill_pattern) {
   unsigned buf[SDRAM_ROW_WORDS];
-  for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++) {
+  for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++)
     buf[word] = fill_pattern;
-  }
-  sdram_wait_until_idle(server);
+
   for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
     for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
-      server  :> int;
       sdram_full_row_write(server, bank, row, buf);
+      sdram_wait_until_idle(server, buf);
     }
   }
-  server  :> int;
-  client_wait_until_idle(server);
 }
 
 static void fillMemoryExcludingRow(chanend server, unsigned fill_pattern,
     unsigned exclusion_bank, unsigned exclusion_row) {
   unsigned buf[SDRAM_ROW_WORDS];
-  for (int word = 0; word < SDRAM_ROW_WORDS; word++) {
+  for (int word = 0; word < SDRAM_ROW_WORDS; word++)
     buf[word] = fill_pattern;
-  }
   for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
     for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
       if (row == exclusion_row && bank == exclusion_bank)
         continue;
       client_write(server, bank, row, 0, SDRAM_ROW_WORDS, buf);
+      client_wait_until_idle(server, buf);
     }
   }
-  client_wait_until_idle(server);
 }
 
 static void single_row_write(chanend server) {
@@ -123,15 +91,16 @@ static void single_row_write(chanend server) {
     for (unsigned test_row = 0; test_row < test_row_count; test_row++) {
       unsigned row = test_rows[test_row];
       client_write(server, bank, row, 0, SDRAM_ROW_WORDS, buf);
+      client_wait_until_idle(server, buf);
       fillMemoryExcludingRow(server, 0xffffffff, bank, row);
       client_read(server, bank, row, 0, SDRAM_ROW_WORDS, buf);
-      client_wait_until_idle(server);
+      client_wait_until_idle(server, buf);
       for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++) {
         unsigned b = buf[word];
         if (b != data) {
           printf("Failed row read on row %d of bank %d: 0x%x != 0\n", row,
               bank, b);
-          exit(0);
+          _Exit(1);
         }
       }
     }
@@ -160,15 +129,15 @@ static void partial_row_write_read(chanend server) {
         for (unsigned word_count = MIN_BLOCK_WIDTH_WORDS; word_count
             < (SDRAM_COL_COUNT - start_col) / 2; word_count++) {
           client_write(server, bank, row, 0, SDRAM_ROW_WORDS, reset_buf);
+          client_wait_until_idle(server, reset_buf);
           for (int word = 0; word < word_count; word++) {
             write_buf[word] = super_pattern();
             read_buf[word] = 0xaabbccdd;
           }
           client_write(server, bank, row, start_col, word_count, write_buf);
-
-          client_wait_until_idle(server);
+          client_wait_until_idle(server, write_buf);
           client_read(server, bank, row, start_col, word_count, read_buf);
-          client_wait_until_idle(server);
+          client_wait_until_idle(server, read_buf);
 
           for (int word = 0; word < word_count; word++) {
             unsigned r = read_buf[word];
@@ -176,7 +145,7 @@ static void partial_row_write_read(chanend server) {
             if (r != w) {
               printf("Failed row read/write on row %d of bank %d at start_col %d with word_count %d on word %d: read:%08x wrote:%08x\n",
                   row, bank, start_col, word_count, word, r, w);
-              exit(0);
+              _Exit(1);
             }
           }
         }
@@ -223,10 +192,11 @@ static void partial_row_write_align(chanend server) {
           }
 
           client_write(server, bank, row, 0, SDRAM_ROW_WORDS, reset_buf);
+          client_wait_until_idle(server, reset_buf);
           client_write(server, bank, row, start_col, word_count, write_buf);
-          client_wait_until_idle(server);
+          client_wait_until_idle(server, write_buf);
           client_read(server, bank, row, 0, SDRAM_ROW_WORDS, read_buf);
-          client_wait_until_idle(server);
+          client_wait_until_idle(server, read_buf);
 
           for (int word = 0; word < word_count; word++) {
             unsigned r = read_buf[word];
@@ -235,7 +205,7 @@ static void partial_row_write_align(chanend server) {
               printf(
                   "Failed row read/write on row %d of bank %d at start_col %d with word_count %d on word %d\n",
                   row, bank, start_col, word_count, word);
-              exit(0);
+              _Exit(1);
             }
           }
         }
@@ -256,7 +226,7 @@ static void whole_mem_write_read(chanend server) {
     for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
       for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
         client_read(server, bank, row, 0, SDRAM_ROW_WORDS, buf);
-        client_wait_until_idle(server);
+        client_wait_until_idle(server, buf);
         for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++) {
           unsigned r = buf[word];
           if (r != pattern) {
@@ -291,7 +261,7 @@ static void refresh_test(chanend server) {
       for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
         for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
           client_read(server, bank, row, 0, SDRAM_ROW_WORDS, buf);
-          client_wait_until_idle(server);
+          client_wait_until_idle(server, buf);
           for(unsigned word=0;word<SDRAM_ROW_WORDS; word++) {
             unsigned r = buf[word];
             if(r != pattern) {
@@ -324,7 +294,7 @@ void pseudo_random_read(chanend server, unsigned test_limit) {
           buffer[word] = makeWord(bank, row, word);
         }
         client_write(server, bank, row, 0, SDRAM_ROW_WORDS, buffer);
-        client_wait_until_idle(server);
+        client_wait_until_idle(server, buffer);
       }
     }
   }
@@ -347,7 +317,7 @@ void pseudo_random_read(chanend server, unsigned test_limit) {
       }
 
       client_read(server, bank, start_row, start_col, block_width_words, buffer);
-      client_wait_until_idle(server);
+      client_wait_until_idle(server, buffer);
 
       for (unsigned word = start_word; word < start_word + block_width_words; word++) {
         unsigned expected = makeWord(bank, start_row, word);
@@ -358,7 +328,7 @@ void pseudo_random_read(chanend server, unsigned test_limit) {
           r = (actual >> 1) & 0xfff;
           w = (actual >> 13) & 0xff;
           printf("fail pseudo_random_read\n");
-          exit(0);
+          _Exit(1);
         }
         wordsChecked++;
       }
@@ -379,9 +349,9 @@ void ordered_read(chanend server, unsigned test_limit) {
           buffer[word] = makeWord(bank, row, word);
         }
         client_write(server, bank, row, 0, SDRAM_ROW_WORDS, buffer);
+        client_wait_until_idle(server, buffer);
       }
     }
-    client_wait_until_idle(server);
   }
 
   {
@@ -391,18 +361,16 @@ void ordered_read(chanend server, unsigned test_limit) {
     for (unsigned bank = 0; bank < SDRAM_BANK_COUNT - 1; bank++) {
       for (unsigned width = MIN_BLOCK_WIDTH_WORDS; width < SDRAM_ROW_WORDS - 1; width++) {
         for (unsigned start_row = 0; start_row < SDRAM_ROW_COUNT - 1; start_row++) {
-          for (unsigned start_col = 0; start_col < SDRAM_COL_COUNT - 2 * width; start_col
-              += 2) {
+          for (unsigned start_col = 0; start_col < SDRAM_COL_COUNT - 2 * width; start_col += 2) {
 
             unsigned start_word = start_col / 2;
             unsigned i = 0;
 
-            for (unsigned x = 0; x < width; x++) {
+            for (unsigned x = 0; x < width; x++)
               buffer[x] = 0;
-            }
 
             client_read(server, bank, start_row, start_col, width, buffer);
-            client_wait_until_idle(server);
+            client_wait_until_idle(server, buffer);
 
             for (unsigned word = start_word; word < start_word + width; word++) {
               unsigned expected = makeWord(bank, start_row, word);
@@ -445,17 +413,17 @@ void sanity_check(chanend sdram_c) {
   }
   client_write(sdram_c, SANITY_TEST_BANK, SANITY_TEST_ROW, SANITY_TEST_COL,
       SANITY_TEST_SIZE, input_buffer);
-  client_wait_until_idle(sdram_c);
+  client_wait_until_idle(sdram_c, input_buffer);
   client_read(sdram_c, SANITY_TEST_BANK, SANITY_TEST_ROW, SANITY_TEST_COL,
       SANITY_TEST_SIZE, output_buffer);
 
-  client_wait_until_idle(sdram_c);
+  client_wait_until_idle(sdram_c, output_buffer);
 
   for (unsigned i = 0; i < SANITY_TEST_SIZE; i++) {
     if (i != output_buffer[i]) {
       printf("Failed sanity_check on word %d, got word: 0x%08x\n", i,
           output_buffer[i]);
-      exit(0);
+      _Exit(1);
     }
   }
   printf("\tPassed\n");
@@ -490,7 +458,6 @@ void test_3_threads(chanend server) {
   chan c[2];
   printf("3 threaded test suite start\n");
   par {
-    //sdram_server
     regression(server, c[0], c[1]);
     load_thread(c[1], c[0]);
   }
@@ -501,7 +468,6 @@ void test_4_threads(chanend server) {
   chan c[3];
   printf("4 threaded test suite start\n");
   par {
-    //sdram_server
     regression(server, c[0], c[1]);
     load_thread(c[1], c[2]);
     load_thread(c[2], c[0]);
@@ -513,7 +479,6 @@ void test_8_threads(chanend server) {
   chan c[7];
   printf("8 threaded test suite start\n");
   par {
-    //sdram_server
     regression(server, c[0], c[1]);
     load_thread(c[1], c[2]);
     load_thread(c[2], c[3]);
@@ -528,7 +493,6 @@ void test_7_threads(chanend server) {
   chan c[6];
   printf("7 threaded test suite start\n");
   par {
-    //sdram_server
     regression(server, c[0], c[1]);
     load_thread(c[1], c[2]);
     load_thread(c[2], c[3]);
@@ -542,7 +506,6 @@ void test_6_threads(chanend server) {
   chan c[5];
   printf("6 threaded test suite start\n");
   par {
-    //sdram_server
     regression(server, c[0], c[1]);
     load_thread(c[1], c[2]);
     load_thread(c[2], c[3]);
@@ -555,7 +518,6 @@ void test_5_threads(chanend server) {
   chan c[4];
   printf("5 threaded test suite start\n");
   par {
-    //sdram_server
     regression(server, c[0], c[1]);
     load_thread(c[1], c[2]);
     load_thread(c[2], c[3]);
@@ -582,9 +544,7 @@ void sdram_client(chanend server) {
 int main() {
   chan sdram_c;
   par {
-    on stdcore[CORE]:
     sdram_server(sdram_c, sdram_ports);
-    on stdcore[CORE]:
     sdram_client(sdram_c);
   }
   return 0;
