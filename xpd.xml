@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<xpd>
+    <components></components>
+    <description>Various modules related to controlling external sdram</description>
+    <location>git@github.com:xcore/sc_sdram_burst.git</location>
+    <name>sc_sdram_burst</name>
+    <maintainer>andrewstanfordjason</maintainer>
+    <partnumber>XM-001914-DH</partnumber>
+    <subpartnumber>XM-001915-SM</subpartnumber>
+    <vendor>XMOS</vendor>
+    <xcore_repo>sc_sdram_burst.git</xcore_repo>
+    <xpd_version>1.0</xpd_version>
+</xpd>
