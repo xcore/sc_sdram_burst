@@ -8,6 +8,8 @@
     <partnumber>XM-001914-DH</partnumber>
     <subpartnumber>XM-001915-SM</subpartnumber>
     <vendor>XMOS</vendor>
+    <docdir>docs</docdir>
+    <exclude_dir>docs</exclude_dir>
     <xcore_repo>sc_sdram_burst.git</xcore_repo>
     <xpd_version>1.0</xpd_version>
 </xpd>
