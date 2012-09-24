@@ -399,6 +399,44 @@ void load_thread(chanend in_t, chanend out_t) {
   out_t <: 1;
 }
 
+static void refresh_test_2(chanend server) {
+
+  unsigned pattern;
+  unsigned wait_multiplier[3] = { 1, 4, 8};
+  unsigned patterns[3] = { 0, 0x55555555, 0xffffffff };
+  unsigned buf[SDRAM_ROW_WORDS];
+  printf("Started refresh_test\n");
+  for (unsigned p = 0; p < 3; p++) {
+    pattern = patterns[p];
+    for (unsigned w = 0; w < 3; w++) {
+
+      fillMemory(server, pattern);
+
+
+      for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
+        for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
+          timer t;
+          unsigned time;
+          client_read(server, bank, row, 0, SDRAM_ROW_WORDS, buf);
+          for(unsigned tw = 0; tw < wait_multiplier[w]; tw++){
+			t :> time;
+			t when timerafter(time+100000000):> int;
+		  }
+          client_wait_until_idle(server, buf);
+          for(unsigned word=0;word<SDRAM_ROW_WORDS; word++) {
+            unsigned r = buf[word];
+            if(r != pattern) {
+              printf("Failed row read/write on row %d of bank %d on word %d\n",
+                  row, bank, word);
+            }
+          }
+        }
+      }
+    }
+  }
+  printf("\tPassed\n");
+}
+
 void sanity_check(chanend sdram_c) {
 #define SANITY_TEST_SIZE 8
 #define SANITY_TEST_BANK 1
@@ -437,6 +475,7 @@ void regression_single_thread(chanend server) {
   partial_row_write_align(server);
   whole_mem_write_read(server);
   refresh_test(server);
+  refresh_test_2(server);
   ordered_read(server, 4096 * 1024);
   pseudo_random_read(server, 4096 * 64);
 }

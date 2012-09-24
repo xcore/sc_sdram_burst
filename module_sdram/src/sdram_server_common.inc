@@ -142,7 +142,8 @@ void ADD_SUFFIX(sdram_server,CUR_IMPL)(chanend client, struct ADD_SUFFIX(sdram_p
         }
         case client :> char cmd: {
           handle_command(cmd, client, ports);
-          client <: 0;
+          outct(client, XS1_CT_END);
+          //client <: 0;
           break;
         }
       }

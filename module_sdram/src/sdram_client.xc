@@ -79,5 +79,7 @@ void sdram_full_row_write(chanend server, unsigned bank, unsigned start_row, uns
 #endif
 
 void sdram_wait_until_idle(chanend server, unsigned buffer[]) {
-  server :> int;
+  //server :> int;
+  chkct(server, XS1_CT_END);
+
 }

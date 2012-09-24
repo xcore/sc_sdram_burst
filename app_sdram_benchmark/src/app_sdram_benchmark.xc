@@ -99,7 +99,7 @@ void sanity_check(chanend sdram_c) {
   if(VERBOSE)
     printf("\tPassed\n");
 }
-void regression_single_thread(chanend server, unsigned cores) {
+void speed_regression_single_thread(chanend server, unsigned cores) {
   sanity_check(server);
   if(VERBOSE){
     printf("Words\tWrite\tWrite\tRead\tRead\n");
@@ -118,15 +118,56 @@ void regression_single_thread(chanend server, unsigned cores) {
   printf("Max read : %.2f MB/s\n", maxReadWords(server));
 }
 
+{float, float} varWriteWords(chanend server, unsigned count){
+  unsigned buf[SDRAM_ROW_WORDS];
+  timer t;
+  unsigned now, then;
+  unsigned min = -1, max = 0;
+  for (unsigned word = 0; word < count; word++) {
+    buf[word] = 0xaaaaaaaa;
+  }
+
+  for (unsigned row = 0; row < 1000; row++) {
+	unsigned time;
+	t :> then;
+    sdram_buffer_write(server, 0, row, 0, count, buf);
+    sdram_wait_until_idle(server, buf);
+    t :> now;
+    time = now - then;
+    if (time < min) min = time;
+    if (time > max) max = time;
+  }
+  return {(float)(SDRAM_ROW_COUNT * ((4*100000000/1024)/1024) * count) / min,
+	  (float)(SDRAM_ROW_COUNT * ((4*100000000/1024)/1024) * count) / max};
+}
+
+
+void latency_regression_single_thread(chanend server, unsigned cores) {
+  sanity_check(server);
+  if(VERBOSE){
+    printf("Words\tWrite\tWrite\tRead\tRead\n");
+    printf("\tsingle\tmulti\tsingle\tmulti\n");
+  }
+  for(unsigned word_count = 1; word_count <= SDRAM_ROW_WORDS; word_count++){
+    float min, max;
+    {min, max} = varWriteWords(server, word_count);
+    if(VERBOSE)
+      printf("%d\t%.2f\t%.2f\t%.2f\t%.2f\n", word_count, min, max);
+  }
+  printf("Cores active: %d\n", cores);
+}
+
 void regression(chanend server, chanend in_t, chanend out_t, unsigned cores) {
-  regression_single_thread(server, cores);
+  speed_regression_single_thread(server, cores);
+  latency_regression_single_thread(server, cores);
   out_t <: 1;
   in_t :> int;
 }
 
 void test_2_threads(chanend server) {
   //sdram_server
-  regression_single_thread(server, 2);
+  speed_regression_single_thread(server, 2);
+  latency_regression_single_thread(server, 2);
 }
 
 void test_3_threads(chanend server) {

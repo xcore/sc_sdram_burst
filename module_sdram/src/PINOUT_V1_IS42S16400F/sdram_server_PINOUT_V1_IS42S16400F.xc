@@ -80,10 +80,11 @@ static inline void sdram_refresh_PINOUT_V1_IS42S16400F(unsigned ncycles, struct 
   unsigned t;
   t = partout_timestamped(p.cas, 1, CTRL_CAS_NOP);
   t+=20;
-  for (unsigned i = 0; i < ncycles; i+=8){
-  t+=(8*SDRAM_CMDS_PER_REFRESH);
   partout_timed(p.cas, 8*SDRAM_CMDS_PER_REFRESH, CAS_OCTUPLE_REFRESH, t);
   partout_timed(p.ras, 8*SDRAM_CMDS_PER_REFRESH, RAS_OCTUPLE_REFRESH, t);
+  for (unsigned i = 8; i < ncycles; i+=8){
+    partout(p.cas, 8*SDRAM_CMDS_PER_REFRESH, CAS_OCTUPLE_REFRESH);
+    partout(p.ras, 8*SDRAM_CMDS_PER_REFRESH, RAS_OCTUPLE_REFRESH);
   }
 }
 
