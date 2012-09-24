@@ -10,6 +10,15 @@
 */
 void mm_read_words(chanend server, unsigned address, unsigned words, unsigned buffer[]);
 
+/** \brief Reads words from the SDRAM server on the end of the channel provided.
+*
+* \param server The channel end connecting to the SDRAM server.
+* \param address The virtual address of where the read will begin from.
+* \param words The count of words to be read
+* \param buffer A pointer to the buffer where the data will be written to.
+*/
+void mm_read_words_p(chanend server, unsigned address, unsigned words, unsigned buffer);
+
 /**  Writes words to the SDRAM server on the end of the channel provided.
 *
 * \param server The channel end connecting to the SDRAM server.
@@ -19,16 +28,27 @@ void mm_read_words(chanend server, unsigned address, unsigned words, unsigned bu
 */
 void mm_write_words(chanend server, unsigned address, unsigned words, unsigned buffer[]);
 
-/** Receives the ack token from the SDRAM server.
- *
- * \param server The channel end connecting to the SDRAM server.
- */
-void mm_receive_ack(chanend server);
+/**  Writes words to the SDRAM server on the end of the channel provided.
+*
+* \param server The channel end connecting to the SDRAM server.
+* \param address The virtual address of where the write will begin from.
+* \param words The count of words to be written.
+* \param buffer[]  A pointer to the buffer where the data will be written to.
+*/
+void mm_write_words_p(chanend server, unsigned address, unsigned words, unsigned buffer);
 
-/** Returns when the SDRAM server is in the dile state.
+/** Returns when the SDRAM server is in the idle state.
  *
  * \param server The channel end connecting to the SDRAM server.
+ * \param buffer[]  The buffer which the last command was performed on.
  */
-void mm_wait_until_idle(chanend server);
+void mm_wait_until_idle(chanend server, unsigned buffer[]);
+
+/** Returns when the SDRAM server is in the idle state.
+ *
+ * \param server The channel end connecting to the SDRAM server.
+ * \param buffer  A pointer to the  buffer which the last command was performed on.
+ */
+void mm_wait_until_idle_p(chanend server, unsigned buffer);
 
 #endif /* MODULE_MEMORY_MAPPER_H_ */
