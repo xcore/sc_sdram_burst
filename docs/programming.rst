@@ -1,5 +1,4 @@
 
-
 SDRAM Programming Guide
 =======================
 
@@ -143,4 +142,4 @@ Now the ``application`` function is able to use the SDRAM server.
 SDRAM Memory Mapper Programming Guide
 =====================================
 
-The SDRAM memory mapper has a simple interface where to the ``mm_read_words`` and ``mm_write_words`` an virtual address is passes, this virtual address is mapped to a physical address. The ``mm_receive_ack`` function serves only to receive the ack token from the ``sdram_server`` when the command has been accepted. Finally, the ``mm_wait_until_idle`` exists so that the application can run the ``mm_read_words`` in a non-blocking manner then confirm that the data is present in the buffer when the ``mm_wait_until_idle`` returns.
+The SDRAM memory mapper has a simple interface where to the ``mm_read_words`` and ``mm_write_words`` a virtual address is passes, this virtual address is mapped to a physical address and the I/O is performed there. The ``mm_wait_until_idle`` exists so that the application can run the I/O commands in a non-blocking manner then confirm that the command has when the ``mm_wait_until_idle`` returns.

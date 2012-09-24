@@ -99,12 +99,25 @@ These are the functions that are called from the application and are included in
 Server Functions
 ++++++++++++++++
 
+C and XC Interface
+------------------
 .. doxygenfunction:: sdram_server
+
+XC Interface
+------------
 .. doxygenfunction:: sdram_wait_until_idle
 .. doxygenfunction:: sdram_buffer_write
 .. doxygenfunction:: sdram_full_row_write
 .. doxygenfunction:: sdram_buffer_read
 .. doxygenfunction:: sdram_full_row_read
+
+C Interface
+-----------
+.. doxygenfunction:: sdram_wait_until_idle_p
+.. doxygenfunction:: sdram_buffer_write_p
+.. doxygenfunction:: sdram_full_row_write_p
+.. doxygenfunction:: sdram_buffer_read_p
+.. doxygenfunction:: sdram_full_row_read_p
 
 SDRAM Memory Mapper API
 -----------------------
@@ -113,9 +126,15 @@ These are the functions that are called from the application and are included in
 
 Server Functions
 ++++++++++++++++
-
+XC Interface
+------------
 .. doxygenfunction:: mm_read_words
 .. doxygenfunction:: mm_write_words
-.. doxygenfunction:: mm_receive_ack
 .. doxygenfunction:: mm_wait_until_idle
+
+C Interface
+-----------
+.. doxygenfunction:: mm_read_words_p
+.. doxygenfunction:: mm_write_words_p
+.. doxygenfunction:: mm_wait_until_idle_p
 
