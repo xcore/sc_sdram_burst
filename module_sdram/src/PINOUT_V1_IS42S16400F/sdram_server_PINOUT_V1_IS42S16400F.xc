@@ -79,7 +79,7 @@ void sdram_init_PINOUT_V1_IS42S16400F(struct sdram_ports_PINOUT_V1_IS42S16400F &
 static inline void sdram_refresh_PINOUT_V1_IS42S16400F(unsigned ncycles, struct sdram_ports_PINOUT_V1_IS42S16400F &p) {
   unsigned t;
   t = partout_timestamped(p.cas, 1, CTRL_CAS_NOP);
-  t+=20;
+  t+=8;
   partout_timed(p.cas, 8*SDRAM_CMDS_PER_REFRESH, CAS_OCTUPLE_REFRESH, t);
   partout_timed(p.ras, 8*SDRAM_CMDS_PER_REFRESH, RAS_OCTUPLE_REFRESH, t);
   for (unsigned i = 8; i < ncycles; i+=8){
@@ -98,8 +98,14 @@ void sdram_short_block_read_PINOUT_V1_IS42S16400F(unsigned buffer, unsigned word
 /*
  * These numbers are tuned for 50MIPS.
  */
-#define WRITE_SETUP_LATENCY (50)
-#define READ_SETUP_LATENCY (50)
+//#define WRITE_SETUP_LATENCY (36)
+//#define READ_SETUP_LATENCY (45)
+
+/*
+ * These numbers are tuned for 62.5MIPS.
+ */
+#define WRITE_SETUP_LATENCY (28)
+#define READ_SETUP_LATENCY (33)
 
 static unsigned bank_table[SDRAM_BANK_COUNT_PINOUT_V1_IS42S16400F] =
    {(0<<13) | (0<<(13+16) | 1<<(10+16)),

@@ -24,17 +24,6 @@ configPoints =
     resourceUsageFlags = {"noeffect"},
     default = "PINOUT_V1_IS42S16400F"
   },
-  enable_wait_until_idle =
-  {
-    short   = "Enable wait until idle",
-    long    = "",
-    help    = "Enables the wait until the sdram becomes idle command",
-    units   = "",
-    define  = "SDRAM_ENABLE_CMD_WAIT_UNTIL_IDLE",
-    type    = "string",
-    resourceUsageFlags = {"noeffect"},
-    default = true
-  },
   enable_buffer_read =
   {
     short   = "Enable buffer read",
@@ -105,13 +94,13 @@ ports = {
   },
   p_sdram_cas = {
     short   = "sdram_we",
-    long    = "Sdram Write Enable",
+    long    = "SDRAM Write Enable",
     help    = "",
     width   = 1
   },
   p_sdram_clk = {
     short   = "sdram_clk",
-    long    = "Sdram Clock",
+    long    = "SDRAM Clock",
     help    = "",
     width   = 1
   },
@@ -140,9 +129,32 @@ end
 
 generatedCode = {
   includes = {"sdram.h"},
-  globals = {},
-  body = {}
+  globals = [[
+    struct sdram_ports sdram_${swblock.id}_ports = { 
+      ${swblock.ports.sdram_adq},  
+      ${swblock.ports.sdram_cas}, 
+      ${swblock.ports.sdram_ras},  
+      ${swblock.ports.sdram_we}, 
+      ${swblock.ports.sdram_clk}, 
+      ${swblock.clocks[1]}
+    };
+  ]],
+  body = [[
+    sdram_server(p_uart_rx, rx_buffer, ${swblock.channels.c_sdram_client}, struct sdram_ports sdram_${swblock.id}_ports);
+  ]]
 }
 
-
+api = {
+       'sdram_buffer_read_p',
+       'sdram_buffer_read',
+       'sdram_buffer_write_p',
+       'sdram_buffer_write',
+       'sdram_full_row_read_p',
+       'sdram_full_row_read',
+       'sdram_full_row_write_p',
+       'sdram_full_row_write',
+       'sdram_wait_until_idle_p',
+       'sdram_wait_until_idle',
+       'sdram_server'
+      }
 

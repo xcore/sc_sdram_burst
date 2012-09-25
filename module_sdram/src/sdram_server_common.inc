@@ -125,8 +125,8 @@ void ADD_SUFFIX(sdram_server,CUR_IMPL)(chanend client, struct ADD_SUFFIX(sdram_p
   unsigned T, now, then;
   ADD_SUFFIX(sdram_init,CUR_IMPL)(ports);
   {
-     timer t;
-     ADD_SUFFIX(sdram_refresh,CUR_IMPL)(SDRAM_REFRESH_CYCLES, ports);
+    timer t;
+    ADD_SUFFIX(sdram_refresh,CUR_IMPL)(SDRAM_REFRESH_CYCLES, ports);
     t:> then;
     T = then + SDRAM_REF_TICKS_PER_REFRESH * SDRAM_ACCEPTABLE_REFRESH_GAP;
     while (1) {
@@ -143,7 +143,6 @@ void ADD_SUFFIX(sdram_server,CUR_IMPL)(chanend client, struct ADD_SUFFIX(sdram_p
         case client :> char cmd: {
           handle_command(cmd, client, ports);
           outct(client, XS1_CT_END);
-          //client <: 0;
           break;
         }
       }

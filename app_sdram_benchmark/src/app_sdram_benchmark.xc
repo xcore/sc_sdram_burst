@@ -118,7 +118,7 @@ void speed_regression_single_thread(chanend server, unsigned cores) {
   printf("Max read : %.2f MB/s\n", maxReadWords(server));
 }
 
-{float, float} varWriteWords(chanend server, unsigned count){
+{unsigned, unsigned} varWriteWords(chanend server, unsigned count){
   unsigned buf[SDRAM_ROW_WORDS];
   timer t;
   unsigned now, then;
@@ -127,7 +127,7 @@ void speed_regression_single_thread(chanend server, unsigned cores) {
     buf[word] = 0xaaaaaaaa;
   }
 
-  for (unsigned row = 0; row < 1000; row++) {
+  for (unsigned row = 0; row < 10000; row++) {
 	unsigned time;
 	t :> then;
     sdram_buffer_write(server, 0, row, 0, count, buf);
@@ -137,24 +137,34 @@ void speed_regression_single_thread(chanend server, unsigned cores) {
     if (time < min) min = time;
     if (time > max) max = time;
   }
-  return {(float)(SDRAM_ROW_COUNT * ((4*100000000/1024)/1024) * count) / min,
-	  (float)(SDRAM_ROW_COUNT * ((4*100000000/1024)/1024) * count) / max};
+  return {min, max};
 }
 
 
 void latency_regression_single_thread(chanend server, unsigned cores) {
+  unsigned total = 0;
+  unsigned min_results[SDRAM_ROW_WORDS+1];
+  unsigned max_results[SDRAM_ROW_WORDS+1];
+  float min_latency=0;
+  float max_latency=0;
+
   sanity_check(server);
-  if(VERBOSE){
-    printf("Words\tWrite\tWrite\tRead\tRead\n");
-    printf("\tsingle\tmulti\tsingle\tmulti\n");
-  }
   for(unsigned word_count = 1; word_count <= SDRAM_ROW_WORDS; word_count++){
-    float min, max;
+	  unsigned min, max;
     {min, max} = varWriteWords(server, word_count);
-    if(VERBOSE)
-      printf("%d\t%.2f\t%.2f\t%.2f\t%.2f\n", word_count, min, max);
+    total += max;
+    min_results[word_count] = min;
+    max_results[word_count] = max;
   }
-  printf("Cores active: %d\n", cores);
+
+  for(unsigned word_count = 1; word_count <= SDRAM_ROW_WORDS; word_count++){
+	min_latency += (min_results[word_count] - 4*word_count);
+	max_latency += (max_results[word_count] - 4*word_count);
+  }
+  min_latency /= SDRAM_ROW_WORDS;
+  max_latency /= SDRAM_ROW_WORDS;
+
+  printf("Min Latency: %.2f\nMax Latency: %.2f\n", min_latency, max_latency);
 }
 
 void regression(chanend server, chanend in_t, chanend out_t, unsigned cores) {

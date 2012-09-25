@@ -402,26 +402,26 @@ void load_thread(chanend in_t, chanend out_t) {
 static void refresh_test_2(chanend server) {
 
   unsigned pattern;
-  unsigned wait_multiplier[3] = { 1, 4, 8};
+  unsigned wait_multiplier[3] = { 1, 2, 3};
   unsigned patterns[3] = { 0, 0x55555555, 0xffffffff };
+  unsigned test_rows[8] = { 0, 1, 2, 3, SDRAM_ROW_COUNT - 4, SDRAM_ROW_COUNT
+      - 3, SDRAM_ROW_COUNT - 2, SDRAM_ROW_COUNT - 1 };
   unsigned buf[SDRAM_ROW_WORDS];
-  printf("Started refresh_test\n");
+  printf("Started refresh_test_2\n");
   for (unsigned p = 0; p < 3; p++) {
     pattern = patterns[p];
     for (unsigned w = 0; w < 3; w++) {
 
       fillMemory(server, pattern);
-
-
       for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
-        for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
-          timer t;
+
+        for (unsigned t = 0; t < 8; t++) {
+          timer T;
           unsigned time;
+          unsigned row = test_rows[t];
           client_read(server, bank, row, 0, SDRAM_ROW_WORDS, buf);
-          for(unsigned tw = 0; tw < wait_multiplier[w]; tw++){
-			t :> time;
-			t when timerafter(time+100000000):> int;
-		  }
+		  T :> time;
+		  T when timerafter(time+100000000):> int;
           client_wait_until_idle(server, buf);
           for(unsigned word=0;word<SDRAM_ROW_WORDS; word++) {
             unsigned r = buf[word];
