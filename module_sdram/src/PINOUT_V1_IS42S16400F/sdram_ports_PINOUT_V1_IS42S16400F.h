@@ -5,7 +5,7 @@
 /*
  *  Structure containing the resources required for the SDRAM  ports interface.
  */
-struct sdram_ports_PINOUT_V1_IS42S16400F
+typedef struct sdram_ports_PINOUT_V1_IS42S16400F
 {
   //Data and Address muxed along with bank address
   buffered port:32 dq_ah;
@@ -19,5 +19,5 @@ struct sdram_ports_PINOUT_V1_IS42S16400F
   out port clk;
 
   clock cb;
-};
+} sdram_ports_PINOUT_V1_IS42S16400F;
 #endif /* SDRAM_PORTS_PINOUT_V1_IS42S16400F_H_ */

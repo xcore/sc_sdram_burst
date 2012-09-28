@@ -5,7 +5,7 @@
 /*
  *  Structure containing the resources required for the SDRAM  ports interface.
  */
-struct sdram_ports_PINOUT_V0
+typedef struct sdram_ports_PINOUT_V0
 {
   //Data and Address muxed
   port dq_ah;
@@ -23,5 +23,5 @@ struct sdram_ports_PINOUT_V0
   out buffered port:4 dqm;
 
   clock cb;
-};
+} sdram_ports_PINOUT_V0;
 #endif /* SDRAM_PORTS_PINOUT_V0_H_ */

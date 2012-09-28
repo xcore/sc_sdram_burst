@@ -19,8 +19,9 @@ configPoints =
     short   = "SDRAM target",
     long    = "",
     help    = "This specifies the target",
+    type    = "string",
     define  = "SDRAM_DEFAULT_IMPLEMENTATION",
-    options = {"PINOUT_V1_IS42S16400F", "PINOUT_V1_IS42S16160D", "PINOUT_V0"}, 
+    options = {"PINOUT_V1_IS42S16400F"},
     resourceUsageFlags = {"noeffect"},
     default = "PINOUT_V1_IS42S16400F"
   },
@@ -74,6 +75,7 @@ configPoints =
 derivedValues = {}
 
 ports = {
+
   p_sdram_adq = {
     short   = "sdram_adq",
     long    = "Combined SDRAM Address/Data Bus/Bank Address",
@@ -92,7 +94,7 @@ ports = {
     help    = "",
     width   = 1
   },
-  p_sdram_cas = {
+  p_sdram_we = {
     short   = "sdram_we",
     long    = "SDRAM Write Enable",
     help    = "",
@@ -103,13 +105,13 @@ ports = {
     long    = "SDRAM Clock",
     help    = "",
     width   = 1
-  },
+  }
 }
 
 channels = {
   c_sdram_client = {
     short = "SDRAM Client channel",
-    long  = "Channel for the client to exchange commands and data with the SDRAM Controller,
+    long  = "Channel for the client to exchange commands and data with the SDRAM Controller",
     help  = "",
   },
 }    
@@ -127,17 +129,17 @@ end
 generatedCode = {
   includes = {"sdram.h"},
   globals = [[
-    struct sdram_ports sdram_${swblock.id}_ports = { 
-      ${swblock.ports.sdram_adq},  
-      ${swblock.ports.sdram_cas}, 
-      ${swblock.ports.sdram_ras},  
-      ${swblock.ports.sdram_we}, 
-      ${swblock.ports.sdram_clk}, 
+    sdram_ports_${swblock.params.sdram}_target sdram_${swblock.id}_resources = { 
+      ${swblock.ports.p_sdram_adq},  
+      ${swblock.ports.p_sdram_cas}, 
+      ${swblock.ports.p_sdram_ras},  
+      ${swblock.ports.p_sdram_we}, 
+      ${swblock.ports.p_sdram_clk}, 
       ${swblock.clocks[1]}
     };
   ]],
   body = [[
-    sdram_server(${swblock.channels.c_sdram_client}, struct sdram_ports sdram_${swblock.id}_ports);
+    sdram_server_${swblock.params.sdram}_target (${swblock.chanends.c_sdram_client},  sdram_${swblock.id}_resources);
   ]]
 }
 
