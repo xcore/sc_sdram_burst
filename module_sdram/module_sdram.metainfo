@@ -76,7 +76,7 @@ derivedValues = {}
 ports = {
   p_sdram_adq = {
     short   = "sdram_adq",
-    long    = "Combined SDRAM Address/Data Bus",
+    long    = "Combined SDRAM Address/Data Bus/Bank Address",
     help    = "",
     width   = 16
   },
@@ -117,9 +117,6 @@ channels = {
 function getConfigStatus()
   local status = "Trusted Configuration"
   local issues = {}
-  if swblock.params.clock_divider == 1 or swblock.params.enable_cmd_full_row_read == 2 then
-    status = "FIXME"  
-  end
   return status, issues
 end
             
@@ -140,7 +137,7 @@ generatedCode = {
     };
   ]],
   body = [[
-    sdram_server(p_uart_rx, rx_buffer, ${swblock.channels.c_sdram_client}, struct sdram_ports sdram_${swblock.id}_ports);
+    sdram_server(${swblock.channels.c_sdram_client}, struct sdram_ports sdram_${swblock.id}_ports);
   ]]
 }
 
