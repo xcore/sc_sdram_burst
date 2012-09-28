@@ -17,7 +17,7 @@ void mm_read_words(chanend server, unsigned address, unsigned words, unsigned bu
 * \param words The count of words to be read
 * \param buffer A pointer to the buffer where the data will be written to.
 */
-void mm_read_words_p(chanend server, unsigned address, unsigned words, unsigned buffer);
+void mm_read_words_p(chanend server, unsigned address, unsigned words, intptr_t buffer);
 
 /**  Writes words to the SDRAM server on the end of the channel provided.
 *
@@ -33,9 +33,9 @@ void mm_write_words(chanend server, unsigned address, unsigned words, unsigned b
 * \param server The channel end connecting to the SDRAM server.
 * \param address The virtual address of where the write will begin from.
 * \param words The count of words to be written.
-* \param buffer[]  A pointer to the buffer where the data will be written to.
+* \param buffer  A pointer to the buffer where the data will be written to.
 */
-void mm_write_words_p(chanend server, unsigned address, unsigned words, unsigned buffer);
+void mm_write_words_p(chanend server, unsigned address, unsigned words, intptr_t buffer);
 
 /** Returns when the SDRAM server is in the idle state.
  *
@@ -47,8 +47,8 @@ void mm_wait_until_idle(chanend server, unsigned buffer[]);
 /** Returns when the SDRAM server is in the idle state.
  *
  * \param server The channel end connecting to the SDRAM server.
- * \param buffer  A pointer to the  buffer which the last command was performed on.
+ * \param buffer A pointer to the  buffer which the last command was performed on.
  */
-void mm_wait_until_idle_p(chanend server, unsigned buffer);
+void mm_wait_until_idle_p(chanend server, intptr_t buffer);
 
 #endif /* MODULE_MEMORY_MAPPER_H_ */

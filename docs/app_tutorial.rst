@@ -15,7 +15,7 @@ This application demonstrates how the module is used to accesses memory on the S
 Getting Started
 +++++++++++++++
 
-   #. Plug the XA-SK-SDRAM Slice Card into any but the the 'TRIANGLE' slot of the Slicekit Core Board 
+   #. Plug the XA-SK-SDRAM Slice Card the the 'STAR' slot of the Slicekit Core Board 
    #. Open ``app_sdram_demo.xc`` and select the slot the  XA-SK-SDRAM Slice Card was inserted into.
    #. run the program
 
@@ -31,7 +31,7 @@ This application serves as a software regression to aid implementing new SDRAM i
 Getting Started
 +++++++++++++++
 
-   #. Plug the XA-SK-SDRAM Slice Card into any but the the 'TRIANGLE' slot of the Slicekit Core Board 
+   #. Plug the XA-SK-SDRAM Slice Card the the 'STAR' slot of the Slicekit Core Board 
    #. Open ``app_sdram_regress.xc`` and select the slot the  XA-SK-SDRAM Slice Card was inserted into.
    #. run the program
 
@@ -50,7 +50,7 @@ This application benchmarks the performance of the module. It does no correctnes
 Getting Started
 +++++++++++++++
 
-   #. Plug the XA-SK-SDRAM Slice Card into any but the the 'TRIANGLE' slot of the Slicekit Core Board 
+   #. Plug the XA-SK-SDRAM Slice Card the the 'STAR' slot of the Slicekit Core Board 
    #. Open ``app_sdram_benchmark.xc`` and select the slot the  XA-SK-SDRAM Slice Card was inserted into.
    #. run the program
 
