@@ -4,7 +4,7 @@
 #include "sdram.h"
 
 #define MIN_BLOCK_WIDTH_WORDS   1
-struct sdram_ports sdram_ports = {
+sdram_ports ports = {
     XS1_PORT_16A, XS1_PORT_1B, XS1_PORT_1G, XS1_PORT_1C, XS1_PORT_1F, XS1_CLKBLK_1 };
 
 unsigned c = 0xffffffff;
@@ -583,7 +583,7 @@ void sdram_client(chanend server) {
 int main() {
   chan sdram_c;
   par {
-    sdram_server(sdram_c, sdram_ports);
+    sdram_server(sdram_c, ports);
     sdram_client(sdram_c);
   }
   return 0;
