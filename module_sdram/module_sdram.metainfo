@@ -129,7 +129,7 @@ end
 generatedCode = {
   includes = {"sdram.h"},
   globals = [[
-    sdram_ports_${swblock.params.sdram}_target sdram_${swblock.id}_resources = { 
+    sdram_ports_${swblock.params.sdram_target} sdram_${swblock.id}_resources = { 
       ${swblock.ports.p_sdram_adq},  
       ${swblock.ports.p_sdram_cas}, 
       ${swblock.ports.p_sdram_ras},  
@@ -139,7 +139,7 @@ generatedCode = {
     };
   ]],
   body = [[
-    sdram_server_${swblock.params.sdram}_target (${swblock.chanends.c_sdram_client},  sdram_${swblock.id}_resources);
+    sdram_server_${swblock.params.sdram_target} (${swblock.chanends.c_sdram_client},  sdram_${swblock.id}_resources);
   ]]
 }
 

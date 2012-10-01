@@ -13,7 +13,7 @@
  * \param client The channel end connecting the application to the server
  * \param ports The structure carrying the SDRAM port details.
  */
-void sdram_server(chanend client, struct sdram_ports &ports);
+void sdram_server(chanend client,  struct sdram_ports_PINOUT_V1_IS42S16400F &ports);
 
 #define sdram_server ADD_SUFFIX(sdram_server, SDRAM_DEFAULT_IMPLEMENTATION)
 
