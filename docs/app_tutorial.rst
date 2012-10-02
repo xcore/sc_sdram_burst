@@ -15,9 +15,11 @@ This application demonstrates how the module is used to accesses memory on the S
 Getting Started
 +++++++++++++++
 
-   #. Plug the XA-SK-SDRAM Slice Card the the 'STAR' slot of the Slicekit Core Board 
-   #. Open ``app_sdram_demo.xc`` and select the slot the  XA-SK-SDRAM Slice Card was inserted into.
-   #. run the program
+   #. Plug the XA-SK-SDRAM Slice Card into the 'STAR' slot of the Slicekit Core Board.
+   #. Plug the XA-SK-XTAG2 Card into the Slicekit Core Board.
+   #. Ensure the XMOS LINK switch on the XA-SK-XTAG2 is set to "off".
+   #. Open ``app_sdram_demo.xc`` and build it.
+   #. run the program on the hardware.
 
 The output produced should look like::
 
@@ -31,9 +33,11 @@ This application serves as a software regression to aid implementing new SDRAM i
 Getting Started
 +++++++++++++++
 
-   #. Plug the XA-SK-SDRAM Slice Card the the 'STAR' slot of the Slicekit Core Board 
-   #. Open ``app_sdram_regress.xc`` and select the slot the  XA-SK-SDRAM Slice Card was inserted into.
-   #. run the program
+   #. Plug the XA-SK-SDRAM Slice Card into the 'STAR' slot of the Slicekit Core Board.
+   #. Plug the XA-SK-XTAG2 Card into the Slicekit Core Board.
+   #. Ensure the XMOS LINK switch on the XA-SK-XTAG2 is set to "off".
+   #. Open ``app_sdram_regress.xc`` and build it.
+   #. run the program on the hardware.
 
 The output produced should look like::
 
@@ -50,9 +54,11 @@ This application benchmarks the performance of the module. It does no correctnes
 Getting Started
 +++++++++++++++
 
-   #. Plug the XA-SK-SDRAM Slice Card the the 'STAR' slot of the Slicekit Core Board 
-   #. Open ``app_sdram_benchmark.xc`` and select the slot the  XA-SK-SDRAM Slice Card was inserted into.
-   #. run the program
+   #. Plug the XA-SK-SDRAM Slice Card into the 'STAR' slot of the Slicekit Core Board.
+   #. Plug the XA-SK-XTAG2 Card into the Slicekit Core Board.
+   #. Ensure the XMOS LINK switch on the XA-SK-XTAG2 is set to "off".
+   #. Open ``app_sdram_benchmark.xc`` and build it.
+   #. run the program on the hardware.
 
 The output produced should look like::
 
