@@ -112,7 +112,9 @@ static void handle_command(char cmd, chanend client, struct ADD_SUFFIX(sdram_por
     }
 #endif
     default:
+#if (XCC_VERSION_MAJOR >= 12)
       __builtin_unreachable();
+#endif
       break;
   }
 }
