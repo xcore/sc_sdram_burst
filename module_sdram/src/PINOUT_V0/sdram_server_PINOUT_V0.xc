@@ -21,6 +21,10 @@ void sdram_init_PINOUT_V0(struct sdram_ports_PINOUT_V0 &p) {
   partout_timed(p.cas, 1, CTRL_CAS_NOP, t+32);
   partout_timed(p.ras, 1, CTRL_RAS_NOP, t+32);
   partout_timed(p.we, 1, CTRL_WE_NOP, t+32);
+  stop_clock(p.cb);
+
+  T :> time;
+  T when timerafter(t + 100 * TIMER_TICKS_PER_US) :> time;
 
   set_clock_div(p.cb, 1);
   set_port_clock(p.clk, p.cb);

@@ -10,48 +10,72 @@
 #define TIMER_TICKS_PER_US PLATFORM_REFERENCE_MHZ
 
 void sdram_init_PINOUT_V1_IS42S16160D(struct sdram_ports_PINOUT_V1_IS42S16160D &p) {
-  timer T;
-  int t;
+	  timer T;
+	  int time, t;
 
-  set_clock_div(p.cb, SDRAM_CLOCK_DIVIDER);
-  set_port_clock(p.clk, p.cb);
-  set_port_mode_clock(p.clk);
+	  p.cas <: 0;
+	  p.ras <: 0;
+	  p.we <: 0;
+	  p.dq_ah <: 0;
 
-  set_port_clock(p.dq_ah, p.cb);
-  set_port_clock(p.cas, p.cb);
-  set_port_clock(p.ras, p.cb);
-  set_port_clock(p.we, p.cb);
-  set_port_sample_delay(p.dq_ah);
-  start_clock(p.cb);
+	  stop_clock(p.cb);
 
-  T :> t;
+	  T :> time;
+	  T when timerafter(t + 100 * TIMER_TICKS_PER_US) :> time;
 
-  T when timerafter(t + 100 * TIMER_TICKS_PER_US) :> t;
+	  set_clock_div(p.cb, SDRAM_CLOCK_DIVIDER);
+	  set_port_clock(p.clk, p.cb);
+	  set_port_mode_clock(p.clk);
 
-  p.dq_ah <: 0x04000400 @ t;
+	  set_port_clock(p.dq_ah, p.cb);
+	  set_port_clock(p.cas, p.cb);
+	  set_port_clock(p.ras, p.cb);
+	  set_port_clock(p.we, p.cb);
+	  set_port_sample_delay(p.dq_ah);
+	  start_clock(p.cb);
 
-  t+=60;
+	  p.dq_ah <: 0 @ t;
+	  t+=20;
 
-  partout_timed(p.ras, 2, CTRL_RAS_PRECHARGE | (CTRL_RAS_NOP<<1), t);
-  partout_timed(p.we, 2,  CTRL_WE_PRECHARGE  | (CTRL_WE_NOP<<1),  t);
-  t+=8;
+	  partout(p.cas,1, 0);
+	  partout(p.we, 1, 0);
 
-  for(unsigned i=0;i<4;i++){
-    partout_timed(p.cas, 2, CTRL_CAS_REFRESH | (CTRL_CAS_NOP<<1), t);
-    partout_timed(p.ras, 2, CTRL_RAS_REFRESH | (CTRL_RAS_NOP<<1), t);
-    t+=8;
-  }
+	  T :> time;
+	  T when timerafter(t + 100 * TIMER_TICKS_PER_US) :> time;
 
-  // set mode register
-  p.dq_ah @ t<: (SDRAM_MODE_REGISTER << 16)|SDRAM_MODE_REGISTER;
-  t+=32;
+	  p.dq_ah <: 0 @ t;
+	  t+=20;
+	  partout_timed(p.ras,1, CTRL_RAS_NOP, t);
+	  partout_timed(p.cas,1, CTRL_CAS_NOP, t);
+	  partout_timed(p.we, 1, CTRL_WE_NOP,  t);
 
-  //do 16 nops
-  t+=16;
+	  T :> time;
+	  T when timerafter(t + 50 * TIMER_TICKS_PER_US) :> time;
 
-  partout_timed(p.cas, 2, CTRL_CAS_LOAD_MODEREG | (CTRL_CAS_NOP<<1), t);
-  partout_timed(p.ras, 2, CTRL_RAS_LOAD_MODEREG | (CTRL_RAS_NOP<<1), t);
-  partout_timed(p.we, 2,  CTRL_WE_LOAD_MODEREG  | (CTRL_WE_NOP<<1),  t);
+	  p.dq_ah <: 0x04000400 @ t;
+
+	  t+=60;
+
+	  partout_timed(p.ras, 2, CTRL_RAS_PRECHARGE | (CTRL_RAS_NOP<<1), t);
+	  partout_timed(p.we, 2,  CTRL_WE_PRECHARGE  | (CTRL_WE_NOP<<1),  t);
+	  t+=8;
+
+	  for(unsigned i=0;i<128;i++){
+	    partout_timed(p.cas, 2, CTRL_CAS_REFRESH | (CTRL_CAS_NOP<<1), t);
+	    partout_timed(p.ras, 2, CTRL_RAS_REFRESH | (CTRL_RAS_NOP<<1), t);
+	    t+=8;
+	  }
+
+	  // set mode register
+	  p.dq_ah @ t<: (SDRAM_MODE_REGISTER << 16)|SDRAM_MODE_REGISTER;
+	  t+=32;
+
+	  //do 16 nops
+	  t+=16;
+
+	  partout_timed(p.cas, 2, CTRL_CAS_LOAD_MODEREG | (CTRL_CAS_NOP<<1), t);
+	  partout_timed(p.ras, 2, CTRL_RAS_LOAD_MODEREG | (CTRL_RAS_NOP<<1), t);
+	  partout_timed(p.we, 2,  CTRL_WE_LOAD_MODEREG  | (CTRL_WE_NOP<<1),  t);
 
 }
 
