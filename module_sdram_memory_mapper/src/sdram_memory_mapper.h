@@ -4,7 +4,7 @@
 /** \brief Reads words from the SDRAM server on the end of the channel provided.
 *
 * \param server The channel end connecting to the SDRAM server.
-* \param address The virtual address of where the read will begin from.
+* \param address The virtual byte address of where the read will begin from.
 * \param words The count of words to be read
 * \param buffer[]  The buffer where the data will be written to.
 */
@@ -13,7 +13,7 @@ void mm_read_words(chanend server, unsigned address, unsigned words, unsigned bu
 /** \brief Reads words from the SDRAM server on the end of the channel provided.
 *
 * \param server The channel end connecting to the SDRAM server.
-* \param address The virtual address of where the read will begin from.
+* \param address The virtual byte address of where the read will begin from.
 * \param words The count of words to be read
 * \param buffer A pointer to the buffer where the data will be written to.
 */
@@ -22,7 +22,7 @@ void mm_read_words_p(chanend server, unsigned address, unsigned words, intptr_t 
 /**  Writes words to the SDRAM server on the end of the channel provided.
 *
 * \param server The channel end connecting to the SDRAM server.
-* \param address The virtual address of where the write will begin from.
+* \param address The virtual byte address of where the write will begin from.
 * \param words The count of words to be written.
 * \param buffer[]  The buffer where the data will be written to.
 */
@@ -31,7 +31,7 @@ void mm_write_words(chanend server, unsigned address, unsigned words, unsigned b
 /**  Writes words to the SDRAM server on the end of the channel provided.
 *
 * \param server The channel end connecting to the SDRAM server.
-* \param address The virtual address of where the write will begin from.
+* \param address The virtual byte address of where the write will begin from.
 * \param words The count of words to be written.
 * \param buffer  A pointer to the buffer where the data will be written to.
 */
