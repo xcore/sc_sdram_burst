@@ -11,7 +11,7 @@
 
 void sdram_init_PINOUT_V0(struct sdram_ports_PINOUT_V0 &p) {
   timer T;
-  int t;
+  int t, time;
 
   asm("setc res[%0], 0x200F" :: "r"(p.dq_ah));
   asm("settw res[%0], %1" :: "r"(p.dq_ah), "r"(32));
