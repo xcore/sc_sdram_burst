@@ -79,6 +79,12 @@ and the ports for the above would have been created by::
 		XS1_CLKBLK_1 
 	};
 
+Notes
+-----
+
+The ``sdram_server`` and application must be on the same tile.
+
+
 Source code structure
 ---------------------
 
