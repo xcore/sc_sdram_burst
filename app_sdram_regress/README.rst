@@ -3,7 +3,7 @@ Regression Application
 
 :scope: Example
 :description: A software regression to aid implementing new SDRAM interfaces and verifying current ones.
-:keywords: SDRAM, memory
+:keywords: Memory,SDRAM
 :boards: XA-SK-SDRAM
 
 The demo runs a series of regression tests of increasing difficulty, beginning 

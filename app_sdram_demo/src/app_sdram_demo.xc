@@ -6,7 +6,7 @@ sdram_ports ports = {
     XS1_PORT_16A, XS1_PORT_1B, XS1_PORT_1G, XS1_PORT_1C, XS1_PORT_1F, XS1_CLKBLK_1 };
 
 void application(chanend server) {
-#define BUF_WORDS (10)
+#define BUF_WORDS (6)
   unsigned read_buffer[BUF_WORDS];
   unsigned write_buffer[BUF_WORDS];
   unsigned bank = 0, row = 0, col = 0;
@@ -29,6 +29,7 @@ void application(chanend server) {
   sdram_wait_until_idle(server, read_buffer);
 
   for(unsigned i=0;i<BUF_WORDS;i++){
+    printf("%d\t%d\n", write_buffer[i], read_buffer[i]);
     if(read_buffer[i] != i){
       printf("SDRAM demo fail.\n");
       return;

@@ -149,3 +149,10 @@ SDRAM Memory Mapper Programming Guide
 =====================================
 
 The SDRAM memory mapper has a simple interface where to the ``mm_read_words`` and ``mm_write_words`` a virtual address is passes, this virtual address is mapped to a physical address and the I/O is performed there. The ``mm_wait_until_idle`` exists so that the application can run the I/O commands in a non-blocking manner then confirm that the command has when the ``mm_wait_until_idle`` returns.
+
+
+Software Requirements
+---------------------
+
+The component is built on xTIMEcomposer Tools version 12.0.
+The component can be used in version 12.0 or any higher version of xTIMEcomposer Tools.

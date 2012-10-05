@@ -7,10 +7,7 @@ This tutorial describes the demo applications included in the XMOS SDRAM softwar
 app_sdram_demo
 --------------
 
-This application demonstrates how the module is used to accesses memory on the SDRAM. The purpose of this application is to show how data is written to and read from the SDRAM in a safe manner. Important notes:
-
- - ``sdram_buffer_write`` commands the server to begin writing the buffer to SDRAM. The buffer cannot be assumed to have been written to the SDRAM until the ``wait_until_idle`` command returns.
- - ``sdram_buffer_read`` commands the server to begin reading the SDRAM into the buffer. The same properties as the ``sdram_buffer_write`` apply to all commands, hence, ``sdram_wait_until_idle`` is used to confirm that the data is in now in the buffer.
+This application demonstrates how the module is used to accesses memory on the SDRAM. The purpose of this application is to show how data is written to and read from the SDRAM in a safe manner.
 
 Getting Started
 +++++++++++++++
@@ -23,7 +20,18 @@ Getting Started
 
 The output produced should look like::
 
+  0   0
+  1   1
+  2   2
+  3   3
+  4   4
+  5   5
   SDRAM demo complete.
+
+Notes
++++++
+ - There are 4 SDRAM I/O commands: ``sdram_buffer_write``, ``sdram_buffer_read``, ``sdram_full_page_write``, ``sdram_full_page_read``. They must all be followed by a ``sdram_wait_until_idle`` before another I/O command may be issued. When the ``sdram_wait_until_idle`` returns then the data is now at it destination. This functionality allows the application to be getting on with something else whilst the SDRAM server is busy with the I/O. 
+ - There is no need to explictly refresh the SDRAM as this is managed by the ``sdram_server``.
 
 app_sdram_regress
 -----------------

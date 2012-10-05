@@ -1,10 +1,34 @@
 Overview
 ========
 
+SDRAM Module
+============
+
 The SDRAM module is designed for 16 bit read and write access of arbitrary length at up to 50MHz clock rates. It uses an optimised pinout with address and data lines overlaid along with other pinout optimisations in order to implement 16 bit read/write with up to 13 address lines in just 20 pins.
 
 The module currently targets the ISSI 6400 SDRAM but is easily specialised for the smaller and larger members of this family as well as single data rate SDRAM memory from other manufacturers.
- 
+
+SDRAM Component Feature
+-----------------------
+
+The SDRAM component has the following features:
+
+  * Configurability of 
+     * SDRAM geometry,
+     * clock rate,
+     * refresh properties,
+     * server commands supported,
+     * port mapping of the SDRAM.
+  * Supports
+     * buffer read,
+     * buffer write,
+     * full row(page) read,
+     * full row(page) write,
+     * refresh handled by the SDRAM component itself.
+  * Requires a single core for the server.
+     * The function ``sdram_server`` requires just one core, the client functions, located in ``sdram.h`` are very low overhead and are called from the application.
+
+
 
 Memory requirements
 -------------------
@@ -18,17 +42,17 @@ Memory requirements
 
 Resource requirements
 ---------------------
-+--------------+-------+
-| Resource     | Usage |
-+==============+=======+
-| Channels     |   1   |
-+--------------+-------+
-| Timers       |   1   |
-+--------------+-------+
-| Clocks       |   1   |
-+--------------+-------+
-| Threads      |   1   |
-+--------------+-------+
++---------------+-------+
+| Resource      | Usage |
++===============+=======+
+| Channels      |   1   |
++---------------+-------+
+| Timers        |   1   |
++---------------+-------+
+| Clocks        |   1   |
++---------------+-------+
+| Logical Cores |   1   |
++---------------+-------+
 
 Performance
 ----------- 
@@ -67,8 +91,36 @@ The achievable effective bandwidth varies according to the available XCore MIPS.
 | 125        | 2     | 500MHz       | 71.89          | 74.99            | 
 +------------+-------+--------------+----------------+------------------+
 
-Additional Modules
-------------------
+SDRAM Memory Mapper
+===================
 
-There exists a memory mapper module called ``module_sdram_memory_mapper`` in order to abstract the physical geometry from the application. Its only function is to map the physical geometry of the SDRAM to a virtual address that the application can use. 
+A memory mapper module called ``module_sdram_memory_mapper`` may be used in order to abstract the physical geometry of the SDRAM from the application. Its only function is to map the physical geometry of the SDRAM to a virtual byte addresses that the application can use. 
+
+Memory requirements
+-------------------
++------------------+----------------------------------------+
+| Resource         | Usage                            	    |
++==================+========================================+
+| Stack            | 0 bytes                                |
++------------------+----------------------------------------+
+| Program          | 32 bytes                               |
++------------------+----------------------------------------+
+
+Resource requirements
+---------------------
++---------------+-------+
+| Resource      | Usage |
++===============+=======+
+| Channels      |   0   |
++---------------+-------+
+| Timers        |   0   |
++---------------+-------+
+| Clocks        |   0   |
++---------------+-------+
+| Logical Cores |   0   |
++---------------+-------+
+
+Performance
+----------- 
+N/A
 

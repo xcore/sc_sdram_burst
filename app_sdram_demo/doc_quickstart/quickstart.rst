@@ -47,6 +47,10 @@ Now that the application has been compiled, the next step is to run it on the Sl
 Next Steps
 ++++++++++
 
+Now that the demo has been run you could try:
+   #. Adjust the ``BUF_WORDS``. Note, if you try to allocate more than 64KB of internal XCore memory then the demo will not compile as the Xcore wont be able to hold the image.
+   #. Change ``sdram_buffer_read(server, bank, row, col, BUF_WORDS, read_buffer);`` to ``sdram_buffer_read(server, bank, row, col+2, BUF_WORDS-1, read_buffer);``. What would you expect to happen?
+
 Look at the Code
 ................
 
