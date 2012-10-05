@@ -62,8 +62,9 @@ Look at the Code
 Try the Benchmark and Regressession Demo
 ........................................
 
-   #. After completing this demo there are two more application to try: 
+After completing this demo there are two more application to try: 
+  #. ``app_sdram_benchmark`` benchmarks the performance of the module. It does no correctness testing but instead tests the throughput of the SDRAM server.  
+  #. ``app_sdram_regress`` this demo runs a series of regression tests of increasing difficulty, beginning from using a single core for the sdram_server with one core loaded progressing to all cores being loaded to simulate an XCore under full load.  
 
-:ref:``sdram_benchmark_Quickstart`
-:ref:``sdram_regress_Quickstart`
+To try these repeat the procedure in "Import and Build the Application" but with either  ``app_sdram_benchmark`` or ``app_sdram_regress``.
    
