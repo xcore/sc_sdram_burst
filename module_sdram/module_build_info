@@ -10,7 +10,7 @@
 # You can also set MODULE_XCC_C_FLAGS, MODULE_XCC_XC_FLAGS etc..
 
 MODULE_XCC_XC_FLAGS = $(XCC_XC_FLAGS) 
-XCC_FLAGS_sdram_server_PINOUT_V1_IS42S16400F.xc = $(XCC_FLAGS) -Wbidirectional-buffered-port
-XCC_FLAGS_sdram_server_PINOUT_V1_IS42S16160D.xc = $(XCC_FLAGS) -Wbidirectional-buffered-port
-XCC_FLAGS_sdram_server_PINOUT_V0.xc = $(XCC_FLAGS) -Wbidirectional-buffered-port
+XCC_FLAGS_sdram_server_PINOUT_V1_IS42S16400F.xc = $(XCC_FLAGS) 
+XCC_FLAGS_sdram_server_PINOUT_V1_IS42S16160D.xc = $(XCC_FLAGS) 
+XCC_FLAGS_sdram_server_PINOUT_V0.xc = $(XCC_FLAGS) 
 OPTIONAL_HEADERS = sdram_conf.h
