@@ -1,5 +1,5 @@
-Regression Application
-======================
+SDRAM Regression Application
+============================
 
 :scope: Example
 :description: A software regression to aid implementing new SDRAM interfaces and verifying current ones.
