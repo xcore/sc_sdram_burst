@@ -6,19 +6,19 @@
             <keyword>SDRAM</keyword>
             <keyword>memory</keyword>
         </component>
-        <component description = "A software regression to aid implementing new SDRAM interfaces and verifying current ones." type = "demoCode" scope = "Example" path = "app_sdram_regress" local = "false" id = "app_sdram_regress" name = "Regression Application">
+        <component description = "A software regression to aid implementing new SDRAM interfaces and verifying current ones." type = "demoCode" scope = "Example" path = "app_sdram_regress" local = "false" id = "app_sdram_regress" name = "SDRAM Regression Application">
             <board>XA-SK-SDRAM</board>
             <componentDependency>module_sdram</componentDependency>
             <keyword>Memory</keyword>
             <keyword>SDRAM</keyword>
         </component>
-        <component description = "Benchmarks the performance of the module." type = "demoCode" scope = "Example" path = "app_sdram_benchmark" local = "false" id = "app_sdram_benchmark" name = "Benchmark Application">
+        <component description = "Benchmarks the performance of the module." type = "demoCode" scope = "Example" path = "app_sdram_benchmark" local = "false" id = "app_sdram_benchmark" name = "SDRAM Benchmark Application">
             <board>XA-SK-SDRAM</board>
             <componentDependency>module_sdram</componentDependency>
             <keyword>Memory</keyword>
             <keyword>SDRAM</keyword>
         </component>
-        <component description = "A demo of how the module is used to accesses memory on the SDRAM." type = "demoCode" scope = "Example" path = "app_sdram_demo" local = "false" id = "app_sdram_demo" name = "Demonstration application">
+        <component description = "A demo of how the module is used to accesses memory on the SDRAM." type = "demoCode" scope = "Example" path = "app_sdram_demo" local = "false" id = "app_sdram_demo" name = "SDRAM Simple Demo">
             <board>XA-SK-SDRAM</board>
             <componentDependency>module_sdram</componentDependency>
             <keyword>Memory</keyword>
