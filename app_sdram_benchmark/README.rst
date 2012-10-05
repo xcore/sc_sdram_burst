@@ -1,5 +1,5 @@
-Benchmark Application
-=====================
+SDRAM Benchmark Application
+===========================
 
 :scope: Example
 :description: Benchmarks the performance of the module.
