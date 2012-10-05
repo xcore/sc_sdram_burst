@@ -18,7 +18,8 @@ To setup up the system:
    #. Set the ``XMOS LINK`` to ``OFF`` on the XTAG Adapter.
    #. Switch on the power supply to the Slicekit Core board.
 
-.. figure:: images/hardware_setup.png
+.. figure:: images/hardware_setup.jpg
+   :width: 400px
    :align: center
 
    Hardware Setup for SDRAM Demo
