@@ -41,8 +41,8 @@ void application(chanend server) {
 int main() {
   chan sdram_c;
   par {
-    sdram_server(sdram_c, ports);
-    application(sdram_c);
+    on tile[0]:sdram_server(sdram_c, ports);
+    on tile[0]:application(sdram_c);
   }
   return 0;
 }
