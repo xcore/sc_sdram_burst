@@ -1,15 +1,15 @@
 Overview
 ========
 
-SDRAM Module
-============
+SDRAM Controller Component
+--------------------------
 
 The SDRAM module is designed for 16 bit read and write access of arbitrary length at up to 50MHz clock rates. It uses an optimised pinout with address and data lines overlaid along with other pinout optimisations in order to implement 16 bit read/write with up to 13 address lines in just 20 pins.
 
 The module currently targets the ISSI 6400 SDRAM but is easily specialised for the smaller and larger members of this family as well as single data rate SDRAM memory from other manufacturers.
 
-SDRAM Component Feature
------------------------
+SDRAM Component Features
+++++++++++++++++++++++++
 
 The SDRAM component has the following features:
 
@@ -31,7 +31,8 @@ The SDRAM component has the following features:
 
 
 Memory requirements
--------------------
++++++++++++++++++++
+
 +------------------+----------------------------------------+
 | Resource         | Usage                            	    |
 +==================+========================================+
@@ -41,7 +42,8 @@ Memory requirements
 +------------------+----------------------------------------+
 
 Resource requirements
----------------------
++++++++++++++++++++++
+
 +---------------+-------+
 | Resource      | Usage |
 +===============+=======+
@@ -55,7 +57,7 @@ Resource requirements
 +---------------+-------+
 
 Performance
------------ 
++++++++++++
 
 The achievable effective bandwidth varies according to the available XCore MIPS. This information has been obtained by testing on real hardware.
 
@@ -92,12 +94,13 @@ The achievable effective bandwidth varies according to the available XCore MIPS.
 +------------+-------+--------------+----------------+------------------+
 
 SDRAM Memory Mapper
-===================
+-------------------
 
 A memory mapper module called ``module_sdram_memory_mapper`` may be used in order to abstract the physical geometry of the SDRAM from the application. Its only function is to map the physical geometry of the SDRAM to a virtual byte addresses that the application can use. 
 
 Memory requirements
--------------------
++++++++++++++++++++
+
 +------------------+----------------------------------------+
 | Resource         | Usage                            	    |
 +==================+========================================+
@@ -107,7 +110,8 @@ Memory requirements
 +------------------+----------------------------------------+
 
 Resource requirements
----------------------
++++++++++++++++++++++
+
 +---------------+-------+
 | Resource      | Usage |
 +===============+=======+
@@ -120,7 +124,4 @@ Resource requirements
 | Logical Cores |   0   |
 +---------------+-------+
 
-Performance
------------ 
-N/A
 
