@@ -37,7 +37,8 @@
     <name>sc_sdram_burst</name>
     <maintainer>andrewstanfordjason</maintainer>
     <partnumber>XM-001914-DH</partnumber>
-    <release parenthash = "310f1044063c6f57b26361ddc51919e48673e5f0" version = "1.0.0alpha0"></release>
+    <release parenthash = "310f1044063c6f57b26361ddc51919e48673e5f0" version = "1.0.0alpha0" githash = "7f50149f01b77198ddef0e1dea4c792a489bd53b"></release>
+    <release parenthash = "db977f07aa4669e678fe47d8cd1901bf162db624" version = "1.0.0alpha1"></release>
     <subpartnumber>XM-001915-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xcore_repo>sc_sdram_burst.git</xcore_repo>
