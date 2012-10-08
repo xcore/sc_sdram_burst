@@ -31,10 +31,8 @@
         </component>
     </components>
     <description>Various modules related to controlling external sdram</description>
-    <docdir>app_sdram_benchmark/docs_quickstart</docdir>
-    <docdir>app_sdram_regress/docs_quickstart</docdir>
-    <docdir>app_sdram_demo/docs_quickstart</docdir>
-    <docdir>docs</docdir>
+    <docdir>app_sdram_demo/doc_quickstart</docdir>
+    <docdir>doc</docdir>
     <location>git@github.com:xcore/sc_sdram_burst.git</location>
     <name>sc_sdram_burst</name>
     <maintainer>andrewstanfordjason</maintainer>
