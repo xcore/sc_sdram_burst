@@ -564,7 +564,7 @@ void test_5_threads(chanend server) {
   }
   printf("5 threaded test suite completed\n");
 }
-on tile[0]:out port p = XS1_PORT_8D;
+out port p = XS1_PORT_8D;
 
 static void disable_flash(){
   p <:0x80;
@@ -591,8 +591,8 @@ void sdram_client(chanend server) {
 int main() {
   chan sdram_c;
   par {
-    on tile[0]:sdram_server(sdram_c, ports);
-    on tile[0]:sdram_client(sdram_c);
+    sdram_server(sdram_c, ports);
+    sdram_client(sdram_c);
   }
   return 0;
 }
