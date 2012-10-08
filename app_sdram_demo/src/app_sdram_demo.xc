@@ -5,11 +5,21 @@
 sdram_ports ports = {
     XS1_PORT_16A, XS1_PORT_1B, XS1_PORT_1G, XS1_PORT_1C, XS1_PORT_1F, XS1_CLKBLK_1 };
 
+on tile[0]:out port p = XS1_PORT_8D;
+
+static void disable_flash(){
+  p <:0x80;
+  p <:0xc0;
+  set_port_use_off(p);
+}
+
 void application(chanend server) {
 #define BUF_WORDS (6)
   unsigned read_buffer[BUF_WORDS];
   unsigned write_buffer[BUF_WORDS];
   unsigned bank = 0, row = 0, col = 0;
+
+  disable_flash();
 
   for(unsigned i=0;i<BUF_WORDS;i++){
     write_buffer[i] = i;
