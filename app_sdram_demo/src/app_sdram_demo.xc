@@ -29,7 +29,7 @@ void application(chanend server) {
   sdram_wait_until_idle(server, read_buffer);
 
   for(unsigned i=0;i<BUF_WORDS;i++){
-    printf("%d\t%d\n", write_buffer[i], read_buffer[i]);
+    printf("%08x\t%08x\n", write_buffer[i], read_buffer[i]);
     if(read_buffer[i] != i){
       printf("SDRAM demo fail.\n");
       return;
@@ -41,8 +41,8 @@ void application(chanend server) {
 int main() {
   chan sdram_c;
   par {
-    sdram_server(sdram_c, ports);
-    application(sdram_c);
+    on tile[0]:sdram_server(sdram_c, ports);
+    on tile[0]:application(sdram_c);
   }
   return 0;
 }
