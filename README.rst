@@ -1,7 +1,7 @@
 SDRAM Repository
 ................
 
-:Latest release: 1.0.0alpha1
+:Latest release: 1.0.0alpha2
 :Maintainer: andrewstanfordjason
 :Description: Various modules related to controlling external sdram
 
