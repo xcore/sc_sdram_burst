@@ -29,8 +29,8 @@ Import and Build the Application
 ++++++++++++++++++++++++++++++++
 
    #. Open xTIMEcomposer and check that it is operating in online mode. Open the edit perspective (Window->Open Perspective->XMOS Edit).
-   #. Locate the ``'Slicekit SDRAM Demo'`` item in the xSOFTip pane on the bottom left of the window and drag it into the Project Explorer window in the xTIMEcomposer. This will also cause the modules on which this application depends (in this case, module_sdram) to be imported as well. 
-   #. Click on the app_sdram_demo item in the Explorer pane then click on the build icon (hammer) in xTIMEcomposer. Check the console window to verify that the application has built successfully.
+   #. Locate the ``'Slicekit SDRAM Simple Demo'`` item in the xSOFTip pane on the bottom left of the window and drag it into the Project Explorer window in the xTIMEcomposer. This will also cause the modules on which this application depends (in this case, module_sdram) to be imported as well. 
+   #. Click on the app_sdram_demo item in the Explorer pane then click on the build icon (hammer) in xTIMEcomposer. Check the console window to verify that the application has built successfully. There will be quite a number of warnings that ``bidirectional buffered port not supported in hardware``. These can be safely ignored for this component.
 
 For help in using xTIMEcomposer, try the xTIMEcomposer tutorial. FIXME add link.
 
@@ -47,9 +47,7 @@ Now that the application has been compiled, the next step is to run it on the Sl
 Next Steps
 ++++++++++
 
-Now that the demo has been run you could try:
-   #. Adjust the ``BUF_WORDS``. Note, if you try to allocate more than 64KB of internal XCore memory then the demo will not compile as the Xcore wont be able to hold the image.
-   #. Change ``sdram_buffer_read(server, bank, row, col, BUF_WORDS, read_buffer);`` to ``sdram_buffer_read(server, bank, row, col+2, BUF_WORDS-1, read_buffer);``. What would you expect to happen?
+Now that the demo has been run you could try and adjust the ``BUF_WORDS`` setting. Note, if you try to allocate more than 64KB of internal XCore memory then the demo will not compile as the Xcore wont be able to hold the image.
 
 Look at the Code
 ................
@@ -68,3 +66,10 @@ After completing this demo there are two more application to try:
 
 To try these repeat the procedure in "Import and Build the Application" but with either  ``app_sdram_benchmark`` or ``app_sdram_regress``.
    
+Try Other Application Demos which use the SDRAM
+...............................................
+
+There are two other siognificant application demos which utilise this component. 
+
+   * The Display Controller Demo combines the SDRAM Slice with the XA-SK-SCR480 LCD Slice Card to create a fully functioning 480x272 display controller, with the SDRAM actig as the framebuffer.
+   * The Audio Reverb Demo utilises the SDRAM component to store enough audio samples to create large audio delay lines, which are a required component of various audio effects. In this case, a reverberation effect is demonstrated.

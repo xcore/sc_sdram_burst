@@ -1,5 +1,5 @@
-SDRAM Simple Demo 
-==================
+Slicekit SDRAM Simple Demo 
+==========================
 
 :scope: Example
 :description: A demo of how the module is used to accesses memory on the SDRAM.

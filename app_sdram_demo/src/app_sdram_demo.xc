@@ -14,7 +14,7 @@ static void disable_flash(){
 }
 
 void application(chanend server) {
-#define BUF_WORDS (6)
+#define BUF_WORDS (100)
   unsigned read_buffer[BUF_WORDS];
   unsigned write_buffer[BUF_WORDS];
   unsigned bank = 0, row = 0, col = 0;
@@ -33,7 +33,7 @@ void application(chanend server) {
   sdram_wait_until_idle(server, write_buffer);
 
   // Read the SDRAM into the read_buffer.
-  sdram_buffer_read(server, bank, row, col, BUF_WORDS, read_buffer);
+  sdram_buffer_read(server, bank, row, col+2, BUF_WORDS, read_buffer);
 
   //Wait until idle, i.e. the sdram had completed reading and hence the data is ready in the buffer.
   sdram_wait_until_idle(server, read_buffer);
