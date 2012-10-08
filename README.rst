@@ -1,9 +1,10 @@
 SDRAM Repository
 ................
 
-:Latest release: 1.0.0
+:Latest release: 1.0.0alpha0
 :Maintainer: andrewstanfordjason
-:Description: SDRAM module and demos.
+:Description: Various modules related to controlling external sdram
+
 
 Key Features
 ============
@@ -34,4 +35,5 @@ Issues may be submitted via the Issues tab in this github repo. Response to any 
 Required software (dependencies)
 ================================
 
-none
+  * None
+

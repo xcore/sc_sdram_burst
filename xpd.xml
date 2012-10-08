@@ -39,6 +39,7 @@
     <name>sc_sdram_burst</name>
     <maintainer>andrewstanfordjason</maintainer>
     <partnumber>XM-001914-DH</partnumber>
+    <release parenthash = "310f1044063c6f57b26361ddc51919e48673e5f0" version = "1.0.0alpha0"></release>
     <subpartnumber>XM-001915-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xcore_repo>sc_sdram_burst.git</xcore_repo>
