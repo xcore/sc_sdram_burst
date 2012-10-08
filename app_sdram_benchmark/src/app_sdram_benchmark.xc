@@ -248,7 +248,16 @@ void test_8_threads(chanend server) {
   }
 }
 
+on tile[0]:out port p = XS1_PORT_8D;
+
+static void disable_flash(){
+  p <:0x80;
+  p <:0xc0;
+  p <:0x80;
+  set_port_use_off(p);
+}
 void sdram_client(chanend server) {
+  disable_flash();
   test_8_threads(server);
   test_7_threads(server);
   test_6_threads(server);

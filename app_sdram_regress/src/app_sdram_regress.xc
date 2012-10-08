@@ -592,7 +592,7 @@ int main() {
   chan sdram_c;
   par {
     on tile[0]:sdram_server(sdram_c, ports);
-    on tile[0]:sdram_client(sdram_c);
+    on tile[0]: sdram_client(sdram_c);
   }
   return 0;
 }
