@@ -1,49 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <?fileVersion 4.0.0?>
-
 <cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
-	<storageModule moduleId="org.eclipse.cdt.core.settings">
-		<cconfiguration id="com.xmos.cdt.toolchain.98719854">
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.xmos.cdt.toolchain.98719854" moduleId="org.eclipse.cdt.core.settings" name="Debug">
-				<externalSettings/>
-				<extensions>
-					<extension id="com.xmos.cdt.core.XEBinaryParser" point="org.eclipse.cdt.core.BinaryParser"/>
-					<extension id="com.xmos.cdt.core.XdeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-				</extensions>
-			</storageModule>
-			<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
-				<buildTargets>
-					<target name="all" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-						<buildCommand>xmake</buildCommand>
-						<buildArguments>CONFIG=Debug</buildArguments>
-						<buildTarget>all</buildTarget>
-						<stopOnError>true</stopOnError>
-						<useDefaultCommand>true</useDefaultCommand>
-						<runAllBuilders>true</runAllBuilders>
-					</target>
-					<target name="clean" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-						<buildCommand>xmake</buildCommand>
-						<buildArguments>CONFIG=Debug</buildArguments>
-						<buildTarget>clean</buildTarget>
-						<stopOnError>true</stopOnError>
-						<useDefaultCommand>true</useDefaultCommand>
-						<runAllBuilders>true</runAllBuilders>
-					</target>
-				</buildTargets>
-			</storageModule>
-			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration buildProperties="" description="" id="com.xmos.cdt.toolchain.98719854" name="Debug" parent="org.eclipse.cdt.build.core.emptycfg">
-					<folderInfo id="com.xmos.cdt.toolchain.98719854.1127281840" name="/" resourcePath="">
-						<toolChain id="com.xmos.cdt.toolchain.10994328" name="com.xmos.cdt.toolchain" superClass="com.xmos.cdt.toolchain">
-							<targetPlatform archList="all" binaryParser="com.xmos.cdt.core.XEBinaryParser" id="com.xmos.cdt.core.platform.57131750" isAbstract="false" osList="linux,win32,macosx" superClass="com.xmos.cdt.core.platform"/>
-							<builder arguments="CONFIG=Debug" id="com.xmos.cdt.builder.base.33892678" keepEnvironmentInBuildfile="false" managedBuildOn="false" superClass="com.xmos.cdt.builder.base">
-								<outputEntries>
-									<entry flags="VALUE_WORKSPACE_PATH" kind="outputPath" name="bin/Debug"/>
-								</outputEntries>
-							</builder>
-							<tool id="com.xmos.cdt.xc.compiler.45371223" name="com.xmos.cdt.xc.compiler" superClass="com.xmos.cdt.xc.compiler">
-								<option id="com.xmos.c.compiler.option.defined.symbols.82305086" name="com.xmos.c.compiler.option.defined.symbols" superClass="com.xmos.c.compiler.option.defined.symbols" valueType="definedSymbols">
+    <storageModule moduleId="org.eclipse.cdt.core.settings">
+              
+        <cconfiguration id="com.xmos.cdt.toolchain.98719854">
+            <storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.xmos.cdt.toolchain.98719854" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+                <externalSettings />
+                <extensions>
+                    <extension id="com.xmos.cdt.core.XEBinaryParser" point="org.eclipse.cdt.core.BinaryParser" />
+                    <extension id="com.xmos.cdt.core.XdeErrorParser" point="org.eclipse.cdt.core.ErrorParser" />
+                    <extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser" />
+                </extensions>
+            </storageModule>
+            <storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
+                <buildTargets>
+                    <target name="all" path=""
+targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+                        <buildCommand>xmake</buildCommand>
+                        <buildArguments>CONFIG=Debug</buildArguments>
+                        <buildTarget>all</buildTarget>
+                        <stopOnError>true</stopOnError>
+                        <useDefaultCommand>true</useDefaultCommand>
+                        <runAllBuilders>true</runAllBuilders>
+                    </target>
+                    <target name="clean" path=""
+targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+                        <buildCommand>xmake</buildCommand>
+                        <buildArguments>CONFIG=Debug</buildArguments>
+                        <buildTarget>clean</buildTarget>
+                        <stopOnError>true</stopOnError>
+                        <useDefaultCommand>true</useDefaultCommand>
+                        <runAllBuilders>true</runAllBuilders>
+                    </target>
+                </buildTargets>
+            </storageModule>
+            <storageModule moduleId="cdtBuildSystem" version="4.0.0">
+                <configuration buildProperties="" description="" id="com.xmos.cdt.toolchain.98719854" name="Debug" parent="org.eclipse.cdt.build.core.emptycfg">
+                    <folderInfo id="com.xmos.cdt.toolchain.98719854.1127281840" name="/" resourcePath="">
+                        <toolChain id = "com.xmos.cdt.toolchain.10994328" name="com.xmos.cdt.toolchain" superClass="com.xmos.cdt.toolchain">
+                            <targetPlatform archList="all" binaryParser="com.xmos.cdt.core.XEBinaryParser" id = "com.xmos.cdt.core.platform.57131750" isAbstract="false" osList="linux,win32,macosx" superClass="com.xmos.cdt.core.platform" />
+                            <builder arguments="CONFIG=Debug" id = "com.xmos.cdt.builder.base.33892678" keepEnvironmentInBuildfile="false" managedBuildOn="false" superClass="com.xmos.cdt.builder.base">
+                                <outputEntries>
+                                    <entry flags="VALUE_WORKSPACE_PATH" kind="outputPath" name="bin/Debug" />
+                                </outputEntries>
+                            </builder>
+                            <tool id = "com.xmos.cdt.xc.compiler.45371223" name="com.xmos.cdt.xc.compiler" superClass="com.xmos.cdt.xc.compiler">
+	<option id = "com.xmos.c.compiler.option.defined.symbols.82305086" name="com.xmos.c.compiler.option.defined.symbols" superClass="com.xmos.c.compiler.option.defined.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__SHRT_MAX__=32767"/>
 									<listOptionValue builtIn="false" value="__SCHAR_MAX__=127"/>
 									<listOptionValue builtIn="false" value="__SIZE_TYPE__=unsigned"/>
@@ -153,205 +155,441 @@
 									<listOptionValue builtIn="false" value="__EXCEPTIONS=1"/>
 									<listOptionValue builtIn="false" value="__WCHAR_UNSIGNED__=1"/>
 								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.66863636" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath"/>
-								<option id="gnu.c.compiler.option.include.paths.12160666" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath"/>
-								<option id="com.xmos.xc.compiler.option.include.paths.483959781" name="com.xmos.xc.compiler.option.include.paths" superClass="com.xmos.xc.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include/gcc&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1/xcore-xmos-elf&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
-								</option>
-								<inputType id="com.xmos.cdt.xc.compiler.input.58608612" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
-							</tool>
-							<tool id="com.xmos.cdt.c.compiler.239930498" name="com.xmos.cdt.c.compiler" superClass="com.xmos.cdt.c.compiler">
-								<option id="com.xmos.c.compiler.option.include.paths.1772920461" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-								</option>
-								<inputType id="com.xmos.cdt.c.compiler.input.c.2072842770" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
-							</tool>
-							<tool id="com.xmos.cdt.cxx.compiler.504973154" name="com.xmos.cdt.cxx.compiler" superClass="com.xmos.cdt.cxx.compiler">
-								<option id="com.xmos.cxx.compiler.option.include.paths.1809687154" name="com.xmos.cxx.compiler.option.include.paths" superClass="com.xmos.cxx.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-								</option>
-								<inputType id="com.xmos.cdt.cxx.compiler.input.cpp.1529043062" name="C++" superClass="com.xmos.cdt.cxx.compiler.input.cpp"/>
-							</tool>
-						</toolChain>
-					</folderInfo>
-					<sourceEntries>
-						<entry excluding=".build_*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-					</sourceEntries>
-				</configuration>
-			</storageModule>
-			<storageModule moduleId="scannerConfiguration">
-				<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-				<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="specsFile">
-						<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-				<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="makefileGenerator">
-						<runAction arguments="-E -P -v -dD" command="" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-				<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="specsFile">
-						<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-				<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="specsFile">
-						<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-				<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="specsFile">
-						<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-				<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="specsFile">
-						<runAction arguments="-c 'gcc -E -P -v -dD &quot;${plugin_state_location}/${specs_file}&quot;'" command="sh" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-				<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="specsFile">
-						<runAction arguments="-c 'g++ -E -P -v -dD &quot;${plugin_state_location}/specs.cpp&quot;'" command="sh" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-				<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="specsFile">
-						<runAction arguments="-c 'gcc -E -P -v -dD &quot;${plugin_state_location}/specs.c&quot;'" command="sh" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-			</storageModule>
-			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
-			<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
-			<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
-		</cconfiguration>
-		<cconfiguration id="com.xmos.cdt.toolchain.47230196">
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.xmos.cdt.toolchain.47230196" moduleId="org.eclipse.cdt.core.settings" name="Release">
-				<externalSettings/>
-				<extensions>
-					<extension id="com.xmos.cdt.core.XEBinaryParser" point="org.eclipse.cdt.core.BinaryParser"/>
-					<extension id="com.xmos.cdt.core.XdeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-				</extensions>
-			</storageModule>
-			<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
-				<buildTargets>
-					<target name="all" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-						<buildCommand>xmake</buildCommand>
-						<buildArguments>CONFIG=Release</buildArguments>
-						<buildTarget>all</buildTarget>
-						<stopOnError>true</stopOnError>
-						<useDefaultCommand>true</useDefaultCommand>
-						<runAllBuilders>true</runAllBuilders>
-					</target>
-					<target name="clean" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-						<buildCommand>xmake</buildCommand>
-						<buildArguments>CONFIG=Release</buildArguments>
-						<buildTarget>clean</buildTarget>
-						<stopOnError>true</stopOnError>
-						<useDefaultCommand>true</useDefaultCommand>
-						<runAllBuilders>true</runAllBuilders>
-					</target>
-				</buildTargets>
-			</storageModule>
-			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration buildProperties="" description="" id="com.xmos.cdt.toolchain.47230196" name="Release" parent="org.eclipse.cdt.build.core.emptycfg">
-					<folderInfo id="com.xmos.cdt.toolchain.47230196.1127281840" name="/" resourcePath="">
-						<toolChain id="com.xmos.cdt.toolchain.65793197" name="com.xmos.cdt.toolchain" superClass="com.xmos.cdt.toolchain">
-							<targetPlatform archList="all" binaryParser="com.xmos.cdt.core.XEBinaryParser" id="com.xmos.cdt.core.platform.79454942" isAbstract="false" osList="linux,win32,macosx" superClass="com.xmos.cdt.core.platform"/>
-							<builder arguments="CONFIG=Release" id="com.xmos.cdt.builder.base.70576897" keepEnvironmentInBuildfile="false" managedBuildOn="false" superClass="com.xmos.cdt.builder.base">
-								<outputEntries>
-									<entry flags="VALUE_WORKSPACE_PATH" kind="outputPath" name="bin/Release"/>
-								</outputEntries>
-							</builder>
-							<tool id="com.xmos.cdt.xc.compiler.13261690" name="com.xmos.cdt.xc.compiler" superClass="com.xmos.cdt.xc.compiler">
-								<option id="com.xmos.c.compiler.option.defined.symbols.22581226" name="com.xmos.c.compiler.option.defined.symbols" superClass="com.xmos.c.compiler.option.defined.symbols" valueType="definedSymbols">
+
+                                <option id = "com.xmos.c.compiler.option.include.paths.66863636" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
+                                    <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/gcc&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1/xcore-xmos-elf&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                                <inputType id = "com.xmos.cdt.xc.compiler.input.58608612" name="XC Sources" superClass="com.xmos.cdt.xc.compiler.input" />
+                                <option id = "gnu.c.compiler.option.include.paths.12160666" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                            </tool>
+                            <tool id = "com.xmos.cdt.xc.compiler.base.82330019" name="com.xmos.cdt.xc.compiler.base" superClass="com.xmos.cdt.xc.compiler.base">
+                                <option id = "gnu.c.compiler.option.include.paths.22528443" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                                <option id = "com.xmos.c.compiler.option.include.paths.70357471" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                            </tool>
+                            <tool id = "com.xmos.cdt.c.compiler.base.76449757" name="com.xmos.cdt.c.compiler.base" superClass="com.xmos.cdt.c.compiler.base">
+                                <option id = "gnu.c.compiler.option.include.paths.26493282" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                                <option id = "com.xmos.c.compiler.option.include.paths.50088378" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                            </tool>
+                            <tool id = "com.xmos.cdt.cpp.compiler.base.62924982" name="com.xmos.cdt.cpp.compiler.base" superClass="com.xmos.cdt.cpp.compiler.base">
+                                <option id = "gnu.c.compiler.option.include.paths.83614424" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                                <option id = "com.xmos.c.compiler.option.include.paths.13099724" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                            </tool>
+                            <tool id = "com.xmos.cdt.core.assembler.base.4600816" name="com.xmos.cdt.core.assembler.base" superClass="com.xmos.cdt.core.assembler.base">
+                                <option id = "gnu.c.compiler.option.include.paths.91664301" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                                <option id = "com.xmos.c.compiler.option.include.paths.95115560" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                            </tool>
+
+                        </toolChain>
+                    </folderInfo>
+                    <sourceEntries>
+                        <entry excluding=".build_*" flags="VALUE_WORKSPACE_PATH|RESOLVED"
+                    kind="sourcePath" name="" />
+                    </sourceEntries>
+                </configuration>
+            </storageModule>
+            <storageModule moduleId="scannerConfiguration">
+                <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="" />
+                <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="specsFile">
+                        <runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+                <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="makefileGenerator">
+                        <runAction arguments="-E -P -v -dD" command="" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+                <profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="specsFile">
+                        <runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+                <profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="specsFile">
+                        <runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+                <profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="specsFile">
+                        <runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+                <profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="specsFile">
+                        <runAction arguments='-c &apos;gcc -E -P -v -dD &quot;${plugin_state_location}/${specs_file}&quot;&apos;' command="sh" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+                <profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="specsFile">
+                        <runAction arguments='-c &apos;g++ -E -P -v -dD &quot;${plugin_state_location}/specs.cpp&quot;&apos;' command="sh" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+                <profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="specsFile">
+                        <runAction arguments='-c &apos;gcc -E -P -v -dD &quot;${plugin_state_location}/specs.c&quot;&apos;' command="sh" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+            </storageModule>
+            <storageModule moduleId="org.eclipse.cdt.core.externalSettings" />
+            <storageModule moduleId="org.eclipse.cdt.core.language.mapping" />
+            <storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings" />
+        </cconfiguration>
+
+        <cconfiguration id="com.xmos.cdt.toolchain.47230196">
+            <storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.xmos.cdt.toolchain.47230196" moduleId="org.eclipse.cdt.core.settings" name="Release">
+                <externalSettings />
+                <extensions>
+                    <extension id="com.xmos.cdt.core.XEBinaryParser" point="org.eclipse.cdt.core.BinaryParser" />
+                    <extension id="com.xmos.cdt.core.XdeErrorParser" point="org.eclipse.cdt.core.ErrorParser" />
+                    <extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser" />
+                </extensions>
+            </storageModule>
+            <storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
+                <buildTargets>
+                    <target name="all" path=""
+targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+                        <buildCommand>xmake</buildCommand>
+                        <buildArguments>CONFIG=Release</buildArguments>
+                        <buildTarget>all</buildTarget>
+                        <stopOnError>true</stopOnError>
+                        <useDefaultCommand>true</useDefaultCommand>
+                        <runAllBuilders>true</runAllBuilders>
+                    </target>
+                    <target name="clean" path=""
+targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+                        <buildCommand>xmake</buildCommand>
+                        <buildArguments>CONFIG=Release</buildArguments>
+                        <buildTarget>clean</buildTarget>
+                        <stopOnError>true</stopOnError>
+                        <useDefaultCommand>true</useDefaultCommand>
+                        <runAllBuilders>true</runAllBuilders>
+                    </target>
+                </buildTargets>
+            </storageModule>
+            <storageModule moduleId="cdtBuildSystem" version="4.0.0">
+                <configuration buildProperties="" description="" id="com.xmos.cdt.toolchain.47230196" name="Release" parent="org.eclipse.cdt.build.core.emptycfg">
+                    <folderInfo id="com.xmos.cdt.toolchain.47230196.1127281840" name="/" resourcePath="">
+                        <toolChain id = "com.xmos.cdt.toolchain.65793197" name="com.xmos.cdt.toolchain" superClass="com.xmos.cdt.toolchain">
+                            <targetPlatform archList="all" binaryParser="com.xmos.cdt.core.XEBinaryParser" id = "com.xmos.cdt.core.platform.79454942" isAbstract="false" osList="linux,win32,macosx" superClass="com.xmos.cdt.core.platform" />
+                            <builder arguments="CONFIG=Release" id = "com.xmos.cdt.builder.base.70576897" keepEnvironmentInBuildfile="false" managedBuildOn="false" superClass="com.xmos.cdt.builder.base">
+                                <outputEntries>
+                                    <entry flags="VALUE_WORKSPACE_PATH" kind="outputPath" name="bin/Release" />
+                                </outputEntries>
+                            </builder>
+                            <tool id = "com.xmos.cdt.xc.compiler.13261690" name="com.xmos.cdt.xc.compiler" superClass="com.xmos.cdt.xc.compiler">
+	<option id = "com.xmos.c.compiler.option.defined.symbols.22581226" name="com.xmos.c.compiler.option.defined.symbols" superClass="com.xmos.c.compiler.option.defined.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__SHRT_MAX__=32767"/>
 									<listOptionValue builtIn="false" value="__SCHAR_MAX__=127"/>
 									<listOptionValue builtIn="false" value="__SIZE_TYPE__=unsigned"/>
@@ -461,166 +699,400 @@
 									<listOptionValue builtIn="false" value="__EXCEPTIONS=1"/>
 									<listOptionValue builtIn="false" value="__WCHAR_UNSIGNED__=1"/>
 								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.63339845" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath"/>
-								<option id="gnu.c.compiler.option.include.paths.37908377" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath"/>
-								<option id="com.xmos.xc.compiler.option.include.paths.509766288" name="com.xmos.xc.compiler.option.include.paths" superClass="com.xmos.xc.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include/gcc&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1/xcore-xmos-elf&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_regress/.build_Release/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
-								</option>
-								<inputType id="com.xmos.cdt.xc.compiler.input.80147983" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
-							</tool>
-							<tool id="com.xmos.cdt.c.compiler.30229300" name="com.xmos.cdt.c.compiler" superClass="com.xmos.cdt.c.compiler">
-								<option id="com.xmos.c.compiler.option.include.paths.1629890219" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-								</option>
-								<inputType id="com.xmos.cdt.c.compiler.input.c.844581117" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
-							</tool>
-							<tool id="com.xmos.cdt.cxx.compiler.1547530767" name="com.xmos.cdt.cxx.compiler" superClass="com.xmos.cdt.cxx.compiler">
-								<option id="com.xmos.cxx.compiler.option.include.paths.622778952" name="com.xmos.cxx.compiler.option.include.paths" superClass="com.xmos.cxx.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-								</option>
-								<inputType id="com.xmos.cdt.cxx.compiler.input.cpp.1668529263" name="C++" superClass="com.xmos.cdt.cxx.compiler.input.cpp"/>
-							</tool>
-						</toolChain>
-					</folderInfo>
-					<sourceEntries>
-						<entry excluding=".build_*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-					</sourceEntries>
-				</configuration>
-			</storageModule>
-			<storageModule moduleId="scannerConfiguration">
-				<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-				<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="specsFile">
-						<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-				<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="makefileGenerator">
-						<runAction arguments="-E -P -v -dD" command="" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-				<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="specsFile">
-						<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-				<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="specsFile">
-						<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-				<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="specsFile">
-						<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-				<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="specsFile">
-						<runAction arguments="-c 'gcc -E -P -v -dD &quot;${plugin_state_location}/${specs_file}&quot;'" command="sh" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-				<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="specsFile">
-						<runAction arguments="-c 'g++ -E -P -v -dD &quot;${plugin_state_location}/specs.cpp&quot;'" command="sh" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-				<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
-					<buildOutputProvider>
-						<openAction enabled="true" filePath=""/>
-						<parser enabled="true"/>
-					</buildOutputProvider>
-					<scannerInfoProvider id="specsFile">
-						<runAction arguments="-c 'gcc -E -P -v -dD &quot;${plugin_state_location}/specs.c&quot;'" command="sh" useDefault="true"/>
-						<parser enabled="true"/>
-					</scannerInfoProvider>
-				</profile>
-			</storageModule>
-			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
-			<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
-			<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
-		</cconfiguration>
-	</storageModule>
-	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="app_sdram_regress.null.78190083" name="app_sdram_regress"/>
-	</storageModule>
+
+                                <option id = "com.xmos.c.compiler.option.include.paths.63339845" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
+                                    <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/gcc&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1/xcore-xmos-elf&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                                <inputType id = "com.xmos.cdt.xc.compiler.input.80147983" name="XC Sources" superClass="com.xmos.cdt.xc.compiler.input" />
+                                <option id = "gnu.c.compiler.option.include.paths.37908377" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                            </tool>
+                            <tool id = "com.xmos.cdt.xc.compiler.base.73720386" name="com.xmos.cdt.xc.compiler.base" superClass="com.xmos.cdt.xc.compiler.base">
+                                <option id = "gnu.c.compiler.option.include.paths.29978092" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                                <option id = "com.xmos.c.compiler.option.include.paths.91243369" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                            </tool>
+                            <tool id = "com.xmos.cdt.c.compiler.base.86686277" name="com.xmos.cdt.c.compiler.base" superClass="com.xmos.cdt.c.compiler.base">
+                                <option id = "gnu.c.compiler.option.include.paths.90575152" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                                <option id = "com.xmos.c.compiler.option.include.paths.87432115" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                            </tool>
+                            <tool id = "com.xmos.cdt.cpp.compiler.base.95033694" name="com.xmos.cdt.cpp.compiler.base" superClass="com.xmos.cdt.cpp.compiler.base">
+                                <option id = "gnu.c.compiler.option.include.paths.84611549" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                                <option id = "com.xmos.c.compiler.option.include.paths.74528312" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                            </tool>
+                            <tool id = "com.xmos.cdt.core.assembler.base.79176856" name="com.xmos.cdt.core.assembler.base" superClass="com.xmos.cdt.core.assembler.base">
+                                <option id = "gnu.c.compiler.option.include.paths.78868869" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                                <option id = "com.xmos.c.compiler.option.include.paths.27071851" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/fake_inc}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src/SLICEKIT-L2}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/bin/Debug}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_slicekit_support}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_sdram/src/PINOUT_V0}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.settings}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_sdram_regress/.build_Debug/m_slicekit_support/src}&quot;' />
+
+                                </option>
+                            </tool>
+
+                        </toolChain>
+                    </folderInfo>
+                    <sourceEntries>
+                        <entry excluding=".build_*" flags="VALUE_WORKSPACE_PATH|RESOLVED"
+                    kind="sourcePath" name="" />
+                    </sourceEntries>
+                </configuration>
+            </storageModule>
+            <storageModule moduleId="scannerConfiguration">
+                <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="" />
+                <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="specsFile">
+                        <runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+                <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="makefileGenerator">
+                        <runAction arguments="-E -P -v -dD" command="" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+                <profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="specsFile">
+                        <runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+                <profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="specsFile">
+                        <runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+                <profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="specsFile">
+                        <runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+                <profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="specsFile">
+                        <runAction arguments='-c &apos;gcc -E -P -v -dD &quot;${plugin_state_location}/${specs_file}&quot;&apos;' command="sh" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+                <profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="specsFile">
+                        <runAction arguments='-c &apos;g++ -E -P -v -dD &quot;${plugin_state_location}/specs.cpp&quot;&apos;' command="sh" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+                <profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
+                    <buildOutputProvider>
+                        <openAction enabled="true" filePath="" />
+                        <parser enabled="true" />
+                    </buildOutputProvider>
+                    <scannerInfoProvider id="specsFile">
+                        <runAction arguments='-c &apos;gcc -E -P -v -dD &quot;${plugin_state_location}/specs.c&quot;&apos;' command="sh" useDefault="true" />
+                        <parser enabled="true" />
+                    </scannerInfoProvider>
+                </profile>
+            </storageModule>
+            <storageModule moduleId="org.eclipse.cdt.core.externalSettings" />
+            <storageModule moduleId="org.eclipse.cdt.core.language.mapping" />
+            <storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings" />
+        </cconfiguration>
+
+    </storageModule>
+    <storageModule moduleId="cdtBuildSystem" version="4.0.0">
+        <project id = "app_sdram_regress.null.78190083" name="app_sdram_regress" />
+    </storageModule>
 </cproject>

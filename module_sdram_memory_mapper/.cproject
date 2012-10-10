@@ -161,71 +161,61 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/gcc&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1/xcore-xmos-elf&quot;' />
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;' />
 
                                 </option>
                                 <inputType id = "com.xmos.cdt.xc.compiler.input.61904208" name="XC Sources" superClass="com.xmos.cdt.xc.compiler.input" />
                                 <option id = "gnu.c.compiler.option.include.paths.25154147" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;' />
 
                                 </option>
                             </tool>
                             <tool id = "com.xmos.cdt.xc.compiler.base.87086745" name="com.xmos.cdt.xc.compiler.base" superClass="com.xmos.cdt.xc.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.72124366" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.23577354" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;' />
 
                                 </option>
                             </tool>
                             <tool id = "com.xmos.cdt.c.compiler.base.52753358" name="com.xmos.cdt.c.compiler.base" superClass="com.xmos.cdt.c.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.22966253" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.73054519" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;' />
 
                                 </option>
                             </tool>
                             <tool id = "com.xmos.cdt.cpp.compiler.base.26426708" name="com.xmos.cdt.cpp.compiler.base" superClass="com.xmos.cdt.cpp.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.82070301" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.27824608" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;' />
 
                                 </option>
                             </tool>
                             <tool id = "com.xmos.cdt.core.assembler.base.92424575" name="com.xmos.cdt.core.assembler.base" superClass="com.xmos.cdt.core.assembler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.70604811" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;' />
 
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.4752090" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
+                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;' />
 
                                 </option>
