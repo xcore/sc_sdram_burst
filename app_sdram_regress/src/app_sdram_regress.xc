@@ -564,16 +564,8 @@ void test_5_threads(chanend server) {
   }
   printf("5 threaded test suite completed\n");
 }
-on tile[0]:out port p = XS1_PORT_8D;
 
-static void disable_flash(){
-  p <:0x80;
-  p <:0xc0;
-  p <:0x80;
-  set_port_use_off(p);
-}
 void sdram_client(chanend server) {
-  disable_flash();
   set_thread_fast_mode_on();
   while(1){
     printf("Test suite begin\n");

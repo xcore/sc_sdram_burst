@@ -8,4 +8,5 @@ SDRAM Regression Application
 
 The demo runs a series of regression tests of increasing difficulty, beginning 
 from using a single core for the sdram_server with one core loaded progressing 
-to all cores being loaded to simulate an XCore under full load. 
+to all cores being loaded to simulate an XCore under full load. Note, this runs
+indefinatly, it is meant as a test tool. 

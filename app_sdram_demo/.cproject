@@ -153,7 +153,9 @@
 									<listOptionValue builtIn="false" value="__EXCEPTIONS=1"/>
 									<listOptionValue builtIn="false" value="__WCHAR_UNSIGNED__=1"/>
 								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.61592762" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
+								<option id="com.xmos.c.compiler.option.include.paths.61592762" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath"/>
+								<option id="gnu.c.compiler.option.include.paths.17768696" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath"/>
+								<option id="com.xmos.xc.compiler.option.include.paths.181417847" name="com.xmos.xc.compiler.option.include.paths" superClass="com.xmos.xc.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include/gcc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;"/>
@@ -199,408 +201,36 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
 								</option>
-								<option id="gnu.c.compiler.option.include.paths.17768696" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-								<inputType id="com.xmos.cdt.xc.compiler.input.81154079" name="XC Sources" superClass="com.xmos.cdt.xc.compiler.input"/>
-							</tool>
-							<tool id="com.xmos.cdt.xc.compiler.base.6316009" name="com.xmos.cdt.xc.compiler.base">
-								<option id="gnu.c.compiler.option.include.paths.18961081" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.10064869" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-							</tool>
-							<tool id="com.xmos.cdt.c.compiler.base.70275178" name="com.xmos.cdt.c.compiler.base">
-								<option id="gnu.c.compiler.option.include.paths.42755017" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.28877290" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-							</tool>
-							<tool id="com.xmos.cdt.cpp.compiler.base.75554793" name="com.xmos.cdt.cpp.compiler.base">
-								<option id="gnu.c.compiler.option.include.paths.14280285" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.91206242" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-							</tool>
-							<tool id="com.xmos.cdt.core.assembler.base.67943885" name="com.xmos.cdt.core.assembler.base">
-								<option id="gnu.c.compiler.option.include.paths.51481904" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.34042427" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
+								<inputType id="com.xmos.cdt.xc.compiler.input.81154079" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
 							</tool>
 							<tool id="com.xmos.cdt.c.compiler.1837493915" name="com.xmos.cdt.c.compiler" superClass="com.xmos.cdt.c.compiler">
+								<option id="com.xmos.c.compiler.option.include.paths.564236301" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
+								</option>
 								<inputType id="com.xmos.cdt.c.compiler.input.c.1380566313" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
 							</tool>
 							<tool id="com.xmos.cdt.cxx.compiler.1003989915" name="com.xmos.cdt.cxx.compiler" superClass="com.xmos.cdt.cxx.compiler">
+								<option id="com.xmos.cxx.compiler.option.include.paths.127667513" name="com.xmos.cxx.compiler.option.include.paths" superClass="com.xmos.cxx.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
+								</option>
 								<inputType id="com.xmos.cdt.cxx.compiler.input.cpp.1049507550" name="C++" superClass="com.xmos.cdt.cxx.compiler.input.cpp"/>
 							</tool>
 						</toolChain>
@@ -847,7 +477,9 @@
 									<listOptionValue builtIn="false" value="__EXCEPTIONS=1"/>
 									<listOptionValue builtIn="false" value="__WCHAR_UNSIGNED__=1"/>
 								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.34358651" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
+								<option id="com.xmos.c.compiler.option.include.paths.34358651" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath"/>
+								<option id="gnu.c.compiler.option.include.paths.21654300" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath"/>
+								<option id="com.xmos.xc.compiler.option.include.paths.1483196852" name="com.xmos.xc.compiler.option.include.paths" superClass="com.xmos.xc.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include/gcc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;"/>
@@ -893,408 +525,36 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
 								</option>
-								<option id="gnu.c.compiler.option.include.paths.21654300" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-								<inputType id="com.xmos.cdt.xc.compiler.input.83338914" name="XC Sources" superClass="com.xmos.cdt.xc.compiler.input"/>
-							</tool>
-							<tool id="com.xmos.cdt.xc.compiler.base.12597464" name="com.xmos.cdt.xc.compiler.base">
-								<option id="gnu.c.compiler.option.include.paths.18117768" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.26708688" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-							</tool>
-							<tool id="com.xmos.cdt.c.compiler.base.37491210" name="com.xmos.cdt.c.compiler.base">
-								<option id="gnu.c.compiler.option.include.paths.891246" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.13632403" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-							</tool>
-							<tool id="com.xmos.cdt.cpp.compiler.base.1327066" name="com.xmos.cdt.cpp.compiler.base">
-								<option id="gnu.c.compiler.option.include.paths.15409809" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.40593434" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-							</tool>
-							<tool id="com.xmos.cdt.core.assembler.base.4755836" name="com.xmos.cdt.core.assembler.base">
-								<option id="gnu.c.compiler.option.include.paths.84091849" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.61740077" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12alpha1/m_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_12aplha0/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_demo/.build_Release_11.11.1}&quot;"/>
-								</option>
+								<inputType id="com.xmos.cdt.xc.compiler.input.83338914" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
 							</tool>
 							<tool id="com.xmos.cdt.c.compiler.588012573" name="com.xmos.cdt.c.compiler" superClass="com.xmos.cdt.c.compiler">
+								<option id="com.xmos.c.compiler.option.include.paths.1428378314" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
+								</option>
 								<inputType id="com.xmos.cdt.c.compiler.input.c.1752760551" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
 							</tool>
 							<tool id="com.xmos.cdt.cxx.compiler.1556605965" name="com.xmos.cdt.cxx.compiler" superClass="com.xmos.cdt.cxx.compiler">
+								<option id="com.xmos.cxx.compiler.option.include.paths.118188855" name="com.xmos.cxx.compiler.option.include.paths" superClass="com.xmos.cxx.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
+								</option>
 								<inputType id="com.xmos.cdt.cxx.compiler.input.cpp.1218254197" name="C++" superClass="com.xmos.cdt.cxx.compiler.input.cpp"/>
 							</tool>
 						</toolChain>

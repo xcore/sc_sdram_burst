@@ -32,6 +32,9 @@ void sdram_init_PINOUT_V1_IS42S16400F(struct sdram_ports_PINOUT_V1_IS42S16400F &
   set_port_clock(p.ras, p.cb);
   set_port_clock(p.we, p.cb);
   set_port_sample_delay(p.dq_ah);
+
+  //set_clock_rise_delay(p.cb, 3);
+
   start_clock(p.cb);
 
   p.dq_ah <: 0 @ t;

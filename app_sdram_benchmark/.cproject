@@ -153,7 +153,9 @@
 									<listOptionValue builtIn="false" value="__EXCEPTIONS=1"/>
 									<listOptionValue builtIn="false" value="__WCHAR_UNSIGNED__=1"/>
 								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.55058676" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
+								<option id="com.xmos.c.compiler.option.include.paths.55058676" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath"/>
+								<option id="gnu.c.compiler.option.include.paths.79086769" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath"/>
+								<option id="com.xmos.xc.compiler.option.include.paths.366064386" name="com.xmos.xc.compiler.option.include.paths" superClass="com.xmos.xc.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include/gcc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;"/>
@@ -175,192 +177,36 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
 								</option>
-								<option id="gnu.c.compiler.option.include.paths.79086769" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-								<inputType id="com.xmos.cdt.xc.compiler.input.81160529" name="XC Sources" superClass="com.xmos.cdt.xc.compiler.input"/>
-							</tool>
-							<tool id="com.xmos.cdt.xc.compiler.base.54042995" name="com.xmos.cdt.xc.compiler.base">
-								<option id="gnu.c.compiler.option.include.paths.8983829" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.82317540" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-							</tool>
-							<tool id="com.xmos.cdt.c.compiler.base.52111258" name="com.xmos.cdt.c.compiler.base">
-								<option id="gnu.c.compiler.option.include.paths.1337221" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.81720827" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-							</tool>
-							<tool id="com.xmos.cdt.cpp.compiler.base.24994856" name="com.xmos.cdt.cpp.compiler.base">
-								<option id="gnu.c.compiler.option.include.paths.13365957" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.1214949" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-							</tool>
-							<tool id="com.xmos.cdt.core.assembler.base.58216731" name="com.xmos.cdt.core.assembler.base">
-								<option id="gnu.c.compiler.option.include.paths.28177639" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.31727944" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
+								<inputType id="com.xmos.cdt.xc.compiler.input.81160529" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
 							</tool>
 							<tool id="com.xmos.cdt.c.compiler.1104971066" name="com.xmos.cdt.c.compiler" superClass="com.xmos.cdt.c.compiler">
+								<option id="com.xmos.c.compiler.option.include.paths.645552997" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
+								</option>
 								<inputType id="com.xmos.cdt.c.compiler.input.c.517067888" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
 							</tool>
 							<tool id="com.xmos.cdt.cxx.compiler.314258485" name="com.xmos.cdt.cxx.compiler" superClass="com.xmos.cdt.cxx.compiler">
+								<option id="com.xmos.cxx.compiler.option.include.paths.1329556657" name="com.xmos.cxx.compiler.option.include.paths" superClass="com.xmos.cxx.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
+								</option>
 								<inputType id="com.xmos.cdt.cxx.compiler.input.cpp.604226803" name="C++" superClass="com.xmos.cdt.cxx.compiler.input.cpp"/>
 							</tool>
 						</toolChain>
@@ -607,7 +453,9 @@
 									<listOptionValue builtIn="false" value="__EXCEPTIONS=1"/>
 									<listOptionValue builtIn="false" value="__WCHAR_UNSIGNED__=1"/>
 								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.2559148" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
+								<option id="com.xmos.c.compiler.option.include.paths.2559148" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath"/>
+								<option id="gnu.c.compiler.option.include.paths.53348239" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath"/>
+								<option id="com.xmos.xc.compiler.option.include.paths.1714391232" name="com.xmos.xc.compiler.option.include.paths" superClass="com.xmos.xc.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include/gcc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;"/>
@@ -629,192 +477,36 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
 								</option>
-								<option id="gnu.c.compiler.option.include.paths.53348239" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-								<inputType id="com.xmos.cdt.xc.compiler.input.43662530" name="XC Sources" superClass="com.xmos.cdt.xc.compiler.input"/>
-							</tool>
-							<tool id="com.xmos.cdt.xc.compiler.base.65055857" name="com.xmos.cdt.xc.compiler.base">
-								<option id="gnu.c.compiler.option.include.paths.76666793" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.82352999" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-							</tool>
-							<tool id="com.xmos.cdt.c.compiler.base.21307501" name="com.xmos.cdt.c.compiler.base">
-								<option id="gnu.c.compiler.option.include.paths.47392148" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.3641521" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-							</tool>
-							<tool id="com.xmos.cdt.cpp.compiler.base.72245880" name="com.xmos.cdt.cpp.compiler.base">
-								<option id="gnu.c.compiler.option.include.paths.88910539" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.91270579" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-							</tool>
-							<tool id="com.xmos.cdt.core.assembler.base.40005947" name="com.xmos.cdt.core.assembler.base">
-								<option id="gnu.c.compiler.option.include.paths.9767231" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
-								<option id="com.xmos.c.compiler.option.include.paths.10023162" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/fake_inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.build_Debug/m_sdram/src/PINOUT_V0}&quot;"/>
-								</option>
+								<inputType id="com.xmos.cdt.xc.compiler.input.43662530" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
 							</tool>
 							<tool id="com.xmos.cdt.c.compiler.1455836103" name="com.xmos.cdt.c.compiler" superClass="com.xmos.cdt.c.compiler">
+								<option id="com.xmos.c.compiler.option.include.paths.1684989859" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
+								</option>
 								<inputType id="com.xmos.cdt.c.compiler.input.c.1410810959" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
 							</tool>
 							<tool id="com.xmos.cdt.cxx.compiler.1441516346" name="com.xmos.cdt.cxx.compiler" superClass="com.xmos.cdt.cxx.compiler">
+								<option id="com.xmos.cxx.compiler.option.include.paths.330628552" name="com.xmos.cxx.compiler.option.include.paths" superClass="com.xmos.cxx.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
+								</option>
 								<inputType id="com.xmos.cdt.cxx.compiler.input.cpp.353152762" name="C++" superClass="com.xmos.cdt.cxx.compiler.input.cpp"/>
 							</tool>
 						</toolChain>
