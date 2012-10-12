@@ -1,6 +1,6 @@
 #ifndef MODULE_MEMORY_MAPPER_H_
 #define MODULE_MEMORY_MAPPER_H_
-
+#include <stdint.h>
 /** \brief Reads words from the SDRAM server on the end of the channel provided.
 *
 * \param server The channel end connecting to the SDRAM server.
