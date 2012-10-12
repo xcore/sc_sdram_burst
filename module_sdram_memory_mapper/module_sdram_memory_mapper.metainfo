@@ -33,6 +33,11 @@ generatedCode = {
   body = [[ ]]
 }
 
+files = {
+  ["module_display_controller/sdram_conf_example.h"] = "src/sdram_conf.h",
+  ["module_display_controller/lcd_conf_example.h"] = "src/lcd_conf.h",
+}
+
 api = {
        'mm_read_words_p',
        'mm_read_words',
