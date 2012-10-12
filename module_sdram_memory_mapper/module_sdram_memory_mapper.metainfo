@@ -34,8 +34,8 @@ generatedCode = {
 }
 
 files = {
-  ["module_display_controller/sdram_conf_example.h"] = "src/sdram_conf.h",
-  ["module_display_controller/lcd_conf_example.h"] = "src/lcd_conf.h",
+  ["module_sdram_memory_mapper/sdram_conf_example.h"] = "src/sdram_conf.h",
+  ["module_sdram_memory_mapper/lcd_conf_example.h"] = "src/lcd_conf.h",
 }
 
 api = {

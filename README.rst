@@ -1,7 +1,7 @@
 SDRAM Repository
 ................
 
-:Latest release: 1.0.0alpha2
+:Latest release: 1.0.0alpha5
 :Maintainer: andrewstanfordjason
 :Description: Various modules related to controlling external sdram
 
@@ -35,5 +35,5 @@ Issues may be submitted via the Issues tab in this github repo. Response to any 
 Required software (dependencies)
 ================================
 
-  * None
+  * sc_util (git@github.com:xcore/sc_util)
 
