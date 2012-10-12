@@ -48,7 +48,8 @@
     <release parenthash = "310f1044063c6f57b26361ddc51919e48673e5f0" version = "1.0.0alpha0" githash = "7f50149f01b77198ddef0e1dea4c792a489bd53b"></release>
     <release parenthash = "db977f07aa4669e678fe47d8cd1901bf162db624" version = "1.0.0alpha1" githash = "40cd0ce3c5f588695db171c704d4cdd7f3679746"></release>
     <release parenthash = "960befed02b145a5c6923da9b0aa1659a292e84c" version = "1.0.0alpha2" githash = "30ccdbd474d84b69d975c6739f8842b5f679c01a"></release>
-    <release parenthash = "0bf45a83391a37263aad2ef3049d1b6d6c9eb3fd" version = "1.0.0alpha3"></release>
+    <release parenthash = "0bf45a83391a37263aad2ef3049d1b6d6c9eb3fd" version = "1.0.0alpha3" githash = "8fe26ef381c9a047371a1001ecf7b090bcdb2066"></release>
+    <release parenthash = "8fe26ef381c9a047371a1001ecf7b090bcdb2066" version = "1.0.0alpha4"></release>
     <subpartnumber>XM-001915-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xcore_repo>sc_sdram_burst.git</xcore_repo>
