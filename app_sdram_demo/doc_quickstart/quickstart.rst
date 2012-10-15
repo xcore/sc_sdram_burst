@@ -11,12 +11,12 @@ This simple demonstration of xTIMEcomposer Studio functionality uses the XA-SK-S
 Hardware Setup
 ++++++++++++++
 
-The XP-SKC-L2 Slicekit Core board has four slots with edge conectors: ``SQUARE``, ``CIRCLE``,``TRIANGLE`` and ``STAR``. 
+The XP-SKC-L2 Slicekit Core board has four slots with edge connectors: ``SQUARE``, ``CIRCLE``,``TRIANGLE`` and ``STAR``. 
 
 To setup up the system:
 
    #. Connect XA-SK-SDRAM Slice Card to the XP-SKC-L2 Slicekit Core board using the connector marked with the ``STAR``.
-   #. Connect the XTAG Adapter to Slicekit Core board, and connect XTAG-2 to the adapter. 
+   #. Connect the XTAG Adapter to Slicekit Core board, and connect XTAG-2 to the Adapter. 
    #. Connect the XTAG-2 to host PC. Note that the USB cable is not provided with the Slicekit starter kit.
    #. Set the ``XMOS LINK`` to ``OFF`` on the XTAG Adapter.
    #. Switch on the power supply to the Slicekit Core board.
@@ -42,7 +42,7 @@ Note that the Developer Column in the xTIMEcomposer on the right hand side of yo
 Run the Application
 +++++++++++++++++++
 
-Now that the application has been compiled, the next step is to run it on the Slicekit Core Board using the tools to load the application over JTAG (via the XTAG2 and Xtag Adaptor card) into the xCORE multicore microcontroller.
+Now that the application has been compiled, the next step is to run it on the Slicekit Core Board using the tools to load the application over JTAG (via the XTAG2 and Xtag Adapter card) into the xCORE multicore microcontroller.
 
    #. Select the file ``app_sdram_demo.xc`` in the ``app_sdram_demo`` project from the Project Explorer.
    #. Click on the ``Run`` icon (the white arrow in the green circle). 
@@ -61,21 +61,23 @@ Look at the Code
    #. Examine the application code. In xTIMEcomposer navigate to the ``src`` directory under app_sdram_demo and double click on the ``app_sdram_demo.xc`` file within it. The file will open in the central editor window.
    #. Find the main function and note that it runs the ``application()`` function on a single logical core. 
    #. Find the ``sdram_buffer_write`` function within ``application()``. There are 4 SDRAM I/O commands: ``sdram_buffer_write``, ``sdram_buffer_read``, ``sdram_full_page_write``, ``sdram_full_page_read``. They must all be followed by a ``sdram_wait_until_idle`` before another I/O command may be issued. When the ``sdram_wait_until_idle`` returns then the data is now at it destination. This functionality allows the application to be getting on with something else whilst the SDRAM server is busy with the I/O. 
-   #. There is no need to explictly refresh the SDRAM as this is managed by the ``sdram_server``.
+   #. There is no need to explicitly refresh the SDRAM as this is managed by the ``sdram_server``.
 
-Try the Benchmark and Regressession Demo
+Try the Benchmark and Regression Demo
 ........................................
 
 After completing this demo there are two more application to try: 
   #. ``app_sdram_benchmark`` benchmarks the performance of the module. It does no correctness testing but instead tests the throughput of the SDRAM server.  
   #. ``app_sdram_regress`` this demo runs a series of regression tests of increasing difficulty, beginning from using a single core for the sdram_server with one core loaded progressing to all cores being loaded to simulate an XCore under full load.  
 
+Note that these are both tools, each of which don't terminate. They are designed to test the SDRAM and as such run indefinitely 
+
 To try these repeat the procedure in "Import and Build the Application" but with either ``app_sdram_benchmark`` or ``app_sdram_regress``.
    
 Try Other Application Demos which use the SDRAM
 ...............................................
 
-There are two other siognificant application demos which utilise this component. 
+There are two other significant application demos which utilise this component. 
 
-   * The Display Controller Demo combines the SDRAM Slice with the XA-SK-SCR480 LCD Slice Card to create a fully functioning 480x272 display controller, with the SDRAM actig as the framebuffer, :ref:`Display_Controller_Demo_Quickstart`.
+   * The Display Controller Demo combines the SDRAM Slice with the XA-SK-SCR480 LCD Slice Card to create a fully functioning 480x272 display controller, with the SDRAM acting as the framebuffer, :ref:`Display_Controller_Demo_Quickstart`.
    * The Audio Reverb Demo utilises the SDRAM component to store enough audio samples to create large audio delay lines, which are a required component of various audio effects. In this case, a reverberation effect is demonstrated.
