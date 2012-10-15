@@ -4,7 +4,7 @@ XMOS SDRAM Component
 .. toctree::
 
    Overview <overview>
-   Hardware Platforms <hw>
+   Hardware Requirements <hw>
    API <api>
    Programming Guide <programming>
    Example Applications <examples>
