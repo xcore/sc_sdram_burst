@@ -5,7 +5,7 @@
 
 #define VERBOSE 0
 
-sdram_ports ports = {
+on tile[0]: sdram_ports ports = {
     XS1_PORT_16A, XS1_PORT_1B, XS1_PORT_1G, XS1_PORT_1C, XS1_PORT_1F, XS1_CLKBLK_1 };
 
 static float readWords(chanend server, unsigned count, unsigned page_alignment){
