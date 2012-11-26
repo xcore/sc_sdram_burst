@@ -132,6 +132,7 @@ void sdram_short_block_read_PINOUT_V1_IS42S16400F(unsigned buffer, unsigned word
  * These numbers are tuned for 62.5MIPS.
  */
 #define WRITE_SETUP_LATENCY (50)
+#define WRITE_COL_SETUP_LATENCY (50)
 #define READ_SETUP_LATENCY (50)
 
 static unsigned bank_table[SDRAM_BANK_COUNT_PINOUT_V1_IS42S16400F] =
@@ -172,6 +173,32 @@ static inline void sdram_write_PINOUT_V1_IS42S16400F(unsigned row, unsigned col,
   partout_timed(ports.we , 3, CTRL_WE_ACTIVE  | (CTRL_WE_WRITE<<1)  | (CTRL_WE_NOP<<2), t);
 
   sdram_block_write_PINOUT_V1_IS42S16400F(buffer, jump, ports.dq_ah, ports.we, ports.ras, stop_time);
+}
+
+#pragma unsafe arrays
+static inline void sdram_col_write_PINOUT_V1_IS42S16400F(unsigned bank, unsigned row, unsigned col,
+    short data, struct sdram_ports_PINOUT_V1_IS42S16400F &ports) {
+  unsigned t;
+  unsigned data_stop;
+  unsigned rowcol;
+
+ if(SDRAM_EXTERNAL_MEMORY_ACCESSOR)
+  if (col)
+    col = col - 1;
+  else
+    col = (SDRAM_COL_COUNT_PINOUT_V1_IS42S16400F - 1);
+
+  rowcol = (col << 16) | row | bank_table[bank];
+  data_stop = (0xffff << 16) | data;
+  t = partout_timestamped(ports.cas, 1, CTRL_WE_NOP);
+
+  t += 50;
+
+  partout_timed(ports.cas, 6, CTRL_CAS_ACTIVE | (CTRL_CAS_WRITE<<1) | (CTRL_CAS_NOP<<2) | (CTRL_CAS_TERM<<3) | (CTRL_CAS_PRECHARGE<<4) | (CTRL_CAS_NOP<<5), t);
+  partout_timed(ports.ras, 6, CTRL_RAS_ACTIVE | (CTRL_RAS_WRITE<<1) | (CTRL_RAS_NOP<<2) | (CTRL_RAS_TERM<<3) | (CTRL_RAS_PRECHARGE<<4) | (CTRL_RAS_NOP<<5), t);
+  partout_timed(ports.we , 6, CTRL_WE_ACTIVE  | (CTRL_WE_WRITE<<1)  | (CTRL_WE_NOP<<2)  | (CTRL_WE_TERM<<3)  | (CTRL_WE_PRECHARGE<<4)  | (CTRL_WE_NOP<<5) , t);
+  ports.dq_ah @ t<: rowcol;
+  ports.dq_ah <: data_stop;
 }
 
 #pragma unsafe arrays

@@ -1,4 +1,5 @@
 .text
+.cc_top sdram_block_write_PINOUT_V1_IS42S16400F.function
 .align 4
 .globl sdram_block_write_PINOUT_V1_IS42S16400F
 .type  sdram_block_write_PINOUT_V1_IS42S16400F, @function
@@ -58,7 +59,10 @@ sdram_block_write_PINOUT_V1_IS42S16400F:
 .linkset sdram_block_write_PINOUT_V1_IS42S16400F.maxchanends, 0
 .globl sdram_block_write_PINOUT_V1_IS42S16400F.maxthreads
 .linkset sdram_block_write_PINOUT_V1_IS42S16400F.maxthreads, 1
+.cc_bottom sdram_block_write_PINOUT_V1_IS42S16400F.function
 
+
+.cc_top sdram_block_read_PINOUT_V1_IS42S16400F.function
 .align 4
 .globl sdram_block_read_PINOUT_V1_IS42S16400F
 .type  sdram_block_read_PINOUT_V1_IS42S16400F, @function
@@ -164,6 +168,9 @@ jump:
 .globl sdram_block_read_PINOUT_V1_IS42S16400F.maxthreads
 .linkset sdram_block_read_PINOUT_V1_IS42S16400F.maxthreads, 1
 
+.cc_bottom sdram_block_read_PINOUT_V1_IS42S16400F.function
+
+.cc_top sdram_short_block_read_PINOUT_V1_IS42S16400F.function
 .align 4
 .globl sdram_short_block_read_PINOUT_V1_IS42S16400F
 .type  sdram_short_block_read_PINOUT_V1_IS42S16400F, @function
@@ -241,3 +248,4 @@ sdram_short_block_read_PINOUT_V1_IS42S16400F:
 .globl sdram_short_block_read_PINOUT_V1_IS42S16400F.maxthreads
 .linkset sdram_short_block_read_PINOUT_V1_IS42S16400F.maxthreads, 1
 
+.cc_bottom sdram_short_block_read_PINOUT_V1_IS42S16400F.function

@@ -7,9 +7,12 @@ This section provides information on how to program applications using the SDRAM
 SDRAM Default implementation
 ----------------------------
 For convenience the ``module_sdram`` can use a default implementation. When the define ``SDRAM_DEFAULT_IMPLEMENTATION`` is set in ``sdram_conf.h`` to one of the supported targets then the ``sdram_server`` function will act as a call to the specified implementation. The same applies for the ``sdram_ports`` structure. The currently supported targets are:
+	* PINOUT_V2_IS42S16400F - This corresponds to the ISSI part IS42S16400F in a 21 pin configuration.
 	* PINOUT_V1_IS42S16400F - This corresponds to the ISSI part IS42S16400F in a 20 pin configuration.
 	* PINOUT_V1_IS42S16160D - This corresponds to the ISSI part IS42S16160D in a 20 pin configuration.
 	* PINOUT_V0 - This is for a legacy 22 pin configuration.
+
+See the individual ``port.h`` files to find the port configurations.
 
 Single SDRAM Support
 --------------------

@@ -77,6 +77,18 @@ void sdram_full_row_write(chanend server, unsigned bank, unsigned start_row, uns
 }
 #endif
 
+#if (SDRAM_ENABLE_CMD_COL_WRITE)
+void sdram_col_write(chanend server, unsigned bank, unsigned row, unsigned col, short data) {
+  server <: (char)SDRAM_CMD_COL_WRITE;
+  master {
+	server <: bank;
+	server <: row;
+	server <: col;
+	server <: data;
+  }
+}
+#endif
+
 void sdram_wait_until_idle_p(chanend server, intptr_t buffer) {
   chkct(server, XS1_CT_END);
 }

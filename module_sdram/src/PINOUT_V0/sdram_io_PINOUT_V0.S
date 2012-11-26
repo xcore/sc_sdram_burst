@@ -1,9 +1,6 @@
 
-.section .cp.const4,       "acM", @progbits, 4
+.cc_top sdram_block_write_PINOUT_V0.function
 .align 4
-burst_term:
-.word 0xeeee4eec
-
 .text
 #define MAX_BUF_READ_SIZE (128)
 .align 4
@@ -58,7 +55,9 @@ sdram_block_write_PINOUT_V0:
 	retsp 0
 .globl sdram_block_write_PINOUT_V0.nstackwords
 .linkset sdram_block_write_PINOUT_V0.nstackwords, 1
+.cc_bottom sdram_block_write_PINOUT_V0.function
 
+.cc_top sdram_block_read_PINOUT_V0.function
 .align 4
 .globl sdram_block_read_PINOUT_V0
 .type  sdram_block_read_PINOUT_V0, @function
@@ -157,6 +156,8 @@ jump:
 .globl sdram_block_read_PINOUT_V0.nstackwords
 .linkset sdram_block_read_PINOUT_V0.nstackwords, 5
 
+.cc_bottom sdram_block_read_PINOUT_V0.function
+.cc_top sdram_short_block_read_PINOUT_V0.function
 .align 4
 .globl sdram_short_block_read_PINOUT_V0
 .type  sdram_short_block_read_PINOUT_V0, @function
@@ -228,3 +229,4 @@ sdram_short_block_read_PINOUT_V0:
 .globl sdram_short_block_read_PINOUT_V0.nstackwords
 .linkset sdram_short_block_read_PINOUT_V0.nstackwords, 4
 
+.cc_bottom sdram_short_block_read_PINOUT_V0.function

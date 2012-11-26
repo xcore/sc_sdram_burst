@@ -85,6 +85,9 @@ These are non-implementation specific.
 **SDRAM_ENABLE_CMD_FULL_ROW_WRITE**
   Enable/Disable the full row write command.
 
+**SDRAM_ENABLE_CMD_COL_WRITE**
+  Enable/Disable the col write command.
+
 These defines switch commands on and off in the server and client. Set to 0 for disable, set to 1 for enable. Disabling unused commands will cause a code size decrease.
 
 Port Config
@@ -118,6 +121,10 @@ C Interface
 .. doxygenfunction:: sdram_full_row_write_p
 .. doxygenfunction:: sdram_buffer_read_p
 .. doxygenfunction:: sdram_full_row_read_p
+
+C and XC Interface
+------------------
+.. doxygenfunction:: sdram_col_write
 
 SDRAM Memory Mapper API
 -----------------------

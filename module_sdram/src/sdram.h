@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include "sdram_geometry.h"
 #include "sdram_ports.h"
+#include "sdram_server_PINOUT_V2_IS42S16400F.h"
 #include "sdram_server_PINOUT_V1_IS42S16400F.h"
 #include "sdram_server_PINOUT_V1_IS42S16160D.h"
 #include "sdram_server_PINOUT_V0.h"
@@ -139,4 +140,15 @@ void sdram_full_row_write(chanend server, unsigned bank, unsigned row,
  */
 void sdram_full_row_write_p(chanend server, unsigned bank, unsigned row,
     intptr_t buffer);
+
+/** \brief Used write a single column of data to the SDRAM
+ *
+ * \param server The channel end connecting the application to the server
+ * \param bank The bank number in the SDRAM into which the data should be written
+ * \param row The row number in the SDRAM into which the data should be written.
+ * \param col The col number in the SDRAM into which the data should be written.
+ * \param data A short of data to write to the SDRAM.
+ *
+ */
+void sdram_col_write(chanend server, unsigned bank, unsigned row, unsigned col, short data);
 #endif

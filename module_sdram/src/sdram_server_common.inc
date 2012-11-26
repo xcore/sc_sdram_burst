@@ -2,6 +2,7 @@
 #define SDRAM_SERVER_COMMON_H_
 
 #include "sdram_commands.h"
+//#include "sdram.h"
 
 #pragma unsafe arrays
 static void read_buffer(unsigned start_row, unsigned start_col,
@@ -108,6 +109,20 @@ static void handle_command(char cmd, chanend client, struct ADD_SUFFIX(sdram_por
         client :> pointer;
       }
       ADD_SUFFIX(sdram_read,CUR_IMPL)(start_row, 0, bank, pointer, ADD_SUFFIX(SDRAM_ROW_WORDS,CUR_IMPL), ports);
+      break;
+    }
+#endif
+#if (SDRAM_ENABLE_CMD_COL_WRITE==1)
+    case SDRAM_CMD_COL_WRITE: {
+      unsigned bank, row, col;
+      short data;
+      slave {
+        client :> bank;
+        client :> row;
+        client :> col;
+        client :> data;
+      }
+      ADD_SUFFIX(sdram_col_write,CUR_IMPL)(bank, row, col, data, ports);
       break;
     }
 #endif
