@@ -275,13 +275,23 @@ static void refresh_test(chanend server) {
   }
   printf("\tPassed\n");
 }
-
+/*
 unsigned makeWord(unsigned bank, unsigned row, unsigned word) {
   return bank + (row << 1) + (word << 13);
 }
 
 {unsigned, unsigned, unsigned} unmakeWord(unsigned word) {
   return {word & 1, (word >> 1) & 0xfff, (word >> 13) & 0xff};
+}
+*/
+unsigned makeWord(unsigned bank, unsigned row, unsigned word) {
+  return bank + (row << SDRAM_BANK_ADDRESS_BITS) + (word << (SDRAM_BANK_ADDRESS_BITS+SDRAM_ROW_ADDRESS_BITS));
+}
+
+{unsigned, unsigned, unsigned} unmakeWord(unsigned word) {
+  return {(word) & ((1<<SDRAM_BANK_ADDRESS_BITS)-1),
+	  (word>>SDRAM_BANK_ADDRESS_BITS) & ((1<<SDRAM_ROW_ADDRESS_BITS)-1),
+	  (word>>(SDRAM_BANK_ADDRESS_BITS+SDRAM_ROW_ADDRESS_BITS)) & ((1<<SDRAM_COL_ADDRESS_BITS)-1)};
 }
 void pseudo_random_read(chanend server, unsigned test_limit) {
   printf("Started pseudo_random_read\n");

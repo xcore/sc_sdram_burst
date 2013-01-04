@@ -1,6 +1,11 @@
 sc_sdram_burst Change Log
 =========================
 
+1.0.5
+-----
+  * Fixed regression test bug where code was not properly generalised
+  * Added manafacture test app
+
 1.0.4
 -----
   * Extended control defines to work for 4 bit ports in an arbitrary way
