@@ -32,19 +32,19 @@ on tile[0]: sdram_ports ports = {
  * Below here is the test code - there is no need to edit anything below here.
  */
 
-static void fillMemory(chanend server, unsigned fill_pattern) {
+static void fillMemory(chanend c_server, unsigned fill_pattern) {
   unsigned buf[SDRAM_ROW_WORDS];
   for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++)
     buf[word] = fill_pattern;
   for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
     for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
-      sdram_full_row_write(server, bank, row, buf);
-      sdram_wait_until_idle(server, buf);
+      sdram_full_row_write(c_server, bank, row, buf);
+      sdram_wait_until_idle(c_server, buf);
     }
   }
 }
 
-static void refresh_test(chanend server) {
+static void refresh_test(chanend c_server) {
   unsigned pattern;
   unsigned wait_multiplier[3] = { 1, 4, 8};
   unsigned patterns[3] = { 0, 0x55555555, 0xffffffff };
@@ -54,15 +54,15 @@ static void refresh_test(chanend server) {
     for (unsigned w = 0; w < 3; w++) {
       timer t;
       unsigned time;
-      fillMemory(server, pattern);
+      fillMemory(c_server, pattern);
       for(unsigned tw = 0; tw < wait_multiplier[w]; tw++){
         t :> time;
         t when timerafter(time+100000000):> int;
       }
       for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
         for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
-          sdram_buffer_read(server, bank, row, 0, SDRAM_ROW_WORDS, buf);
-          sdram_wait_until_idle(server, buf);
+          sdram_buffer_read(c_server, bank, row, 0, SDRAM_ROW_WORDS, buf);
+          sdram_wait_until_idle(c_server, buf);
           for(unsigned word=0;word<SDRAM_ROW_WORDS; word++) {
             unsigned r = buf[word];
             if(r != pattern) {
@@ -88,7 +88,7 @@ unsigned makeWord(unsigned bank, unsigned row, unsigned word) {
 	  & ((1<<SDRAM_COL_ADDRESS_BITS)-1)};
 }
 
-void address_test(chanend server) {
+void address_test(chanend c_server) {
 	unsigned max=SDRAM_BANK_COUNT;
 	for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
 	  for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
@@ -96,8 +96,8 @@ void address_test(chanend server) {
 		for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++) {
 		  buffer[word] = makeWord(bank, row, word);
 		}
-		sdram_buffer_write(server, bank, row, 0, SDRAM_ROW_WORDS, buffer);
-		sdram_wait_until_idle(server, buffer);
+		sdram_buffer_write(c_server, bank, row, 0, SDRAM_ROW_WORDS, buffer);
+		sdram_wait_until_idle(c_server, buffer);
 	  }
 	}
 	if(SDRAM_ROW_COUNT > max)
@@ -111,8 +111,8 @@ void address_test(chanend server) {
 		unsigned row = v % SDRAM_ROW_COUNT;
 		unsigned word = v % (SDRAM_ROW_WORDS);
 
-		sdram_buffer_read(server, bank, row, word*2, 1, buffer);
-		sdram_wait_until_idle(server, buffer);
+		sdram_buffer_read(c_server, bank, row, word*2, 1, buffer);
+		sdram_wait_until_idle(c_server, buffer);
 
 		if(makeWord(bank, row, word) != buffer[0]){
 		     printstrln("Failed address test.");
@@ -155,14 +155,14 @@ static void wait(){
   t when timerafter (w+1000000) :> w;
 }
 
-void sdram_client(chanend server) {
+void sdram_client(chanend c_server) {
   set_thread_fast_mode_on();
   par {
 	  {
 		  wait();
-		  sanity_check(server);
-		  address_test(server);
-		  refresh_test(server);
+		  sanity_check(c_server);
+		  address_test(c_server);
+		  refresh_test(c_server);
 		  printstrln("Success");
 		  _Exit(0);
 	  }
