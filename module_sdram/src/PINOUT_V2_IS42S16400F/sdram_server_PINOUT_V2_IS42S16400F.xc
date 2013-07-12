@@ -15,11 +15,12 @@ void sdram_init_PINOUT_V2_IS42S16400F(struct sdram_ports_PINOUT_V2_IS42S16400F &
 
   p.ctrl  <: 0;
   p.dq_ah <: 0;
+  sync(p.dq_ah);
 
   stop_clock(p.cb);
 
   T :> time;
-  T when timerafter(t + 100 * TIMER_TICKS_PER_US) :> time;
+  T when timerafter(time + 100 * TIMER_TICKS_PER_US) :> time;
 
   set_clock_div(p.cb, SDRAM_CLOCK_DIVIDER);
   set_port_clock(p.clk, p.cb);
@@ -37,7 +38,7 @@ void sdram_init_PINOUT_V2_IS42S16400F(struct sdram_ports_PINOUT_V2_IS42S16400F &
   t+=20;
 
   T :> time;
-  T when timerafter(t + 100 * TIMER_TICKS_PER_US) :> time;
+  T when timerafter(time + 100 * TIMER_TICKS_PER_US) :> time;
 
   p.dq_ah <: 0 @ t;
   t+=20;
@@ -60,10 +61,9 @@ void sdram_init_PINOUT_V2_IS42S16400F(struct sdram_ports_PINOUT_V2_IS42S16400F &
 
   // set mode register
   p.dq_ah @ t<: (SDRAM_MODE_REGISTER << 16)|SDRAM_MODE_REGISTER;
-  t+=32;
 
-  //do 16 nops
-  t+=16;
+  sync(p.dq_ah);
+  t+=48;
 
   partout_timed(p.ctrl, 8, CTRL_LOAD_MODEREG | (CTRL_NOP<<4), t);
 
@@ -124,12 +124,12 @@ static inline void sdram_write_PINOUT_V2_IS42S16400F(unsigned row, unsigned col,
   unsigned jump;
   unsigned rowcol;
 
- if(SDRAM_EXTERNAL_MEMORY_ACCESSOR)
-  if (col)
-    col = col - 1;
-  else
-    col = (SDRAM_COL_COUNT_PINOUT_V2_IS42S16400F - 1);
-
+  if(SDRAM_EXTERNAL_MEMORY_ACCESSOR){
+   if (col)
+     col = col - 1;
+   else
+     col = (SDRAM_COL_COUNT_PINOUT_V2_IS42S16400F - 1);
+  }
   rowcol = (col << 16) | row | bank_table[bank];
 
   //adjust the buffer
@@ -157,12 +157,12 @@ static inline void sdram_col_write_PINOUT_V2_IS42S16400F(unsigned bank, unsigned
   unsigned data_stop;
   unsigned rowcol;
 
- if(SDRAM_EXTERNAL_MEMORY_ACCESSOR)
-  if (col)
-    col = col - 1;
-  else
-    col = (SDRAM_COL_COUNT_PINOUT_V2_IS42S16400F - 1);
-
+  if(SDRAM_EXTERNAL_MEMORY_ACCESSOR){
+   if (col)
+     col = col - 1;
+   else
+     col = (SDRAM_COL_COUNT_PINOUT_V2_IS42S16400F - 1);
+  }
   rowcol = (col << 16) | row | bank_table[bank];
   data_stop = (0xffff << 16) | data;
   t = partout_timestamped(ports.ctrl, 4, CTRL_NOP);
@@ -179,12 +179,12 @@ static inline void sdram_read_PINOUT_V2_IS42S16400F(unsigned row, unsigned col, 
     unsigned buffer, unsigned word_count, struct sdram_ports_PINOUT_V2_IS42S16400F &ports) {
   unsigned t, stop_time, jump, rowcol;
 
- if(SDRAM_EXTERNAL_MEMORY_ACCESSOR)
-  if (col)
-    col = col - 1;
-  else
-    col = (SDRAM_COL_COUNT_PINOUT_V2_IS42S16400F - 1);
-
+  if(SDRAM_EXTERNAL_MEMORY_ACCESSOR){
+    if (col)
+      col = col - 1;
+    else
+      col = (SDRAM_COL_COUNT_PINOUT_V2_IS42S16400F - 1);
+  }
   rowcol = bank_table[bank] | (col << 16) | row;
 
   if (word_count < 4) {

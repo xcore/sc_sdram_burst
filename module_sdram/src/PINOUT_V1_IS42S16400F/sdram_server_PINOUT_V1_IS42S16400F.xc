@@ -18,10 +18,11 @@ void sdram_init_PINOUT_V1_IS42S16400F(struct sdram_ports_PINOUT_V1_IS42S16400F &
   p.we <: 0;
   p.dq_ah <: 0;
 
+  sync(p.dq_ah);
   stop_clock(p.cb);
 
   T :> time;
-  T when timerafter(t + 100 * TIMER_TICKS_PER_US) :> time;
+  T when timerafter(time + 100 * TIMER_TICKS_PER_US) :> time;
 
   set_clock_div(p.cb, SDRAM_CLOCK_DIVIDER);
   set_port_clock(p.clk, p.cb);
@@ -37,26 +38,28 @@ void sdram_init_PINOUT_V1_IS42S16400F(struct sdram_ports_PINOUT_V1_IS42S16400F &
 
   start_clock(p.cb);
 
-  p.dq_ah <: 0 @ t;
+  p.dq_ah @ t <: 0 ;
   t+=20;
 
   partout(p.cas,1, 0);
   partout(p.we, 1, 0);
 
   T :> time;
-  T when timerafter(t + 100 * TIMER_TICKS_PER_US) :> time;
+  T when timerafter(time + 100 * TIMER_TICKS_PER_US) :> time;
 
   p.dq_ah <: 0 @ t;
+  sync(p.dq_ah);
+
   t+=20;
   partout_timed(p.ras,1, CTRL_RAS_NOP, t);
   partout_timed(p.cas,1, CTRL_CAS_NOP, t);
   partout_timed(p.we, 1, CTRL_WE_NOP,  t);
 
   T :> time;
-  T when timerafter(t + 50 * TIMER_TICKS_PER_US) :> time;
+  T when timerafter(time + 50 * TIMER_TICKS_PER_US) :> time;
 
   p.dq_ah <: 0x04000400 @ t;
-
+  sync(p.dq_ah);
   t+=60;
 
   partout_timed(p.ras, 2, CTRL_RAS_PRECHARGE | (CTRL_RAS_NOP<<1), t);
@@ -71,15 +74,12 @@ void sdram_init_PINOUT_V1_IS42S16400F(struct sdram_ports_PINOUT_V1_IS42S16400F &
 
   // set mode register
   p.dq_ah @ t<: (SDRAM_MODE_REGISTER << 16)|SDRAM_MODE_REGISTER;
-  t+=32;
-
-  //do 16 nops
-  t+=16;
+  sync(p.dq_ah);
+  t+=48;
 
   partout_timed(p.cas, 2, CTRL_CAS_LOAD_MODEREG | (CTRL_CAS_NOP<<1), t);
   partout_timed(p.ras, 2, CTRL_RAS_LOAD_MODEREG | (CTRL_RAS_NOP<<1), t);
   partout_timed(p.we, 2,  CTRL_WE_LOAD_MODEREG  | (CTRL_WE_NOP<<1),  t);
-
 }
 
 #if (SDRAM_CMDS_PER_REFRESH==2)
@@ -123,17 +123,11 @@ void sdram_short_block_read_PINOUT_V1_IS42S16400F(unsigned buffer, unsigned word
     out buffered port:8 ctrl, unsigned term_time, unsigned st, out buffered port:32 ras);
 
 /*
- * These numbers are tuned for 50MIPS.
- */
-//#define WRITE_SETUP_LATENCY (39)
-//#define READ_SETUP_LATENCY (48)
-
-/*
  * These numbers are tuned for 62.5MIPS.
  */
-#define WRITE_SETUP_LATENCY (50)
-#define WRITE_COL_SETUP_LATENCY (50)
-#define READ_SETUP_LATENCY (50)
+#define WRITE_SETUP_LATENCY (80)
+#define WRITE_COL_SETUP_LATENCY (80)
+#define READ_SETUP_LATENCY (80)
 
 static unsigned bank_table[SDRAM_BANK_COUNT_PINOUT_V1_IS42S16400F] =
    {(0<<13) | (0<<(13+16) | 1<<(10+16)),
@@ -149,12 +143,12 @@ static inline void sdram_write_PINOUT_V1_IS42S16400F(unsigned row, unsigned col,
   unsigned jump;
   unsigned rowcol;
 
- if(SDRAM_EXTERNAL_MEMORY_ACCESSOR)
+ if(SDRAM_EXTERNAL_MEMORY_ACCESSOR){
   if (col)
     col = col - 1;
   else
     col = (SDRAM_COL_COUNT_PINOUT_V1_IS42S16400F - 1);
-
+ }
   rowcol = (col << 16) | row | bank_table[bank];
 
   //adjust the buffer
@@ -182,17 +176,17 @@ static inline void sdram_col_write_PINOUT_V1_IS42S16400F(unsigned bank, unsigned
   unsigned data_stop;
   unsigned rowcol;
 
- if(SDRAM_EXTERNAL_MEMORY_ACCESSOR)
+ if(SDRAM_EXTERNAL_MEMORY_ACCESSOR){
   if (col)
     col = col - 1;
   else
     col = (SDRAM_COL_COUNT_PINOUT_V1_IS42S16400F - 1);
-
+ }
   rowcol = (col << 16) | row | bank_table[bank];
   data_stop = (0xffff << 16) | data;
-  t = partout_timestamped(ports.cas, 1, CTRL_WE_NOP);
+  t = partout_timestamped(ports.cas, 1, CTRL_CAS_NOP);
 
-  t += 50;
+  t += WRITE_COL_SETUP_LATENCY;
 
   partout_timed(ports.cas, 6, CTRL_CAS_ACTIVE | (CTRL_CAS_WRITE<<1) | (CTRL_CAS_NOP<<2) | (CTRL_CAS_TERM<<3) | (CTRL_CAS_PRECHARGE<<4) | (CTRL_CAS_NOP<<5), t);
   partout_timed(ports.ras, 6, CTRL_RAS_ACTIVE | (CTRL_RAS_WRITE<<1) | (CTRL_RAS_NOP<<2) | (CTRL_RAS_TERM<<3) | (CTRL_RAS_PRECHARGE<<4) | (CTRL_RAS_NOP<<5), t);
@@ -206,16 +200,16 @@ static inline void sdram_read_PINOUT_V1_IS42S16400F(unsigned row, unsigned col, 
     unsigned buffer, unsigned word_count, struct sdram_ports_PINOUT_V1_IS42S16400F &ports) {
   unsigned t, stop_time, jump, rowcol;
 
- if(SDRAM_EXTERNAL_MEMORY_ACCESSOR)
+ if(SDRAM_EXTERNAL_MEMORY_ACCESSOR){
   if (col)
     col = col - 1;
   else
     col = (SDRAM_COL_COUNT_PINOUT_V1_IS42S16400F - 1);
-
+ }
   rowcol = bank_table[bank] | (col << 16) | row;
 
   if (word_count < 4) {
-    t = partout_timestamped(ports.ras, 1, CTRL_WE_NOP);
+    t = partout_timestamped(ports.ras, 1, CTRL_RAS_NOP);
     t += READ_SETUP_LATENCY;
     stop_time = t + (4 << 1) + 4;
 
@@ -229,7 +223,7 @@ static inline void sdram_read_PINOUT_V1_IS42S16400F(unsigned row, unsigned col, 
     buffer -= 4 * (0x3f&(SDRAM_ROW_WORDS_PINOUT_V1_IS42S16400F - word_count));
     jump = 2 * (SDRAM_ROW_WORDS_PINOUT_V1_IS42S16400F - word_count);
 
-    t = partout_timestamped(ports.ras, 1, CTRL_WE_NOP);
+    t = partout_timestamped(ports.ras, 1, CTRL_RAS_NOP);
     t+= READ_SETUP_LATENCY;
     stop_time = t + (word_count<<1)+4;
 

@@ -58,17 +58,17 @@ static void write_buffer(unsigned start_row, unsigned start_col,
   }
 }
 
-static void handle_command(char cmd, chanend client, struct ADD_SUFFIX(sdram_ports,CUR_IMPL) &ports) {
+static int handle_command(char cmd, chanend c_client, struct ADD_SUFFIX(sdram_ports,CUR_IMPL) &ports) {
   switch (cmd) {
 #if (SDRAM_ENABLE_CMD_BUFFER_READ==1)
     case SDRAM_CMD_BUFFER_READ: {
       unsigned bank, start_row, start_col, width_words, pointer;
       slave {
-        client :> bank;
-        client :> start_row;
-        client :> start_col;
-        client :> width_words;
-        client :> pointer;
+        c_client :> bank;
+        c_client :> start_row;
+        c_client :> start_col;
+        c_client :> width_words;
+        c_client :> pointer;
       }
       read_buffer(start_row, start_col, bank, pointer, width_words, ports);
       break;
@@ -78,11 +78,11 @@ static void handle_command(char cmd, chanend client, struct ADD_SUFFIX(sdram_por
     case SDRAM_CMD_BUFFER_WRITE: {
       unsigned bank, start_row, start_col, width_words, pointer;
       slave {
-        client :> bank;
-        client :> start_row;
-        client :> start_col;
-        client :> width_words;
-        client :> pointer;
+        c_client :> bank;
+        c_client :> start_row;
+        c_client :> start_col;
+        c_client :> width_words;
+        c_client :> pointer;
       }
       write_buffer(start_row, start_col, bank, pointer, width_words, ports);
       break;
@@ -92,9 +92,9 @@ static void handle_command(char cmd, chanend client, struct ADD_SUFFIX(sdram_por
     case SDRAM_CMD_FULL_ROW_WRITE: {
       unsigned bank, start_row, pointer;
       slave {
-        client :> bank;
-        client :> start_row;
-        client :> pointer;
+        c_client :> bank;
+        c_client :> start_row;
+        c_client :> pointer;
       }
       ADD_SUFFIX(sdram_write,CUR_IMPL)(start_row, 0, bank, pointer, ADD_SUFFIX(SDRAM_ROW_WORDS,CUR_IMPL), ports);
       break;
@@ -104,9 +104,9 @@ static void handle_command(char cmd, chanend client, struct ADD_SUFFIX(sdram_por
     case SDRAM_CMD_FULL_ROW_READ: {
       unsigned bank, start_row, pointer;
       slave {
-        client :> bank;
-        client :> start_row;
-        client :> pointer;
+        c_client :> bank;
+        c_client :> start_row;
+        c_client :> pointer;
       }
       ADD_SUFFIX(sdram_read,CUR_IMPL)(start_row, 0, bank, pointer, ADD_SUFFIX(SDRAM_ROW_WORDS,CUR_IMPL), ports);
       break;
@@ -117,27 +117,32 @@ static void handle_command(char cmd, chanend client, struct ADD_SUFFIX(sdram_por
       unsigned bank, row, col;
       short data;
       slave {
-        client :> bank;
-        client :> row;
-        client :> col;
-        client :> data;
+        c_client :> bank;
+        c_client :> row;
+        c_client :> col;
+        c_client :> data;
       }
       ADD_SUFFIX(sdram_col_write,CUR_IMPL)(bank, row, col, data, ports);
       break;
     }
 #endif
+    case SDRAM_CMD_SHUTDOWN: {
+	  return 1;
+    }
+
     default:
 #if (XCC_VERSION_MAJOR >= 12)
       __builtin_unreachable();
 #endif
       break;
   }
+  return 0;
 }
 
 #define SDRAM_REF_TICKS_PER_REFRESH ((XCORE_TIMER_TICKS_PER_MS*SDRAM_REFRESH_MS)/SDRAM_REFRESH_CYCLES)
 #define XCORE_TIMER_TICKS_PER_MS 100000
 
-void ADD_SUFFIX(sdram_server,CUR_IMPL)(chanend client, struct ADD_SUFFIX(sdram_ports,CUR_IMPL) &ports) {
+void ADD_SUFFIX(sdram_server,CUR_IMPL)(chanend c_client, struct ADD_SUFFIX(sdram_ports,CUR_IMPL) &ports) {
 
   unsigned T, now, then;
   ADD_SUFFIX(sdram_init,CUR_IMPL)(ports);
@@ -157,9 +162,11 @@ void ADD_SUFFIX(sdram_server,CUR_IMPL)(chanend client, struct ADD_SUFFIX(sdram_p
           T = then + SDRAM_REF_TICKS_PER_REFRESH * SDRAM_ACCEPTABLE_REFRESH_GAP;
           break;
         }
-        case client :> char cmd: {
-          handle_command(cmd, client, ports);
-          outct(client, XS1_CT_END);
+        case c_client :> char cmd: {
+          if(!handle_command(cmd, c_client, ports))
+            outct(c_client, XS1_CT_END);
+          else 
+            return;
           break;
         }
       }

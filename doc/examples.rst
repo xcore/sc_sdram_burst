@@ -20,12 +20,12 @@ Getting Started
 
 The output produced should look like::
 
-  0   0
-  1   1
-  2   2
-  3   3
-  4   4
-  5   5
+  00000000	00000000
+  00000001	00000001
+  00000002	00000002
+  00000003	00000003
+  00000004	00000004
+  00000005	00000005
   SDRAM demo complete.
 
 Notes
@@ -47,7 +47,7 @@ Getting Started
    #. Open ``app_sdram_regress.xc`` and build it.
    #. run the program on the hardware.
 
-The output produced should look like::
+With verbose output turned on (controlled by VERBOSE_MSG and VERBOSE_ERR), the output produced should look like::
 
   Test suite begin
   8 threaded test suite start

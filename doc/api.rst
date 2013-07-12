@@ -125,6 +125,7 @@ C Interface
 C and XC Interface
 ------------------
 .. doxygenfunction:: sdram_col_write
+.. doxygenfunction:: sdram_shutdown
 
 SDRAM Memory Mapper API
 -----------------------

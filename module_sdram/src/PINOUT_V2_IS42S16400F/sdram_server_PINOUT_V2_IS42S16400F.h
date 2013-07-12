@@ -3,6 +3,6 @@
 
 #include "sdram_ports_PINOUT_V2_IS42S16400F.h"
 
-void sdram_server_PINOUT_V2_IS42S16400F(chanend client, struct sdram_ports_PINOUT_V2_IS42S16400F &ports);
+void sdram_server_PINOUT_V2_IS42S16400F(chanend c_client, struct sdram_ports_PINOUT_V2_IS42S16400F &ports);
 
 #endif

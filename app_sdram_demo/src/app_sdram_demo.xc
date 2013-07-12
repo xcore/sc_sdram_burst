@@ -5,7 +5,12 @@
 on tile[0]: sdram_ports ports = {
     XS1_PORT_16A, XS1_PORT_1B, XS1_PORT_1G, XS1_PORT_1C, XS1_PORT_1F, XS1_CLKBLK_1 };
 
-void application(chanend server) {
+/*
+ * Plug XA-SK-SDRAM into the STAR slot.
+ * Ensure `XMOS LINK` is off. Build and run.
+ */
+
+void application(chanend c_server) {
 #define BUF_WORDS (6)
   unsigned read_buffer[BUF_WORDS];
   unsigned write_buffer[BUF_WORDS];
@@ -17,25 +22,28 @@ void application(chanend server) {
   }
 
   // Write the write_buffer out to SDRAM.
-  sdram_buffer_write(server, bank, row, col, BUF_WORDS, write_buffer);
+  sdram_buffer_write(c_server, bank, row, col, BUF_WORDS, write_buffer);
 
   //Wait until idle, i.e. the sdram had completed writing.
-  sdram_wait_until_idle(server, write_buffer);
+  sdram_wait_until_idle(c_server, write_buffer);
 
   // Read the SDRAM into the read_buffer.
-  sdram_buffer_read(server, bank, row, col, BUF_WORDS, read_buffer);
+  sdram_buffer_read(c_server, bank, row, col, BUF_WORDS, read_buffer);
 
   //Wait until idle, i.e. the sdram had completed reading and hence the data is ready in the buffer.
-  sdram_wait_until_idle(server, read_buffer);
+  sdram_wait_until_idle(c_server, read_buffer);
 
   for(unsigned i=0;i<BUF_WORDS;i++){
     printf("%08x\t%08x\n", write_buffer[i], read_buffer[i]);
     if(read_buffer[i] != i){
       printf("SDRAM demo fail.\n");
+      sdram_shutdown(c_server);
       return;
     }
   }
   printf("SDRAM demo complete.\n");
+  //Turn the SDRAM server off
+  sdram_shutdown(c_server);
 }
 
 int main() {

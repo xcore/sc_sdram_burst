@@ -14,7 +14,7 @@
  * \param client The channel end connecting the application to the server
  * \param ports The structure carrying the SDRAM port details.
  */
-void sdram_server(chanend client,  struct sdram_ports_PINOUT_V1_IS42S16400F &ports);
+void sdram_server(chanend c_client,  struct sdram_ports_PINOUT_V1_IS42S16400F &ports);
 
 #define sdram_server ADD_SUFFIX(sdram_server, SDRAM_DEFAULT_IMPLEMENTATION)
 
@@ -24,14 +24,14 @@ void sdram_server(chanend client,  struct sdram_ports_PINOUT_V1_IS42S16400F &por
  * \param buffer[] The buffer where the data was written or read from in the previous command.
  */
 #pragma select handler
-void sdram_wait_until_idle(chanend server, unsigned buffer[]);
+void sdram_wait_until_idle(chanend c_server, unsigned buffer[]);
 
 /** \brief Function to wait until the SDRAM server is idle and ready to accept another command.
  *
  * \param server The channel end connecting the application to the server
  * \param buffer A pointer to the buffer where the data was written or read from in the previous command.
  */
-void sdram_wait_until_idle_p(chanend server, intptr_t buffer);
+void sdram_wait_until_idle_p(chanend c_server, intptr_t buffer);
 
 /** \brief Used to read to an arbitrary size buffer of data from the SDRAM.
  *
@@ -44,7 +44,7 @@ void sdram_wait_until_idle_p(chanend server, intptr_t buffer);
  *
  * Note: no buffer overrun checking is performed.
  */
-void sdram_buffer_read(chanend server, unsigned bank, unsigned start_row,
+void sdram_buffer_read(chanend c_server, unsigned bank, unsigned start_row,
     unsigned start_col, unsigned width_words, unsigned buffer[]);
 
 /** \brief Used to read to an arbitrary size buffer of data from the SDRAM.
@@ -58,7 +58,7 @@ void sdram_buffer_read(chanend server, unsigned bank, unsigned start_row,
  *
  * Note: no buffer overrun checking is performed.
  */
-void sdram_buffer_read_p(chanend server, unsigned bank, unsigned start_row,
+void sdram_buffer_read_p(chanend c_server, unsigned bank, unsigned start_row,
     unsigned start_col, unsigned width_words, intptr_t buffer);
 
 /** \brief Used to write an arbitrary sized buffer of data to the SDRAM.
@@ -72,7 +72,7 @@ void sdram_buffer_read_p(chanend server, unsigned bank, unsigned start_row,
  *
  * Note: no buffer overrun checking is performed.
  */
-void sdram_buffer_write(chanend server, unsigned bank, unsigned start_row,
+void sdram_buffer_write(chanend c_server, unsigned bank, unsigned start_row,
     unsigned start_col, unsigned width_words, unsigned buffer[]);
 
 /** \brief Used to write an arbitrary sized buffer of data to the SDRAM.
@@ -86,7 +86,7 @@ void sdram_buffer_write(chanend server, unsigned bank, unsigned start_row,
  *
  * Note: no buffer overrun checking is performed.
  */
-void sdram_buffer_write_p(chanend server, unsigned bank, unsigned start_row,
+void sdram_buffer_write_p(chanend c_server, unsigned bank, unsigned start_row,
     unsigned start_col, unsigned width_words, intptr_t buffer);
 
 /** \brief Used read a full row of data from a buffer to the SDRAM
@@ -99,7 +99,7 @@ void sdram_buffer_write_p(chanend server, unsigned bank, unsigned start_row,
  * Note: no buffer overrun checking is performed.
  * Full row accesses are always begin aligned to coloumn 0.
  */
-void sdram_full_row_read(chanend server, unsigned bank, unsigned row,
+void sdram_full_row_read(chanend c_server, unsigned bank, unsigned row,
     unsigned buffer[]);
 
 /** \brief Used read a full row of data from a buffer to the SDRAM
@@ -112,7 +112,7 @@ void sdram_full_row_read(chanend server, unsigned bank, unsigned row,
  * Note: no buffer overrun checking is performed.
  * Full row accesses are always begin aligned to coloumn 0.
  */
-void sdram_full_row_read_p(chanend server, unsigned bank, unsigned row,
+void sdram_full_row_read_p(chanend c_server, unsigned bank, unsigned row,
     intptr_t buffer);
 
 /** \brief Used write a full row of data from a buffer to the SDRAM
@@ -125,7 +125,7 @@ void sdram_full_row_read_p(chanend server, unsigned bank, unsigned row,
  * Note: no buffer overrun checking is performed.
  * Full row accesses are always begin aligned to coloumn 0.
  */
-void sdram_full_row_write(chanend server, unsigned bank, unsigned row,
+void sdram_full_row_write(chanend c_server, unsigned bank, unsigned row,
     unsigned buffer[]);
 
 /** \brief Used write a full row of data from a buffer to the SDRAM
@@ -138,7 +138,7 @@ void sdram_full_row_write(chanend server, unsigned bank, unsigned row,
  * Note: no buffer overrun checking is performed.
  * Full row accesses are always begin aligned to coloumn 0.
  */
-void sdram_full_row_write_p(chanend server, unsigned bank, unsigned row,
+void sdram_full_row_write_p(chanend c_server, unsigned bank, unsigned row,
     intptr_t buffer);
 
 /** \brief Used write a single column of data to the SDRAM
@@ -150,5 +150,13 @@ void sdram_full_row_write_p(chanend server, unsigned bank, unsigned row,
  * \param data A short of data to write to the SDRAM.
  *
  */
-void sdram_col_write(chanend server, unsigned bank, unsigned row, unsigned col, short data);
+void sdram_col_write(chanend c_server, unsigned bank, unsigned row, unsigned col, short data);
+
+/** \brief Shutdown the SDRAM server.
+ *
+ * \param server The channel end connecting the application to the server
+ *
+ */
+void sdram_shutdown(chanend c_server);
+
 #endif
