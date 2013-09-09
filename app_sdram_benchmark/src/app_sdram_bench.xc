@@ -66,6 +66,7 @@ int main() {
   par {
     on tile[0]:sdram_server(ports, sdram_c);
     on tile[0]:application(sdram_c);
+    on tile[0]: par(int i=0;i<6;i++) while(1);
   }
   return 0;
 }
