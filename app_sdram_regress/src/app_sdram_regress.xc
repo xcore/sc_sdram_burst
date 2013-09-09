@@ -15,7 +15,7 @@ static unsigned super_pattern() {
   return c;
 }
 
-void application(chanend c_server) {
+void application(streaming chanend c_server) {
 #define BUF_WORDS (SDRAM_ROW_WORDS)
 
   unsigned read_buffer[BUF_WORDS];
@@ -54,7 +54,7 @@ void application(chanend c_server) {
 }
 
 int main() {
-  chan sdram_c;
+  streaming chan sdram_c;
   par {
     on tile[0]: sdram_server(ports, sdram_c);
     on tile[0]: application(sdram_c);
