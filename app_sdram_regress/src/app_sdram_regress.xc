@@ -16,7 +16,7 @@ static unsigned super_pattern() {
 }
 
 void application(chanend c_server) {
-#define BUF_WORDS (1024)
+#define BUF_WORDS (SDRAM_ROW_WORDS)
 
   unsigned read_buffer[BUF_WORDS];
   unsigned write_buffer[BUF_WORDS];
@@ -27,28 +27,30 @@ void application(chanend c_server) {
   s_sdram_state sdram_state;
   sdram_init_state(sdram_state);
 
-  for(unsigned row = 0; row < SDRAM_ROW_COUNT;row++){
-    for(unsigned col = 0; col < SDRAM_COL_COUNT;col+=2){
-      for(unsigned bank = 0; bank < SDRAM_BANK_COUNT;bank++){
+  for(unsigned words = 1; words < SDRAM_ROW_WORDS;words++){
+    for(unsigned row = 0; row < SDRAM_ROW_COUNT;row++){
+      for(unsigned col = 0; col < SDRAM_COL_COUNT;col+=2){
+        for(unsigned bank = 0; bank < SDRAM_BANK_COUNT;bank++){
 
-        for(unsigned i=0;i<BUF_WORDS;i++){
-          write_buffer_pointer[i] = super_pattern();
-          read_buffer_pointer[i] = 0;
-        }
-        sdram_write(c_server, bank, row, col, BUF_WORDS, move(write_buffer_pointer), sdram_state);
-        sdram_read(c_server, bank, row, col, BUF_WORDS, move(read_buffer_pointer), sdram_state);
-        sdram_complete(c_server, write_buffer_pointer, sdram_state);
-        sdram_complete(c_server, read_buffer_pointer, sdram_state);
+          for(unsigned i=0;i<words;i++){
+            write_buffer_pointer[i] = super_pattern();
+            read_buffer_pointer[i] = 0;
+          }
+          sdram_write(c_server, bank, row, col, words, move(write_buffer_pointer), sdram_state);
+          sdram_read(c_server, bank, row, col, words, move(read_buffer_pointer), sdram_state);
+          sdram_complete(c_server, write_buffer_pointer, sdram_state);
+          sdram_complete(c_server, read_buffer_pointer, sdram_state);
 
-        for(unsigned i=0;i<BUF_WORDS;i++){
-          if(read_buffer_pointer[i] != write_buffer_pointer[i])
-          printf("%08x %08x %08x %d\n", read_buffer_pointer[i], write_buffer_pointer[i],
-               read_buffer_pointer[i] ^ write_buffer_pointer[i], i);
+          for(unsigned i=0;i<words;i++){
+            if(read_buffer_pointer[i] != write_buffer_pointer[i])
+            printf("%08x %08x %08x %d\n", read_buffer_pointer[i], write_buffer_pointer[i],
+                 read_buffer_pointer[i] ^ write_buffer_pointer[i], i);
+          }
         }
       }
     }
   }
-  printf("SDRAM demo complete.\n");
+  printf("SDRAM regression complete.\n");
 }
 
 int main() {
