@@ -12,7 +12,7 @@ on tile[0]: sdram_ports ports = {
 #define SLOTS 8
 
 #pragma unsafe arrays
-void application(chanend c_server) {
+void application(streaming chanend c_server) {
 #define BUF_WORDS (240)
 
   unsigned write_buffer[BUF_WORDS][SLOTS];
@@ -62,7 +62,7 @@ void application(chanend c_server) {
 }
 
 int main() {
-  chan sdram_c;
+  streaming chan sdram_c;
   par {
     on tile[0]:sdram_server(ports, sdram_c);
     on tile[0]:application(sdram_c);
