@@ -10,10 +10,14 @@ on tile[0]: sdram_ports ports = {
  */
 
 void application(chanend c_server) {
-#define BUF_WORDS (16)
-  unsigned bank = 0, row = 0, col = 0;
+#define BUF_WORDS (1024)
+  unsigned bank = 0;
+  unsigned row = 0;
+  unsigned col = 0;
+
   unsigned read_buffer[BUF_WORDS];
   unsigned write_buffer[BUF_WORDS];
+
   unsigned * movable read_buffer_pointer = read_buffer;
   unsigned * movable write_buffer_pointer = write_buffer;
 
@@ -31,12 +35,14 @@ void application(chanend c_server) {
   sdram_complete(c_server, read_buffer_pointer, sdram_state);
 
   for(unsigned i=0;i<BUF_WORDS;i++){
-    printf("%08x %d\n", read_buffer_pointer[i], i);
     if(read_buffer_pointer[i] != write_buffer_pointer[i]){
+      printf("%08x %08x %08x %d\n", read_buffer_pointer[i], write_buffer_pointer[i],
+           read_buffer_pointer[i] ^ write_buffer_pointer[i], i);
       printf("SDRAM demo fail.\n");
       return;
     }
   }
+
   printf("SDRAM demo complete.\n");
 }
 
