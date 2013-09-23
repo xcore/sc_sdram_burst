@@ -1,52 +1,162 @@
-#ifndef SDRAM_H_
-#define SDRAM_H_
+#ifndef _sdram_h_
+#define _sdram_h_
 
-#include <xs1.h>
+#include <stdint.h>
 #include "sdram_geometry.h"
-#define SDRAM_USE_HI_PRIORITY_CHANNEL 0
+#include "sdram_ports.h"
+#include "sdram_server_PINOUT_V2_IS42S16400F.h"
+#include "sdram_server_PINOUT_V1_IS42S16400F.h"
+#include "sdram_server_PINOUT_V1_IS42S16160D.h"
+#include "sdram_server_PINOUT_V0.h"
 
-typedef struct {
-  unsigned hi_priority_head;
-  unsigned hi_priority_pending_cmds;
+/** \brief The SDRAM server thread.
+ *
+ * \param client The channel end connecting the application to the server
+ * \param ports The structure carrying the SDRAM port details.
+ */
+void sdram_server(chanend c_client,  struct sdram_ports_PINOUT_V1_IS42S16400F &ports);
 
-  unsigned normal_priority_head;
-  unsigned normal_pending_cmds;
-} s_sdram_state;
+#define sdram_server ADD_SUFFIX(sdram_server, SDRAM_DEFAULT_IMPLEMENTATION)
 
-typedef struct {
-  //Data and Address muxed along with bank address
-  out buffered port:32 dq_ah;
-
-  //Control Signals
-  out buffered port:32 cas;
-  out buffered port:32 ras;
-  out buffered port:8 we;
-
-  //Clock
-  out port clk;
-
-  clock cb;
-} sdram_ports;
-
-void sdram_server(
-    sdram_ports &p_sdram,
-    chanend c_normal_priority
-#if SDRAM_USE_HI_PRIORITY_CHANNEL
-    , chanend c_hi_priority
-#endif
-);
-
+/** \brief Function to wait until the SDRAM server is idle and ready to accept another command.
+ *
+ * \param server The channel end connecting the application to the server
+ * \param buffer[] The buffer where the data was written or read from in the previous command.
+ */
 #pragma select handler
-void sdram_complete(chanend c, unsigned * movable & buffer, s_sdram_state &state);
+void sdram_wait_until_idle(chanend c_server, unsigned buffer[]);
 
-void sdram_write(chanend c_sdram_server, unsigned bank, unsigned row, unsigned col,
-    unsigned words, unsigned * movable buffer, s_sdram_state &state);
+/** \brief Function to wait until the SDRAM server is idle and ready to accept another command.
+ *
+ * \param server The channel end connecting the application to the server
+ * \param buffer A pointer to the buffer where the data was written or read from in the previous command.
+ */
+void sdram_wait_until_idle_p(chanend c_server, intptr_t buffer);
 
-void sdram_read(chanend c_sdram_server, unsigned bank, unsigned row, unsigned col,
-    unsigned words, unsigned * movable buffer, s_sdram_state &state);
+/** \brief Used to read to an arbitrary size buffer of data from the SDRAM.
+ *
+ * \param server The channel end connecting the application to the server
+ * \param bank The bank number in the SDRAM from which the SDRAM data should be read.
+ * \param start_row The starting row number in the SDRAM from which the SDRAM data should be read.
+ * \param start_col The starting column number in the SDRAM from which the SDRAM data should be read.
+ * \param width_words The number of words to be read from the SDRAM.
+ * \param buffer[] The buffer where the data will be written to.
+ *
+ * Note: no buffer overrun checking is performed.
+ */
+void sdram_buffer_read(chanend c_server, unsigned bank, unsigned start_row,
+    unsigned start_col, unsigned width_words, unsigned buffer[]);
 
-void sdram_shutdown(chanend c);
+/** \brief Used to read to an arbitrary size buffer of data from the SDRAM.
+ *
+ * \param server The channel end connecting the application to the server
+ * \param bank The bank number in the SDRAM from which the SDRAM data should be read.
+ * \param start_row The starting row number in the SDRAM from which the SDRAM data should be read.
+ * \param start_col The starting column number in the SDRAM from which the SDRAM data should be read.
+ * \param width_words The number of words to be read from the SDRAM.
+ * \param buffer A pointer to the buffer where the data will be written to.
+ *
+ * Note: no buffer overrun checking is performed.
+ */
+void sdram_buffer_read_p(chanend c_server, unsigned bank, unsigned start_row,
+    unsigned start_col, unsigned width_words, intptr_t buffer);
 
-void sdram_init_state(s_sdram_state &s);
+/** \brief Used to write an arbitrary sized buffer of data to the SDRAM.
+ *
+ * \param server The channel end connecting the application to the server.
+ * \param bank The bank number in the SDRAM into which the buffer of data should be written.
+ * \param start_row The starting row number in the SDRAM into which the buffer of data should be written.
+ * \param start_col The starting column number in the SDRAM into which the buffer of data should be written.
+ * \param width_words The number of words to be written to the SDRAM.
+ * \param buffer[] The buffer where the data will be read from.
+ *
+ * Note: no buffer overrun checking is performed.
+ */
+void sdram_buffer_write(chanend c_server, unsigned bank, unsigned start_row,
+    unsigned start_col, unsigned width_words, unsigned buffer[]);
 
-#endif /* SDRAM_H_ */
+/** \brief Used to write an arbitrary sized buffer of data to the SDRAM.
+ *
+ * \param server The channel end connecting the application to the server.
+ * \param bank The bank number in the SDRAM into which the buffer of data should be written.
+ * \param start_row The starting row number in the SDRAM into which the buffer of data should be written.
+ * \param start_col The starting column number in the SDRAM into which the buffer of data should be written.
+ * \param width_words The number of words to be written to the SDRAM.
+ * \param buffer[] The buffer where the data will be read from.
+ *
+ * Note: no buffer overrun checking is performed.
+ */
+void sdram_buffer_write_p(chanend c_server, unsigned bank, unsigned start_row,
+    unsigned start_col, unsigned width_words, intptr_t buffer);
+
+/** \brief Used read a full row of data from a buffer to the SDRAM
+ *
+ * \param server The channel end connecting the application to the server.
+ * \param bank The bank number in the SDRAM from which the SDRAM data should be read.
+ * \param row The row number in the SDRAM from which the SDRAM data should be read.
+ * \param buffer[] The buffer where the data will be written to.
+ *
+ * Note: no buffer overrun checking is performed.
+ * Full row accesses are always begin aligned to coloumn 0.
+ */
+void sdram_full_row_read(chanend c_server, unsigned bank, unsigned row,
+    unsigned buffer[]);
+
+/** \brief Used read a full row of data from a buffer to the SDRAM
+ *
+ * \param server The channel end connecting the application to the server.
+ * \param bank The bank number in the SDRAM from which the SDRAM data should be read.
+ * \param row The row number in the SDRAM from which the SDRAM data should be read.
+ * \param buffer A pointer to the buffer where the data will be written to.
+ *
+ * Note: no buffer overrun checking is performed.
+ * Full row accesses are always begin aligned to coloumn 0.
+ */
+void sdram_full_row_read_p(chanend c_server, unsigned bank, unsigned row,
+    intptr_t buffer);
+
+/** \brief Used write a full row of data from a buffer to the SDRAM
+ *
+ * \param server The channel end connecting the application to the server
+ * \param bank The bank number in the SDRAM into which the buffer of data should be written
+ * \param row The row number in the SDRAM into which the buffer of data should be written.
+ * \param buffer[] The buffer where the data will be read from.
+ *
+ * Note: no buffer overrun checking is performed.
+ * Full row accesses are always begin aligned to coloumn 0.
+ */
+void sdram_full_row_write(chanend c_server, unsigned bank, unsigned row,
+    unsigned buffer[]);
+
+/** \brief Used write a full row of data from a buffer to the SDRAM
+ *
+ * \param server The channel end connecting the application to the server
+ * \param bank The bank number in the SDRAM into which the buffer of data should be written
+ * \param row The row number in the SDRAM into which the buffer of data should be written.
+ * \param buffer A pointer to the buffer where the data will be read from.
+ *
+ * Note: no buffer overrun checking is performed.
+ * Full row accesses are always begin aligned to coloumn 0.
+ */
+void sdram_full_row_write_p(chanend c_server, unsigned bank, unsigned row,
+    intptr_t buffer);
+
+/** \brief Used write a single column of data to the SDRAM
+ *
+ * \param server The channel end connecting the application to the server
+ * \param bank The bank number in the SDRAM into which the data should be written
+ * \param row The row number in the SDRAM into which the data should be written.
+ * \param col The col number in the SDRAM into which the data should be written.
+ * \param data A short of data to write to the SDRAM.
+ *
+ */
+void sdram_col_write(chanend c_server, unsigned bank, unsigned row, unsigned col, short data);
+
+/** \brief Shutdown the SDRAM server.
+ *
+ * \param server The channel end connecting the application to the server
+ *
+ */
+void sdram_shutdown(chanend c_server);
+
+#endif
