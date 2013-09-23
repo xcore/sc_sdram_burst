@@ -53,7 +53,7 @@ void sdram_init_state(s_sdram_state &s){
 }
 
 #pragma unsafe arrays
-void sdram_write(streaming chanend c, unsigned bank, unsigned row, unsigned col,
+void sdram_write(chanend c, unsigned bank, unsigned row, unsigned col,
     unsigned words, unsigned * movable buffer, s_sdram_state &state){
   unsigned index = state.normal_priority_head;
 
@@ -61,7 +61,7 @@ void sdram_write(streaming chanend c, unsigned bank, unsigned row, unsigned col,
 
   if(state.normal_pending_cmds == CHAN_BUFFER_SIZE){
     //must wait for an ack
-    c :> char;
+    inuchar(c);
     state.normal_pending_cmds--;
   }
   unsafe {
@@ -77,9 +77,8 @@ void sdram_write(streaming chanend c, unsigned bank, unsigned row, unsigned col,
   cmd_object->col = col;
   cmd_object->words_to_write = words;
 
-  if(state.normal_pending_cmds != CHAN_BUFFER_SIZE){
-    c <:(char)index;
-  }
+  if(state.normal_pending_cmds != CHAN_BUFFER_SIZE)
+      outuchar(c, index);
 
   index++;
   if(index == CHAN_BUFFER_SIZE)
@@ -88,7 +87,7 @@ void sdram_write(streaming chanend c, unsigned bank, unsigned row, unsigned col,
   state.normal_pending_cmds++;
 }
 #pragma unsafe arrays
-void sdram_read(streaming chanend c,
+void sdram_read(chanend c,
     unsigned bank,
     unsigned row,
     unsigned col,
@@ -99,7 +98,7 @@ void sdram_read(streaming chanend c,
 
   if(state.normal_pending_cmds == CHAN_BUFFER_SIZE){
     //must wait for an ack
-    c :> char;
+    inuchar(c);
     state.normal_pending_cmds--;
   }
   unsafe {
@@ -115,7 +114,7 @@ void sdram_read(streaming chanend c,
   cmd_object->col = col;
   cmd_object->words_to_write = words;
 
-  c <:(char)index;
+  outuchar(c, index);
 
   index++;
   if(index == CHAN_BUFFER_SIZE)
@@ -126,20 +125,19 @@ void sdram_read(streaming chanend c,
 
 
 #pragma unsafe arrays
-void sdram_complete(streaming chanend c, unsigned * movable & buffer, s_sdram_state &state){
-  unsigned char index ;//= inuchar(c);
-  c :> index;
+void sdram_complete(chanend c, unsigned * movable & buffer, s_sdram_state &state){
+  unsigned index = inuchar(c);
   cmd_struct * cmd_object;
   unsafe {
      cmd_struct * unsafe tmp;
      asm("ldaw %0, dp[normal_priority_cmd_data]": "=r"(tmp));
-     cmd_object = (cmd_struct *)&tmp[(int)index];
+     cmd_object = (cmd_struct *)&tmp[index];
      * (unwrapped_moveable*unsafe) &buffer = (*cmd_object).buffer;
    }
   state.normal_pending_cmds--;
 }
 
-void sdram_shutdown(streaming chanend c){
+void sdram_shutdown(chanend c){
 
 }
 
@@ -249,14 +247,16 @@ static int handle_cmd(sdram_ports &p_sdram, unsigned i, cmd_struct cmd_data[CHAN
 #pragma unsafe arrays
 void sdram_server(
     sdram_ports &p_sdram,
-    streaming chanend c_normal_priority
+    chanend c_normal_priority
 #if SDRAM_USE_HI_PRIORITY_CHANNEL
-    , streaming chanend c_hi_priority
+    , chanend c_hi_priority
 #endif
 ){
   timer t;
   unsigned time;
   unsigned running = 1;
+
+  unsigned char val;
 
   sdram_init_impl(p_sdram);
 
@@ -275,15 +275,15 @@ void sdram_server(
         break;
       }
 #if SDRAM_USE_HI_PRIORITY_CHANNEL
-      case c_hi_priority :> unsigned char val :{
-        running = handle_cmd(p_sdram, val, high_priority_cmd_data);
-        c_normal_priority <: val;
+      case c_hi_priority :> unsigned p :{
+        running = handle_cmd(p_sdram, p, hi_hi_priority_cmd_data);
+        outct(c_hi_priority);
         break;
       }
 #endif
-      case c_normal_priority :> unsigned char val :{
+      case inuchar_byref(c_normal_priority, val):{
         running = handle_cmd(p_sdram, val, normal_priority_cmd_data);
-        c_normal_priority <: val;
+        outuchar(c_normal_priority, val);
         break;
       }
 

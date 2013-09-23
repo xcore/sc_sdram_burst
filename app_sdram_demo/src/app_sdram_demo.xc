@@ -9,7 +9,7 @@ on tile[0]: sdram_ports ports = {
  * Ensure `XMOS LINK` is off. Build and run.
  */
 
-void application(streaming chanend c_server) {
+void application(chanend c_server) {
 #define BUF_WORDS (16)
   unsigned bank = 0, row = 0, col = 0;
   unsigned read_buffer[BUF_WORDS];
@@ -41,7 +41,7 @@ void application(streaming chanend c_server) {
 }
 
 int main() {
-  streaming chan sdram_c;
+  chan sdram_c;
   par {
     on tile[0]: sdram_server(ports, sdram_c);
     on tile[0]: application(sdram_c);

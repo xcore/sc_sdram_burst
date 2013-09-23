@@ -30,22 +30,22 @@ typedef struct {
 
 void sdram_server(
     sdram_ports &p_sdram,
-    streaming chanend c_normal_priority
+    chanend c_normal_priority
 #if SDRAM_USE_HI_PRIORITY_CHANNEL
-    , streaming chanend c_hi_priority
+    , chanend c_hi_priority
 #endif
 );
 
 #pragma select handler
-void sdram_complete(streaming chanend c, unsigned * movable & buffer, s_sdram_state &state);
+void sdram_complete(chanend c, unsigned * movable & buffer, s_sdram_state &state);
 
-void sdram_write(streaming chanend c_sdram_server, unsigned bank, unsigned row, unsigned col,
+void sdram_write(chanend c_sdram_server, unsigned bank, unsigned row, unsigned col,
     unsigned words, unsigned * movable buffer, s_sdram_state &state);
 
-void sdram_read(streaming chanend c_sdram_server, unsigned bank, unsigned row, unsigned col,
+void sdram_read(chanend c_sdram_server, unsigned bank, unsigned row, unsigned col,
     unsigned words, unsigned * movable buffer, s_sdram_state &state);
 
-void sdram_shutdown(streaming chanend c);
+void sdram_shutdown(chanend c);
 
 void sdram_init_state(s_sdram_state &s);
 
