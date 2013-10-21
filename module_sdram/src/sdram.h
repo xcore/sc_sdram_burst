@@ -89,7 +89,7 @@ void sdram_buffer_write(chanend c_server, unsigned bank, unsigned start_row,
 void sdram_buffer_write_p(chanend c_server, unsigned bank, unsigned start_row,
     unsigned start_col, unsigned width_words, intptr_t buffer);
 
-/** \brief Used read a full row of data from a buffer to the SDRAM
+/** \brief Used to read a full row of data from a buffer to the SDRAM
  *
  * \param server The channel end connecting the application to the server.
  * \param bank The bank number in the SDRAM from which the SDRAM data should be read.
@@ -102,7 +102,7 @@ void sdram_buffer_write_p(chanend c_server, unsigned bank, unsigned start_row,
 void sdram_full_row_read(chanend c_server, unsigned bank, unsigned row,
     unsigned buffer[]);
 
-/** \brief Used read a full row of data from a buffer to the SDRAM
+/** \brief Used to read a full row of data from a buffer to the SDRAM
  *
  * \param server The channel end connecting the application to the server.
  * \param bank The bank number in the SDRAM from which the SDRAM data should be read.
@@ -115,7 +115,7 @@ void sdram_full_row_read(chanend c_server, unsigned bank, unsigned row,
 void sdram_full_row_read_p(chanend c_server, unsigned bank, unsigned row,
     intptr_t buffer);
 
-/** \brief Used write a full row of data from a buffer to the SDRAM
+/** \brief Used to write a full row of data from a buffer to the SDRAM
  *
  * \param server The channel end connecting the application to the server
  * \param bank The bank number in the SDRAM into which the buffer of data should be written
@@ -128,7 +128,7 @@ void sdram_full_row_read_p(chanend c_server, unsigned bank, unsigned row,
 void sdram_full_row_write(chanend c_server, unsigned bank, unsigned row,
     unsigned buffer[]);
 
-/** \brief Used write a full row of data from a buffer to the SDRAM
+/** \brief Used to write a full row of data from a buffer to the SDRAM
  *
  * \param server The channel end connecting the application to the server
  * \param bank The bank number in the SDRAM into which the buffer of data should be written
@@ -141,7 +141,7 @@ void sdram_full_row_write(chanend c_server, unsigned bank, unsigned row,
 void sdram_full_row_write_p(chanend c_server, unsigned bank, unsigned row,
     intptr_t buffer);
 
-/** \brief Used write a single column of data to the SDRAM
+/** \brief Used to write a single column of data to the SDRAM
  *
  * \param server The channel end connecting the application to the server
  * \param bank The bank number in the SDRAM into which the data should be written

@@ -88,7 +88,7 @@ Notes
 The ``sdram_server`` and application must be on the same tile.
 
 
-Source code structure
+Source Code Structure
 ---------------------
 
 Directory Structure
@@ -120,7 +120,7 @@ module. The API is described in :ref:`sec_api`.
 Module Usage
 ------------
 
-To use the SDRAM module first set up the directory structure as shown above. Create a file in the ``app`` folder called ``sdram_conf.h`` and into it insert a define for ``SDRAM_DEFAULT_IMPLEMENTATION``.  It should be defined as the implementation you want to use, for example for the Slicekit the following would be correct::
+To use the SDRAM module first set up the directory structure as shown above. Create a file in the ``app`` folder called ``sdram_conf.h`` and into it insert a define for ``SDRAM_DEFAULT_IMPLEMENTATION``.  It should be defined as the implementation you want to use, for example for the sliceKIT the following would be correct::
 
 	#define SDRAM_DEFAULT_IMPLEMENTATION PINOUT_V1_IS42S16160D
 
@@ -151,7 +151,7 @@ Now the ``application`` function is able to use the SDRAM server.
 SDRAM Memory Mapper Programming Guide
 =====================================
 
-The SDRAM memory mapper has a simple interface where to the ``mm_read_words`` and ``mm_write_words`` a virtual address is passes, this virtual address is mapped to a physical address and the I/O is performed there. The ``mm_wait_until_idle`` exists so that the application can run the I/O commands in a non-blocking manner then confirm that the command has when the ``mm_wait_until_idle`` returns.
+The SDRAM memory mapper has a simple interface where to the ``mm_read_words`` and ``mm_write_words`` functions a virtual address is passed, this virtual address is mapped to a physical address and the I/O is performed there. The ``mm_wait_until_idle`` exists so that the application can run the I/O commands in a non-blocking manner then confirm that the command has when the ``mm_wait_until_idle`` returns.
 
 
 Software Requirements

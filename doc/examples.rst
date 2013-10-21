@@ -12,8 +12,8 @@ This application demonstrates how the module is used to accesses memory on the S
 Getting Started
 +++++++++++++++
 
-   #. Plug the XA-SK-SDRAM Slice Card into the 'STAR' slot of the Slicekit Core Board.
-   #. Plug the XA-SK-XTAG2 Card into the Slicekit Core Board.
+   #. Plug the XA-SK-SDRAM Slice Card into the 'STAR' slot of the sliceKIT Core Board.
+   #. Plug the XA-SK-XTAG2 Card into the sliceKIT Core Board.
    #. Ensure the XMOS LINK switch on the XA-SK-XTAG2 is set to "off".
    #. Open ``app_sdram_demo.xc`` and build it.
    #. run the program on the hardware.
@@ -36,13 +36,13 @@ Notes
 app_sdram_regress
 -----------------
 
-This application serves as a software regression to aid implementing new SDRAM interfaces and verifying current ones. The demo runs a series of regression tests of increasing difficulty, beginning from using a single core for the sdram_server with one core loaded progressing to all cores being loaded to simulate an XCore under full load. 
+This application serves as a software regression to aid implementing new SDRAM interfaces and verifying current ones. The demo runs a series of regression tests of increasing difficulty, beginning from using a single core for the sdram_server with one core loaded progressing to all cores being loaded to simulate an xCORE under full load. 
 
 Getting Started
 +++++++++++++++
 
-   #. Plug the XA-SK-SDRAM Slice Card into the 'STAR' slot of the Slicekit Core Board.
-   #. Plug the XA-SK-XTAG2 Card into the Slicekit Core Board.
+   #. Plug the XA-SK-SDRAM Slice Card into the 'STAR' slot of the sliceKIT Core Board.
+   #. Plug the XA-SK-XTAG2 Card into the sliceKIT Core Board.
    #. Ensure the XMOS LINK switch on the XA-SK-XTAG2 is set to "off".
    #. Open ``app_sdram_regress.xc`` and build it.
    #. run the program on the hardware.
@@ -62,8 +62,8 @@ This application benchmarks the performance of the module. It does no correctnes
 Getting Started
 +++++++++++++++
 
-   #. Plug the XA-SK-SDRAM Slice Card into the 'STAR' slot of the Slicekit Core Board.
-   #. Plug the XA-SK-XTAG2 Card into the Slicekit Core Board.
+   #. Plug the XA-SK-SDRAM Slice Card into the 'STAR' slot of the sliceKIT Core Board.
+   #. Plug the XA-SK-XTAG2 Card into the sliceKIT Core Board.
    #. Ensure the XMOS LINK switch on the XA-SK-XTAG2 is set to "off".
    #. Open ``app_sdram_benchmark.xc`` and build it.
    #. run the program on the hardware.

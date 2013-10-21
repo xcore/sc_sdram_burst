@@ -41,7 +41,7 @@ to ``sdram_conf.h``.
   This defines the minimum time between refreshes in SDRAM Clk cycles. Must be in the range from 2 to 4 inclusive.
 
 **SDRAM_EXTERNAL_MEMORY_ACCESSOR**
-  This defines if the memory is accessed by another device(other than the XCore). If not defined then faster code will be produced.
+  This defines if the memory is accessed by another device(other than the xCORE). If not defined then faster code will be produced.
 
 **SDRAM_CLOCK_DIVIDER**
   Set ``SDRAM_CLOCK_DIVIDER`` to divide down the reference clock to get the desired SDRAM Clock. The reference clock is divided by 2*SDRAM_CLOCK_DIVIDER.
@@ -102,11 +102,11 @@ These are the functions that are called from the application and are included in
 Server Functions
 ++++++++++++++++
 
-C and XC Interface
+C and xC Interface
 ------------------
 .. doxygenfunction:: sdram_server
 
-XC Interface
+xC Interface
 ------------
 .. doxygenfunction:: sdram_wait_until_idle
 .. doxygenfunction:: sdram_buffer_write
@@ -122,7 +122,7 @@ C Interface
 .. doxygenfunction:: sdram_buffer_read_p
 .. doxygenfunction:: sdram_full_row_read_p
 
-C and XC Interface
+C and xC Interface
 ------------------
 .. doxygenfunction:: sdram_col_write
 .. doxygenfunction:: sdram_shutdown
@@ -134,7 +134,7 @@ These are the functions that are called from the application and are included in
 
 Server Functions
 ++++++++++++++++
-XC Interface
+xC Interface
 ------------
 .. doxygenfunction:: mm_read_words
 .. doxygenfunction:: mm_write_words

@@ -4,9 +4,9 @@ Overview
 SDRAM Controller Component
 --------------------------
 
-The SDRAM module is designed for 16 bit read and write access of arbitrary length at up to 50MHz clock rates. It uses an optimised pinout with address and data lines overlaid along with other pinout optimisations in order to implement 16 bit read/write with up to 13 address lines in just 20 pins.
+The SDRAM module is designed for 16 bit read and write access of arbitrary length at up to 50MHz clock rates. It uses an optimal pinout with address and data lines overlaid to implement 16 bit read/write with up to 13 address lines in just 20 pins.
 
-The module currently targets the ISSI 6400 SDRAM but is easily specialised for the smaller and larger members of this family as well as single data rate SDRAM memory from other manufacturers.
+The module currently targets the ISSI 6400 SDRAM but may easily any single data rate SDRAM memory from other manufacturers.
 
 SDRAM Component Features
 ++++++++++++++++++++++++
@@ -30,7 +30,7 @@ The SDRAM component has the following features:
 
 
 
-Memory requirements
+Memory Requirements
 +++++++++++++++++++
 
 +------------------+----------------------------------------+
@@ -59,10 +59,10 @@ Resource requirements
 Performance
 +++++++++++
 
-The achievable effective bandwidth varies according to the available XCore MIPS. This information has been obtained by testing on real hardware.
+The achievable effective bandwidth varies according to the available xCORE MIPS. This information has been obtained by testing on real hardware.
 
 +------------+-------+--------------+----------------+------------------+
-| XCore MIPS | Cores | System Clock |Max Read (MB/s) | Max Write (MB/s) | 
+| xCORE MIPS | Cores | System Clock |Max Read (MB/s) | Max Write (MB/s) | 
 +============+=======+==============+================+==================+
 | 50         | 8     | 400MHz       | 66.84          | 70.75            | 
 +------------+-------+--------------+----------------+------------------+
@@ -98,7 +98,7 @@ SDRAM Memory Mapper
 
 A memory mapper module called ``module_sdram_memory_mapper`` may be used in order to abstract the physical geometry of the SDRAM from the application. Its only function is to map the physical geometry of the SDRAM to a virtual byte addresses that the application can use. 
 
-Memory requirements
+Memory Requirements
 +++++++++++++++++++
 
 +------------------+----------------------------------------+
@@ -109,7 +109,7 @@ Memory requirements
 | Program          | 32 bytes                               |
 +------------------+----------------------------------------+
 
-Resource requirements
+Resource Requirements
 +++++++++++++++++++++
 
 +---------------+-------+
