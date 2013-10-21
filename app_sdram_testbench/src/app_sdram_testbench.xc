@@ -497,7 +497,7 @@ static void sanity_check(chanend sdram_c) {
     printf("\tPassed\n");
 }
 
-void regression_single_thread(chanend c_server) {
+void testbench_single_thread(chanend c_server) {
   reset_super_pattern();
   sanity_check(c_server);
   single_row_write(c_server);
@@ -510,8 +510,8 @@ void regression_single_thread(chanend c_server) {
   pseudo_random_read(c_server, 4096 * 16);
 }
 
-void regression(chanend c_server, chanend in_t, chanend out_t) {
-  regression_single_thread(c_server);
+void testbench(chanend c_server, chanend in_t, chanend out_t) {
+  testbench_single_thread(c_server);
   out_t <: 1;
   in_t :> int;
 }
@@ -521,7 +521,7 @@ void test_4_threads(chanend c_server) {
   if (VERBOSE_MSG)
     printf("4 threaded test suite start\n");
   par {
-    regression(c_server, c[0], c[1]);
+    testbench(c_server, c[0], c[1]);
     load_thread(c[1], c[2]);
     load_thread(c[2], c[0]);
   }
@@ -534,7 +534,7 @@ void test_8_threads(chanend c_server) {
   if (VERBOSE_MSG)
     printf("8 threaded test suite start\n");
   par {
-    regression(c_server, c[0], c[1]);
+    testbench(c_server, c[0], c[1]);
     load_thread(c[1], c[2]);
     load_thread(c[2], c[3]);
     load_thread(c[3], c[4]);
@@ -550,7 +550,7 @@ void test_7_threads(chanend c_server) {
   if (VERBOSE_MSG)
     printf("7 threaded test suite start\n");
   par {
-    regression(c_server, c[0], c[1]);
+    testbench(c_server, c[0], c[1]);
     load_thread(c[1], c[2]);
     load_thread(c[2], c[3]);
     load_thread(c[3], c[4]);
@@ -565,7 +565,7 @@ void test_6_threads(chanend c_server) {
   if (VERBOSE_MSG)
     printf("6 threaded test suite start\n");
   par {
-    regression(c_server, c[0], c[1]);
+    testbench(c_server, c[0], c[1]);
     load_thread(c[1], c[2]);
     load_thread(c[2], c[3]);
     load_thread(c[3], c[4]);
@@ -579,7 +579,7 @@ void test_5_threads(chanend c_server) {
   if (VERBOSE_MSG)
     printf("5 threaded test suite start\n");
   par {
-    regression(c_server, c[0], c[1]);
+    testbench(c_server, c[0], c[1]);
     load_thread(c[1], c[2]);
     load_thread(c[2], c[3]);
     load_thread(c[3], c[0]);

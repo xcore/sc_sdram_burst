@@ -18,7 +18,7 @@ Key Features
 Firmware Overview
 =================
 
-The SDRAM module is designed for 16 bit read and write access of arbitrary length at up to 50MHz clock rates. It uses an optimised pinout with address and data lines overlaid along with other pinout optimisations in order to implement 16 bit read/write with up to 13 address lines in just 20 pins.
+The SDRAM module is designed for 16 bit read and write access of arbitrary length at up to 50MHz clock rates. It uses an optimal pinout with address and data lines overlaid to implement 16 bit read/write with up to 13 address lines in just 20 pins.
 
 Documentation can be found at http://github.xcore.com/sc_sdram/docs/index.html
 

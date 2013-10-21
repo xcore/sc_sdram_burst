@@ -6,7 +6,7 @@ TARGET = SLICEKIT-L16
 # The APP_NAME variable determines the name of the final .xe file. It should
 # not include the .xe postfix. If left blank the name will default to
 # the project name
-APP_NAME = app_sdram_regress
+APP_NAME = app_sdram_testbench
 
 # The USED_MODULES variable lists other module used by the application.
 USED_MODULES = module_sdram module_slicekit_support

@@ -53,7 +53,7 @@ Now that the application has been compiled, the next step is to run it on the Sl
 Next Steps
 ++++++++++
 
-Now that the demo has been run you could try and adjust the ``BUF_WORDS`` setting. Note, if you try to allocate more than 64KB of internal XCore memory then the demo will not compile as the Xcore wont be able to hold the image.
+Now that the demo has been run you could try and adjust the ``BUF_WORDS`` setting. Note, if you try to allocate more than 64KB of internal xCORE memory then the demo will not compile as the xCORE wont be able to hold the image.
 
 Look at the Code
 ................
@@ -68,7 +68,7 @@ Try the Benchmark and Regression Demo
 
 After completing this demo there are two more application to try: 
   #. ``app_sdram_benchmark`` benchmarks the performance of the module. It does no correctness testing but instead tests the throughput of the SDRAM server.  
-  #. ``app_sdram_regress`` this demo runs a series of regression tests of increasing difficulty, beginning from using a single core for the sdram_server with one core loaded progressing to all cores being loaded to simulate an XCore under full load.  
+  #. ``app_sdram_regress`` this demo runs a series of regression tests of increasing difficulty, beginning from using a single core for the sdram_server with one core loaded progressing to all cores being loaded to simulate an xCORE under full load.  
 
 Note that these are both tools, each of which don't terminate. They are designed to test the SDRAM and as such run indefinitely 
 

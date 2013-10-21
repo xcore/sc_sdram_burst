@@ -33,10 +33,10 @@ Notes
  - There are 4 SDRAM I/O commands: ``sdram_buffer_write``, ``sdram_buffer_read``, ``sdram_full_page_write``, ``sdram_full_page_read``. They must all be followed by a ``sdram_wait_until_idle`` before another I/O command may be issued. When the ``sdram_wait_until_idle`` returns then the data is now at it destination. This functionality allows the application to be getting on with something else whilst the SDRAM server is busy with the I/O. 
  - There is no need to explictly refresh the SDRAM as this is managed by the ``sdram_server``.
 
-app_sdram_regress
------------------
+app_sdram_testbench
+-------------------
 
-This application serves as a software regression to aid implementing new SDRAM interfaces and verifying current ones. The demo runs a series of regression tests of increasing difficulty, beginning from using a single core for the sdram_server with one core loaded progressing to all cores being loaded to simulate an xCORE under full load. 
+This application serves as a software regression to aid implementing new SDRAM interfaces and verifying current ones. The testbench runs a series of regression tests of increasing difficulty, beginning from using a single core for the sdram_server with one core loaded progressing to all cores being loaded to simulate an xCORE under full load. 
 
 Getting Started
 +++++++++++++++
@@ -44,7 +44,7 @@ Getting Started
    #. Plug the XA-SK-SDRAM Slice Card into the 'STAR' slot of the sliceKIT Core Board.
    #. Plug the XA-SK-XTAG2 Card into the sliceKIT Core Board.
    #. Ensure the XMOS LINK switch on the XA-SK-XTAG2 is set to "off".
-   #. Open ``app_sdram_regress.xc`` and build it.
+   #. Open ``app_sdram_testbench.xc`` and build it.
    #. run the program on the hardware.
 
 With verbose output turned on (controlled by VERBOSE_MSG and VERBOSE_ERR), the output produced should look like::

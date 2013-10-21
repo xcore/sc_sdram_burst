@@ -20,10 +20,10 @@ Demonstration Applications
 Testbench Application
 +++++++++++++++++++++
 
-This application serves as a software regression to aid implementing new SDRAM interfaces and verifying current ones. The demo runs a series of regression tests of increasing difficulty, beginning from using a single core for the server and a single core for the sdram_server progressing to all cores being loaded to simulate an xCORE under full load. 
+This application serves as a software regression to aid implementing new SDRAM interfaces and verifying current ones. The testbench runs a series of regression tests of increasing difficulty, beginning from using a single core for the server and a single core for the sdram_server progressing to all cores being loaded to simulate an xCORE under full load. 
 
    * Package: sc_sdram_burst
-   * Application: app_sdram_regress
+   * Application: app_sdram_testbench
 
 
 Benchmark Application
