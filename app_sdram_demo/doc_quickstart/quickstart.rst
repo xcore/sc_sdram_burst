@@ -11,7 +11,7 @@ This simple demonstration of xTIMEcomposer Studio functionality uses the XA-SK-S
 Hardware Setup
 ++++++++++++++
 
-The XP-SKC-L2 sliceKIT Core board has four slots with edge connectors: ``SQUARE``, ``CIRCLE``,``TRIANGLE`` and ``STAR``. 
+The XP-SKC-L2 sliceKIT Core board has four slots with edge connectors: ``SQUARE``, ``CIRCLE``, ``TRIANGLE`` and ``STAR``. 
 
 To setup up the system:
 
@@ -77,7 +77,7 @@ To try these repeat the procedure in "Import and Build the Application" but with
 Try Other Application Demos which use the SDRAM
 ...............................................
 
-There are two other significant application demos which utilise this component. 
+There are two other significant application demos which make use of this component. 
 
    * The Display Controller Demo combines the SDRAM Slice with the XA-SK-SCR480 LCD Slice Card to create a fully functioning 480x272 display controller, with the SDRAM acting as the framebuffer, :ref:`Display_Controller_Demo_Quickstart`.
    * The Audio Reverb Demo utilises the SDRAM component to store enough audio samples to create large audio delay lines, which are a required component of various audio effects. In this case, a reverberation effect is demonstrated.
