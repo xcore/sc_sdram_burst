@@ -1,4 +1,4 @@
-Slicekit SDRAM Simple Demo 
+sliceKIT SDRAM Simple Demo 
 ==========================
 
 :scope: Example

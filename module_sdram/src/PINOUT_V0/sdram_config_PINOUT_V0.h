@@ -48,7 +48,7 @@
 #endif
 
 /*
- * Define if the memory is accessed by another device(other than the XCore).
+ * Define if the memory is accessed by another device(other than the xCORE).
  * If not defined then faster code will be produced.
  */
 #ifdef SDRAM_EXTERNAL_MEMORY_ACCESSOR_PINOUT_V0
