@@ -144,24 +144,23 @@ static int handle_command(char cmd, chanend c_client, struct ADD_SUFFIX(sdram_po
 
 void ADD_SUFFIX(sdram_server,CUR_IMPL)(chanend c_client, struct ADD_SUFFIX(sdram_ports,CUR_IMPL) &ports) {
 
-  unsigned T, now, then;
   ADD_SUFFIX(sdram_init,CUR_IMPL)(ports);
   {
     timer t;
+    unsigned time;
     ADD_SUFFIX(sdram_refresh,CUR_IMPL)(SDRAM_REFRESH_CYCLES, ports);
-    t:> then;
-    T = then + SDRAM_REF_TICKS_PER_REFRESH * SDRAM_ACCEPTABLE_REFRESH_GAP;
+    t:> time;
+    time += SDRAM_REF_TICKS_PER_REFRESH * SDRAM_ACCEPTABLE_REFRESH_GAP;
     while (1) {
   #pragma ordered
       select {
-        case t when timerafter(T) :> now: {
-          unsigned elapsed_ref_ticks = (now-then);
-          unsigned num_refreshes = (elapsed_ref_ticks/SDRAM_REF_TICKS_PER_REFRESH) + 1;
-          ADD_SUFFIX(sdram_refresh,CUR_IMPL)(num_refreshes, ports);
-          then = now;
-          T = then + SDRAM_REF_TICKS_PER_REFRESH * SDRAM_ACCEPTABLE_REFRESH_GAP;
-          break;
-        }
+      case t when timerafter(time) :> unsigned handle_time :{
+        unsigned diff = handle_time - time;
+        unsigned refreshes_to_refill = diff / SDRAM_REF_TICKS_PER_REFRESH;
+        ADD_SUFFIX(sdram_refresh,CUR_IMPL)(refreshes_to_refill, ports);
+        time = handle_time + SDRAM_REF_TICKS_PER_REFRESH * SDRAM_ACCEPTABLE_REFRESH_GAP;
+        break;
+      }
         case c_client :> char cmd: {
           if(!handle_command(cmd, c_client, ports))
             outct(c_client, XS1_CT_END);

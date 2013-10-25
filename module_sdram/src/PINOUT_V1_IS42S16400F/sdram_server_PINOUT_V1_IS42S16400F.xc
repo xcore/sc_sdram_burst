@@ -34,7 +34,7 @@ void sdram_init_PINOUT_V1_IS42S16400F(struct sdram_ports_PINOUT_V1_IS42S16400F &
   set_port_clock(p.we, p.cb);
   set_port_sample_delay(p.dq_ah);
 
-  //set_clock_rise_delay(p.cb, 3);
+ // set_clock_rise_delay(p.cb, 3);
 
   start_clock(p.cb);
 
@@ -103,15 +103,16 @@ void sdram_init_PINOUT_V1_IS42S16400F(struct sdram_ports_PINOUT_V1_IS42S16400F &
 #define RAS_QUAD_REFRESH (RAS_DOUBLE_REFRESH | (RAS_DOUBLE_REFRESH<<(SDRAM_CMDS_PER_REFRESH*2)))
 #define RAS_OCTUPLE_REFRESH (RAS_QUAD_REFRESH | (RAS_QUAD_REFRESH<<(SDRAM_CMDS_PER_REFRESH*4)))
 
-static inline void sdram_refresh_PINOUT_V1_IS42S16400F(unsigned ncycles, struct sdram_ports_PINOUT_V1_IS42S16400F &p) {
+#pragma unsafe arrays
+static void sdram_refresh_PINOUT_V1_IS42S16400F(unsigned ncycles, struct sdram_ports_PINOUT_V1_IS42S16400F &p){
   unsigned t;
   t = partout_timestamped(p.cas, 1, CTRL_CAS_NOP);
-  t+=8;
-  partout_timed(p.cas, 8*SDRAM_CMDS_PER_REFRESH, CAS_OCTUPLE_REFRESH, t);
-  partout_timed(p.ras, 8*SDRAM_CMDS_PER_REFRESH, RAS_OCTUPLE_REFRESH, t);
+  t+=16;
+  partout_timed(p.cas, 32, 0xaaaaaaaa, t);
+  partout_timed(p.ras, 32, 0xaaaaaaaa, t);
   for (unsigned i = 8; i < ncycles; i+=8){
-    partout(p.cas, 8*SDRAM_CMDS_PER_REFRESH, CAS_OCTUPLE_REFRESH);
-    partout(p.ras, 8*SDRAM_CMDS_PER_REFRESH, RAS_OCTUPLE_REFRESH);
+    p.cas <: 0xaaaaaaaa;
+    p.ras <: 0xaaaaaaaa;
   }
 }
 
