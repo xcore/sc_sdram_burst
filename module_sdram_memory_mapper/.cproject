@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?fileVersion 4.0.0?>
+
 <cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
     <storageModule moduleId="org.eclipse.cdt.core.settings">
               
@@ -156,21 +157,20 @@
 								<option id = "com.xmos.xc.compiler.option.include.paths.44002925" name="com.xmos.xc.compiler.option.include.paths" superClass="com.xmos.xc.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/gcc&quot;"/>
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V2_IS42S16400F}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
-
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V2_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
 								</option>
-								<inputType id = "com.xmos.cdt.xc.compiler.input.61904208" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
-                            </tool>
-							<tool id = "com.xmos.cdt.c.compiler.25154147" name="com.xmos.cdt.c.compiler" superClass="com.xmos.cdt.c.compiler">
-								<option id = "com.xmos.c.compiler.option.defined.symbols.87086745" name="com.xmos.c.compiler.option.defined.symbols" superClass="com.xmos.c.compiler.option.defined.symbols" valueType="definedSymbols">
+								<inputType id="com.xmos.cdt.xc.compiler.input.61904208" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
+							</tool>
+							<tool id="com.xmos.cdt.c.compiler.25154147" name="com.xmos.cdt.c.compiler" superClass="com.xmos.cdt.c.compiler">
+								<option id="com.xmos.c.compiler.option.defined.symbols.87086745" name="com.xmos.c.compiler.option.defined.symbols" superClass="com.xmos.c.compiler.option.defined.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__STDC__=1"/>
 									<listOptionValue builtIn="false" value="__STDC_VERSION__=199901L"/>
 									<listOptionValue builtIn="false" value="__STDC_HOSTED__=1"/>
@@ -273,24 +273,23 @@
 									<listOptionValue builtIn="false" value="XCC_VERSION_MINOR=0"/>
 									<listOptionValue builtIn="false" value="__XCC_HAVE_FLOAT__=1"/>
 								</option>
-								<option id = "com.xmos.c.compiler.option.include.paths.72124366" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
+								<option id="com.xmos.c.compiler.option.include.paths.72124366" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/gcc&quot;"/>
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V2_IS42S16400F}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
-
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V2_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
 								</option>
-								<inputType id = "com.xmos.cdt.c.compiler.input.c.23577354" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
+								<inputType id="com.xmos.cdt.c.compiler.input.c.23577354" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
 							</tool>
-							<tool id = "com.xmos.cdt.cxx.compiler.52753358" name="com.xmos.cdt.cxx.compiler" superClass="com.xmos.cdt.cxx.compiler">
-								<option id = "com.xmos.cxx.compiler.option.defined.symbols.22966253" name="com.xmos.cxx.compiler.option.defined.symbols" superClass="com.xmos.cxx.compiler.option.defined.symbols" valueType="definedSymbols">
+							<tool id="com.xmos.cdt.cxx.compiler.52753358" name="com.xmos.cdt.cxx.compiler" superClass="com.xmos.cdt.cxx.compiler">
+								<option id="com.xmos.cxx.compiler.option.defined.symbols.22966253" name="com.xmos.cxx.compiler.option.defined.symbols" superClass="com.xmos.cxx.compiler.option.defined.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__STDC__=1"/>
 									<listOptionValue builtIn="false" value="__cplusplus=1"/>
 									<listOptionValue builtIn="false" value="__STDC_HOSTED__=1"/>
@@ -397,122 +396,119 @@
 									<listOptionValue builtIn="false" value="XCC_VERSION_MINOR=0"/>
 									<listOptionValue builtIn="false" value="__XCC_HAVE_FLOAT__=1"/>
 								</option>
-								<option id = "com.xmos.cxx.compiler.option.include.paths.73054519" name="com.xmos.cxx.compiler.option.include.paths" superClass="com.xmos.cxx.compiler.option.include.paths" valueType="includePath">
+								<option id="com.xmos.cxx.compiler.option.include.paths.73054519" name="com.xmos.cxx.compiler.option.include.paths" superClass="com.xmos.cxx.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/gcc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/c++/4.2.1&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/c++/4.2.1/xcore-xmos-elf&quot;"/>
-                                    <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/.settings}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src/PINOUT_V2_IS42S16400F}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_sdram}&quot;' />
-
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V2_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram_memory_mapper/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram_memory_mapper}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
 								</option>
-								<inputType id = "com.xmos.cdt.cxx.compiler.input.cpp.26426708" name="C++" superClass="com.xmos.cdt.cxx.compiler.input.cpp"/>
+								<inputType id="com.xmos.cdt.cxx.compiler.input.cpp.26426708" name="C++" superClass="com.xmos.cdt.cxx.compiler.input.cpp"/>
 							</tool>
-                        </toolChain>
-                    </folderInfo>
-                    <sourceEntries>
-                        <entry excluding=".build_*" flags="VALUE_WORKSPACE_PATH|RESOLVED"
-                    kind="sourcePath" name="" />
-                    </sourceEntries>
-                </configuration>
-            </storageModule>
-            <storageModule moduleId="scannerConfiguration">
-                <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="" />
-                <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
-                    <buildOutputProvider>
-                        <openAction enabled="true" filePath="" />
-                        <parser enabled="true" />
-                    </buildOutputProvider>
-                    <scannerInfoProvider id="specsFile">
-                        <runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true" />
-                        <parser enabled="true" />
-                    </scannerInfoProvider>
-                </profile>
-                <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
-                    <buildOutputProvider>
-                        <openAction enabled="true" filePath="" />
-                        <parser enabled="true" />
-                    </buildOutputProvider>
-                    <scannerInfoProvider id="makefileGenerator">
-                        <runAction arguments="-E -P -v -dD" command="" useDefault="true" />
-                        <parser enabled="true" />
-                    </scannerInfoProvider>
-                </profile>
-                <profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
-                    <buildOutputProvider>
-                        <openAction enabled="true" filePath="" />
-                        <parser enabled="true" />
-                    </buildOutputProvider>
-                    <scannerInfoProvider id="specsFile">
-                        <runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true" />
-                        <parser enabled="true" />
-                    </scannerInfoProvider>
-                </profile>
-                <profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
-                    <buildOutputProvider>
-                        <openAction enabled="true" filePath="" />
-                        <parser enabled="true" />
-                    </buildOutputProvider>
-                    <scannerInfoProvider id="specsFile">
-                        <runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true" />
-                        <parser enabled="true" />
-                    </scannerInfoProvider>
-                </profile>
-                <profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
-                    <buildOutputProvider>
-                        <openAction enabled="true" filePath="" />
-                        <parser enabled="true" />
-                    </buildOutputProvider>
-                    <scannerInfoProvider id="specsFile">
-                        <runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true" />
-                        <parser enabled="true" />
-                    </scannerInfoProvider>
-                </profile>
-                <profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
-                    <buildOutputProvider>
-                        <openAction enabled="true" filePath="" />
-                        <parser enabled="true" />
-                    </buildOutputProvider>
-                    <scannerInfoProvider id="specsFile">
-                        <runAction arguments='-c &apos;gcc -E -P -v -dD &quot;${plugin_state_location}/${specs_file}&quot;&apos;' command="sh" useDefault="true" />
-                        <parser enabled="true" />
-                    </scannerInfoProvider>
-                </profile>
-                <profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
-                    <buildOutputProvider>
-                        <openAction enabled="true" filePath="" />
-                        <parser enabled="true" />
-                    </buildOutputProvider>
-                    <scannerInfoProvider id="specsFile">
-                        <runAction arguments='-c &apos;g++ -E -P -v -dD &quot;${plugin_state_location}/specs.cpp&quot;&apos;' command="sh" useDefault="true" />
-                        <parser enabled="true" />
-                    </scannerInfoProvider>
-                </profile>
-                <profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
-                    <buildOutputProvider>
-                        <openAction enabled="true" filePath="" />
-                        <parser enabled="true" />
-                    </buildOutputProvider>
-                    <scannerInfoProvider id="specsFile">
-                        <runAction arguments='-c &apos;gcc -E -P -v -dD &quot;${plugin_state_location}/specs.c&quot;&apos;' command="sh" useDefault="true" />
-                        <parser enabled="true" />
-                    </scannerInfoProvider>
-                </profile>
-            </storageModule>
-            <storageModule moduleId="org.eclipse.cdt.core.externalSettings" />
-            <storageModule moduleId="org.eclipse.cdt.core.language.mapping" />
-            <storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings" />
-        </cconfiguration>
-
-    </storageModule>
-    <storageModule moduleId="cdtBuildSystem" version="4.0.0">
-        <project id = "module_sdram_memory_mapper.null.82070301" name="module_sdram_memory_mapper" />
-    </storageModule>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding=".build_*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="scannerConfiguration">
+				<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+				<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
+					<buildOutputProvider>
+						<openAction enabled="true" filePath=""/>
+						<parser enabled="true"/>
+					</buildOutputProvider>
+					<scannerInfoProvider id="specsFile">
+						<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+						<parser enabled="true"/>
+					</scannerInfoProvider>
+				</profile>
+				<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
+					<buildOutputProvider>
+						<openAction enabled="true" filePath=""/>
+						<parser enabled="true"/>
+					</buildOutputProvider>
+					<scannerInfoProvider id="makefileGenerator">
+						<runAction arguments="-E -P -v -dD" command="" useDefault="true"/>
+						<parser enabled="true"/>
+					</scannerInfoProvider>
+				</profile>
+				<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfile">
+					<buildOutputProvider>
+						<openAction enabled="true" filePath=""/>
+						<parser enabled="true"/>
+					</buildOutputProvider>
+					<scannerInfoProvider id="specsFile">
+						<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="gcc" useDefault="true"/>
+						<parser enabled="true"/>
+					</scannerInfoProvider>
+				</profile>
+				<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP">
+					<buildOutputProvider>
+						<openAction enabled="true" filePath=""/>
+						<parser enabled="true"/>
+					</buildOutputProvider>
+					<scannerInfoProvider id="specsFile">
+						<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.cpp" command="g++" useDefault="true"/>
+						<parser enabled="true"/>
+					</scannerInfoProvider>
+				</profile>
+				<profile id="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC">
+					<buildOutputProvider>
+						<openAction enabled="true" filePath=""/>
+						<parser enabled="true"/>
+					</buildOutputProvider>
+					<scannerInfoProvider id="specsFile">
+						<runAction arguments="-E -P -v -dD ${plugin_state_location}/specs.c" command="gcc" useDefault="true"/>
+						<parser enabled="true"/>
+					</scannerInfoProvider>
+				</profile>
+				<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfile">
+					<buildOutputProvider>
+						<openAction enabled="true" filePath=""/>
+						<parser enabled="true"/>
+					</buildOutputProvider>
+					<scannerInfoProvider id="specsFile">
+						<runAction arguments="-c 'gcc -E -P -v -dD &quot;${plugin_state_location}/${specs_file}&quot;'" command="sh" useDefault="true"/>
+						<parser enabled="true"/>
+					</scannerInfoProvider>
+				</profile>
+				<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileCPP">
+					<buildOutputProvider>
+						<openAction enabled="true" filePath=""/>
+						<parser enabled="true"/>
+					</buildOutputProvider>
+					<scannerInfoProvider id="specsFile">
+						<runAction arguments="-c 'g++ -E -P -v -dD &quot;${plugin_state_location}/specs.cpp&quot;'" command="sh" useDefault="true"/>
+						<parser enabled="true"/>
+					</scannerInfoProvider>
+				</profile>
+				<profile id="org.eclipse.cdt.managedbuilder.core.GCCWinManagedMakePerProjectProfileC">
+					<buildOutputProvider>
+						<openAction enabled="true" filePath=""/>
+						<parser enabled="true"/>
+					</buildOutputProvider>
+					<scannerInfoProvider id="specsFile">
+						<runAction arguments="-c 'gcc -E -P -v -dD &quot;${plugin_state_location}/specs.c&quot;'" command="sh" useDefault="true"/>
+						<parser enabled="true"/>
+					</scannerInfoProvider>
+				</profile>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+			<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
+			<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="module_sdram_memory_mapper.null.82070301" name="module_sdram_memory_mapper"/>
+	</storageModule>
 </cproject>
