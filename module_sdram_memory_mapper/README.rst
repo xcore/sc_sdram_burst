@@ -1,7 +1,7 @@
 SDRAM Memory Translation Function Library
 =========================================
 
-:scope: General use
+:scope: General Use
 :description: Translates a linear address range into SDRAM row, column, bank address values
 :keywords: SDRAM, memory
 :boards: XA-SK-SDRAM
