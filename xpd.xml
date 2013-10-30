@@ -6,39 +6,28 @@
             <keyword>SDRAM</keyword>
             <keyword>memory</keyword>
         </component>
-        <component description = "A software regression to aid implementing new SDRAM interfaces and verifying current ones." type = "demoCode" scope = "Example" path = "app_sdram_regress" local = "false" id = "app_sdram_regress" name = "SDRAM Regression Application">
+        <component description = "A software testbench to aid implementing new SDRAM interfaces and verifying current ones." type = "demoCode" scope = "Example" path = "app_sdram_testbench" local = "false" id = "app_sdram_testbench" name = "SDRAM Testbench Application">
             <board>XA-SK-SDRAM</board>
-            <componentDependency>module_sdram</componentDependency>
-            <componentDependency>module_slicekit_support</componentDependency>
+            <componentDependency version = "1.0.1">module_sdram</componentDependency>
+            <componentDependency repo = "origin" version = "1.0.3">module_slicekit_support</componentDependency>
             <keyword>Memory</keyword>
             <keyword>SDRAM</keyword>
         </component>
         <component description = "Benchmarks the performance of the module." type = "demoCode" scope = "Example" path = "app_sdram_benchmark" local = "false" id = "app_sdram_benchmark" name = "SDRAM Benchmark Application">
             <board>XA-SK-SDRAM</board>
-            <componentDependency>module_sdram</componentDependency>
-            <componentDependency>module_slicekit_support</componentDependency>
+            <componentDependency version = "1.0.1">module_sdram</componentDependency>
+            <componentDependency repo = "origin" version = "1.0.3">module_slicekit_support</componentDependency>
             <keyword>Memory</keyword>
             <keyword>SDRAM</keyword>
         </component>
-        <component description = "A demo of how the module is used to accesses memory on the SDRAM." type = "demoCode" scope = "Example" path = "app_sdram_demo" local = "false" id = "app_sdram_demo" name = "Slicekit SDRAM Simple Demo">
+        <component description = "A demo of how the module is used to accesses memory on the SDRAM." type = "demoCode" scope = "Example" path = "app_sdram_demo" local = "false" id = "app_sdram_demo" name = "sliceKIT SDRAM Simple Demo">
             <board>XA-SK-SDRAM</board>
-            <componentDependency>module_sdram</componentDependency>
-            <componentDependency>module_slicekit_support</componentDependency>
+            <componentDependency version = "1.0.1">module_sdram</componentDependency>
+            <componentDependency repo = "origin" version = "1.0.3">module_slicekit_support</componentDependency>
             <keyword>Memory</keyword>
             <keyword>SDRAM</keyword>
-        </component>
-        <component name = "SDRAM Memory Translation Function Library" type = "component" buildresults_path = "module_sdram_memory_mapper/.module_sdram_memory_mapper.buildinfo" scope = "Example" path = "module_sdram_memory_mapper" metainfo_path = "module_sdram_memory_mapper/module_sdram_memory_mapper.metainfo" local = "false" id = "module_sdram_memory_mapper" description = "Translates a linear address range into SDRAM row, column, bank address values">
-            <board>XA-SK-SDRAM</board>
-            <componentDependency>module_sdram</componentDependency>
-            <keyword>SDRAM</keyword>
-            <keyword>memory</keyword>
         </component>
     </components>
-    <dependency repo = "sc_util">
-        <githash>d0531d7c68ab67334582c324828e36d617baf8b3</githash>
-        <uri>git@github.com:xcore/sc_util</uri>
-        <version>1.0.3rc0</version>
-    </dependency>
     <dependency repo = "sc_slicekit_support">
         <githash>7920fc4235a96585274d73d25d275ea63b4cd285</githash>
         <uri>https://github.com/xcore/sc_slicekit_support.git</uri>
@@ -63,6 +52,7 @@
     <release parenthash = "8f163f1be80da7a6f119d647d557faba7f41e161" version = "1.0.1rc1" githash = "f0821a9a917a4ea8178714aa9ff384f587dbd5e4"></release>
     <subpartnumber>XM-001915-SM</subpartnumber>
     <vendor>XMOS</vendor>
+    <version_defines></version_defines>
     <xcore_repo>sc_sdram_burst.git</xcore_repo>
     <xpd_version>1.0</xpd_version>
 </xpd>
