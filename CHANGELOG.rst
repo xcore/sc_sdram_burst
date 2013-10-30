@@ -1,6 +1,12 @@
 sc_sdram_burst Change Log
 =========================
 
+1.0.6
+-----
+  * Fixed init code
+  * Fixed bug in refresh timing
+  * Renamed regress application to testbench
+
 1.0.5
 -----
   * Fixed regression test bug where code was not properly generalised
