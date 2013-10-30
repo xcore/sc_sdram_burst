@@ -6,6 +6,8 @@ sc_sdram_burst Change Log
   * Fixed init code
   * Fixed bug in refresh timing
   * Renamed regress application to testbench
+  * Fixed code so that no warnings are emitted (apart from "bidirectional buffered port not supported ") when compiling with xTIMEcomposer13.
+  * Documentation tidy up
 
 1.0.5
 -----
