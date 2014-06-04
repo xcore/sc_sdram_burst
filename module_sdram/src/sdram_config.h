@@ -63,4 +63,7 @@
 #define SDRAM_MODE_REGISTER 0x0027 //CAS 2
 #endif
 
+#ifndef SDRAM_CLIENT_COUNT
+#define SDRAM_CLIENT_COUNT 1
+#endif
 #endif /* SDRAM_CONFIG_H_ */

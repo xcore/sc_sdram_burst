@@ -396,7 +396,7 @@ void sdram_server(chanend c_client[], struct sdram_ports &ports) {
         time = handle_time + SDRAM_REF_TICKS_PER_REFRESH * SDRAM_ACCEPTABLE_REFRESH_GAP;
         break;
       }
-        case (int i = 0; i < 1; i ++) c_client[i] :> char cmd: {
+        case (int i = 0; i < SDRAM_CLIENT_COUNT; i ++) c_client[i] :> char cmd: {
           if(!handle_command(cmd, c_client[i], ports))
             outct(c_client[i], XS1_CT_END);
           else

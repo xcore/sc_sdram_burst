@@ -130,10 +130,10 @@ void sdram_client(chanend c_server) {
 }
 
 int main() {
-  chan sdram_c;
+  chan sdram_c[1];
   par {
     on tile[0]:sdram_server(sdram_c, ports);
-    on tile[0]:sdram_client(sdram_c);
+    on tile[0]:sdram_client(sdram_c[0]);
   }
   return 0;
 }
