@@ -1,9 +1,9 @@
 .text
-.cc_top sdram_block_write_PINOUT_V1_IS42S16160D.function
+.cc_top sdram_block_write.function
 .align 4
-.globl sdram_block_write_PINOUT_V1_IS42S16160D
-.type  sdram_block_write_PINOUT_V1_IS42S16160D, @function
-sdram_block_write_PINOUT_V1_IS42S16160D:
+.globl sdram_block_write
+.type  sdram_block_write, @function
+sdram_block_write:
 
 	//r0    adjusted buffer pointer
 	//r1    jump amount
@@ -30,7 +30,7 @@ sdram_block_write_PINOUT_V1_IS42S16160D:
 	ldw r1, sp[2]
 	bru r11
 
-	#include "sdram_block_write_body_PINOUT_V1_IS42S16160D.inc"
+	#include "sdram_block_write_body.inc"
 
 	//r0	save reg for cp
 	//r1	stop time
@@ -51,21 +51,22 @@ sdram_block_write_PINOUT_V1_IS42S16160D:
 	set cp, r0
 	ldw r4, sp[0]
 	retsp 0
-.globl sdram_block_write_PINOUT_V1_IS42S16160D.nstackwords
-.linkset sdram_block_write_PINOUT_V1_IS42S16160D.nstackwords, 1
-.globl sdram_block_write_PINOUT_V1_IS42S16160D.maxtimers
-.linkset sdram_block_write_PINOUT_V1_IS42S16160D.maxtimers, 0
-.globl sdram_block_write_PINOUT_V1_IS42S16160D.maxchanends
-.linkset sdram_block_write_PINOUT_V1_IS42S16160D.maxchanends, 0
-.globl sdram_block_write_PINOUT_V1_IS42S16160D.maxthreads
-.linkset sdram_block_write_PINOUT_V1_IS42S16160D.maxthreads, 1
-.cc_bottom sdram_block_write_PINOUT_V1_IS42S16160D.function
+.globl sdram_block_write.nstackwords
+.linkset sdram_block_write.nstackwords, 1
+.globl sdram_block_write.maxtimers
+.linkset sdram_block_write.maxtimers, 0
+.globl sdram_block_write.maxchanends
+.linkset sdram_block_write.maxchanends, 0
+.globl sdram_block_write.maxthreads
+.linkset sdram_block_write.maxthreads, 1
+.cc_bottom sdram_block_write.function
 
-.cc_top sdram_block_read_PINOUT_V1_IS42S16160D.function
+
+.cc_top sdram_block_read.function
 .align 4
-.globl sdram_block_read_PINOUT_V1_IS42S16160D
-.type  sdram_block_read_PINOUT_V1_IS42S16160D, @function
-sdram_block_read_PINOUT_V1_IS42S16160D:
+.globl sdram_block_read
+.type  sdram_block_read, @function
+sdram_block_read:
 	entsp 5
 
  	//r0 buffer pointer
@@ -106,7 +107,7 @@ sdram_block_read_PINOUT_V1_IS42S16160D:
 	in r11, res[r2]
 	bru r7
 
-	#include "sdram_block_read_body_PINOUT_V1_IS42S16160D.inc"
+	#include "sdram_block_read_body.inc"
 
 	//r0	burst term data
 	//r1	save reg for dp
@@ -158,21 +159,22 @@ jump:
 	ldw r4, sp[0]
 	retsp 5
 
-.globl sdram_block_read_PINOUT_V1_IS42S16160D.nstackwords
-.linkset sdram_block_read_PINOUT_V1_IS42S16160D.nstackwords, 5
-.globl sdram_block_read_PINOUT_V1_IS42S16160D.maxtimers
-.linkset sdram_block_read_PINOUT_V1_IS42S16160D.maxtimers, 0
-.globl sdram_block_read_PINOUT_V1_IS42S16160D.maxchanends
-.linkset sdram_block_read_PINOUT_V1_IS42S16160D.maxchanends, 0
-.globl sdram_block_read_PINOUT_V1_IS42S16160D.maxthreads
-.linkset sdram_block_read_PINOUT_V1_IS42S16160D.maxthreads, 1
+.globl sdram_block_read.nstackwords
+.linkset sdram_block_read.nstackwords, 5
+.globl sdram_block_read.maxtimers
+.linkset sdram_block_read.maxtimers, 0
+.globl sdram_block_read.maxchanends
+.linkset sdram_block_read.maxchanends, 0
+.globl sdram_block_read.maxthreads
+.linkset sdram_block_read.maxthreads, 1
 
-.cc_bottom sdram_block_read_PINOUT_V1_IS42S16160D.function
-.cc_top sdram_short_block_read_PINOUT_V1_IS42S16160D.function
+.cc_bottom sdram_block_read.function
+
+.cc_top sdram_short_block_read.function
 .align 4
-.globl sdram_short_block_read_PINOUT_V1_IS42S16160D
-.type  sdram_short_block_read_PINOUT_V1_IS42S16160D, @function
-sdram_short_block_read_PINOUT_V1_IS42S16160D:
+.globl sdram_short_block_read
+.type  sdram_short_block_read, @function
+sdram_short_block_read:
 	entsp 4
 
  	//r0 buffer pointer
@@ -237,13 +239,13 @@ sdram_short_block_read_PINOUT_V1_IS42S16160D:
 	ldw r4, sp[0]
 	retsp 4
 
-.globl sdram_short_block_read_PINOUT_V1_IS42S16160D.nstackwords
-.linkset sdram_short_block_read_PINOUT_V1_IS42S16160D.nstackwords, 4
-.globl sdram_short_block_read_PINOUT_V1_IS42S16160D.maxtimers
-.linkset sdram_short_block_read_PINOUT_V1_IS42S16160D.maxtimers, 0
-.globl sdram_short_block_read_PINOUT_V1_IS42S16160D.maxchanends
-.linkset sdram_short_block_read_PINOUT_V1_IS42S16160D.maxchanends, 0
-.globl sdram_short_block_read_PINOUT_V1_IS42S16160D.maxthreads
-.linkset sdram_short_block_read_PINOUT_V1_IS42S16160D.maxthreads, 1
+.globl sdram_short_block_read.nstackwords
+.linkset sdram_short_block_read.nstackwords, 4
+.globl sdram_short_block_read.maxtimers
+.linkset sdram_short_block_read.maxtimers, 0
+.globl sdram_short_block_read.maxchanends
+.linkset sdram_short_block_read.maxchanends, 0
+.globl sdram_short_block_read.maxthreads
+.linkset sdram_short_block_read.maxthreads, 1
 
-.cc_bottom sdram_short_block_read_PINOUT_V1_IS42S16160D.function
+.cc_bottom sdram_short_block_read.function

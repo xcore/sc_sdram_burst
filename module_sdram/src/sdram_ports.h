@@ -1,12 +1,23 @@
-#ifndef __SDRAM_PORTS_H__
-#define __SDRAM_PORTS_H__
+#ifndef SDRAM_PORTS_H_
+#define SDRAM_PORTS_H_
+#include <xs1.h>
 
-#include "sdram_conf_derived.h"
-#include "sdram_ports_PINOUT_V2_IS42S16400F.h"
-#include "sdram_ports_PINOUT_V1_IS42S16400F.h"
-#include "sdram_ports_PINOUT_V1_IS42S16160D.h"
-#include "sdram_ports_PINOUT_V0.h"
+/*
+ *  Structure containing the resources required for the SDRAM  ports interface.
+ */
+typedef struct sdram_ports
+{
+  //Data and Address muxed along with bank address
+  buffered port:32 dq_ah;
 
-#define sdram_ports ADD_SUFFIX(sdram_ports, SDRAM_DEFAULT_IMPLEMENTATION)
+  //Control Signals
+  out buffered port:32 cas;
+  out buffered port:32 ras;
+  out buffered port:8 we;
 
-#endif // __SDRAM_PORTS_H__
+  //Clock
+  out port clk;
+
+  clock cb;
+} sdram_ports;
+#endif /* SDRAM_PORTS_H_ */

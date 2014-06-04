@@ -1,22 +1,26 @@
 #ifndef __sdram_geometry_h__
 #define __sdram_geometry_h__
 
-#include "sdram_geometry_PINOUT_V1_IS42S16400F.h"
-#include "sdram_geometry_PINOUT_V2_IS42S16400F.h"
-#include "sdram_geometry_PINOUT_V1_IS42S16160D.h"
-#include "sdram_geometry_PINOUT_V0.h"
+#ifdef __sdram_conf_h_exists__
+#include "sdram_conf.h" // This is from the application
+#endif
 
-#define SDRAM_COL_BITS ADD_SUFFIX(SDRAM_COL_BITS, SDRAM_DEFAULT_IMPLEMENTATION)
+//Define the geometry of the SDRAM
+#ifndef SDRAM_COL_BITS
+#define SDRAM_COL_BITS (16)
+#endif
 
-#define SDRAM_ROW_ADDRESS_BITS \
-     ADD_SUFFIX(SDRAM_ROW_ADDRESS_BITS, SDRAM_DEFAULT_IMPLEMENTATION)
+#ifndef SDRAM_ROW_ADDRESS_BITS
+#define SDRAM_ROW_ADDRESS_BITS  12
+#endif
 
-#define SDRAM_COL_ADDRESS_BITS \
-     ADD_SUFFIX(SDRAM_COL_ADDRESS_BITS, SDRAM_DEFAULT_IMPLEMENTATION)
+#ifndef SDRAM_COL_ADDRESS_BITS
+#define SDRAM_COL_ADDRESS_BITS  8
+#endif
 
-#define SDRAM_BANK_ADDRESS_BITS \
-     ADD_SUFFIX(SDRAM_BANK_ADDRESS_BITS, SDRAM_DEFAULT_IMPLEMENTATION)
-
+#ifndef SDRAM_BANK_ADDRESS_BITS
+#define SDRAM_BANK_ADDRESS_BITS 2
+#endif
 #define SDRAM_COL_COUNT (1<<SDRAM_COL_ADDRESS_BITS)
 #define SDRAM_ROW_COUNT (1<<SDRAM_ROW_ADDRESS_BITS)
 #define SDRAM_BANK_COUNT (1<<SDRAM_BANK_ADDRESS_BITS)

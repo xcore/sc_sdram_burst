@@ -4,19 +4,13 @@
 #include <stdint.h>
 #include "sdram_geometry.h"
 #include "sdram_ports.h"
-#include "sdram_server_PINOUT_V2_IS42S16400F.h"
-#include "sdram_server_PINOUT_V1_IS42S16400F.h"
-#include "sdram_server_PINOUT_V1_IS42S16160D.h"
-#include "sdram_server_PINOUT_V0.h"
 
 /** \brief The SDRAM server thread.
  *
  * \param c_client The channel end connecting the application to the server
  * \param ports The structure carrying the SDRAM port details.
  */
-void sdram_server(chanend c_client,  struct sdram_ports_PINOUT_V1_IS42S16400F &ports);
-
-#define sdram_server ADD_SUFFIX(sdram_server, SDRAM_DEFAULT_IMPLEMENTATION)
+void sdram_server(chanend c_client[],  struct sdram_ports &ports);
 
 /** \brief Function to wait until the SDRAM server is idle and ready to accept another command.
  *
