@@ -37,50 +37,53 @@ static unsigned pseudo_random_number(unsigned min, unsigned max) {
   return super_pattern() % (max + 1 - min) + min;
 }
 
-static inline void client_write(chanend c_server, unsigned bank,
-    unsigned start_row, unsigned start_col, unsigned words, unsigned buffer[]) {
-  sdram_buffer_write(c_server, bank, start_row, start_col, words, buffer);
+static inline void client_write(streaming chanend c_server, unsigned bank,
+    unsigned start_row, unsigned start_col, unsigned words, unsigned * movable buffer, sdram_state &s) {
+  sdram_write(c_server, bank, start_row, start_col, words, move(buffer), s);
 }
 
-static inline void client_read(chanend c_server, unsigned bank,
-    unsigned start_row, unsigned start_col, unsigned words, unsigned buffer[]) {
-  sdram_buffer_read(c_server, bank, start_row, start_col, words, buffer);
+static inline void client_read(streaming chanend c_server, unsigned bank,
+    unsigned start_row, unsigned start_col, unsigned words, unsigned * movable buffer, sdram_state &s) {
+  sdram_read(c_server, bank, start_row, start_col, words,  move(buffer), s);
 }
 
-static inline void client_wait_until_idle(chanend c_server, unsigned buffer[]) {
-  sdram_wait_until_idle(c_server, buffer);
+static inline void client_return(streaming chanend c_server, unsigned * movable &buffer, sdram_state &s) {
+    sdram_return(c_server, buffer, s);
 }
 
-static void fillMemory(chanend c_server, unsigned fill_pattern) {
+static void fillMemory(streaming chanend c_server, unsigned fill_pattern, sdram_state &s) {
   unsigned buf[SDRAM_ROW_WORDS];
+  unsigned * movable buffer = buf;
   for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++)
-    buf[word] = fill_pattern;
+      buffer[word] = fill_pattern;
 
   for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
     for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
-      sdram_full_row_write(c_server, bank, row, buf);
-      sdram_wait_until_idle(c_server, buf);
+        sdram_write(c_server, bank, row, 0, SDRAM_ROW_WORDS, move(buffer), s);
+        sdram_return(c_server, buffer, s);
     }
   }
 }
 
-static void fillMemoryExcludingRow(chanend c_server, unsigned fill_pattern,
-    unsigned exclusion_bank, unsigned exclusion_row) {
+static void fillMemoryExcludingRow(streaming chanend c_server, unsigned fill_pattern,
+    unsigned exclusion_bank, unsigned exclusion_row, sdram_state &s) {
   unsigned buf[SDRAM_ROW_WORDS];
+  unsigned * movable buffer = buf;
   for (int word = 0; word < SDRAM_ROW_WORDS; word++)
-    buf[word] = fill_pattern;
+      buffer[word] = fill_pattern;
   for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
     for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
       if (row == exclusion_row && bank == exclusion_bank)
         continue;
-      client_write(c_server, bank, row, 0, SDRAM_ROW_WORDS, buf);
-      client_wait_until_idle(c_server, buf);
+      client_write(c_server, bank, row, 0, SDRAM_ROW_WORDS, move(buffer), s);
+      sdram_return(c_server, buffer, s);
     }
   }
 }
 
-static void single_row_write(chanend c_server) {
-  unsigned buf[SDRAM_ROW_WORDS];
+static void single_row_write(streaming chanend c_server, sdram_state &s) {
+  unsigned bufffer[SDRAM_ROW_WORDS];
+  unsigned * movable buf=bufffer;
   unsigned data = 1;
   unsigned test_row_count = 8;
   unsigned test_rows[8] = { 0, 1, 2, 3, SDRAM_ROW_COUNT - 4, SDRAM_ROW_COUNT
@@ -90,15 +93,19 @@ static void single_row_write(chanend c_server) {
   for (int word = 0; word < SDRAM_ROW_WORDS; word++)
     buf[word] = data;
 
-  fillMemory(c_server, 0xffffffff);
+  fillMemory(c_server, 0xffffffff, s);
   for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
     for (unsigned test_row = 0; test_row < test_row_count; test_row++) {
       unsigned row = test_rows[test_row];
-      client_write(c_server, bank, row, 0, SDRAM_ROW_WORDS, buf);
-      client_wait_until_idle(c_server, buf);
-      fillMemoryExcludingRow(c_server, 0xffffffff, bank, row);
-      client_read(c_server, bank, row, 0, SDRAM_ROW_WORDS, buf);
-      client_wait_until_idle(c_server, buf);
+
+      client_write(c_server, bank, row, 0, SDRAM_ROW_WORDS, move(buf), s);
+      client_return(c_server, buf, s);
+
+      fillMemoryExcludingRow(c_server, 0xffffffff, bank, row, s);
+
+      client_read(c_server, bank, row, 0, SDRAM_ROW_WORDS, move(buf), s);
+      client_return(c_server, buf, s);
+
       for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++) {
         unsigned b = buf[word];
         if (b != data) {
@@ -114,10 +121,13 @@ static void single_row_write(chanend c_server) {
     printf("\tPassed\n");
 }
 
-static void partial_row_write_read(chanend c_server) {
-  unsigned reset_buf[SDRAM_ROW_WORDS];
-  unsigned write_buf[SDRAM_ROW_WORDS];
-  unsigned read_buf[SDRAM_ROW_WORDS];
+static void partial_row_write_read(streaming chanend c_server, sdram_state &s) {
+    unsigned re_buf[SDRAM_ROW_WORDS];
+    unsigned w_buf[SDRAM_ROW_WORDS];
+    unsigned r_buf[SDRAM_ROW_WORDS];
+    unsigned * movable reset_buf=re_buf;
+    unsigned * movable write_buf=w_buf;
+    unsigned * movable read_buf=r_buf;
 
   //There is no need to test all the rows
   unsigned test_rows[8] = { 0, 1, 2, 3, SDRAM_ROW_COUNT - 4, SDRAM_ROW_COUNT
@@ -128,23 +138,23 @@ static void partial_row_write_read(chanend c_server) {
   for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++) {
     reset_buf[word] = 0xffffffff;
   }
-  fillMemory(c_server, 0xffffffff);
+  fillMemory(c_server, 0xffffffff, s);
   for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
     for (unsigned r_index = 0; r_index < 8; r_index++) {
       unsigned row = test_rows[r_index];
       for (unsigned start_col = 0; start_col < SDRAM_COL_COUNT; start_col++) {
         for (unsigned word_count = MIN_BLOCK_WIDTH_WORDS; word_count
             < (SDRAM_COL_COUNT - start_col) / 2; word_count++) {
-          client_write(c_server, bank, row, 0, SDRAM_ROW_WORDS, reset_buf);
-          client_wait_until_idle(c_server, reset_buf);
+          client_write(c_server, bank, row, 0, SDRAM_ROW_WORDS, move(reset_buf), s);
+          client_return(c_server, reset_buf, s);
           for (int word = 0; word < word_count; word++) {
             write_buf[word] = super_pattern();
             read_buf[word] = 0xaabbccdd;
           }
-          client_write(c_server, bank, row, start_col, word_count, write_buf);
-          client_wait_until_idle(c_server, write_buf);
-          client_read(c_server, bank, row, start_col, word_count, read_buf);
-          client_wait_until_idle(c_server, read_buf);
+          client_write(c_server, bank, row, start_col, word_count, move(write_buf), s);
+          client_return(c_server, write_buf, s);
+          client_read(c_server, bank, row, start_col, word_count, move(read_buf), s);
+          client_return(c_server, read_buf, s);
 
           for (int word = 0; word < word_count; word++) {
             unsigned r = read_buf[word];
@@ -166,11 +176,16 @@ static void partial_row_write_read(chanend c_server) {
 }
 
 //Check that when we write a section of a row then we are writing to the correct place.
-static void partial_row_write_align(chanend c_server) {
-  unsigned reset_buf[SDRAM_ROW_WORDS];
-  unsigned write_buf[SDRAM_ROW_WORDS];
-  unsigned read_buf[SDRAM_ROW_WORDS];
-  unsigned verify_buf[SDRAM_ROW_WORDS];
+static void partial_row_write_align(streaming chanend c_server, sdram_state &s) {
+    unsigned re_buf[SDRAM_ROW_WORDS];
+    unsigned w_buf[SDRAM_ROW_WORDS];
+    unsigned r_buf[SDRAM_ROW_WORDS];
+    unsigned v_buf[SDRAM_ROW_WORDS];
+
+    unsigned * movable reset_buf = re_buf;
+    unsigned * movable write_buf= w_buf;
+    unsigned * movable read_buf = r_buf;
+    unsigned * movable verify_buf = v_buf;
 
   //There is no need to test all the rows
   unsigned test_rows[8] = { 0, 1, 2, 3, SDRAM_ROW_COUNT - 4, SDRAM_ROW_COUNT
@@ -183,7 +198,7 @@ static void partial_row_write_align(chanend c_server) {
     reset_buf[word] = 0xffffffff;
   }
 
-  fillMemory(c_server, 0xffffffff);
+  fillMemory(c_server, 0xffffffff, s);
 
   for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
     for (unsigned r_index = 0; r_index < 8; r_index++) {
@@ -202,12 +217,12 @@ static void partial_row_write_align(chanend c_server) {
             verify_buf[word + start_col / 2] = sp;
           }
 
-          client_write(c_server, bank, row, 0, SDRAM_ROW_WORDS, reset_buf);
-          client_wait_until_idle(c_server, reset_buf);
-          client_write(c_server, bank, row, start_col, word_count, write_buf);
-          client_wait_until_idle(c_server, write_buf);
-          client_read(c_server, bank, row, 0, SDRAM_ROW_WORDS, read_buf);
-          client_wait_until_idle(c_server, read_buf);
+          client_write(c_server, bank, row, 0, SDRAM_ROW_WORDS, move(reset_buf), s);
+          client_return(c_server, reset_buf, s);
+          client_write(c_server, bank, row, start_col, word_count, move(write_buf), s);
+          client_return(c_server, write_buf, s);
+          client_read(c_server, bank, row, 0, SDRAM_ROW_WORDS, move(read_buf), s);
+          client_return(c_server, read_buf, s);
 
           for (int word = 0; word < word_count; word++) {
             unsigned r = read_buf[word];
@@ -227,20 +242,21 @@ static void partial_row_write_align(chanend c_server) {
   if (VERBOSE_MSG)
     printf("\tPassed\n");
 }
-static void whole_mem_write_read(chanend c_server) {
+static void whole_mem_write_read(streaming chanend c_server, sdram_state &s) {
 
   unsigned pattern;
   unsigned patterns[4] = { 0, 0x55555555, 0xaaaaaaaa, 0xffffffff };
-  unsigned buf[SDRAM_ROW_WORDS];
+  unsigned buffer[SDRAM_ROW_WORDS];
+  unsigned * movable buf = buffer;
   if (VERBOSE_MSG)
     printf("Started whole_mem_write_read\n");
   for (unsigned p = 0; p < 4; p++) {
     pattern = patterns[p];
-    fillMemory(c_server, pattern);
+    fillMemory(c_server, pattern, s);
     for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
       for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
-        client_read(c_server, bank, row, 0, SDRAM_ROW_WORDS, buf);
-        client_wait_until_idle(c_server, buf);
+        client_read(c_server, bank, row, 0, SDRAM_ROW_WORDS, move(buf), s);
+        client_return(c_server, buf, s);
         for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++) {
           unsigned r = buf[word];
           if (r != pattern) {
@@ -256,12 +272,13 @@ static void whole_mem_write_read(chanend c_server) {
     printf("\tPassed\n");
 }
 
-static void refresh_test(chanend c_server) {
+static void refresh_test(streaming chanend c_server, sdram_state &s) {
 
   unsigned pattern;
   unsigned wait_multiplier[3] = { 1, 4, 8 };
   unsigned patterns[3] = { 0, 0x55555555, 0xffffffff };
-  unsigned buf[SDRAM_ROW_WORDS];
+  unsigned buffer[SDRAM_ROW_WORDS];
+  unsigned * movable buf= buffer;
   if (VERBOSE_MSG)
     printf("Started refresh_test\n");
   for (unsigned p = 0; p < 3; p++) {
@@ -269,7 +286,7 @@ static void refresh_test(chanend c_server) {
     for (unsigned w = 0; w < 3; w++) {
       timer t;
       unsigned time;
-      fillMemory(c_server, pattern);
+      fillMemory(c_server, pattern, s);
       for (unsigned tw = 0; tw < wait_multiplier[w]; tw++) {
         t :> time;
         t when timerafter(time+100000000):> int;
@@ -277,8 +294,8 @@ static void refresh_test(chanend c_server) {
 
       for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
         for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
-          client_read(c_server, bank, row, 0, SDRAM_ROW_WORDS, buf);
-          client_wait_until_idle(c_server, buf);
+          client_read(c_server, bank, row, 0, SDRAM_ROW_WORDS, move(buf), s);
+          client_return(c_server, buf, s);
           for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++) {
             unsigned r = buf[word];
             if (r != pattern) {
@@ -301,19 +318,20 @@ static unsigned makeWord(unsigned bank, unsigned row, unsigned word) {
       << (SDRAM_BANK_ADDRESS_BITS + SDRAM_ROW_ADDRESS_BITS));
 }
 
-static void pseudo_random_read(chanend c_server, unsigned test_limit) {
+static void pseudo_random_read(streaming chanend c_server, unsigned test_limit, sdram_state &s) {
   if (VERBOSE_MSG)
     printf("Started pseudo_random_read\n");
   {
     //Init all memory to something unique and predicatable.
     for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
       for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
-        unsigned buffer[SDRAM_ROW_WORDS];
+          unsigned buf[SDRAM_ROW_WORDS];
+          unsigned * movable buffer = buf;
         for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++) {
           buffer[word] = makeWord(bank, row, word);
         }
-        client_write(c_server, bank, row, 0, SDRAM_ROW_WORDS, buffer);
-        client_wait_until_idle(c_server, buffer);
+        client_write(c_server, bank, row, 0, SDRAM_ROW_WORDS, move(buffer), s);
+        client_return(c_server, buffer, s);
       }
     }
   }
@@ -321,7 +339,8 @@ static void pseudo_random_read(chanend c_server, unsigned test_limit) {
     //Now do the testing
     unsigned wordsChecked = 0;
     while (test_limit--) {
-      unsigned buffer[SDRAM_ROW_WORDS];
+        unsigned buf[SDRAM_ROW_WORDS];
+        unsigned * movable buffer = buf;
       unsigned block_width_words = pseudo_random_number(MIN_BLOCK_WIDTH_WORDS,
           SDRAM_ROW_WORDS - 1);
       unsigned bank = pseudo_random_number(0, SDRAM_BANK_COUNT - 1);
@@ -335,9 +354,8 @@ static void pseudo_random_read(chanend c_server, unsigned test_limit) {
         buffer[x] = 0;
       }
 
-      client_read(c_server, bank, start_row, start_col, block_width_words,
-          buffer);
-      client_wait_until_idle(c_server, buffer);
+      client_read(c_server, bank, start_row, start_col, block_width_words, move(buffer), s);
+      client_return(c_server, buffer, s);
 
       for (unsigned word = start_word; word < start_word + block_width_words; word++) {
         unsigned expected = makeWord(bank, start_row, word);
@@ -359,19 +377,20 @@ static void pseudo_random_read(chanend c_server, unsigned test_limit) {
     printf("\tCompleted\n");
 }
 
-static void ordered_read(chanend c_server) {
+static void ordered_read(streaming chanend c_server, sdram_state &s) {
   if (VERBOSE_MSG)
     printf("Started ordered_read\n");
   {
     //Init all memory to something unique and predicatable.
     for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
       for (unsigned row = 0; row < SDRAM_ROW_COUNT; row++) {
-        unsigned buffer[SDRAM_ROW_WORDS];
+          unsigned buf[SDRAM_ROW_WORDS];
+          unsigned * movable buffer = buf;
         for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++) {
           buffer[word] = makeWord(bank, row, word);
         }
-        client_write(c_server, bank, row, 0, SDRAM_ROW_WORDS, buffer);
-        client_wait_until_idle(c_server, buffer);
+        client_write(c_server, bank, row, 0, SDRAM_ROW_WORDS, move(buffer), s);
+        client_return(c_server, buffer, s);
       }
     }
   }
@@ -379,7 +398,8 @@ static void ordered_read(chanend c_server) {
   {
     //Now do the testing
     unsigned wordsChecked = 0;
-    unsigned buffer[SDRAM_ROW_WORDS];
+    unsigned buf[SDRAM_ROW_WORDS];
+    unsigned * movable buffer = buf;
     for (unsigned bank = 0; bank < SDRAM_BANK_COUNT - 1; bank++) {
       for (unsigned width = MIN_BLOCK_WIDTH_WORDS; width < SDRAM_ROW_WORDS - 1; width++) {
         for (unsigned start_row = 0; start_row < SDRAM_ROW_COUNT - 1; start_row++) {
@@ -392,8 +412,8 @@ static void ordered_read(chanend c_server) {
             for (unsigned x = 0; x < width; x++)
               buffer[x] = 0;
 
-            client_read(c_server, bank, start_row, start_col, width, buffer);
-            client_wait_until_idle(c_server, buffer);
+            client_read(c_server, bank, start_row, start_col, width, move(buffer), s);
+            client_return(c_server, buffer, s);
 
             for (unsigned word = start_word; word < start_word + width; word++) {
               unsigned expected = makeWord(bank, start_row, word);
@@ -424,29 +444,30 @@ static void load_thread(chanend in_t, chanend out_t) {
   out_t <: 1;
 }
 
-static void refresh_test_2(chanend c_server) {
+static void refresh_test_2(streaming chanend c_server, sdram_state &s) {
   unsigned pattern;
   unsigned patterns[3] = { 0, 0x55555555, 0xffffffff };
   unsigned test_rows[8] = { 0, 1, 2, 3, SDRAM_ROW_COUNT - 4,
       SDRAM_ROW_COUNT - 3, SDRAM_ROW_COUNT - 2, SDRAM_ROW_COUNT - 1 };
-  unsigned buf[SDRAM_ROW_WORDS];
+  unsigned buffer[SDRAM_ROW_WORDS];
+  unsigned * movable buf = buffer;
   if (VERBOSE_MSG)
     printf("Started refresh_test_2\n");
   for (unsigned p = 0; p < 3; p++) {
     pattern = patterns[p];
     for (unsigned w = 0; w < 3; w++) {
 
-      fillMemory(c_server, pattern);
+      fillMemory(c_server, pattern, s);
       for (unsigned bank = 0; bank < SDRAM_BANK_COUNT; bank++) {
 
         for (unsigned t = 0; t < 8; t++) {
           timer T;
           unsigned time;
           unsigned row = test_rows[t];
-          client_read(c_server, bank, row, 0, SDRAM_ROW_WORDS, buf);
+          client_read(c_server, bank, row, 0, SDRAM_ROW_WORDS, move(buf), s);
           T :> time;
           T when timerafter(time+100000000):> int;
-          client_wait_until_idle(c_server, buf);
+          client_return(c_server, buf, s);
           for (unsigned word = 0; word < SDRAM_ROW_WORDS; word++) {
             unsigned r = buf[word];
             if (r != pattern) {
@@ -464,13 +485,18 @@ static void refresh_test_2(chanend c_server) {
     printf("\tPassed\n");
 }
 
-static void sanity_check(chanend sdram_c) {
+static void sanity_check(streaming chanend sdram_c, sdram_state &s) {
 #define SANITY_TEST_SIZE 8
 #define SANITY_TEST_BANK 1
 #define SANITY_TEST_ROW 1
 #define SANITY_TEST_COL 0
-  unsigned input_buffer[SANITY_TEST_SIZE];
-  unsigned output_buffer[SANITY_TEST_SIZE];
+  unsigned i_buffer[SANITY_TEST_SIZE];
+  unsigned o_buffer[SANITY_TEST_SIZE];
+
+
+  unsigned * movable input_buffer=i_buffer;
+  unsigned * movable output_buffer=o_buffer;
+
   if (VERBOSE_MSG)
     printf("Begin sanity_check\n");
   for (unsigned i = 0; i < SANITY_TEST_SIZE; i++) {
@@ -478,12 +504,12 @@ static void sanity_check(chanend sdram_c) {
     output_buffer[i] = 0xaabbccdd;
   }
   client_write(sdram_c, SANITY_TEST_BANK, SANITY_TEST_ROW, SANITY_TEST_COL,
-      SANITY_TEST_SIZE, input_buffer);
-  client_wait_until_idle(sdram_c, input_buffer);
+      SANITY_TEST_SIZE, move(input_buffer), s);
+  client_return(sdram_c, input_buffer, s);
   client_read(sdram_c, SANITY_TEST_BANK, SANITY_TEST_ROW, SANITY_TEST_COL,
-      SANITY_TEST_SIZE, output_buffer);
+      SANITY_TEST_SIZE, move(output_buffer), s);
 
-  client_wait_until_idle(sdram_c, output_buffer);
+  client_return(sdram_c, output_buffer, s);
 
   for (unsigned i = 0; i < SANITY_TEST_SIZE; i++) {
     if (i != output_buffer[i]) {
@@ -497,26 +523,27 @@ static void sanity_check(chanend sdram_c) {
     printf("\tPassed\n");
 }
 
-void testbench_single_thread(chanend c_server) {
+void testbench_single_thread(streaming chanend c_server, sdram_state &s) {
   reset_super_pattern();
-  sanity_check(c_server);
-  single_row_write(c_server);
-  partial_row_write_read(c_server);
-  partial_row_write_align(c_server);
-  whole_mem_write_read(c_server);
-  refresh_test(c_server);
-  refresh_test_2(c_server);
-  ordered_read(c_server);
-  pseudo_random_read(c_server, 4096 * 16);
+  sanity_check(c_server, s);
+  single_row_write(c_server, s);
+  partial_row_write_read(c_server, s);
+  partial_row_write_align(c_server, s);
+  whole_mem_write_read(c_server, s);
+  refresh_test(c_server, s);
+  refresh_test_2(c_server, s);
+  ordered_read(c_server, s);
+  pseudo_random_read(c_server, 4096 * 16, s);
 }
 
-void testbench(chanend c_server, chanend in_t, chanend out_t) {
-  testbench_single_thread(c_server);
+void testbench(streaming chanend c_server, chanend in_t, chanend out_t) {
+  sdram_state s;
+  testbench_single_thread(c_server, s);
   out_t <: 1;
   in_t :> int;
 }
 
-void test_4_threads(chanend c_server) {
+void test_4_threads(streaming chanend c_server) {
   chan c[3];
   if (VERBOSE_MSG)
     printf("4 threaded test suite start\n");
@@ -529,7 +556,7 @@ void test_4_threads(chanend c_server) {
     printf("4 threaded test suite completed\n");
 }
 
-void test_8_threads(chanend c_server) {
+void test_8_threads(streaming chanend c_server) {
   chan c[7];
   if (VERBOSE_MSG)
     printf("8 threaded test suite start\n");
@@ -545,7 +572,7 @@ void test_8_threads(chanend c_server) {
   if (VERBOSE_MSG)
     printf("8 threaded test suite completed\n");
 }
-void test_7_threads(chanend c_server) {
+void test_7_threads(streaming chanend c_server) {
   chan c[6];
   if (VERBOSE_MSG)
     printf("7 threaded test suite start\n");
@@ -560,7 +587,7 @@ void test_7_threads(chanend c_server) {
   if (VERBOSE_MSG)
     printf("7 threaded test suite completed\n");
 }
-void test_6_threads(chanend c_server) {
+void test_6_threads(streaming chanend c_server) {
   chan c[5];
   if (VERBOSE_MSG)
     printf("6 threaded test suite start\n");
@@ -574,7 +601,7 @@ void test_6_threads(chanend c_server) {
   if (VERBOSE_MSG)
     printf("6 threaded test suite completed\n");
 }
-void test_5_threads(chanend c_server) {
+void test_5_threads(streaming chanend c_server) {
   chan c[4];
   if (VERBOSE_MSG)
     printf("5 threaded test suite start\n");
@@ -588,7 +615,7 @@ void test_5_threads(chanend c_server) {
     printf("5 threaded test suite completed\n");
 }
 
-void sdram_client(chanend c_server) {
+void sdram_client(streaming chanend c_server) {
   set_thread_fast_mode_on();
   if (VERBOSE_MSG)
     printf("Test suite begin\n");
@@ -599,14 +626,14 @@ void sdram_client(chanend c_server) {
   test_4_threads(c_server);
   if (VERBOSE_MSG)
     printf("Test suite completed\n");
-  sdram_shutdown(c_server);
+  _Exit(0);
 }
 
 int main() {
-  chan sdram_c[1];
+    streaming chan sdram_c[1];
   par {
     on tile[0]:sdram_client(sdram_c[0]);
-    on tile[0]:sdram_server(sdram_c, ports);
+    on tile[0]:sdram_server(sdram_c, 1, ports);
   }
   return 0;
 }

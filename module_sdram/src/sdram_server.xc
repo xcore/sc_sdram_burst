@@ -1,5 +1,7 @@
 #include <platform.h>
+#include <stdint.h>
 
+#include "sdram.h"
 #include "sdram_geometry.h"
 #include "sdram_config.h"
 #include "sdram_ports.h"
@@ -114,11 +116,11 @@ static void sdram_refresh(unsigned ncycles, struct sdram_ports &p){
   }
 }
 
-void sdram_block_write(unsigned buffer, unsigned word_count, buffered port:32 dq,
+void sdram_block_write(unsigned * buffer, unsigned word_count, buffered port:32 dq,
     out buffered port:8 we, out buffered port:32 ras, unsigned term_time);
-void sdram_block_read(unsigned buffer, unsigned word_count, buffered port:32 dq,
+void sdram_block_read(unsigned * buffer, unsigned word_count, buffered port:32 dq,
     out buffered port:8 ctrl, unsigned term_time, unsigned st, out buffered port:32 ras);
-void sdram_short_block_read(unsigned buffer, unsigned word_count, buffered port:32 dq,
+void sdram_short_block_read(unsigned * buffer, unsigned word_count, buffered port:32 dq,
     out buffered port:8 ctrl, unsigned term_time, unsigned st, out buffered port:32 ras);
 
 /*
@@ -135,8 +137,8 @@ static unsigned bank_table[SDRAM_BANK_COUNT] =
     (3<<13) | (3<<(13+16) | 1<<(10+16))};
 
 #pragma unsafe arrays
-static inline void sdram_write(unsigned row, unsigned col, unsigned bank,
-    unsigned buffer, unsigned word_count, struct sdram_ports &ports) {
+static inline void write_impl(unsigned row, unsigned col, unsigned bank,
+        unsigned *  buffer, unsigned word_count, struct sdram_ports &ports) {
   unsigned t;
   unsigned stop_time;
   unsigned jump;
@@ -151,7 +153,7 @@ static inline void sdram_write(unsigned row, unsigned col, unsigned bank,
   rowcol = (col << 16) | row | bank_table[bank];
 
   //adjust the buffer
-  buffer -= 4 * (SDRAM_ROW_WORDS - word_count);
+  buffer -=  (SDRAM_ROW_WORDS - word_count);
   jump = 2 * (SDRAM_ROW_WORDS - word_count);
 
   t = partout_timestamped(ports.cas, 1, CTRL_WE_NOP);
@@ -169,34 +171,8 @@ static inline void sdram_write(unsigned row, unsigned col, unsigned bank,
 }
 
 #pragma unsafe arrays
-static inline void sdram_col_write(unsigned bank, unsigned row, unsigned col,
-    short data, struct sdram_ports &ports) {
-  unsigned t;
-  unsigned data_stop;
-  unsigned rowcol;
-
- if(SDRAM_EXTERNAL_MEMORY_ACCESSOR){
-  if (col)
-    col = col - 1;
-  else
-    col = (SDRAM_COL_COUNT - 1);
- }
-  rowcol = (col << 16) | row | bank_table[bank];
-  data_stop = (0xffff << 16) | data;
-  t = partout_timestamped(ports.cas, 1, CTRL_CAS_NOP);
-
-  t += WRITE_COL_SETUP_LATENCY;
-
-  partout_timed(ports.cas, 6, CTRL_CAS_ACTIVE | (CTRL_CAS_WRITE<<1) | (CTRL_CAS_NOP<<2) | (CTRL_CAS_TERM<<3) | (CTRL_CAS_PRECHARGE<<4) | (CTRL_CAS_NOP<<5), t);
-  partout_timed(ports.ras, 6, CTRL_RAS_ACTIVE | (CTRL_RAS_WRITE<<1) | (CTRL_RAS_NOP<<2) | (CTRL_RAS_TERM<<3) | (CTRL_RAS_PRECHARGE<<4) | (CTRL_RAS_NOP<<5), t);
-  partout_timed(ports.we , 6, CTRL_WE_ACTIVE  | (CTRL_WE_WRITE<<1)  | (CTRL_WE_NOP<<2)  | (CTRL_WE_TERM<<3)  | (CTRL_WE_PRECHARGE<<4)  | (CTRL_WE_NOP<<5) , t);
-  ports.dq_ah @ t<: rowcol;
-  ports.dq_ah <: data_stop;
-}
-
-#pragma unsafe arrays
-static inline void sdram_read(unsigned row, unsigned col, unsigned bank,
-    unsigned buffer, unsigned word_count, struct sdram_ports &ports) {
+static inline void read_impl(unsigned row, unsigned col, unsigned bank,
+        unsigned *  buffer, unsigned word_count, sdram_ports &ports) {
   unsigned t, stop_time, jump, rowcol;
 
  if(SDRAM_EXTERNAL_MEMORY_ACCESSOR){
@@ -219,7 +195,7 @@ static inline void sdram_read(unsigned row, unsigned col, unsigned bank,
     sdram_short_block_read(buffer, word_count, ports.dq_ah, ports.we, stop_time, t+3, ports.ras);
 
   } else {
-    buffer -= 4 * (0x3f&(SDRAM_ROW_WORDS - word_count));
+    buffer -=  (0x3f&(SDRAM_ROW_WORDS - word_count));
     jump = 2 * (SDRAM_ROW_WORDS - word_count);
 
     t = partout_timestamped(ports.ras, 1, CTRL_RAS_NOP);
@@ -233,16 +209,12 @@ static inline void sdram_read(unsigned row, unsigned col, unsigned bank,
     sdram_block_read(buffer, jump, ports.dq_ah, ports.we, stop_time, t+3, ports.ras);
   }
 }
-#ifndef SDRAM_SERVER_COMMON_H_
-#define SDRAM_SERVER_COMMON_H_
 
-#include "sdram_commands.h"
-//#include "sdram.h"
-
+#include <stdio.h>
 #pragma unsafe arrays
-static void read_buffer(unsigned start_row, unsigned start_col,
-    unsigned bank, unsigned buffer, unsigned word_count,
-    struct sdram_ports &ports) {
+static void read(unsigned start_row, unsigned start_col,
+    unsigned bank, unsigned *  buffer, unsigned word_count,
+    sdram_ports &ports) {
   unsigned words_to_end_of_line;
   unsigned current_col = start_col, current_row = start_row;
   unsigned remaining_words = word_count;
@@ -250,13 +222,13 @@ static void read_buffer(unsigned start_row, unsigned start_col,
   while (1) {
     words_to_end_of_line = (SDRAM_COL_COUNT - current_col) / 2;
     if (words_to_end_of_line < remaining_words) {
-      sdram_read(current_row, current_col, bank, buffer, words_to_end_of_line, ports);
+      read_impl(current_row, current_col, bank, buffer, words_to_end_of_line, ports);
       current_col = 0;
       current_row++;
       buffer += 4 * words_to_end_of_line;
       remaining_words -= words_to_end_of_line;
     } else {
-      sdram_read(current_row, current_col, bank, buffer, remaining_words, ports);
+      read_impl(current_row, current_col, bank, buffer, remaining_words, ports);
       return;
     }
     if(current_row == SDRAM_ROW_COUNT){
@@ -267,9 +239,10 @@ static void read_buffer(unsigned start_row, unsigned start_col,
 }
 
 #pragma unsafe arrays
-static void write_buffer(unsigned start_row, unsigned start_col,
-    unsigned bank, unsigned buffer, unsigned word_count,
-    struct sdram_ports &ports) {
+static void write(unsigned start_row, unsigned start_col,
+    unsigned bank, unsigned * buffer, unsigned word_count,
+    sdram_ports &ports) {
+
   unsigned words_to_end_of_line;
   unsigned current_col = start_col, current_row = start_row;
   unsigned remaining_words = word_count;
@@ -277,13 +250,13 @@ static void write_buffer(unsigned start_row, unsigned start_col,
   while (1) {
     words_to_end_of_line = (SDRAM_COL_COUNT - current_col) / 2;
     if (words_to_end_of_line < remaining_words) {
-      sdram_write(current_row, current_col, bank, buffer, words_to_end_of_line, ports);
+      write_impl(current_row, current_col, bank, buffer, words_to_end_of_line, ports);
       current_col = 0;
       current_row++;
       buffer += 4 * words_to_end_of_line;
       remaining_words -= words_to_end_of_line;
     } else {
-      sdram_write(current_row, current_col, bank, buffer, remaining_words, ports);
+      write_impl(current_row, current_col, bank, buffer, remaining_words, ports);
       return;
     }
     if(current_row == SDRAM_ROW_COUNT){
@@ -293,78 +266,17 @@ static void write_buffer(unsigned start_row, unsigned start_col,
   }
 }
 
-static int handle_command(char cmd, chanend c_client, struct sdram_ports &ports) {
-  switch (cmd) {
-#if (SDRAM_ENABLE_CMD_BUFFER_READ==1)
-    case SDRAM_CMD_BUFFER_READ: {
-      unsigned bank, start_row, start_col, width_words, pointer;
-      slave {
-        c_client :> bank;
-        c_client :> start_row;
-        c_client :> start_col;
-        c_client :> width_words;
-        c_client :> pointer;
-      }
-      read_buffer(start_row, start_col, bank, pointer, width_words, ports);
+#include <stdio.h>
+static int handle_command(sdram_cmd &c, sdram_ports &ports) {
+  switch (c.cmd) {
+    case SDRAM_CMD_READ: {
+      read(c.row, c.col, c.bank, c.buffer, c.word_count, ports);
       break;
     }
-#endif
-#if (SDRAM_ENABLE_CMD_BUFFER_WRITE==1)
-    case SDRAM_CMD_BUFFER_WRITE: {
-      unsigned bank, start_row, start_col, width_words, pointer;
-      slave {
-        c_client :> bank;
-        c_client :> start_row;
-        c_client :> start_col;
-        c_client :> width_words;
-        c_client :> pointer;
-      }
-      write_buffer(start_row, start_col, bank, pointer, width_words, ports);
+    case SDRAM_CMD_WRITE: {
+      write(c.row, c.col, c.bank, c.buffer, c.word_count, ports);
       break;
     }
-#endif
-#if (SDRAM_ENABLE_CMD_FULL_ROW_WRITE==1)
-    case SDRAM_CMD_FULL_ROW_WRITE: {
-      unsigned bank, start_row, pointer;
-      slave {
-        c_client :> bank;
-        c_client :> start_row;
-        c_client :> pointer;
-      }
-      sdram_write(start_row, 0, bank, pointer, SDRAM_ROW_WORDS, ports);
-      break;
-    }
-#endif
-#if (SDRAM_ENABLE_CMD_FULL_ROW_READ==1)
-    case SDRAM_CMD_FULL_ROW_READ: {
-      unsigned bank, start_row, pointer;
-      slave {
-        c_client :> bank;
-        c_client :> start_row;
-        c_client :> pointer;
-      }
-      sdram_read(start_row, 0, bank, pointer, SDRAM_ROW_WORDS, ports);
-      break;
-    }
-#endif
-#if (SDRAM_ENABLE_CMD_COL_WRITE==1)
-    case SDRAM_CMD_COL_WRITE: {
-      unsigned bank, row, col;
-      short data;
-      slave {
-        c_client :> bank;
-        c_client :> row;
-        c_client :> col;
-        c_client :> data;
-      }
-      sdram_col_write(bank, row, col, data, ports);
-      break;
-    }
-#endif
-    case SDRAM_CMD_SHUTDOWN: {
-      return 1;
-    }
-
     default:
 #if (XCC_VERSION_MAJOR >= 12)
       __builtin_unreachable();
@@ -377,36 +289,37 @@ static int handle_command(char cmd, chanend c_client, struct sdram_ports &ports)
 #define SDRAM_REF_TICKS_PER_REFRESH ((XCORE_TIMER_TICKS_PER_MS*SDRAM_REFRESH_MS)/SDRAM_REFRESH_CYCLES)
 #define XCORE_TIMER_TICKS_PER_MS 100000
 
-void sdram_server(chanend c_client[], struct sdram_ports &ports) {
+void sdram_server(streaming chanend c_client[count], unsigned count, struct sdram_ports &ports) {
 
-  sdram_init(ports);
-  {
+    sdram_init(ports);
     timer t;
     unsigned time;
     sdram_refresh(SDRAM_REFRESH_CYCLES, ports);
     t:> time;
+
     time += SDRAM_REF_TICKS_PER_REFRESH * SDRAM_ACCEPTABLE_REFRESH_GAP;
-    while (1) {
-  #pragma ordered
-      select {
-      case t when timerafter(time) :> unsigned handle_time :{
-        unsigned diff = handle_time - time;
-        unsigned refreshes_to_refill = diff / SDRAM_REF_TICKS_PER_REFRESH;
-        sdram_refresh(refreshes_to_refill, ports);
-        time = handle_time + SDRAM_REF_TICKS_PER_REFRESH * SDRAM_ACCEPTABLE_REFRESH_GAP;
-        break;
-      }
-        case (int i = 0; i < SDRAM_CLIENT_COUNT; i ++) c_client[i] :> char cmd: {
-          if(!handle_command(cmd, c_client[i], ports))
-            outct(c_client[i], XS1_CT_END);
-          else
-            return;
-          break;
-        }
-      }
-    }
-  }
+
+    unsafe {
+       sdram_cmd * unsafe c;
+       while (1) {
+          #pragma ordered
+          select {
+          case t when timerafter(time) :> unsigned handle_time :{
+            unsigned diff = handle_time - time;
+            unsigned refreshes_to_refill = diff / SDRAM_REF_TICKS_PER_REFRESH;
+            sdram_refresh(refreshes_to_refill, ports);
+            time = handle_time + SDRAM_REF_TICKS_PER_REFRESH * SDRAM_ACCEPTABLE_REFRESH_GAP;
+            break;
+          }
+
+          case c_client[int i] :> c: {
+            handle_command(*c, ports);
+            c_client[i] <: c;
+            break;
+          }
+       }
+     }
+   }
 }
 
-#endif /* SDRAM_SERVER_COMMON_H_ */
 
