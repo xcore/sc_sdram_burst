@@ -1,7 +1,7 @@
 Example Applications
 ====================
 
-This tutorial describes the demo applications included in the XMOS SDRAM software component. 
+The example applications included in the XMOS SDRAM software component demonstrate basic functionality of the API. 
 :ref:`sec_hardware_platforms` describes the required hardware setups to run the demos.
 
 app_sdram_demo
@@ -26,55 +26,23 @@ The output produced should look like::
   00000003	00000003
   00000004	00000004
   00000005	00000005
+  00000006	00000006
+  00000007	00000007
+  00000008	00000008
+  00000009	00000009
+  0000000A	0000000A
+  0000000B	0000000B
+  0000000C	0000000C
+  0000000D	0000000D
+  0000000E	0000000E
+  0000000F	0000000F
   SDRAM demo complete.
 
 Notes
 +++++
- - There are 4 SDRAM I/O commands: ``sdram_buffer_write``, ``sdram_buffer_read``, ``sdram_full_page_write``, ``sdram_full_page_read``. They must all be followed by a ``sdram_wait_until_idle`` before another I/O command may be issued. When the ``sdram_wait_until_idle`` returns then the data is now at it destination. This functionality allows the application to be getting on with something else whilst the SDRAM server is busy with the I/O. 
+ - ``sdram_init_state`` must only be called once on the structure that it initialises.
+ - There are two SDRAM access functions: ``sdram_read`` and ``sdram_write``. They both take a movable pointer as a parameter. After calling either of these the movable pointer will be null afterwards from the perspictive of the SDRAM client. 
+ - The memory is returned to the SDRAM client when a call to ``sdram_complete`` is made. After the call the movable pointer is no longer null and can be used again. 
  - There is no need to explictly refresh the SDRAM as this is managed by the ``sdram_server``.
 
-app_sdram_regress
------------------
-
-This application serves as a software regression to aid implementing new SDRAM interfaces and verifying current ones. The demo runs a series of regression tests of increasing difficulty, beginning from using a single core for the sdram_server with one core loaded progressing to all cores being loaded to simulate an XCore under full load. 
-
-Getting Started
-+++++++++++++++
-
-   #. Plug the XA-SK-SDRAM Slice Card into the 'STAR' slot of the Slicekit Core Board.
-   #. Plug the XA-SK-XTAG2 Card into the Slicekit Core Board.
-   #. Ensure the XMOS LINK switch on the XA-SK-XTAG2 is set to "off".
-   #. Open ``app_sdram_regress.xc`` and build it.
-   #. run the program on the hardware.
-
-With verbose output turned on (controlled by VERBOSE_MSG and VERBOSE_ERR), the output produced should look like::
-
-  Test suite begin
-  8 threaded test suite start
-  Begin sanity_check
-  ...
-
-app_sdram_benchmark
--------------------
-
-This application benchmarks the performance of the module. It does no correctness testing but instead tests the throughput of the SDRAM server.  
-
-Getting Started
-+++++++++++++++
-
-   #. Plug the XA-SK-SDRAM Slice Card into the 'STAR' slot of the Slicekit Core Board.
-   #. Plug the XA-SK-XTAG2 Card into the Slicekit Core Board.
-   #. Ensure the XMOS LINK switch on the XA-SK-XTAG2 is set to "off".
-   #. Open ``app_sdram_benchmark.xc`` and build it.
-   #. run the program on the hardware.
-
-The output produced should look like::
-
-	Cores active: 8
-	Max write: 70.34 MB/s
-	Max read : 66.82 MB/s
-	Cores active: 7
-	Max write: 71.47 MB/s
-	Max read : 68.08 MB/s
-	...
 

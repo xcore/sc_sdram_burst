@@ -43,7 +43,31 @@
 								</outputEntries>
 							</builder>
 							<tool id="com.xmos.cdt.xc.compiler.86352509" name="com.xmos.cdt.xc.compiler" superClass="com.xmos.cdt.xc.compiler">
-								<option id="com.xmos.c.compiler.option.defined.symbols.24711721" name="com.xmos.c.compiler.option.defined.symbols" superClass="com.xmos.c.compiler.option.defined.symbols" valueType="definedSymbols">
+								<option id="com.xmos.c.compiler.option.defined.symbols.24711721" name="com.xmos.c.compiler.option.defined.symbols" superClass="com.xmos.c.compiler.option.defined.symbols"/>
+								<option id="com.xmos.xc.compiler.option.include.paths.55058676" name="com.xmos.xc.compiler.option.include.paths" superClass="com.xmos.xc.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/gcc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V2_IS42S16400F}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L16}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/xc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-A16}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-U16}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram_slicekit_support}&quot;"/>
+								</option>
+								<option id="com.xmos.xc.compiler.option.defined.symbols.891051001" name="com.xmos.xc.compiler.option.defined.symbols" superClass="com.xmos.xc.compiler.option.defined.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__SHRT_MAX__=32767"/>
 									<listOptionValue builtIn="false" value="__SCHAR_MAX__=127"/>
 									<listOptionValue builtIn="false" value="__SIZE_TYPE__=unsigned"/>
@@ -152,24 +176,7 @@
 									<listOptionValue builtIn="false" value="__DEPRECATED=1"/>
 									<listOptionValue builtIn="false" value="__EXCEPTIONS=1"/>
 									<listOptionValue builtIn="false" value="__WCHAR_UNSIGNED__=1"/>
-								</option>
-								<option id="com.xmos.xc.compiler.option.include.paths.55058676" name="com.xmos.xc.compiler.option.include.paths" superClass="com.xmos.xc.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/gcc&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/app_sdram_benchmark}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/.settings}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16160D}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V1_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src/PINOUT_V2_IS42S16400F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L16}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="_XSCOPE_PROBES_INCLUDE_FILE=&quot;/tmp/ccLKjF9I.h&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.xc.compiler.input.81160529" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
 							</tool>
@@ -276,6 +283,7 @@
 									<listOptionValue builtIn="false" value="XCC_VERSION_MAJOR=1202"/>
 									<listOptionValue builtIn="false" value="XCC_VERSION_MINOR=0"/>
 									<listOptionValue builtIn="false" value="__XCC_HAVE_FLOAT__=1"/>
+									<listOptionValue builtIn="false" value="_XSCOPE_PROBES_INCLUDE_FILE=&quot;/tmp/cc9tzbwO.h&quot;"/>
 								</option>
 								<option id="com.xmos.c.compiler.option.include.paths.8983829" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include&quot;"/>
@@ -294,6 +302,10 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-A16}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-U16}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram_slicekit_support}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.c.compiler.input.c.82317540" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
 							</tool>
@@ -404,6 +416,7 @@
 									<listOptionValue builtIn="false" value="XCC_VERSION_MAJOR=1202"/>
 									<listOptionValue builtIn="false" value="XCC_VERSION_MINOR=0"/>
 									<listOptionValue builtIn="false" value="__XCC_HAVE_FLOAT__=1"/>
+									<listOptionValue builtIn="false" value="_XSCOPE_PROBES_INCLUDE_FILE=&quot;/tmp/ccrsc8oV.h&quot;"/>
 								</option>
 								<option id="com.xmos.cxx.compiler.option.include.paths.81720827" name="com.xmos.cxx.compiler.option.include.paths" superClass="com.xmos.cxx.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include&quot;"/>
@@ -424,6 +437,10 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-L2}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-A16}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_slicekit_support/src/SLICEKIT-U16}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram_slicekit_support/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_sdram_slicekit_support}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.cxx.compiler.input.cpp.24994856" name="C++" superClass="com.xmos.cdt.cxx.compiler.input.cpp"/>
 							</tool>

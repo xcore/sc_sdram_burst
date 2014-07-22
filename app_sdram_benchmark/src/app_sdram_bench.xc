@@ -1,72 +1,72 @@
 #include <platform.h>
 #include <stdio.h>
 #include "sdram.h"
+#include "sdram_slicekit_support.h"
 #include <print.h>
 
-on tile[0]: sdram_ports ports = {
-    XS1_PORT_16A, XS1_PORT_1B, XS1_PORT_1G, XS1_PORT_1C, XS1_PORT_1F, XS1_CLKBLK_1 };
-/*
- * Plug XA-SK-SDRAM into the STAR slot.
- * Ensure `XMOS LINK` is off. Build and run.
- */
 #define SLOTS 8
+#define MAX_BUFFER_WORDS 256
+#define SDRAM_COL_ADDRESS_BITS 8
+#define SDRAM_ROW_ADDRESS_BITS 12
+#define SDRAM_BANK_ADDRESS_BITS 2
+#define SDRAM_COL_COUNT     256
+#define SDRAM_BANK_COUNT    4
+#define SDRAM_ROW_COUNT     4096
+#define SDRAM_ROW_WORDS     128
 
 #pragma unsafe arrays
-void application(streaming chanend c_server) {
+void application(streaming chanend c_server, s_sdram_state sdram_state) {
 #define BUF_WORDS (240)
 
-  unsigned write_buffer[BUF_WORDS][SLOTS];
+    unsigned buffer_0[SDRAM_ROW_WORDS];
+    unsigned buffer_1[SDRAM_ROW_WORDS];
+    unsigned buffer_2[SDRAM_ROW_WORDS];
+    unsigned buffer_3[SDRAM_ROW_WORDS];
   unsigned bank = 0, row = 0, col = 0;
 
-  unsigned * movable write_buffer_pointer[SLOTS] = {
-      write_buffer[0],
-      write_buffer[1],
-      write_buffer[2],
-      write_buffer[3],
-      write_buffer[4],
-      write_buffer[5],
-      write_buffer[6],
-      write_buffer[7],
-  };
-  s_sdram_state sdram_state;
-
-  sdram_init_state(sdram_state);
+  unsigned * movable buffer_pointer_0 = buffer_0;
+  unsigned * movable buffer_pointer_1 = buffer_1;
+  unsigned * movable buffer_pointer_2 = buffer_2;
+  unsigned * movable buffer_pointer_3 = buffer_3;
 
   timer t;
   unsigned time;
 
   unsigned words_since_timeout = 0;
-  unsigned best_words_per_second = 0;
-
-  for(unsigned i=0;i<SLOTS-1;i++)
-    sdram_read(c_server, bank, row, col, BUF_WORDS, move(write_buffer_pointer[i]), sdram_state);
-
   t :> time;
-  time -= 50000000;
+  sdram_read(c_server, sdram_state, bank, row, col, SDRAM_ROW_WORDS, move(buffer_pointer_0));
+  sdram_read(c_server, sdram_state, bank, row, col, SDRAM_ROW_WORDS, move(buffer_pointer_1));
+  sdram_read(c_server, sdram_state, bank, row, col, SDRAM_ROW_WORDS, move(buffer_pointer_2));
+  sdram_read(c_server, sdram_state, bank, row, col, SDRAM_ROW_WORDS, move(buffer_pointer_3));
   while(1){
     select {
       case t when timerafter(time + 100000000) :> time:
-        if(best_words_per_second < words_since_timeout){
-          best_words_per_second = words_since_timeout;
-          printintln(words_since_timeout*4);
-        }
+        printintln(words_since_timeout*4++);
         words_since_timeout = 0;
         break;
-      case sdram_complete(c_server, write_buffer_pointer[0], sdram_state) :{
-        words_since_timeout += BUF_WORDS;
-        sdram_read(c_server, bank, row, col, BUF_WORDS, move(write_buffer_pointer[0]), sdram_state);
+      case sdram_complete(c_server, sdram_state, buffer_pointer_0):{
+        words_since_timeout += SDRAM_ROW_WORDS;
+        sdram_read(c_server, sdram_state, bank, row, col, SDRAM_ROW_WORDS, move(buffer_pointer_0));
         break;
       }
     }
   }
 }
 
+void sdram_client(streaming chanend c_server) {
+  set_thread_fast_mode_on();
+  s_sdram_state sdram_state;
+  sdram_init_state(c_server, sdram_state);
+  application(c_server, sdram_state);
+}
+on tile[SDRAM_A16_SQUARE_TILE]:   sdram_ports square_ports   = SDRAM_A16_SQUARE_PORTS(XS1_CLKBLK_1);
+
 int main() {
-  streaming chan sdram_c;
+    streaming chan sdram_c0[1];
   par {
-    on tile[0]:sdram_server(ports, sdram_c);
-    on tile[0]:application(sdram_c);
-    on tile[0]: par(int i=0;i<6;i++) while(1);
+        on tile[SDRAM_A16_SQUARE_TILE]:  sdram_client(sdram_c0[0]);
+        on tile[SDRAM_A16_SQUARE_TILE]:  sdram_server(sdram_c0, 1, square_ports);
+        on tile[0]: par(int i=0;i<6;i++) while(1);
   }
   return 0;
 }

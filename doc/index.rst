@@ -8,4 +8,5 @@ XMOS SDRAM Component
    API <api>
    Programming Guide <programming>
    Example Applications <examples>
+   Physical Implementation <physical>
    SliceKit Support <slicekit_support>

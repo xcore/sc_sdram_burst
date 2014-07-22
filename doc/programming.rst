@@ -1,91 +1,120 @@
 
-SDRAM Programming Guide
+SDRAM programming guide
 =======================
 
 This section provides information on how to program applications using the SDRAM module.
 
-SDRAM Default implementation
+SDRAM default implementation
 ----------------------------
-For convenience the ``module_sdram`` can use a default implementation. When the define ``SDRAM_DEFAULT_IMPLEMENTATION`` is set in ``sdram_conf.h`` to one of the supported targets then the ``sdram_server`` function will act as a call to the specified implementation. The same applies for the ``sdram_ports`` structure. The currently supported targets are:
-	* PINOUT_V2_IS42S16400F - This corresponds to the ISSI part IS42S16400F in a 21 pin configuration.
-	* PINOUT_V1_IS42S16400F - This corresponds to the ISSI part IS42S16400F in a 20 pin configuration.
-	* PINOUT_V1_IS42S16160D - This corresponds to the ISSI part IS42S16160D in a 20 pin configuration.
-	* PINOUT_V0 - This is for a legacy 22 pin configuration.
+By default the SDRAM module is configured for the IS42S16400F by ISSI. 
 
-See the individual ``port.h`` files to find the port configurations.
 
-Single SDRAM Support
---------------------
+Port declaration
+----------------
 
-For a application with a single SDRAM the default implementation should be set. If it is not set then the explicit ``sdram_server`` and ``sdram_ports`` must be used. The same applied for all the implementation specific defines.
+The required ports to access the physical SDRAM are shown in :ref:`sec_physical`. All the ports are to be declared in a structure called ``sdram_ports`` which can be found in :ref:`sec_api`. This is tile specific and will require ``on tile[N]: `` in multi-tile solutions. 
 
-Multiple Homogeneous SDRAM Support
-----------------------------------
-For a application with a single SDRAM the default implementation should be set. For example, to drive two IS42S16400F parts, set the ``SDRAM_DEFAULT_IMPLEMENTATION`` to ``PINOUT_V1_IS42S16400F`` then the following will create the servers::
 
-	chan c,d;
-	par {
-		sdram_server(c, ports_0);
-		sdram_server(d, ports_1);
-		app_0(c);
-		app_1(d);
-	}
+Client/Server model
+-------------------
 
-and the ports for the above would have been created by::
+The SDRAM server must be instantiated at the same level as its clients. For example::
 
-	struct sdram_ports ports_0 = {
-    		XS1_PORT_16A, 
-		XS1_PORT_1B, 
-		XS1_PORT_1G, 
-		XS1_PORT_1C, 
-		XS1_PORT_1F, 
-		XS1_CLKBLK_1
-	};
-	struct sdram_ports ports_1 = {
-    		XS1_PORT_16B, 
-		XS1_PORT_1J, 
-		XS1_PORT_1I, 
-		XS1_PORT_1K, 
-		XS1_PORT_1L, 
-		XS1_CLKBLK_1 
-	};
+chan c_sdram[1];
+par {
+	sdram_server(c_sdram, 1, sdram_ports);
+	client_of_the_sdram_server(c_sdram[0]);
+}
 
-Multiple Heterogeneous SDRAM Support
-------------------------------------
+would be the mimimum required to correctly setup the SDRAM server and connect it to a client. An example of a multi-client system would be::
 
-It is possible for the application to drive multiple heterogeneous SDRAM devices simultaneously. In this case each ``sdram_server`` and ``sdram_ports`` usage must be explicit to the implementation. For example, to drive an IS42S16400F part and an IS42S16160D part, then the following will create the servers::
+chan c_sdram[4];
+par {
+	sdram_server(c_sdram, 4, sdram_ports);
+	client_of_the_sdram_server_0(c_sdram[0]);
+	client_of_the_sdram_server_1(c_sdram[1]);
+	client_of_the_sdram_server_2(c_sdram[2]);
+	client_of_the_sdram_server_3(c_sdram[3]);
+} 
 
-	chan c,d;
-	par {
-		sdram_server_PINOUT_V1_IS42S16400F(c, ports_0);
-		sdram_server_PINOUT_V1_IS42S16160D(d, ports_1);
-		app_0(c);
-		app_1(d);
-	}
+Note: The ``sdram_server`` and application(s) must be on the same tile.
 
-and the ports for the above would have been created by::
-	
-	struct sdram_ports_PINOUT_V1_IS42S16400F ports_0 = {
-    		XS1_PORT_16A, 
-		XS1_PORT_1B, 
-		XS1_PORT_1G, 
-		XS1_PORT_1C, 
-		XS1_PORT_1F, 
-		XS1_CLKBLK_1
-	};
-	struct sdram_ports_PINOUT_V1_IS42S16160D ports_1 = {
-    		XS1_PORT_16B, 
-		XS1_PORT_1J, 
-		XS1_PORT_1I, 
-		XS1_PORT_1K, 
-		XS1_PORT_1L, 
-		XS1_CLKBLK_1 
-	};
+Command buffering
+-----------------
 
-Notes
------
+The SDRAM server implements a 8 slot command buffer per client. This means that the client can queue up to 8 commands to the SDRAM server through calls to ``sdram_read`` or ``sdram_write``. A successful call to ``sdram_read`` or ``sdram_write``will return 0 and issue the command to the command buffer. When the command buffer is full then a call to ``sdram_read`` or ``sdram_write`` will return 1 and not issue the command.  Commands are completed, i.e. a slot is freed, when ``sdram_complete`` returns. Commands are processed as in a first in first out ordering.
 
-The ``sdram_server`` and application must be on the same tile.
+
+Initialisation
+--------------
+
+Each client of the SDRAM server must declare the structure ``s_sdram_state`` once and only once and with it call ``sdram_init_state``. This will do all the required setup for the command buffering. From here on the client is able to call ``sdram_read`` and ``sdram_write`` to access the physical memory. For example::
+
+   s_sdram_state sdram_state;
+   sdram_init_state(c_server, sdram_state);
+
+where ``c_server`` is the channel to the ``sdram_server``.
+
+
+Safety through the use of movable pointers
+------------------------------------------
+The API makes use of movable pointer to aid correct multi-threaded memory handeling. ``sdram_read`` and ``sdram_write`` pass ownership of the memory from the client to the server. The client is now longer able to access the memory. The memory ownership is returned to the client on a call return from ``sdram_complete``. For example::
+
+   unsigned buffer[N];
+   unsigned * movable buffer_pointer = buffer;
+
+   //buffer_pointer is fully accessable
+
+   sdram_read (c_server, sdram_state, bank, row, col, words, move(buffer_pointer));
+
+   //during this region the buffer_pointer is null and cannot be read from or written to
+
+   sdram_complete(c_server, sdram_state, buffer_pointer);
+
+   //now buffer_pointer is accessable again
+
+During the scope of the movable pointer variable it is permissible that the pointer points at any memory location, however, at the end of the scope the pointer must point at its original instination. 
+
+For example::
+
+{
+   unsigned buffer_0[N];
+   unsigned buffer_1[N];
+   unsigned * movable buffer_pointer_0 = buffer_0;
+   unsigned * movable buffer_pointer_1 = buffer_1;
+
+   sdram_read (c_server, sdram_state, bank, row, col, words, move(buffer_pointer_0));
+   sdram_write (c_server, sdram_state, bank, row, col, words, move(buffer_pointer_1));
+
+   //both buffer_pointer_0 and buffer_pointer_1 are null here
+
+   sdram_complete(c_server, sdram_state, buffer_pointer_0);
+   sdram_complete(c_server, sdram_state, buffer_pointer_1);
+}
+
+Would be acceptable but the following would not::
+
+{
+   unsigned buffer_0[N];
+   unsigned buffer_1[N];
+   unsigned * movable buffer_pointer_0 = buffer_0;
+   unsigned * movable buffer_pointer_1 = buffer_1;
+
+   sdram_read (c_server, sdram_state, bank, row, col, words, move(buffer_pointer_0));
+   sdram_write (c_server, sdram_state, bank, row, col, words, move(buffer_pointer_1));
+
+   //both buffer_pointer_0 and buffer_pointer_1 are null here
+
+   sdram_complete(c_server, sdram_state, buffer_pointer_1);	//return to opposite pointer
+   sdram_complete(c_server, sdram_state, buffer_pointer_0);
+}
+
+as the movable pointers are no longer point at the same memory when leaving scope as they were when the were instianted. 
+
+Shutdown
+--------
+
+The ``sdram_server`` may be shutdown, i.e. the thread and all its resources may be freed, with a call to ``sdram_shutdown``.
 
 
 Source code structure
@@ -94,12 +123,11 @@ Source code structure
 Directory Structure
 +++++++++++++++++++
 
-A typical SDRAM application will have at least three top level directories. The application will be contained in a directory starting with ``app_``, the sdram module source is in 
-the ``module_sdram`` directory and the directory ``module_xcommon`` contains files required to build the application. ::
+A typical SDRAM application will have at least two top level directories. The application will be contained in a directory starting with ``app_`` and the SDRAM module source is in 
+the ``module_sdram`` directory. ::
     
     app_[my_app_name]/
     module_sdram/
-    module_xcommon/
 
 Of course the application may use other modules which can also be directories at this level. Which modules are compiled into the application is controlled by the ``USED_MODULES`` define in the application Makefile.
 
@@ -117,45 +145,8 @@ module. The API is described in :ref:`sec_api`.
   * - ``sdram.h``
     - SDRAM API header file
 
-Module Usage
-------------
-
-To use the SDRAM module first set up the directory structure as shown above. Create a file in the ``app`` folder called ``sdram_conf.h`` and into it insert a define for ``SDRAM_DEFAULT_IMPLEMENTATION``.  It should be defined as the implementation you want to use, for example for the Slicekit the following would be correct::
-
-	#define SDRAM_DEFAULT_IMPLEMENTATION PINOUT_V1_IS42S16160D
-
-Declare the ``sdram_ports`` structure used by the ``sdram_server``. This will look like::
-
-	struct sdram_ports sdram_ports = {
-		XS1_PORT_16A, 
-		XS1_PORT_1B, 
-		XS1_PORT_1G, 
-		XS1_PORT_1C, 
-		XS1_PORT_1F, 
-		XS1_CLKBLK_1 
-	}; 
-
-Next create a ``main`` function with a par of both the ``sdram_server`` function and an application function, these will require a channel to connect them. For example::
-
-	int main() {
-	  chan sdram_c;
-	  par {
-	    sdram_server(sdram_c, sdram_ports);
-	    application(sdram_c);
-	  }
-	  return 0;
-	}
-
-Now the ``application`` function is able to use the SDRAM server.
-
-SDRAM Memory Mapper Programming Guide
-=====================================
-
-The SDRAM memory mapper has a simple interface where to the ``mm_read_words`` and ``mm_write_words`` a virtual address is passes, this virtual address is mapped to a physical address and the I/O is performed there. The ``mm_wait_until_idle`` exists so that the application can run the I/O commands in a non-blocking manner then confirm that the command has when the ``mm_wait_until_idle`` returns.
-
-
 Software Requirements
 ---------------------
 
-The component is built on xTIMEcomposer Tools version 12.0.
-The component can be used in version 12.0 or any higher version of xTIMEcomposer Tools.
+The component is built on xTIMEcomposer Tools version 13.1.
+The component can be used in version 13.1 or any higher version of xTIMEcomposer Tools.

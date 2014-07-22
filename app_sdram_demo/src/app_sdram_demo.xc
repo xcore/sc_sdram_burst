@@ -1,13 +1,8 @@
 #include <platform.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "sdram.h"
-
-on tile[0]: sdram_ports ports = {
-    XS1_PORT_16A, XS1_PORT_1B, XS1_PORT_1G, XS1_PORT_1C, XS1_PORT_1F, XS1_CLKBLK_1 };
-/*
- * Plug XA-SK-SDRAM into the STAR slot.
- * Ensure `XMOS LINK` is off. Build and run.
- */
+#include "sdram_slicekit_support.h"
 
 void application(streaming chanend c_server) {
 #define BUF_WORDS (16)
@@ -18,34 +13,37 @@ void application(streaming chanend c_server) {
   unsigned * movable write_buffer_pointer = write_buffer;
 
   s_sdram_state sdram_state;
-  sdram_init_state(sdram_state);
+  sdram_init_state(c_server, sdram_state);
 
   for(unsigned i=0;i<BUF_WORDS;i++){
     write_buffer_pointer[i] = i;
     read_buffer_pointer[i] = 0;
   }
 
-  sdram_write(c_server, bank, row, col, BUF_WORDS, move(write_buffer_pointer), sdram_state);
-  sdram_read(c_server, bank, row, col, BUF_WORDS, move(read_buffer_pointer), sdram_state);
-  sdram_complete(c_server, write_buffer_pointer, sdram_state);
-  sdram_complete(c_server, read_buffer_pointer, sdram_state);
+  sdram_write(c_server, sdram_state, bank, row, col, BUF_WORDS, move(write_buffer_pointer));
+  sdram_read (c_server, sdram_state, bank, row, col, BUF_WORDS, move( read_buffer_pointer));
+
+  sdram_complete(c_server, sdram_state, write_buffer_pointer);
+  sdram_complete(c_server, sdram_state,  read_buffer_pointer);
 
   for(unsigned i=0;i<BUF_WORDS;i++){
     printf("%08x %d\n", read_buffer_pointer[i], i);
     if(read_buffer_pointer[i] != write_buffer_pointer[i]){
-      printf("SDRAM demo fail.\n");
-      return;
+    //  printf("SDRAM demo fail.\n");
+    // _Exit(0);
     }
   }
   printf("SDRAM demo complete.\n");
+  _Exit(0);
 }
 
+on tile[SDRAM_A16_TRIANGLE_TILE]: sdram_ports ports = SDRAM_A16_TRIANGLE_PORTS(XS1_CLKBLK_1);
 int main() {
-  streaming chan sdram_c;
+  streaming chan sdram_c[1];
   par {
-    on tile[0]: sdram_server(ports, sdram_c);
-    on tile[0]: application(sdram_c);
-    on tile[0]: par(int i=0;i<6;i++) while(1);
+    on tile[SDRAM_A16_TRIANGLE_TILE]: sdram_server(sdram_c, 1, ports);
+    on tile[SDRAM_A16_TRIANGLE_TILE]: application(sdram_c[0]);
+    on tile[SDRAM_A16_TRIANGLE_TILE]: par(int i=0;i<6;i++) while(1);
   }
   return 0;
 }
