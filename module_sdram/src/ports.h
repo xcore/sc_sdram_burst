@@ -19,10 +19,10 @@ typedef struct {
   unsigned cas_latency;
   unsigned row_words;   //derived from row_address_bits and col_bits plus xcore word length
 
-  unsigned col_bits;
-  unsigned col_address_bits;
-  unsigned row_address_bits;
-  unsigned bank_address_bits;
+  unsigned col_bits;            //the bits at each coloum address (16)
+  unsigned col_address_bits;    //  8
+  unsigned row_address_bits;    //  12
+  unsigned bank_address_bits;   //  2
   unsigned refresh_ms;
   unsigned refresh_cycles;
   unsigned clock_divider;

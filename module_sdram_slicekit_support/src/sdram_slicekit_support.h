@@ -1,5 +1,5 @@
-#ifndef SLICEKIT_SUPPORT_H_
-#define SLICEKIT_SUPPORT_H_
+#ifndef SDRAM_SLICEKIT_SUPPORT_H_
+#define SDRAM_SLICEKIT_SUPPORT_H_
 
 #define CAS 2
 #define CLOCK_DIVIDER 4
@@ -42,4 +42,4 @@
 #define SDRAM_U16_DIAMOND_TILE       #error config not supported
 
 
-#endif /* SLICEKIT_SUPPORT_H_ */
+#endif /* SDRAM_SLICEKIT_SUPPORT_H_ */

@@ -22,7 +22,6 @@ void application(streaming chanend c_server, s_sdram_state sdram_state) {
     unsigned buffer_1[SDRAM_ROW_WORDS];
     unsigned buffer_2[SDRAM_ROW_WORDS];
     unsigned buffer_3[SDRAM_ROW_WORDS];
-  unsigned bank = 0, row = 0, col = 0;
 
   unsigned * movable buffer_pointer_0 = buffer_0;
   unsigned * movable buffer_pointer_1 = buffer_1;
@@ -34,19 +33,19 @@ void application(streaming chanend c_server, s_sdram_state sdram_state) {
 
   unsigned words_since_timeout = 0;
   t :> time;
-  sdram_read(c_server, sdram_state, bank, row, col, SDRAM_ROW_WORDS, move(buffer_pointer_0));
-  sdram_read(c_server, sdram_state, bank, row, col, SDRAM_ROW_WORDS, move(buffer_pointer_1));
-  sdram_read(c_server, sdram_state, bank, row, col, SDRAM_ROW_WORDS, move(buffer_pointer_2));
-  sdram_read(c_server, sdram_state, bank, row, col, SDRAM_ROW_WORDS, move(buffer_pointer_3));
+  sdram_read(c_server, sdram_state, 0, SDRAM_ROW_WORDS, move(buffer_pointer_0));
+  sdram_read(c_server, sdram_state, 0, SDRAM_ROW_WORDS, move(buffer_pointer_1));
+  sdram_read(c_server, sdram_state, 0, SDRAM_ROW_WORDS, move(buffer_pointer_2));
+  sdram_read(c_server, sdram_state, 0, SDRAM_ROW_WORDS, move(buffer_pointer_3));
   while(1){
     select {
       case t when timerafter(time + 100000000) :> time:
-        printintln(words_since_timeout*4++);
+        printintln(words_since_timeout*4);
         words_since_timeout = 0;
         break;
       case sdram_complete(c_server, sdram_state, buffer_pointer_0):{
         words_since_timeout += SDRAM_ROW_WORDS;
-        sdram_read(c_server, sdram_state, bank, row, col, SDRAM_ROW_WORDS, move(buffer_pointer_0));
+        sdram_read(c_server, sdram_state, 0, SDRAM_ROW_WORDS, move(buffer_pointer_0));
         break;
       }
     }

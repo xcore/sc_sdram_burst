@@ -53,9 +53,7 @@ void sdram_complete(streaming chanend c_sdram_server, s_sdram_state &state, unsi
  *
  *  \param c_sdram_server	Chanel to the SDRAM server.
  *  \param state			State structure.
- *  \param bank				The bank number that the write operation should begin from.
- *  \param row				The row number that the write operation should begin from.
- *  \param col				The col number that the write operation should begin from.
+ *  \param address          This is a word address of the location in SDRAM to write from.
  *  \param word_count		The number of words to write to the SDRAM.
  *  \param buffer			A movable pointer from which the data to be written to the SDRAM will be
  *  						read. Note, that the ownership of the pointer will pass to the SDRAM server.
@@ -63,8 +61,8 @@ void sdram_complete(streaming chanend c_sdram_server, s_sdram_state &state, unsi
  *  \return 				1 for SDRAM command queue is full, write command has not been added.
  *
  */
-int sdram_write   (streaming chanend c_sdram_server, s_sdram_state &state, unsigned bank, unsigned row, unsigned col,
-    unsigned word_count, unsigned * movable buffer);
+int sdram_write   (streaming chanend c_sdram_server, s_sdram_state &state, unsigned address, unsigned word_count,
+        unsigned * movable buffer);
 
 /* \fn int sdram_read   (streaming chanend c_sdram_server, s_sdram_state &state, unsigned bank, unsigned row, unsigned col, unsigned word_count, unsigned * movable buffer);
  * \brief Request the SDRAM server to perform a write operation.
@@ -74,9 +72,7 @@ int sdram_write   (streaming chanend c_sdram_server, s_sdram_state &state, unsig
  *
  *  \param c_sdram_server	Chanel to the SDRAM server.
  *  \param state			State structure.
- *  \param bank				The bank number that the read operation should begin from.
- *  \param row				The row number that the read operation should begin from.
- *  \param col				The col number that the read operation should begin from.
+ *  \param address          This is a word address of the location in SDRAM to read from.
  *  \param word_count		The number of words to read from the SDRAM.
  *  \param buffer			A movable pointer from which the data to be read from the SDRAM will be
  *  						written. Note, that the ownership of the pointer will pass to the SDRAM server.
@@ -84,10 +80,12 @@ int sdram_write   (streaming chanend c_sdram_server, s_sdram_state &state, unsig
  *  \return 				1 for SDRAM command queue is full, read command has not been added.
  *
  */
-int sdram_read    (streaming chanend c_sdram_server, s_sdram_state &state, unsigned bank, unsigned row, unsigned col,
-    unsigned word_count, unsigned * movable buffer);
+int sdram_read    (streaming chanend c_sdram_server, s_sdram_state &state, unsigned address, unsigned word_count,
+        unsigned * movable buffer);
 
-
+/*
+ * //TODO
+ */
 void sdram_shutdown(streaming chanend c_sdram_server);
 
 #endif /* SDRAM_H_ */

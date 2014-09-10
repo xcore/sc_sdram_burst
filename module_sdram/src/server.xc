@@ -171,7 +171,7 @@ static void read(unsigned start_row, unsigned start_col,
       read_impl(current_row, current_col, bank, buffer, words_to_end_of_line, ports);
       current_col = 0;
       current_row++;
-      buffer += 4 * words_to_end_of_line;//FIXME
+      buffer +=  words_to_end_of_line;
       remaining_words -= words_to_end_of_line;
     } else {
       read_impl(current_row, current_col, bank, buffer, remaining_words, ports);
@@ -199,7 +199,7 @@ static void write(unsigned start_row, unsigned start_col,
       write_impl(current_row, current_col, bank, buffer, words_to_end_of_line, ports);
       current_col = 0;
       current_row++;
-      buffer += 4 * words_to_end_of_line;//?
+      buffer += words_to_end_of_line;
       remaining_words -= words_to_end_of_line;
     } else {
       write_impl(current_row, current_col, bank, buffer, remaining_words, ports);
@@ -212,14 +212,29 @@ static void write(unsigned start_row, unsigned start_col,
   }
 }
 
+//TODO use the 16 bit ness to do the below correctly
+static unsigned addr_to_col(unsigned address, sdram_ports &ports){
+    return 0xff&(address & (ports.row_words-1))<<1;
+}
+static unsigned addr_to_row(unsigned address, sdram_ports &ports){
+    return (address>>(ports.col_address_bits-1)) & ((1<<ports.row_address_bits)-1);
+}
+static unsigned addr_to_bank(unsigned address, sdram_ports &ports){
+    return (address>>((ports.col_address_bits-1)+ ports.row_address_bits)) & ((1<<ports.bank_address_bits)-1);
+}
 static int handle_command(e_command cmd, sdram_cmd &c, sdram_ports &ports) {
-  switch (cmd) {
+
+    unsigned row = addr_to_row(c.address, ports);
+    unsigned col = addr_to_col(c.address, ports);
+    unsigned bank = addr_to_bank(c.address, ports);
+
+    switch (cmd) {
     case SDRAM_CMD_READ: {
-      read(c.row, c.col, c.bank, c.buffer, c.word_count, ports);
+      read(row, col, bank, c.buffer, c.word_count, ports);
       break;
     }
     case SDRAM_CMD_WRITE: {
-      write(c.row, c.col, c.bank, c.buffer, c.word_count, ports);
+      write(row, col, bank, c.buffer, c.word_count, ports);
       break;
     }
     default:
@@ -238,17 +253,25 @@ static int handle_command(e_command cmd, sdram_cmd &c, sdram_ports &ports) {
 
 #pragma unsafe arrays
 void sdram_server(streaming chanend c_client[count], const static unsigned count, sdram_ports &p_sdram){
-
     timer t;
     unsigned time;
     sdram_cmd cmd_buffer[7][SDRAM_MAX_CMD_BUFFER];
-    unsigned head[8] = {0};
+    unsigned head[7] = {0};
+
+    for(unsigned i=0;i<7;i++){
+        head[i] = 0;
+        cmd_buffer[i]->address = 0;
+        cmd_buffer[i]->word_count = 0;
+        cmd_buffer[i]->buffer = null;
+    }
 
     sdram_init(p_sdram);
 
     unsafe {
-        for(unsigned i=0;i<count;i++)
+        for(unsigned i=0;i<count;i++){
             c_client[i] <: (sdram_cmd * unsafe)&(cmd_buffer[i][0]);
+            c_client[i] <: get_local_tile_id();
+        }
     }
 
     refresh(p_sdram.refresh_cycles, p_sdram);

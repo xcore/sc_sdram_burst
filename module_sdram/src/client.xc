@@ -1,6 +1,9 @@
 #include "sdram.h"
 #include "structs_and_enums.h"
+#include <xs1.h>
 
+//swhich to assert
+#include <stdlib.h>
 void sdram_init_state(streaming chanend c_sdram_server, s_sdram_state &s){
     unsafe {
         c_sdram_server :> s.cmd[0];
@@ -9,10 +12,18 @@ void sdram_init_state(streaming chanend c_sdram_server, s_sdram_state &s){
     }
     s.head = 0;
     s.pending_cmds = 0;
+
+    unsigned local_tile_id;
+    c_sdram_server :> local_tile_id;
+
+    if(local_tile_id != get_local_tile_id())
+        _Exit(1);//FIXME
+
+
 }
 
-static int send_cmd(streaming chanend c_sdram_server, s_sdram_state &state, unsigned bank, unsigned row, unsigned col,
-        unsigned word_count, unsigned * movable buffer, e_command cmd){
+static int send_cmd(streaming chanend c_sdram_server, s_sdram_state &state, unsigned address, unsigned word_count,
+        unsigned * movable buffer, e_command cmd){
     if(state.pending_cmds == SDRAM_MAX_CMD_BUFFER)
         return 1;
 
@@ -20,9 +31,7 @@ static int send_cmd(streaming chanend c_sdram_server, s_sdram_state &state, unsi
 
     unsafe {
         sdram_cmd * unsafe c = state.cmd[index];
-        c->bank = bank;
-        c->row = row;
-        c->col = col;
+        c->address = address;
         c->word_count = word_count;
         c->buffer = move(buffer);
         c_sdram_server <: (char)cmd;
@@ -32,14 +41,14 @@ static int send_cmd(streaming chanend c_sdram_server, s_sdram_state &state, unsi
     return 0;
 }
 
-int sdram_read(streaming chanend c_sdram_server, s_sdram_state &state, unsigned bank, unsigned row, unsigned col,
-        unsigned word_count, unsigned * movable buffer){
-    return send_cmd(c_sdram_server, state, bank, row, col, word_count, move(buffer), SDRAM_CMD_READ);
+int sdram_read (streaming chanend c_sdram_server, s_sdram_state &state, unsigned address, unsigned word_count,
+        unsigned * movable buffer){
+    return send_cmd(c_sdram_server, state, address, word_count, move(buffer), SDRAM_CMD_READ);
 }
 
-int sdram_write(streaming chanend c_sdram_server, s_sdram_state &state, unsigned bank, unsigned row, unsigned col,
-        unsigned word_count, unsigned * movable buffer){
-    return send_cmd(c_sdram_server, state, bank, row, col, word_count, move(buffer), SDRAM_CMD_WRITE);
+int sdram_write (streaming chanend c_sdram_server, s_sdram_state &state, unsigned address, unsigned word_count,
+        unsigned * movable buffer){
+    return send_cmd(c_sdram_server, state, address, word_count, move(buffer), SDRAM_CMD_WRITE);
 }
 
 void sdram_complete(streaming chanend c_sdram_server, s_sdram_state &state, unsigned * movable & buffer) {

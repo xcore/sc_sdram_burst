@@ -4,9 +4,7 @@
 #define SDRAM_MAX_CMD_BUFFER 8
 
 typedef struct {
-    unsigned bank;
-    unsigned row;
-    unsigned col;
+    unsigned address;
     unsigned word_count;
     unsigned * movable buffer;
 } sdram_cmd;
